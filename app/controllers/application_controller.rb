@@ -11,4 +11,18 @@ class ApplicationController < ActionController::Base
 
 
   protect_from_forgery with: :exception
+
+	# Since we only expect to ever use English, set the locale to :en
+	# without having it passed in via the URL. Then, ensure locale: I18n.locale
+	# is not set in default_url_options
+	before_action :set_locale
+
+	def set_locale
+	  I18n.locale = :en
+	end
+
+  def default_url_options
+    super.except(:locale)
+  end
+
 end

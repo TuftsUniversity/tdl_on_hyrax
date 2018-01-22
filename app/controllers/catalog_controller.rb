@@ -295,4 +295,8 @@ class CatalogController < ApplicationController
   def render_bookmarks_control?
     false
   end
+
+  def welcome
+    index
+  end
 end
