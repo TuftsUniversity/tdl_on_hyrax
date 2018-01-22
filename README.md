@@ -1,24 +1,12 @@
-# README
+TDL
+===========================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Code for the Tufts Digital Library
 
-Things you may want to cover:
+At the moment if you've set up https://github.com/TuftsUniversity/epigaea ascending
+run `bundle exec rake hydra:server` from that project, this app will share the
+same Solr and Fedora instance.   
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+TODO:
+ * Add to travis
+ * Add local server rake task for testing independently
