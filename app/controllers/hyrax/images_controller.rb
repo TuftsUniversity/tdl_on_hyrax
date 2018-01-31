@@ -6,6 +6,6 @@ module Hyrax
     include Hyrax::WorksControllerBehavior
     include Hyrax::BreadcrumbsForWorks
     self.curation_concern_type = ::Image
-    self.show_presenter = Hyrax::WorkPresenter
+    self.show_presenter = Hyrax::ImagePresenter
   end
 end
