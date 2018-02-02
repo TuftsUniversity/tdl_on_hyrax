@@ -38,6 +38,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'tufts-curation', github: 'curationexperts/tufts-curation', tag: 'v1.0.0'
 
+group :production do
+  gem 'passenger'
+  gem 'therubyracer'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
