@@ -8,6 +8,7 @@ jdk:
 rvm:
   - 2.3.4
 before_script:
+  - cp config/redis.yml.sample config/redis.yml
   - cp config/fedora.yml.sample config/fedora.yml
   - cp config/solr.yml.sample config/solr.yml
   - cp config/devise.yml.sample config/devise.yml
