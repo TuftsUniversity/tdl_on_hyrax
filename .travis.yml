@@ -17,7 +17,7 @@ before_script:
   - bundle exec rake db:create
 script:
   - bundle exec rubocop
-  - xvfb-run -a bundle exec rake travis
+  - bundle exec rake travis
 addons:
   apt:
     packages:
