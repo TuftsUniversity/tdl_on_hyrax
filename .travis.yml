@@ -1,0 +1,23 @@
+language: ruby
+sudo: required
+cache: bundler
+dist: trusty
+
+jdk:
+  - oraclejdk8
+rvm:
+  - 2.3.4
+before_script:
+  - bundle exec sidekiq -d -l /tmp/sidekiq.log
+  - bundle exec rake db:create
+script:
+  - bundle exec rubocop
+  - xvfb-run -a bundle exec rake travis
+addons:
+  apt:
+    packages:
+     - imagemagick
+services:
+  - redis-server
+notifications:
+  email: tdl-commiters@googlegroups.com
