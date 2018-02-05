@@ -30,7 +30,8 @@ class CatalogController < ApplicationController
     config.default_solr_params = {
       qt: "search",
       rows: 10,
-      qf: "title_tesim description_tesim creator_tesim keyword_tesim"
+      qf: "title_tesim description_tesim creator_tesim keyword_tesim",
+      fq: "displays_in_sim:dl"
     }
 
     # solr field configuration for document/show views
@@ -287,7 +288,6 @@ class CatalogController < ApplicationController
     # mean") suggestion is offered.
     config.spell_max = 5
   end
-
   # disable the bookmark control from displaying in gallery view
   # Hyrax doesn't show any of the default controls on the list view, so
   # this method is not called in that context.
