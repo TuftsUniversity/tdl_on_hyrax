@@ -8,7 +8,6 @@ jdk:
 rvm:
   - 2.3.4
 before_script:
-  - bundle exec sidekiq -d -l /tmp/sidekiq.log
   - bundle exec rake db:create
 script:
   - bundle exec rubocop
