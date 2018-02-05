@@ -8,7 +8,7 @@ Rails.application.configure do
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
+  config.eager_load = false
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -83,4 +83,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+end
+
+Hyrax.config do |config|
+  config.derivatives_path = Pathname.new('/usr/local/hydra/mira-data/current/derivatives')
+  config.upload_path = ->() { Pathname.new('/usr/local/hydra/mira-data/current/uploads') }
+  config.cache_path  = ->() { Pathname.new('/usr/local/hydra/mira-data/current/cache') }
 end
