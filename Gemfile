@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'tufts-curation', github: 'curationexperts/tufts-curation', tag: 'v1.0.0'
 
+gem 'mysql2'
+
 group :production do
   gem 'passenger'
   gem 'therubyracer'
