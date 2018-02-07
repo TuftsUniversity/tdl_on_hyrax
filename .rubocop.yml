@@ -18,6 +18,12 @@ Metrics/ClassLength:
   Exclude: 
     - app/controllers/catalog_controller.rb
     - app/presenters/hyrax/work_show_presenter.rb
+Metrics/AbcSize:
+  Exclude:
+    - lib/populate_fixtures.rb
+Metrics/MethodLength:
+  Exclude:
+    - lib/populate_fixtures.rb
 Performance/StringReplacement: 
   Exclude: 
     - app/controllers/tufts/works_controller.rb
