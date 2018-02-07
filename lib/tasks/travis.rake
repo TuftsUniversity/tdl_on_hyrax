@@ -25,7 +25,7 @@ unless Rails.env.production?
       solr.with_collection(
         name: "hydra-test",
         persist: false,
-        dir: Rails.root.join("solr", "config")
+        dir: Rails.root.join("solr", "conf")
       ) do
         FcrepoWrapper.wrap(fcrepo_params) do
           Rake::Task["spec"].invoke
