@@ -13,7 +13,7 @@ unless Rails.env.production?
       port: 8985,
       verbose: true,
       managed: true,
-			version: 6.6.1
+      version: '6.6.1'
     }
     fcrepo_params = {
       port: 8986,
