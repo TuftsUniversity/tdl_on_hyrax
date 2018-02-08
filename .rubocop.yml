@@ -18,13 +18,16 @@ Metrics/ClassLength:
   Exclude: 
     - app/controllers/catalog_controller.rb
     - app/presenters/hyrax/work_show_presenter.rb
-    - lib/populate_fixtures.rb
+    - lib/tufts/populate_fixtures.rb
+Lint/HandleExceptions:
+  Exclude:
+    - lib/tufts/populate_fixtures.rb
 Metrics/AbcSize:
   Exclude:
-    - lib/populate_fixtures.rb
+    - lib/tufts/populate_fixtures.rb
 Metrics/MethodLength:
   Exclude:
-    - lib/populate_fixtures.rb
+    - lib/tufts/populate_fixtures.rb
 Performance/StringReplacement: 
   Exclude: 
     - app/controllers/tufts/works_controller.rb

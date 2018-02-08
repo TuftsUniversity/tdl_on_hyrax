@@ -44,7 +44,7 @@ module Tufts
       end
     end
 
-    def find_and_eradicate_object(pid, metadata)
+    def find_and_eradicate_object(pid, _metadata)
       work = ActiveFedora::Base.find(pid)
       work.delete
       ActiveFedora::Base.eradicate(pid)

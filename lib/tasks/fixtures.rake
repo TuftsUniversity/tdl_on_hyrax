@@ -1,5 +1,4 @@
 namespace :tufts do
-
   namespace :fixtures do
     desc "Create contribute collections"
     task load_fixtures: :environment do
@@ -12,7 +11,6 @@ namespace :tufts do
     end
 
     desc "Refresh default Hydra fixtures"
-    task :refresh => [:delete_fixtures, :load_fixtures]
-
+    task refresh: [:delete_fixtures, :load_fixtures]
   end
 end
