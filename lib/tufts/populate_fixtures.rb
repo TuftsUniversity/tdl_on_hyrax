@@ -105,7 +105,6 @@ module Tufts
         file_set.title = Array(metadata[:file])
         file_set.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
         work_permissions = object.permissions.map(&:to_hash)
-        actor.file_set.permissions_attributes = work_permissions
 
         # create actor to attach fileset to object
         actor = Hyrax::Actors::FileSetActor.new(file_set, @user)
@@ -114,7 +113,7 @@ module Tufts
         actor.create_content(File.open(path))
         Hyrax.config.callback.run(:after_import_local_file_success, file_set, @user, path)
         actor.attach_to_work(object)
-
+        actor.file_set.permissions_attributes = work_permissions
         file_set.save
       else
         logger.warn "There is no support for #{metadata[model]} fixtures.  You'll have to add it."
@@ -131,6 +130,13 @@ module Tufts
       end
 
       # TODO: Download show download link to all users needs metadata
+
+      # add to collection if it exists
+      collection_title = metadata[:collection_title]
+      unless collection_title.nil?
+        collection = Collection.where(title: collection_title)
+        object.member_of_collections = collection
+      end
 
       object.save!
 
@@ -169,7 +175,8 @@ module Tufts
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
         # Download show download link to all users
         file: 'fixtures/MS002.001.015.00001.00001.basic.jpg',
-        model: "image"
+        model: "image",
+        collection_title: "Fletcher School Records, 1923 -- 2016"
       }
 
     ].freeze
