@@ -41,28 +41,39 @@ class PopulateFixtures
   # @param [String] pid
   # @return [ActiveFedora::Base]
   def create_object(pid, metadata)
+    admin_set = AdminSet.find(AdminSet::DEFAULT_ID)
     case metadata[:model]
     when "image"
       object = Image.new(id: pid)
-      # attach image
-      # file: 'fixtures/MS002.001.015.00001.00001.basic.jpg',
+      object.admin_set = admin_set
+      object.visibility = metadata[:visibility]
+      object.apply_depositor_metadata 'fixtureloader'
+      object.date_uploaded = DateTime.current.to_date
+      object.date_modified = DateTime.current.to_date
       file_set = FileSet.new
+      file_set.label = metadata[:file]
       file_set.apply_depositor_metadata 'fixtureloader'
       file_set.title = Array(metadata[:file])
-      file_set.visibility = metadata[:visibility]
+      file_set.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
       user = User.find(1)
       actor = Hyrax::Actors::FileSetActor.new(file_set, user)
-      actor.create_content(File.new(Rails.root.join('spec', metadata[:file])))
+      actor.create_metadata("visibility" => Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC)
+      path = Rails.root.join('spec', metadata[:file])
+      actor.create_content(File.open(path))
+      Hyrax.config.callback.run(:after_import_local_file_success, file_set, user, path)
+      actor.attach_to_work(object)
+      work_permissions = object.permissions.map(&:to_hash)
+      actor.file_set.permissions_attributes = work_permissions
       file_set.save
+      # #IngestLocalFileJob.perform_later(file_set, path)
+
     else
       logger.warn "There is no support for #{metadata[model]} fixtures.  You'll have to add it."
     end
 
     # set metadata
     object.title = Array(metadata[:title])
-    object.apply_depositor_metadata 'fixtureloader'
     object.identifier = Array(metadata[:identifier])
-    object.visibility = metadata[:visibility]
     object.legacy_pid = metadata[:legacy_pid]
     object.creator = Array(metadata[:creator])
     object.description = Array(metadata[:description])
@@ -85,6 +96,14 @@ class PopulateFixtures
 
     # save and return object
     object.save!
+    object.reload
+    file_set.reload
+    CreateDerivativesJob.perform_later(file_set, file_set.public_send(:original_file).id)
+    # object = Image.find(pid)
+    # #asset_path = object.file_sets[0].original_file.uri.to_s
+    # sset_path = asset_path[asset_path.index(object.file_sets[0].id.to_s)..-1]
+    # CreateDerivativesJob.perform_now(object.file_sets[0], asset_path)
+
     object
   end
 
