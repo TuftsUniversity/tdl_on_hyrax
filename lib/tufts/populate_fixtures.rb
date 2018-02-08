@@ -92,33 +92,37 @@ module Tufts
       when "image"
         # build core object
         object = Image.new(id: pid)
-        object.admin_set = admin_set
-        object.visibility = metadata[:visibility]
-        object.apply_depositor_metadata @user.email
-        object.date_uploaded = DateTime.current.to_date
-        object.date_modified = DateTime.current.to_date
-
-        # build fileset for object
-        file_set = FileSet.new
-        file_label = metadata[:file].sub('fixtures/', '')
-        file_set.label = file_label
-        file_set.apply_depositor_metadata @user.email
-        file_set.title = Array(file_label)
-        file_set.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
-        work_permissions = object.permissions.map(&:to_hash)
-
-        # create actor to attach fileset to object
-        actor = Hyrax::Actors::FileSetActor.new(file_set, @user)
-        actor.create_metadata("visibility" => Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC)
-        path = Rails.root.join('spec', metadata[:file])
-        actor.create_content(File.open(path))
-        Hyrax.config.callback.run(:after_import_local_file_success, file_set, @user, path)
-        actor.attach_to_work(object)
-        actor.file_set.permissions_attributes = work_permissions
-        file_set.save
+      when "votingRecord"
+        object = VotingRecord.new(id: pid)
       else
         logger.warn "There is no support for #{metadata[model]} fixtures.  You'll have to add it."
       end
+
+      object.admin_set = admin_set
+      object.visibility = metadata[:visibility]
+      object.apply_depositor_metadata @user.email
+      object.date_uploaded = DateTime.current.to_date
+      object.date_modified = DateTime.current.to_date
+
+      # build fileset for object
+      file_set = FileSet.new
+      file_label = metadata[:file].sub('fixtures/', '')
+      file_set.label = file_label
+      file_set.apply_depositor_metadata @user.email
+      file_set.title = Array(file_label)
+      file_set.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
+      work_permissions = object.permissions.map(&:to_hash)
+
+      # create actor to attach fileset to object
+      actor = Hyrax::Actors::FileSetActor.new(file_set, @user)
+      actor.create_metadata("visibility" => Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC)
+      path = Rails.root.join('spec', metadata[:file])
+      actor.create_content(File.open(path))
+      Hyrax.config.callback.run(:after_import_local_file_success, file_set, @user, path)
+      actor.attach_to_work(object)
+      actor.file_set.permissions_attributes = work_permissions
+      file_set.save
+
 
       MULTI_TERMS.each do |term|
         val = Array(metadata[term])
@@ -162,6 +166,7 @@ module Tufts
         primary_date: "1935",
         date_issued: "2010-09-29",
         date_available: "20070821",
+        # https://github.com/TuftsUniversity/epigaea/blob/master/config/authorities/resource_types.yml
         resource_type: "http://purl.org/dc/dcmitype/Image",
         format_label: "image/tiff",
         extent: "68653328 bytes",
@@ -177,6 +182,32 @@ module Tufts
         # Download show download link to all users
         file: 'fixtures/MS002.001.015.00001.00001.basic.jpg',
         model: "image",
+        collection_title: "Fletcher School Records, 1923 -- 2016"
+      },
+      {
+        title: "Illinois 1824 President of the United States",
+        legacy_pid: "tufts:il.president.1824",
+        identifier: "http://hdl.handle.net/10427/56366",
+        creator: ["Philip Lampi","Tufts University Digital Collections and Archives","American Antiquarian Society"],
+        description: "Illinois 1824 President of the United States. The permanent URL for this resource is: http://hdl.handle.net/10427/56366",
+        publisher: "Tufts University. Digital Collections and Archives.",
+        source: "MS115",
+        date: "1824",
+        date_issued: "2015-05-26-04:00",
+        resource_type: "http://purl.org/dc/dcmitype/Dataset",
+        format_label: "text/xml",
+        personal_name: ["John Quincy Adams","Andrew Jackson","Henry Clay","William H. Crawford"],
+        geographic_name: "Illinois",
+        bibliographic_citation: 'American Antiquarian Society and Tufts University Digital Collections and Archives. "Illinois 1824 President of the United  States." 2010. Tufts University. Digital Collections and Archives. Medford, MA. http://hdl.handle.net/10427/56366',
+        temporal: "1824",
+        funder: "National Endowment for the Humanities",
+        steward: "dca",
+        displays_in: ["dl","elections"],
+        createdby: "NNV",
+        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        rights_statement: "http://dca.tufts.edu/ua/access/rights-pd.html",
+        file: 'fixtures/tufts_il.president.1824.xml',
+        model: "votingRecord",
         collection_title: "Fletcher School Records, 1923 -- 2016"
       }
 
