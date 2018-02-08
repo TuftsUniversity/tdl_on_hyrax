@@ -100,9 +100,10 @@ module Tufts
 
         # build fileset for object
         file_set = FileSet.new
-        file_set.label = metadata[:file]
+        file_label = metadata[:file].sub('fixtures/', '')
+        file_set.label = file_label
         file_set.apply_depositor_metadata @user.email
-        file_set.title = Array(metadata[:file])
+        file_set.title = Array(file_label)
         file_set.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
         work_permissions = object.permissions.map(&:to_hash)
 
