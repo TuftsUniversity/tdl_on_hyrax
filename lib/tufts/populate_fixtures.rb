@@ -1,9 +1,30 @@
 module Tufts
   class PopulateFixtures
-    attr_reader :seed_data
+    def self.singular_terms
+      GenericObject
+        .properties.select { |_, cf| cf.try(:multiple?) == false }
+        .keys.map(&:to_sym)
+    end
+
+    SHARED_TERMS = [:title, :displays_in, :abstract, :accrual_policy, :admin_start_date,
+                    :alternative_title, :audience, :bibliographic_citation,
+                    :contributor, :corporate_name, :createdby, :creator, :creator_department, :date_accepted,
+                    :date_available, :date_copyrighted, :date_issued, :date_modified, :date_uploaded,
+                    :description, :embargo_note, :end_date, :extent, :format_label, :funder, :genre, :has_format, :has_part,
+                    :held_by, :identifier, :internal_note, :is_format_of, :is_replaced_by, :language, :legacy_pid,
+                    :personal_name, :primary_date, :provenance, :publisher, :qr_note, :qr_status,
+                    :rejection_reason, :replaces, :resource_type, :retention_period, :rights_holder, :rights_note,
+                    :geographic_name, :steward, :subject, :table_of_contents, :temporal, :is_part_of, :tufts_license].freeze
+    EARLY_TERMS = [:date_uploaded, :date_modified].freeze
+    REMOVE_TERMS = [:keyword, :based_near, :location].freeze
+    SINGULAR_TERMS = Tufts::PopulateFixtures.singular_terms - REMOVE_TERMS - EARLY_TERMS
+    MULTI_TERMS = SHARED_TERMS - SINGULAR_TERMS - REMOVE_TERMS - EARLY_TERMS
 
     def initialize
       @seed_data = make_seed_data_hash
+      @user = User.find_or_create_by!(email: 'fixtureloader@tufts.edu') do |user|
+        user.password = SecureRandom.base64(24)
+      end
     end
 
     def make_seed_data_hash
@@ -69,66 +90,56 @@ module Tufts
       admin_set = AdminSet.find(AdminSet::DEFAULT_ID)
       case metadata[:model]
       when "image"
+        # build core object
         object = Image.new(id: pid)
         object.admin_set = admin_set
         object.visibility = metadata[:visibility]
-        object.apply_depositor_metadata 'fixtureloader'
+        object.apply_depositor_metadata @user.email
         object.date_uploaded = DateTime.current.to_date
         object.date_modified = DateTime.current.to_date
+
+        # build fileset for object
         file_set = FileSet.new
         file_set.label = metadata[:file]
-        file_set.apply_depositor_metadata 'fixtureloader'
+        file_set.apply_depositor_metadata @user.email
         file_set.title = Array(metadata[:file])
         file_set.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
-        user = User.find(1)
-        actor = Hyrax::Actors::FileSetActor.new(file_set, user)
+        work_permissions = object.permissions.map(&:to_hash)
+        actor.file_set.permissions_attributes = work_permissions
+
+        # create actor to attach fileset to object
+        actor = Hyrax::Actors::FileSetActor.new(file_set, @user)
         actor.create_metadata("visibility" => Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC)
         path = Rails.root.join('spec', metadata[:file])
         actor.create_content(File.open(path))
-        Hyrax.config.callback.run(:after_import_local_file_success, file_set, user, path)
+        Hyrax.config.callback.run(:after_import_local_file_success, file_set, @user, path)
         actor.attach_to_work(object)
-        work_permissions = object.permissions.map(&:to_hash)
-        actor.file_set.permissions_attributes = work_permissions
-        file_set.save
-        # #IngestLocalFileJob.perform_later(file_set, path)
 
+        file_set.save
       else
         logger.warn "There is no support for #{metadata[model]} fixtures.  You'll have to add it."
       end
 
-      # set metadata
-      object.title = Array(metadata[:title])
-      object.identifier = Array(metadata[:identifier])
-      object.legacy_pid = metadata[:legacy_pid]
-      object.creator = Array(metadata[:creator])
-      object.description = Array(metadata[:description])
-      object.publisher = Array(metadata[:publisher])
-      object.source = Array(metadata[:source])
-      object.primary_date = Array(metadata[:primary_date])
-      object.date_issued = Array(metadata[:date_issued])
-      object.date_available = Array(metadata[:date_available])
-      object.format_label = Array(metadata[:format_label])
-      object.extent = Array(metadata[:extent])
-      object.personal_name = Array(metadata[:personal_name])
-      object.subject = Array(metadata[:subject])
-      object.temporal = Array(metadata[:temporal])
-      object.steward = metadata[:steward]
-      object.displays_in = Array(metadata[:displays_in])
-      object.createdby = Array(metadata[:createdby])
-      object.resource_type = Array(metadata[:resource_type])
-      object.rights_statement = Array(metadata[:rights_statement])
-      # Download show download link to all users
+      MULTI_TERMS.each do |term|
+        val = Array(metadata[term])
+        object.send("#{term}=", val) unless val.nil?
+      end
 
-      # save and return object
+      SINGULAR_TERMS.each do |term|
+        val = metadata[term]
+        object.send("#{term}=", val) unless val.nil?
+      end
+
+      # TODO: Download show download link to all users needs metadata
+
       object.save!
+
+      # create dervivatives
       object.reload
       file_set.reload
       CreateDerivativesJob.perform_now(file_set, file_set.public_send(:original_file).id)
-      # object = Image.find(pid)
-      # #asset_path = object.file_sets[0].original_file.uri.to_s
-      # sset_path = asset_path[asset_path.index(object.file_sets[0].id.to_s)..-1]
-      # CreateDerivativesJob.perform_now(object.file_sets[0], asset_path)
 
+      # save and return object
       object
     end
 
