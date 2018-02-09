@@ -123,7 +123,6 @@ module Tufts
       actor.file_set.permissions_attributes = work_permissions
       file_set.save
 
-
       MULTI_TERMS.each do |term|
         val = Array(metadata[term])
         object.send("#{term}=", val) unless val.nil?
@@ -188,7 +187,7 @@ module Tufts
         title: "Illinois 1824 President of the United States",
         legacy_pid: "tufts:il.president.1824",
         identifier: "http://hdl.handle.net/10427/56366",
-        creator: ["Philip Lampi","Tufts University Digital Collections and Archives","American Antiquarian Society"],
+        creator: ["Philip Lampi", "Tufts University Digital Collections and Archives", "American Antiquarian Society"],
         description: "Illinois 1824 President of the United States. The permanent URL for this resource is: http://hdl.handle.net/10427/56366",
         publisher: "Tufts University. Digital Collections and Archives.",
         source: "MS115",
@@ -196,13 +195,13 @@ module Tufts
         date_issued: "2015-05-26-04:00",
         resource_type: "http://purl.org/dc/dcmitype/Dataset",
         format_label: "text/xml",
-        personal_name: ["John Quincy Adams","Andrew Jackson","Henry Clay","William H. Crawford"],
+        personal_name: ["John Quincy Adams", "Andrew Jackson", "Henry Clay", "William H. Crawford"],
         geographic_name: "Illinois",
         bibliographic_citation: 'American Antiquarian Society and Tufts University Digital Collections and Archives. "Illinois 1824 President of the United  States." 2010. Tufts University. Digital Collections and Archives. Medford, MA. http://hdl.handle.net/10427/56366',
         temporal: "1824",
         funder: "National Endowment for the Humanities",
         steward: "dca",
-        displays_in: ["dl","elections"],
+        displays_in: ["dl", "elections"],
         createdby: "NNV",
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
         rights_statement: "http://dca.tufts.edu/ua/access/rights-pd.html",
