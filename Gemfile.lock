@@ -666,6 +666,8 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    sitemap_generator (6.0.1)
+      builder (~> 3.0)
     slop (4.6.1)
     solr_wrapper (1.1.0)
       faraday
@@ -765,6 +767,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
+  sitemap_generator
   solr_wrapper (>= 0.3)
   spring
   spring-watcher-listen (~> 2.0.0)

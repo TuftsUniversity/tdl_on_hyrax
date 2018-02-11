@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
   def default_url_options
     super.except(:locale)
   end
+
+  def robots
+    render 'sites/robots.txt.erb'
+  end
 end

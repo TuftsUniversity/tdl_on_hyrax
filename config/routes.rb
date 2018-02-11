@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   curation_concerns_basic_routes
   concern :exportable, Blacklight::Routes::Exportable.new
+  match '/robots.txt', to: 'application#robots', via: [:get]
 
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
     concerns :exportable

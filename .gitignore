@@ -30,3 +30,6 @@ config/redis.yml
 config/secrets.yml
 config/solr.yml
 public/assets/
+
+#ignore generated sitemap files
+public/sitemap.xml.gz
