@@ -211,7 +211,7 @@ module Tufts
         collection_title: "Fletcher School Records, 1923 -- 2016"
       },
       {
-        legacy_pid: "tufts:23200",
+        legacy_pid: "tufts:trove.23.200",
         title: "The Arch of Titus.",
         description: ["This triumphal arch commemorates Titus' victories, including the Siege of Jerusalem in 70 AD. The main inscription used to be ornamented by letters made of perhaps silver, gold or some other metal, and reads: \"The Roman Senate and People (dedicate this) to the divine Titus Vespasianus Augustus, son of the divine Vespasian.\"", "Location created: Rome.", "Date created: c. 81 CE.","Medium: Concrete and white marble.","Measurements: 15m tall.","Original file name: 14.8493-6.36a"],
         publisher: "Tufts University. Tisch Library.",
