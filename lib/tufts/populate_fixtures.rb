@@ -43,6 +43,7 @@ module Tufts
       newid = id.downcase
       newid.slice!('tufts:')
       newid.tr!('.', '_')
+      newid
     end
 
     def self.eradicate_fixtures
@@ -208,8 +209,29 @@ module Tufts
         file: 'fixtures/tufts_il.president.1824.xml',
         model: "votingRecord",
         collection_title: "Fletcher School Records, 1923 -- 2016"
+      },
+      {
+        legacy_pid: "tufts:23200",
+        title: "The Arch of Titus.",
+        description: ["This triumphal arch commemorates Titus' victories, including the Siege of Jerusalem in 70 AD. The main inscription used to be ornamented by letters made of perhaps silver, gold or some other metal, and reads: \"The Roman Senate and People (dedicate this) to the divine Titus Vespasianus Augustus, son of the divine Vespasian.\"", "Location created: Rome.", "Date created: c. 81 CE.","Medium: Concrete and white marble.","Measurements: 15m tall.","Original file name: 14.8493-6.36a"],
+        publisher: "Tufts University. Tisch Library.",
+        source: "Stokstad",
+        date: "0081",
+        date_created: "2017-10-05T08:14:43.241-04:00",
+        resource_type: "http://purl.org/dc/dcmitype/Image",
+        format_label: "image/tiff",
+        subject: ["Italy--antiquities.","Architecture, Roman--Italy--Rome.","Relief (Sculpture), Roman.","Marble sculpture, Roman."],
+        genre: ["triumphal arches (memorial arches)","Early Imperial.","reliefs (sculptures)","marble (rock)"],
+        rights_statement: "http://dca.tufts.edu/ua/access/rights-pd.html",
+        temporal: "1st century.",
+        steward: "tisch",
+        createdby: "amay02",
+        internal_note: "ArtBatchIngest: 2017-10-05T08:14:43.241-04:00; Tisch manages metadata and binary.",
+        displays_in: ["trove"],
+        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_AUTHENTICATED,
+        file: 'fixtures/IMG_2077-a.jpg',
+        model: "image"
       }
-
     ].freeze
   end
 end
