@@ -12,13 +12,14 @@ SitemapGenerator::Sitemap.create do
 
   # Add single record pages
   cursor_mark = '*'
+  repo = CatalogController.new.repository
   loop do
-    response = Blacklight.solr.get('/solr/development/select', params: { # you may need to change the request handler
+    response = repo.search({ # you may need to change the request handler
                                      'q' => 'displays_ssi:dl', # all docs
                                      'fl'         => 'id', # we only need the ids
                                      'fq'         => '-id:draft*', # optional filter query
                                      'cursorMark' => cursor_mark, # we need to use the cursor mark to handle paging
-                                     'rows'       => ENV['BATCH_SIZE'] || 1000,
+                                     'rows'       => ENV['BATCH_SIZE'] || 1000000,
                                      'sort'       => 'id asc'
                                    })
 
