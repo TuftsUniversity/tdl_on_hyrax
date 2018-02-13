@@ -14,14 +14,13 @@ SitemapGenerator::Sitemap.create do
   cursor_mark = '*'
   repo = CatalogController.new.repository
   loop do
-    response = repo.search({ # you may need to change the request handler
-                                     'q' => 'displays_ssi:dl', # all docs
-                                     'fl'         => 'id', # we only need the ids
-                                     'fq'         => '-id:draft*', # optional filter query
-                                     'cursorMark' => cursor_mark, # we need to use the cursor mark to handle paging
-                                     'rows'       => ENV['BATCH_SIZE'] || 1000000,
-                                     'sort'       => 'id asc'
-                                   })
+    response = repo.search('q' => 'displays_in_sim:dl',
+                           'qt' => 'search',
+                           'fq' => ['displays_in_sim:dl', '-suppressed_bsi:true', '{!terms f=has_model_ssim}Audio,Ead,GenericObject,Image,Pdf,Rcr,Tei,Video,VotingRecord,Collection', '({!terms f=edit_access_group_ssim}public) OR ({!terms f=discover_access_group_ssim}public) OR ({!terms f=read_access_group_ssim}public)', '({!terms f=edit_access_group_ssim}public) OR ({!terms f=discover_access_group_ssim}public) OR ({!terms f=read_access_group_ssim}public)'],
+                           'fl'         => 'id', # we only need the ids
+                           'cursorMark' => cursor_mark, # we need to use the cursor mark to handle paging
+                           'rows'       => ENV['BATCH_SIZE'] || 1_000_000,
+                           'sort'       => 'id asc')
 
     response['response']['docs'].each do |doc|
       add "/catalog/#{doc['id']}", changefreq: 'yearly', priority: 0.9
