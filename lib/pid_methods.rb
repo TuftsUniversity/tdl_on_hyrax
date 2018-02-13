@@ -1,6 +1,4 @@
 module PidMethods
-
-
   def self.ingested?(pid)
     result = false
     f4_id = ""
@@ -27,8 +25,6 @@ module PidMethods
       end
     end
 
-    return result, f4_id
+    [result, f4_id]
   end
-
-
 end

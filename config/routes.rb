@@ -32,8 +32,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'concern/eads/:id/fa' => 'hyrax/eads#fa_overview', :constraints => {:id => /.*/}, as: :fa_overview
-  get 'concern/eads/:id/fa/:item_id' => 'hyrax/eads#fa_series', :constraints => {:id => /.*/, :item_id => /.*/}, as: :fa_series
+  get 'concern/eads/:id/fa' => 'hyrax/eads#fa_overview', :constraints => { id: /.*/ }, as: :fa_overview
+  get 'concern/eads/:id/fa/:item_id' => 'hyrax/eads#fa_series', :constraints => { id: /.*/, item_id: /.*/ }, as: :fa_series
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

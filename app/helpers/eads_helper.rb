@@ -1,6 +1,4 @@
 module EadsHelper
-
-
   def self.collection_has_online_content(unitid)
     solr_connection = ActiveFedora.solr.conn
     fq = 'source_tesim:' + unitid
@@ -10,7 +8,6 @@ module EadsHelper
 
     collection_length > 0
   end
-
 
   def self.eadid(ead)
     result = ""
@@ -23,11 +20,10 @@ module EadsHelper
       url = url_attr.text unless url_attr.nil?
     end
 
-    return result, url
+    [result, url]
   end
 
-
-  def self.title(ead, includeDate = true)
+  def self.title(ead, include_date = true)
     full_title = ""
     raw_title = ""
     date = ""
@@ -35,7 +31,7 @@ module EadsHelper
     unittitles = ead.find_by_terms_and_value(:unittitle)
     unless unittitles.nil? || unittitles.empty?
       raw_title = unittitles.first.text
-      if (includeDate)
+      if include_date
         date, bulk_date = unitdate(ead)
         full_title = raw_title + (date.empty? ? "" : ", " + date)
       else
@@ -43,9 +39,8 @@ module EadsHelper
       end
     end
 
-    return full_title, raw_title, date, bulk_date
+    [full_title, raw_title, date, bulk_date]
   end
-
 
   def self.physdesc(ead)
     result = ""
@@ -55,17 +50,16 @@ module EadsHelper
       physdescs.each do |physdesc|
         physdesc.children.each do |child|
           # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
-          child_text = child.text.lstrip.rstrip
+          child_text = child.text.strip
           unless child_text.empty?
-            result << (result.empty? ? "" :  ", ") + child_text
+            result << (result.empty? ? "" : ", ") + child_text
           end
         end
       end
     end
 
-    return result
+    result
   end
-
 
   def self.physdesc_split(ead)
     result = ""
@@ -90,7 +84,6 @@ module EadsHelper
     result
   end
 
-
   def self.abstract(ead)
     result = ""
     abstract = ead.find_by_terms_and_value(:abstract)
@@ -105,7 +98,6 @@ module EadsHelper
     result
   end
 
-
   def self.get_bioghist(ead)
     result = []
     bioghistps = ead.find_by_terms_and_value(:bioghistp)
@@ -116,9 +108,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.unitdate(ead)
     date = ""
@@ -135,33 +126,26 @@ module EadsHelper
       end
     end
 
-    return date, bulk_date
+    [date, bulk_date]
   end
-
 
   def self.unitid(ead)
     result = ""
     unitid = ead.find_by_terms_and_value(:unitid)
 
-    unless unitid.nil?
-      result = unitid.text
-    end
+    result = unitid.text unless unitid.nil?
 
-    return result
+    result
   end
-
 
   def self.author(ead)
     result = ""
     persname = ead.find_by_terms_and_value(:persname)
 
-    unless persname.nil?
-      result = persname.text.strip
-    end
+    result = persname.text.strip unless persname.nil?
 
-   return result
+    result
   end
-
 
   def self.read_more_about(ead)
     # read_more_about ONLY returns <persname>, <corpname> or <famname> that have urls and which have been ingested.
@@ -188,9 +172,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.creator(ead)
     # creator returns <persname>, <corpname> or <famname>, with a link for ones that have urls and which have been ingested.
@@ -216,16 +199,15 @@ module EadsHelper
         ingested, f4_id = PidMethods.ingested?(rcr_url)
       end
 
-      if ingested
-        result = "<a href=\"" + curation_concerns_tufts_rcr_path(f4_id) + "\">" + name + "</a>"
-      else
-        result = name
-      end
+      result = if ingested
+                 "<a href=\"" + curation_concerns_tufts_rcr_path(f4_id) + "\">" + name + "</a>"
+               else
+                 name
+               end
     end
 
-    return result
+    result
   end
-
 
   def self.location(ead)
     result = []
@@ -251,7 +233,7 @@ module EadsHelper
                   unless href.nil?
                     # URL
                     href_text = href.text
-                    result << "<a href=""" + href_text + " target=\"blank\">" + href_text + "</a>"
+                    result << '<a href="' + href_text + '" target="blank">' + href_text + '</a>'
                   end
                 end
               end
@@ -261,9 +243,8 @@ module EadsHelper
       end
     end
 
-   return result
+    result
   end
-
 
   def self.langmaterial(ead)
     result = []
@@ -280,15 +261,12 @@ module EadsHelper
           end
         end
 
-        unless primary
-          result << langmaterial.text
-        end
+        result << langmaterial.text unless primary
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_arrangement(ead)
     result = []
@@ -300,9 +278,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_contents(ead)
     result = []
@@ -314,27 +291,23 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_serieses(ead)
     result = []
     serieses = ead.find_by_terms_and_value(:series)
 
-    unless serieses.nil? || serieses.empty?
-      result = serieses
-    else
+    if serieses.nil? || serieses.empty?
       serieses = ead.find_by_terms_and_value(:aspaceseries)
 
-      unless serieses.nil? || serieses.empty?
-        result = serieses
-      end
+      result = serieses unless serieses.nil? || serieses.empty?
+    else
+      result = serieses
     end
 
-    return result
+    result
   end
-
 
   def self.get_series_elements(series)
     series_id = series.attribute("id").text
@@ -358,15 +331,12 @@ module EadsHelper
         # ASpace EADs may have third-level <c> elements when this is called for second-
         # level <c> tags and it's OK to return them because they'll be ignored.
         level = element_child.attribute("level")
-        if !level.nil? && level.text == "subseries"
-          c02s << element_child
-        end
+        c02s << element_child if !level.nil? && level.text == "subseries"
       end
     end
 
-    return series_id, did, scopecontent, c02s, is_series
+    [series_id, did, scopecontent, c02s, is_series]
   end
-
 
   def self.get_series_title(did, ead_id, series_id, series_level, with_link)
     result = ""
@@ -388,7 +358,7 @@ module EadsHelper
         end
 
         unless unittitle.empty? || unitdate.empty?
-          break  # found both, stop looking
+          break # found both, stop looking
         end
       end
 
@@ -400,9 +370,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_scopecontent_paragraphs(scopecontent)
     result = []
@@ -415,65 +384,53 @@ module EadsHelper
           result << scopecontent_child.text
         elsif childname == "note"
           scopecontent_child.element_children.each do |note_child|
-            if note_child.name == "p"
-              result << note_child.text
-            end
+            result << note_child.text if note_child.name == "p"
           end
         end
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_paragraphs(element)
     result = []
 
     unless element.nil?
       element.element_children.each do |element_child|
-        if element_child.name == "p"
-          result << element_child.text
-        end
+        result << element_child.text if element_child.name == "p"
       end
 
-      if result.empty?  # No <p> was found, so use the full text of the element.
-        result << element.text
-      end
+      result << element.text if result.empty? # No <p> was found, so use the full text of the element.
     end
 
-    return result
+    result
   end
-
 
   def self.get_other_finding_aids_paragraphs(element)
     result = []
 
     unless element.nil?
       element.element_children.each do |element_child|
-        if element_child.name == "p"
-          element_child.search(:extref).each do |extref|
-            extref.content = '<a href="' + extref.text + '" target="blank">' + extref.text + '</a>'
-          end
-          element_child.search(:extptr).each do |extptr|
-            extptr_href = extptr.attribute('href')
-            unless extptr_href.nil?
-              extptr_title = extptr.attribute('title')
-              extptr.content = '<a href="' + extptr_href.text + '" target="blank">' + (extptr_title.nil? ? extptr_href.text : extptr_title.text) + '</a>'
-            end
-          end
-          result << element_child.text
+        next unless element_child.name == "p"
+        element_child.search(:extref).each do |extref|
+          extref.content = '<a href="' + extref.text + '" target="blank">' + extref.text + '</a>'
         end
+        element_child.search(:extptr).each do |extptr|
+          extptr_href = extptr.attribute('href')
+          unless extptr_href.nil?
+            extptr_title = extptr.attribute('title')
+            extptr.content = '<a href="' + extptr_href.text + '" target="blank">' + (extptr_title.nil? ? extptr_href.text : extptr_title.text) + '</a>'
+          end
+        end
+        result << element_child.text
       end
 
-      if result.empty?  # No <p> was found, so use the full text of the element.
-        result << element.text
-      end
+      result << element.text if result.empty? # No <p> was found, so use the full text of the element.
     end
 
-    return result
+    result
   end
-
 
   def self.get_names_and_subjects(ead)
     result = []
@@ -485,7 +442,7 @@ module EadsHelper
           childname = element_child.name
 
           if childname == "persname" || childname == "corpname" || childname == "subject" || childname == "geogname" ||
-              childname == "title" || childname == "genreform" || childname == "famname"
+             childname == "title" || childname == "genreform" || childname == "famname"
             child_text = element_child.text
             child_id = element_child.attribute("id")
             child_url = (child_id.nil? ? "" : ("tufts:" + child_id.text))
@@ -502,9 +459,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_related_material(ead)
     result = []
@@ -516,9 +472,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_separated_material(ead)
     result = []
@@ -530,9 +485,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_access_restrictions(ead)
     result = []
@@ -551,9 +505,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_use_restrictions(ead)
     result = []
@@ -572,9 +525,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_preferred_citation(ead)
     result = []
@@ -594,9 +546,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_processing_notes(ead)
     result = []
@@ -608,9 +559,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_acquisition_info(ead)
     result = []
@@ -622,9 +572,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_custodial_history(ead)
     result = []
@@ -636,9 +585,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_phystech(ead)
     result = []
@@ -657,9 +605,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_accruals(ead)
     result = []
@@ -671,9 +618,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_appraisal(ead)
     result = []
@@ -685,9 +631,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_altformavail(ead)
     result = []
@@ -699,9 +644,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_originalsloc(ead)
     result = []
@@ -713,9 +657,8 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_otherfindaid(ead)
     result = []
@@ -727,22 +670,18 @@ module EadsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   def self.get_sponsor(ead)
     result = ""
 
     sponsor = ead.find_by_terms_and_value(:sponsor)
 
-    unless sponsor.nil?
-      result = sponsor.text
-    end
+    result = sponsor.text unless sponsor.nil?
 
-    return result
+    result
   end
-
 
   def self.get_series(ead, item_id)
     series = nil
@@ -762,28 +701,25 @@ module EadsHelper
           # look for a c02 whose id matches item_id
           item.element_children.each do |element_child|
             childname = element_child.name
-            if childname == "c02" || childname == "c"
-              if element_child.attribute("level").text == "subseries"
-                subseries_level += 1
+            next unless childname == "c02" || childname == "c"
+            next unless element_child.attribute("level").text == "subseries"
+            subseries_level += 1
 
-                if element_child.attribute("id").text == item_id
-                  series = element_child
-                  break
-                end
-              end
+            if element_child.attribute("id").text == item_id
+              series = element_child
+              break
             end
           end
         end
 
         unless series.nil?
-          break  # found it, stop looking
+          break # found it, stop looking
         end
       end
     end
 
-    return series, series_level.to_s + (subseries_level == 0 ? "" : ("." + subseries_level.to_s))
+    [series, series_level.to_s + (subseries_level == 0 ? "" : ("." + subseries_level.to_s))]
   end
-
 
   def self.get_series_info(series)
     did = nil
@@ -862,7 +798,7 @@ module EadsHelper
             grandchildname = element_grandchild.name
 
             if grandchildname == "persname" || grandchildname == "corpname" || grandchildname == "subject" || grandchildname == "geogname" ||
-                grandchildname == "title" || grandchildname == "genreform" || grandchildname == "famname"
+               grandchildname == "title" || grandchildname == "genreform" || grandchildname == "famname"
               grandchild_text = element_grandchild.text
               grandchild_id = element_grandchild.attribute("id")
               grandchild_url = (grandchild_id.nil? ? "" : grandchild_id.text)
@@ -895,7 +831,7 @@ module EadsHelper
           elsif childname == "physdesc"
             did_child.children.each do |physdesc_child|
               # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
-              physdesc_child_text = physdesc_child.text.lstrip.rstrip
+              physdesc_child_text = physdesc_child.text.strip
               unless physdesc_child_text.empty?
                 physdesc << (physdesc.empty? ? "" : ", ") + physdesc_child_text
               end
@@ -906,9 +842,7 @@ module EadsHelper
             series_langmaterial = get_paragraphs(did_child)
           elsif childname == "origination"
             did_child.children.each do |grandchild|
-              if grandchild.name = "persname"
-                creator << grandchild.text.strip
-              end
+              creator << grandchild.text.strip if grandchild.name == "persname"
             end
           end
         end
@@ -920,12 +854,11 @@ module EadsHelper
       title = (unittitle.empty? ? "" : unittitle + (unitdate.empty? ? "" : ", " + unitdate))
     end
 
-    return title, unittitle, unitdate, unitdate_bulk, creator, physdesc, series_langmaterial, paragraphs, series_arrangement, series_access_restrict, series_use_restrict, series_phystech, series_prefercite, series_processinfo, series_acquisition_info, series_custodhist, series_accruals, series_appraisal, series_separated_material, series_names_and_subjects, series_related_material, series_alt_formats, series_originals_loc, series_other_finding_aids, series_items, unitid
+    [title, unittitle, unitdate, unitdate_bulk, creator, physdesc, series_langmaterial, paragraphs, series_arrangement, series_access_restrict, series_use_restrict, series_phystech, series_prefercite, series_processinfo, series_acquisition_info, series_custodhist, series_accruals, series_appraisal, series_separated_material, series_names_and_subjects, series_related_material, series_alt_formats, series_originals_loc, series_other_finding_aids, series_items, unitid]
   end
 
-
   def self.get_series_item_info(item, pid)
-    title = ""
+    # title = ""
     paragraphs = []
     labels = []
     values = []
@@ -946,7 +879,7 @@ module EadsHelper
     available_online = false
     can_request = false
     external_page = ""
-    external_page_title = ""
+    # external_page_title = ""
 
     item_id = item.attribute("id").text
     item_url_id = item.attribute("id").text
@@ -962,7 +895,7 @@ module EadsHelper
       elsif childname == "scopecontent"
         scopecontent = item_child
       elsif childname == "accessrestrict"
-        access_restrict = get_paragraphs(item_child).join("  ")  # expecting a string, not an array of paragraphs
+        access_restrict = get_paragraphs(item_child).join("  ") # expecting a string, not an array of paragraphs
       elsif childname == "c03" || childname == "c04" ||
             childname == "c05" || childname == "c06" ||
             childname == "c07" || childname == "c08" ||
@@ -978,12 +911,11 @@ module EadsHelper
         if childname == "unittitle"
           unittitle = did_child.children.first.text
           did_child.children.each do |grandchild|
-            if grandchild.name == "unitdate"
-              datetype = grandchild.attribute("type")
-              unless !datetype.nil? && datetype.text == "bulk"
-                unitdate = grandchild.text
-                break
-              end
+            next unless grandchild.name == "unitdate"
+            datetype = grandchild.attribute("type")
+            unless !datetype.nil? && datetype.text == "bulk"
+              unitdate = grandchild.text
+              break
             end
           end
         elsif childname == "unitdate"
@@ -1007,9 +939,7 @@ module EadsHelper
           end
         elsif childname == "origination"
           did_child.children.each do |grandchild|
-            if grandchild.name = "persname"
-              creator << grandchild.text.strip
-            end
+            creator << grandchild.text.strip if grandchild.name == "persname"
           end
         elsif childname == "dao"
           dao = did_child
@@ -1022,39 +952,34 @@ module EadsHelper
       # remove all but "39090015754001g using regex match"
       physloc_regex = /^(.*?[\(\[])?(.*?)([\)\]])?$/
 
-      if physloc =~ physloc_regex
-        physloc = $2
-      end
+      physloc = Regexp.last_match(2) if physloc =~ physloc_regex
 
-      if physloc_orig =~ physloc_regex
-        physloc_orig = $2
-      end
+      physloc_orig = Regexp.last_match(2) if physloc_orig =~ physloc_regex
     end
 
     # CIDER EADs have a <daogrp> element.
     unless daogrp.nil?
       daogrp.element_children.each do |daogrp_child|
-        if daogrp_child.name == "daoloc"
-          daoloc_audience = daogrp_child.attribute("audience")
-          daoloc_label = daogrp_child.attribute("label")
-          daoloc_href = daogrp_child.attribute("href")
+        next unless daogrp_child.name == "daoloc"
+        daoloc_audience = daogrp_child.attribute("audience")
+        daoloc_label = daogrp_child.attribute("label")
+        daoloc_href = daogrp_child.attribute("href")
 
-          if !daoloc_audience.nil? && daoloc_audience.text == "internal"
-            # an audience="internal" attribute in a daoloc tag means this item is in the Dark Archive;
-            # leave page and thumbnail = "" so that values will not be returned for them
-            # and so that the href will not be included in title.  Set physloc to the dark
-            # archive message.
-            can_request = true
-            physloc = "Dark Archive"
-          elsif !daoloc_label.nil? && !daoloc_href.nil?
-            daoloc_label_text = daoloc_label.text
-            daoloc_href_text = daoloc_href.text
+        if !daoloc_audience.nil? && daoloc_audience.text == "internal"
+          # an audience="internal" attribute in a daoloc tag means this item is in the Dark Archive;
+          # leave page and thumbnail = "" so that values will not be returned for them
+          # and so that the href will not be included in title.  Set physloc to the dark
+          # archive message.
+          can_request = true
+          physloc = "Dark Archive"
+        elsif !daoloc_label.nil? && !daoloc_href.nil?
+          daoloc_label_text = daoloc_label.text
+          daoloc_href_text = daoloc_href.text
 
-            if daoloc_label_text == "page"
-              page = daoloc_href_text
-            elsif daoloc_label_text == "thumbnail"
-              thumbnail = daoloc_href_text
-            end
+          if daoloc_label_text == "page"
+            page = daoloc_href_text
+          elsif daoloc_label_text == "thumbnail"
+            thumbnail = daoloc_href_text
           end
         end
       end
@@ -1063,9 +988,7 @@ module EadsHelper
         available_online, f4_id = PidMethods.ingested?(page)
         if available_online
           page = f4_id
-          unless thumbnail.empty?
-            thumbnail = f4_id
-          end
+          thumbnail = f4_id unless thumbnail.empty?
         end
       end
     end
@@ -1089,25 +1012,23 @@ module EadsHelper
           # if page_doc.datastreams.include?("Thumbnail.png")  How do we know if it has a thumbnail or not???
           #   thumbnail = page_pid
           # end
+        elsif dao_href.nil?
+          # It's not in Solr, and it's not in darkarchive, and it has no href, so it must be unprocessed.
+          can_request = true
+          physloc_unprocessed = "DCA Digital Storage"
         else
-          if dao_href.nil?
-            # It's not in Solr, and it's not in darkarchive, and it has no href, so it must be unprocessed.
-            can_request = true
-            physloc_unprocessed = "DCA Digital Storage"
-          else
-            # It's not in Solr, and it's not in darkarchive, but it has an href, so it must be a non-TDL link.
-            external_page = dao_href.text
-            available_online = true
-            dao_title = dao.attribute("title")
-            external_page_title = (dao_title.nil? ? unittitle : dao_title.text)
-          end
+          # It's not in Solr, and it's not in darkarchive, but it has an href, so it must be a non-TDL link.
+          external_page = dao_href.text
+          available_online = true
+          # dao_title = dao.attribute("title")
+          # external_page_title = (dao_title.nil? ? unittitle : dao_title.text)
         end
       end
     end
 
     if available_online
       if !page.empty?
-        item_url = "/concern/tufts_images/" + page               # TBD!!! this might not be an image;  it could be a PDF!
+        item_url = "/concern/tufts_images/" + page # TBD!!! this might not be an image;  it could be a PDF!
       elsif !external_page.empty?
         item_url = external_page
       end
@@ -1115,7 +1036,7 @@ module EadsHelper
       item_url = Rails.application.routes.url_helpers.fa_series_path(pid, item_url_id)
     end
 
-    title = (item_url.empty? ? "" : "<a " + (external_page.empty? ? "data-turbolinks=\"false\" " : "") + "href=\"" + item_url + "\"" + (external_page.empty? ? "" : " target=\"blank\"") + ">") + unittitle + (unitdate.empty? || (unittitle.end_with?(unitdate))? "" : " " + unitdate) + (item_url.empty? ? "" : "</a>")
+    title = (item_url.empty? ? "" : "<a " + (external_page.empty? ? "data-turbolinks=\"false\" " : "") + "href=\"" + item_url + "\"" + (external_page.empty? ? "" : " target=\"blank\"") + ">") + unittitle + (unitdate.empty? || unittitle.end_with?(unitdate) ? "" : " " + unitdate) + (item_url.empty? ? "" : "</a>")
 
     unless physloc.empty?
       labels << "Location"
@@ -1142,11 +1063,10 @@ module EadsHelper
       values << access_restrict
     end
 
-    paragraphs = get_scopecontent_paragraphs(scopecontent)
+    paragraphs = get_scopecontent_paragraphs(scopecontent) unless scopecontent.nil?
 
-    return unitdate, creator, physloc_orig, access_restrict, item_id, title, paragraphs, labels, values, page, thumbnail, available_online, can_request, next_level_items
+    [unitdate, creator, physloc_orig, access_restrict, item_id, title, paragraphs, labels, values, page, thumbnail, available_online, can_request, next_level_items]
   end
-
 
   def self.parse_origination(node)
     name = ""
@@ -1158,13 +1078,9 @@ module EadsHelper
       name = first_element.text
       first_element_id = first_element.attribute("id")
 
-      unless first_element_id.nil?
-        rcr_url = first_element_id.text
-      end
+      rcr_url = first_element_id.text unless first_element_id.nil?
     end
 
-    return name, rcr_url
+    [name, rcr_url]
   end
-
-
 end

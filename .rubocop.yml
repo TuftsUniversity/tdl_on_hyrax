@@ -14,24 +14,45 @@ Metrics/BlockLength:
     - spec/**/*
     - app/models/concerns/tufts/**/*
     - lib/tasks/**/*
+    - app/helpers/eads_helper.rb
+    - app/models/datastreams/ead.rb
+Metrics/BlockNesting:
+  Exclude:
+    - app/helpers/eads_helper.rb
 Metrics/LineLength:
   Exclude: 
     - lib/tufts/populate_fixtures.rb
     - config/sitemap.rb
+    - app/helpers/eads_helper.rb
 Metrics/ClassLength: 
-  Exclude: 
+  Exclude:
     - app/controllers/catalog_controller.rb
     - app/presenters/hyrax/work_show_presenter.rb
     - lib/tufts/populate_fixtures.rb
+    - app/models/datastreams/ead.rb
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - app/controllers/concerns/with_eads.rb
+    - app/helpers/eads_helper.rb
+Metrics/PerceivedComplexity:
+  Exclude:
+    - app/helpers/eads_helper.rb
 Lint/HandleExceptions:
   Exclude:
     - lib/tufts/populate_fixtures.rb
+    - lib/pid_methods.rb
 Metrics/AbcSize:
   Exclude:
     - lib/tufts/populate_fixtures.rb
+    - app/helpers/eads_helper.rb
 Metrics/MethodLength:
   Exclude:
     - lib/tufts/populate_fixtures.rb
+    - app/helpers/eads_helper.rb
+    - lib/pid_methods.rb
+Metrics/ModuleLength:
+  Exclude:
+    - app/helpers/eads_helper.rb
 Performance/StringReplacement: 
   Exclude: 
     - app/controllers/tufts/works_controller.rb
@@ -48,3 +69,12 @@ Style/FileName:
   Exclude: 
     - "**/Gemfile"
     - "**/*.rake"
+Style/NestedTernaryOperator:
+  Exclude:
+    - app/helpers/eads_helper.rb
+Style/Next:
+  Exclude:
+    - app/helpers/eads_helper.rb
+Style/NumericPredicate:
+  Exclude:
+    - app/helpers/eads_helper.rb
