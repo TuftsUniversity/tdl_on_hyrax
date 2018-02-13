@@ -17,5 +17,8 @@ class Ability
     # if user_groups.include? 'special_group'
     #   can [:create], ActiveFedora::Base
     # end
+
+    can [:fa_overview], ActiveFedora::Base
+    can [:fa_series], ActiveFedora::Base
   end
 end

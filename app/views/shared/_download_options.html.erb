@@ -1,0 +1,59 @@
+<% if @downloadable %>
+  <% file_set = @presenter.solr_document._source["hasRelatedImage_ssim"] %>
+  <% img = Riiif::Engine.routes.url_helpers.image_path(file_set, "full") %>
+  <div class="tdl-search-widgets">
+    <ul class="tdl-right-nav">
+      <li>
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+        <a href="">Add to List</a>
+      </li>
+      <li>
+        <span class="glyphicon glyphicon-picture glyph-left" aria-hidden="true"></span>
+        <a href="<%= img %>" target="_blank")>Download low-resolution image</a>
+      </li>
+    </ul>
+  </div>
+<% else %>
+  <% if controller.controller_name == 'tufts_audios' %>
+    <div class="tdl-search-widgets">
+      <ul class="tdl-right-nav">
+        <% if @document_tei.present? %>
+          <li>
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            <a href="<%= @transcript_download_path %>">Download Transcript</a>
+          </li>
+        <% end %>
+        <li>
+          <span class="glyphicon glyphicon-headphones glyph-left" aria-hidden="true"></span>
+          <a href="<%= @media_download_path %>">Download Audio File</a>
+        </li>
+      </ul>
+    </div>
+  <% elsif controller.controller_name == 'tufts_videos' %>
+    <div class="tdl-search-widgets">
+      <ul class="tdl-right-nav">
+        <% if @document_tei.present? %>
+          <li>
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            <a href="<%= @transcript_download_path %>">Download Transcript</a>
+          </li>
+        <% end %>
+        <li>
+          <span class="glyphicon glyphicon-film glyph-left" aria-hidden="true"></span>
+          <a href="<%= @media_download_path %>">Download Video File</a>
+        </li>
+      </ul>
+    </div>
+  <% elsif controller.controller_name == 'tufts_rcrs' %>
+    <div class="tdl-search-widgets">
+      <ul class="tdl-right-nav">
+        <% if @document_rcr.present? %>
+          <li>
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            <a href="<%= @rcr_download_path %>">Download EAC</a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
