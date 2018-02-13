@@ -35,12 +35,10 @@ h3 {
 }
 
 .glyph-left {
+  margin-left: 3px;
   margin-right: 3px;
 }
 
-.glyph-right {
-  margin-left: 3px;
-}
 
 /* ------------------------
  *  HEADER / NAV
@@ -130,11 +128,20 @@ h3 {
  * ------------------------ */
 
 #tufts-searchbar {
-  background-color: #eeeeee;
   height: 45px;
+  width: 50%;
+  padding-top: 1px;
+  padding-botom: 1px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#tufts-controls-spacer {
+  height: 45px;
+}
+#tufts-searchbar-wrapper {
+  background-color: #eeeeee;
   border-bottom: 1px solid #E5E5E5;
 }
-
 .search-query-form {
   margin-top: 0;
 }
@@ -235,3 +242,14 @@ h3 {
 .span25 {
   width: 212px;
 }
+
+/* ----------------------
+ * SHopping cart glph faces wrong
+ * direction in this bootstrap verson
+ * ----------------------- */
+ .icon-flipped {
+   transform: scaleX(-1);
+   -moz-transform: scaleX(-1);
+   -webkit-transform: scaleX(-1);
+   -ms-transform: scaleX(-1);
+ }
