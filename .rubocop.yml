@@ -17,6 +17,7 @@ Metrics/BlockLength:
 Metrics/LineLength:
   Exclude: 
     - lib/tufts/populate_fixtures.rb
+    - config/sitemap.rb
 Metrics/ClassLength: 
   Exclude: 
     - app/controllers/catalog_controller.rb
