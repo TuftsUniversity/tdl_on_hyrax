@@ -50,6 +50,7 @@ Metrics/MethodLength:
     - lib/tufts/populate_fixtures.rb
     - app/helpers/eads_helper.rb
     - lib/pid_methods.rb
+    - lib/metadata_methods.rb
 Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
