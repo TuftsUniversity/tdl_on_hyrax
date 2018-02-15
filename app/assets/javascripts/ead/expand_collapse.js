@@ -2,7 +2,7 @@ function toggleDisplay(imgName, firstRow, lastRow) {
   var img = $(imgName);
   var rows = $("#theTable tr").not(".label_value_table_tr");
   var display = (img.attr("src").indexOf("button_expand.png") != -1);
-  var imgSrc = (display ? "/assets/img/button_collapse.png" : "/assets/img/button_expand.png");
+  var imgSrc = (display ? "/assets/ead/button_collapse.png" : "/assets/ead/button_expand.png");
   var rowIndex;
 
   img.attr("src", imgSrc);  // swap the [+] or [-] image on the row that was clicked
@@ -35,7 +35,7 @@ function toggleDisplay(imgName, firstRow, lastRow) {
 
 function displayAll(display) {
   var rows = $("#theTable tr").not(".label_value_table_tr");
-  var imgSrc = (display ? "/assets/img/button_collapse.png" : "/assets/img/button_expand.png");
+  var imgSrc = (display ? "/assets/ead/button_collapse.png" : "/assets/ead/button_expand.png");
   var rowDisplay = (display ? "" : "none");
   var rowIndex;
   var rowCount = rows.length;
