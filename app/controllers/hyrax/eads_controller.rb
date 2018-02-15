@@ -3,7 +3,6 @@ module Hyrax
     helper :eads
     include Hyrax::WorksControllerBehavior
     #   include Hyrax::BreadcrumbsForWorks
-    include WithLimitedFileSets
     include WithEads
     self.curation_concern_type = ::Ead
     self.show_presenter = Hyrax::EadPresenter
