@@ -43,14 +43,16 @@
       <%= render 'shared/download_options' %>
     </div>
   <% else %>
+  <div id='searchbar-parent'>
     <div class="navbar-center">
       <% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions'])) %>
         <%= render_search_bar %>
-          <div id='search_link'>
-            &nbsp; <%# TODO = link_to 'Advanced Search', advanced_search_path %>
-          </div>
       <% end %>
     </div> <!-- End navbar-center -->
+    <div id='search_link'>
+      <%= link_to 'Advanced Search', '/advanced' %>
+    </div>
+   </div>
   <% end %>
   </div> <!-- End tufts-searchbar -->
 </div>

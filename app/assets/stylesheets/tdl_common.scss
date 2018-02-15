@@ -131,14 +131,25 @@ h3 {
 /* ------------------------
  *  SEARCH BAR
  * ------------------------ */
-
-#tufts-searchbar {
-  height: 45px;
+#search_link {
+  text-align: left;
+  flex-basis: 20%;
+  margin-left: 15px;
+  margin-top: 12px;
+}
+#searchbar-parent {
+  display: flex;
   width: 50%;
-  padding-top: 1px;
-  padding-botom: 1px;
   margin-left: auto;
   margin-right: auto;
+}
+.navbar-center {
+  flex-basis: 80%;
+}
+#tufts-searchbar {
+  height: 45px;
+  padding-top: 1px;
+  padding-botom: 1px;
 }
 #tufts-controls-spacer {
   height: 45px;
