@@ -80,3 +80,11 @@ group :development, :test do
   gem 'fcrepo_wrapper'
   gem 'rubocop', require: false
 end
+
+group :test do
+  gem 'database_cleaner', '~> 1.3'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'ladle'
+  gem 'simplecov-rcov'
+  gem 'simplecov'
+end

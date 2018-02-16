@@ -22,7 +22,7 @@
 
 # config files
 config/devise.yml
-
+config/ldap.yml
 config/blacklight.yml
 config/database.yml
 config/fedora.yml
@@ -36,3 +36,5 @@ public/sitemap.xml.gz
 
 # ignore any files created from running coveralls locally
 coverage/
+
+.versions.conf
