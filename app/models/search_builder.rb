@@ -5,7 +5,11 @@ class SearchBuilder < Blacklight::SearchBuilder
   include Hydra::AccessControlsEnforcement
   include Hyrax::SearchFilters
   include BlacklightAdvancedSearch::AdvancedSearchBuilder
-  self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr]
+  self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr, :add_dl_filter]
+
+  def add_dl_filter(solr_parameters)
+    solr_parameters[:fq] << 'displays_in_sim:dl'
+  end
   ##
   # @example Adding a new step to the processor chain
   #   self.default_processor_chain += [:add_custom_data_to_query]
