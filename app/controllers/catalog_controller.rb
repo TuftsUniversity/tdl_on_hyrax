@@ -222,13 +222,13 @@ class CatalogController < ApplicationController
       }
     end
 
-    config.add_search_field('format') do |field|
-      solr_name = solr_name("format", :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
+    #    config.add_search_field('format') do |field|
+    #      solr_name = solr_name("format", :stored_searchable)
+    #      field.solr_local_parameters = {
+    #        qf: solr_name,
+    #        pf: solr_name
+    #      }
+    #    end
 
     config.add_search_field('identifier') do |field|
       solr_name = solr_name("id", :stored_searchable)
