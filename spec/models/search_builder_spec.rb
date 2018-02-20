@@ -9,7 +9,7 @@ describe SearchBuilder do
 
   describe '#default_processor_chain' do
     it 'adds display filter for dl to processing chain' do
-      expect(default_processor_chain).to include :add_dl_filter
+      expect(search_builder.default_processor_chain).to include :add_dl_filter
     end
   end
 end
