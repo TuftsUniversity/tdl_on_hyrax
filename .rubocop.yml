@@ -24,6 +24,7 @@ Metrics/LineLength:
     - lib/tufts/populate_fixtures.rb
     - config/sitemap.rb
     - app/helpers/eads_helper.rb
+    - spec/features/ead_spec.rb
 Metrics/ClassLength: 
   Exclude:
     - app/controllers/catalog_controller.rb
@@ -55,9 +56,19 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
+Naming/VariableNumber:
+  Exclude:
+    - spec/factories/ead.rb
 Performance/StringReplacement: 
   Exclude: 
     - app/controllers/tufts/works_controller.rb
+Rails/FilePath:
+  Exclude:
+    - spec/factories/ead.rb
+    - spec/support/ldap_manager.rb
+RSpec/ExampleLength:
+  Exclude:
+    - spec/features/ead_spec.rb
 RSpec/MessageSpies: 
   Enabled: false
 RSpec/MultipleExpectations: 
@@ -74,6 +85,9 @@ Style/FileName:
   Exclude: 
     - "**/Gemfile"
     - "**/*.rake"
+Style/GuardClause:
+  Exclude:
+    - spec/support/ldap_manager.rb
 Style/NestedTernaryOperator:
   Exclude:
     - app/helpers/eads_helper.rb

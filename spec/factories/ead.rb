@@ -9,16 +9,16 @@ FactoryGirl.define do
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     before(:create) do |work, evaluator|
       work.ordered_members << FactoryGirl.create(:file_set, user: evaluator.user, title: ['A Contained FileSet'])
-    end  
+    end
 
-    after(:create) do |work, evaluator|
-      ead_test_file_1 = File.open(File.expand_path(File.join("#{Rails.root}", "spec", "fixtures", "MS999.archival.xml")))
+    after(:create) do |work, _evaluator|
+      ead_test_file_1 = File.open(File.expand_path(File.join(Rails.root.to_s, "spec", "fixtures", "MS999.archival.xml")))
       original_file = work.file_sets[0].build_original_file
       original_file.content = ead_test_file_1
       work.file_sets[0].save
       work.save
     end
-  end  
+  end
 
   factory :tufts_MS226_ead, class: Ead do
     transient do
@@ -30,15 +30,14 @@ FactoryGirl.define do
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     before(:create) do |work, evaluator|
       work.ordered_members << FactoryGirl.create(:file_set, user: evaluator.user, title: ['A Contained FileSet'])
-    end  
+    end
 
-    after(:create) do |work, evaluator|
-      ead_test_file_1 = File.open(File.expand_path(File.join("#{Rails.root}", "spec", "fixtures", "MS226.archival.xml")))
+    after(:create) do |work, _evaluator|
+      ead_test_file_1 = File.open(File.expand_path(File.join(Rails.root.to_s, "spec", "fixtures", "MS226.archival.xml")))
       original_file = work.file_sets[0].build_original_file
       original_file.content = ead_test_file_1
       work.file_sets[0].save
       work.save
     end
-  end  
-
+  end
 end

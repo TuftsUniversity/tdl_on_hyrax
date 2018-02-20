@@ -1,16 +1,16 @@
 require 'rails_helper'
-#i_need_ldap              comment back in when ldap is ready
+# i_need_ldap              comment back in when ldap is ready
 
 feature 'EAD' do
-#  include TestHelpers    comment back in when ldap is ready
+  # include TestHelpers    comment back in when ldap is ready
 
   before do
     FactoryGirl.create(:tufts_MS999_ead)
     FactoryGirl.create(:tufts_MS226_ead)
   end
 
- scenario 'View MS999 ("kitchen sink") landing page' do
-   visit '/concern/eads/ks65hc20t'
+  scenario 'View MS999 ("kitchen sink") landing page' do
+    visit '/concern/eads/ks65hc20t'
     page.should have_text 'Lorem Ipsum papers, 1897 -- 1933'
     page.should have_text 'This collection has:'
     page.should have_text '585 Cubic Feet'
@@ -18,9 +18,9 @@ feature 'EAD' do
     page.should have_text '197 Gigabytes'
     page.should have_text '95 Cassettes'
     page.should have_text 'The papers of Lorem Ipsum, noted scholar and salon host, consist of his personal and professional papers, including a wide range of correspondence with noted thinkers, scholars, and chorus girls of the 1910s and 1920s.'
-#   page.should_not have_text 'View Online Materials'
+    # page.should_not have_text 'View Online Materials'
 
-    click_link "View Finding Aid", :exact => false
+    click_link "View Finding Aid", exact: false
     page.should have_text "Lorem Ipsum papers, 1897-1933"
     page.should have_text "Title: Lorem Ipsum papers"
     page.should have_text "Dates: 1897 -- 1933"
@@ -68,7 +68,7 @@ feature 'EAD' do
     page.should have_text "Professional papers consists of manuscripts, speeches, notes, and student papers."
     page.should have_text "Speeches are very dull."
 
-    click_link "Personal papers, 1900 -- 1933", :exact => false
+    click_link "Personal papers, 1900 -- 1933", exact: false
     page.should have_text "Personal papers, 1900 -- 1933"
     page.should have_text "This series is part of Lorem Ipsum papers, 1897 -- 1933"
     page.should have_text "Title: Personal papers "
@@ -104,52 +104,52 @@ feature 'EAD' do
     page.should have_text "There is also Lorem Ipsum material to be found online. Please visit https://somerandomwebsite.org/collections/LoremIpsum and/or The Lorem Ipsum Collection at someotherrandomwebsite.org."
     page.should have_text "New Yorker Cartoons 1922-12-09 - 1927-03-09"
 
-    click_link "Correspondence 1900 -- 1933", :exact => false
+    click_link "Correspondence 1900 -- 1933", exact: false
     page.should have_text "Location:"
     page.should have_text "31236554645131"
     page.should_not have_text "Text ("
 
-   visit '/concern/eads/ks65hc20t'
-    click_link "View Finding Aid", :exact => false
-    click_link "Personal papers, 1900 -- 1933", :exact => false
-    click_link "Diaries 1910 -- 1933", :exact => false
+    visit '/concern/eads/ks65hc20t'
+    click_link "View Finding Aid", exact: false
+    click_link "Personal papers, 1900 -- 1933", exact: false
+    click_link "Diaries 1910 -- 1933", exact: false
     page.should have_text "Location:"
     page.should have_text "3123064475432131"
     page.should_not have_text "Books ["
   end
 
- scenario 'View MS226 (Rubin Carter papers) landing page' do
-   visit '/concern/eads/p2676v52c'
+  scenario 'View MS226 (Rubin Carter papers) landing page' do
+    visit '/concern/eads/p2676v52c'
     page.should have_text 'Rubin "Hurricane" Carter papers'
     page.should have_text 'This collection has:'
     page.should have_text '21.6 Cubic Feet'
     page.should have_text '6 Digital Object(s)'
     page.should have_text 'Rubin Carter was born on May 6, 1937, in Clifton, New Jersey, to Lloyd and Bertha Carter.'
-#    page.should have_text 'View Online Materials'
- end
+    # page.should have_text 'View Online Materials'
+  end
 
-#  scenario 'View Online Materials should link to associated materials in search results' do
-#    visit catalog_path(@ead)
-#    click_link 'View Online Materials', :exact => false
-#    page.should have_text 'Alliance for Progress or Alianza Para El Progreso? A Reassessment of the Latin American Contribution to the Alliance for Progress'
-#  end
+  #  scenario 'View Online Materials should link to associated materials in search results' do
+  #    visit catalog_path(@ead)
+  #    click_link 'View Online Materials', :exact => false
+  #    page.should have_text 'Alliance for Progress or Alianza Para El Progreso? A Reassessment of the Latin American Contribution to the Alliance for Progress'
+  #  end
 
-#  scenario 'from the Finding Aid Viewer, View Online Materials should link to associated materials in search results' do
-#    visit catalog_path(@ead)
-#    click_link 'View Finding Aid', :exact => false
-#    click_link 'View Online Materials', :exact => false
-#    page.should have_text 'Alliance for Progress or Alianza Para El Progreso? A Reassessment of the Latin American Contribution to the Alliance for Progress'
-#  end
+  #  scenario 'from the Finding Aid Viewer, View Online Materials should link to associated materials in search results' do
+  #    visit catalog_path(@ead)
+  #    click_link 'View Finding Aid', :exact => false
+  #    click_link 'View Online Materials', :exact => false
+  #    page.should have_text 'Alliance for Progress or Alianza Para El Progreso? A Reassessment of the Latin American Contribution to the Alliance for Progress'
+  #  end
 
-#  scenario 'MS999 (kitchen sink ASpace EAD) should have a View Finding Aid link;  series should contain items' do
-#    visit catalog_path(@aspace_ead)
+  #  scenario 'MS999 (kitchen sink ASpace EAD) should have a View Finding Aid link;  series should contain items' do
+  #    visit catalog_path(@aspace_ead)
 
-#    click_link 'View Finding Aid', :exact => false
-#    page.should have_text 'Lorem Ipsum papers, 1897-1933'
-#    page.should have_text 'Title: Lorem Ipsum papers'
+  #    click_link 'View Finding Aid', :exact => false
+  #    page.should have_text 'Lorem Ipsum papers, 1897-1933'
+  #    page.should have_text 'Title: Lorem Ipsum papers'
 
-#    click_link 'Personal papers, 1900 -- 1933', :exact => false
-#    page.should have_text 'Personal papers, 1900 -- 1933'
-#    page.should have_text 'This series is part of Lorem Ipsum papers, 1897 -- 1933'
-#  end
+  #    click_link 'Personal papers, 1900 -- 1933', :exact => false
+  #    page.should have_text 'Personal papers, 1900 -- 1933'
+  #    page.should have_text 'This series is part of Lorem Ipsum papers, 1897 -- 1933'
+  #  end
 end
