@@ -71,7 +71,7 @@ module Tufts
       work.delete
       ActiveFedora::Base.eradicate(pid)
     rescue ActiveFedora::ObjectNotFoundError
-      # no-op
+    # no-op
     rescue Ldp::Gone
       # no-op
     end
@@ -95,6 +95,10 @@ module Tufts
         object = Image.new(id: pid)
       when "votingRecord"
         object = VotingRecord.new(id: pid)
+      when "ead"
+        object = Ead.new(id: pid)
+      when "rcr"
+        object = Rcr.new(id: pid)
       else
         logger.warn "There is no support for #{metadata[model]} fixtures.  You'll have to add it."
       end
@@ -231,6 +235,46 @@ module Tufts
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_AUTHENTICATED,
         file: 'fixtures/IMG_2077-a.jpg',
         model: "image"
+      },
+      {
+        legacy_pid: "tufts:test.aspace.MS999",
+        title: "Lorem Ipsum papers, 1897-1933",
+        alternative_title: "Kitchen Sink EAD",
+        creator: "Brian Goodmon",
+        date_created: "2016",
+        displays_in: ["dl"],
+        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        file: 'fixtures/MS999.archival.xml',
+        model: "ead"
+      },
+      {
+        legacy_pid: "tufts:test.aspace.MS226",
+        title: "ASpace Rubin Carter Papers",
+        creator: "Brian Goodmon",
+        date_created: "2016",
+        displays_in: ["dl"],
+        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        file: 'fixtures/MS226.archival.xml',
+        model: "ead", format_label: "text/xml"
+
+      },
+      {
+        legacy_pid: "tufts:RCR00579",
+        identifier: ["RCR00579", "http://hdl.handle.net/10427/71593"],
+        title: "Tisch Library",
+        publisher: "Digital Collections and Archives, Tufts University",
+        primary_date: "2010-02-09",
+        date_issued: "2011-09-21",
+        date_available: "2011-06-17",
+        resource_type: "http://purl.org/dc/dcmitype/Text",
+        format_label: "text/xml",
+        rights_statement: "http://dca.tufts.edu/ua/access/rights-pd.html",
+        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        steward: "dca",
+        displays_in: ["dl"],
+        createdby: "CIDER",
+        file: 'fixtures/RCR00579.xml',
+        model: "rcr"
       }
     ].freeze
   end

@@ -34,6 +34,7 @@ Metrics/CyclomaticComplexity:
   Exclude:
     - app/controllers/concerns/with_eads.rb
     - app/helpers/eads_helper.rb
+    - lib/tufts/populate_fixtures.rb
 Metrics/PerceivedComplexity:
   Exclude:
     - app/helpers/eads_helper.rb
