@@ -21,8 +21,8 @@ module WithRcrs
           original_content = original_file.content
           unless original_content.nil?
             @document_rcr = Datastreams::Rcr.from_xml(original_content)
-#           @rcr_download_path = main_app.download_path(file_set)
-@rcr_download_path = "foobar"
+            # @rcr_download_path = main_app.download_path(file_set)
+            @rcr_download_path = "foobar"
           end
         end
       end

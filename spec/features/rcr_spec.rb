@@ -33,5 +33,4 @@ feature 'RCR' do
     page.should have_text 'Eaton Library (1908-1965)'
     page.should have_text 'Wessell Library (1965-1996)'
   end
-
 end

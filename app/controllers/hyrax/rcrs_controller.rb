@@ -8,6 +8,5 @@ module Hyrax
     self.show_presenter = Hyrax::RcrPresenter
 
     before_action :load_fedora_document
-  
   end
 end
