@@ -15,7 +15,9 @@ Metrics/BlockLength:
     - app/models/concerns/tufts/**/*
     - lib/tasks/**/*
     - app/helpers/eads_helper.rb
+    - app/helpers/rcrs_helper.rb
     - app/models/datastreams/ead.rb
+    - app/models/datastreams/rcr.rb
 Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
@@ -25,6 +27,7 @@ Metrics/LineLength:
     - config/sitemap.rb
     - app/helpers/eads_helper.rb
     - spec/features/ead_spec.rb
+    - spec/features/rcr_spec.rb
 Metrics/ClassLength: 
   Exclude:
     - app/controllers/catalog_controller.rb
@@ -34,41 +37,49 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Exclude:
     - app/controllers/concerns/with_eads.rb
+    - app/controllers/concerns/with_rcrs.rb
     - app/helpers/eads_helper.rb
     - lib/tufts/populate_fixtures.rb
 Metrics/PerceivedComplexity:
   Exclude:
     - app/helpers/eads_helper.rb
+    - app/helpers/rcrs_helper.rb
 Lint/HandleExceptions:
   Exclude:
     - lib/tufts/populate_fixtures.rb
     - lib/pid_methods.rb
 Metrics/AbcSize:
   Exclude:
-    - lib/tufts/populate_fixtures.rb
     - app/helpers/eads_helper.rb
+    - app/helpers/rcrs_helper.rb
+    - lib/tufts/populate_fixtures.rb
 Metrics/MethodLength:
   Exclude:
-    - lib/tufts/populate_fixtures.rb
+    - app/controllers/concerns/with_rcrs.rb
     - app/helpers/eads_helper.rb
+    - app/helpers/rcrs_helper.rb
     - lib/pid_methods.rb
     - lib/metadata_methods.rb
+    - lib/tufts/populate_fixtures.rb
 Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
 Naming/VariableNumber:
   Exclude:
     - spec/factories/ead.rb
+    - spec/factories/rcr.rb
 Performance/StringReplacement: 
   Exclude: 
     - app/controllers/tufts/works_controller.rb
 Rails/FilePath:
   Exclude:
     - spec/factories/ead.rb
+    - spec/factories/rcr.rb
     - spec/support/ldap_manager.rb
 RSpec/ExampleLength:
   Exclude:
     - spec/features/ead_spec.rb
+    - spec/features/rcr_spec.rb
 RSpec/MessageSpies: 
   Enabled: false
 RSpec/MultipleExpectations: 
@@ -87,6 +98,7 @@ Style/FileName:
     - "**/*.rake"
 Style/GuardClause:
   Exclude:
+    - app/controllers/concerns/with_rcrs.rb
     - spec/support/ldap_manager.rb
 Style/NestedTernaryOperator:
   Exclude:
