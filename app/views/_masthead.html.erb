@@ -48,10 +48,12 @@
       <% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions'])) %>
         <%= render_search_bar %>
       <% end %>
-    </div> <!-- End navbar-center -->
-    <div id='search_link'>
-      <%= link_to 'Advanced Search', '/advanced' %>
-    </div>
+		</div> <!-- End navbar-center -->
+		<% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions'])) %>
+      <div id='search_link'>
+        <%= link_to 'Advanced Search', '/advanced' %>
+      </div>
+    <% end %>
    </div>
   <% end %>
   </div> <!-- End tufts-searchbar -->
