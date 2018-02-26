@@ -38,3 +38,4 @@ public/sitemap.xml.gz
 coverage/
 
 .versions.conf
+fits.log
