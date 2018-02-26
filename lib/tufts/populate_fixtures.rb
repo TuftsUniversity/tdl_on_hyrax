@@ -88,6 +88,7 @@ module Tufts
     # @param [String] pid
     # @return [ActiveFedora::Base]
     def create_object(pid, metadata)
+      GC.start
       admin_set = AdminSet.find(AdminSet::DEFAULT_ID)
       case metadata[:model]
       when "image"
@@ -152,8 +153,18 @@ module Tufts
       # create dervivatives
       object.reload
       file_set.reload
-      CreateDerivativesJob.perform_now(file_set, file_set.public_send(:original_file).id)
-
+      tries = 3
+      begin
+        CreateDerivativesJob.perform_now(file_set, file_set.public_send(:original_file).id)
+      rescue NoMethodError
+        tries -= 1
+        if tries > 0
+          sleep(5.seconds)
+          retry
+        else
+          logger.error "Fixture file missing original for #{file_set.id}"
+        end
+      end
       # save and return object
       object
     end
