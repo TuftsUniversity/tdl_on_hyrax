@@ -17,9 +17,8 @@ nav.navbar-inverse {
   border-top: 10px solid #6699cc;
   padding-top: 10px;
 }
-
-.navbar-brand {
-    background: transparent url('tuftsdigitallibrarylogosmall.png') no-repeat top left;
+#header-navbar .main-nav-content .navbar-brand {
+    background: transparent asset_url('tuftsdigitallibrarylogosmall.png') no-repeat top left;
     display: inline-block;
     text-indent: 100%;
     white-space: nowrap;
