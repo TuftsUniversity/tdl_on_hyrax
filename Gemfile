@@ -35,10 +35,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 gem 'blacklight_advanced_search'
 gem 'coveralls', require: false
 gem 'mysql2'
+gem 'sidekiq'
 gem 'sitemap_generator'
 gem 'tufts-curation', github: 'curationexperts/tufts-curation', tag: 'v1.0.0'
 
