@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'blacklight_advanced_search'
 gem 'coveralls', require: false
+gem 'devise_ldap_authenticatable'
+gem 'hydra-role-management'
 gem 'mysql2'
 gem 'sidekiq'
 gem 'sitemap_generator'
@@ -84,6 +86,7 @@ end
 group :test do
   gem 'database_cleaner', '~> 1.3'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'ffaker'
   gem 'ladle'
   gem 'simplecov'
   gem 'simplecov-rcov'
