@@ -113,9 +113,16 @@ feature 'EAD' do
     click_link "View Finding Aid", exact: false
     click_link "Personal papers, 1900 -- 1933", exact: false
     click_link "Diaries 1910 -- 1933", exact: false
+    page.should have_text "> Series 1.2: Diaries, 1910 -- 1933"
     page.should have_text "Location:"
     page.should have_text "3123064475432131"
     page.should_not have_text "Books ["
+    click_link "Sketchbooks 1920 -- 1933", exact: false
+    page.should have_text "> Series 1.2.1: Sketchbooks, 1920 -- 1933"
+    page.should have_text "Sketchbooks reveal surprisingly competent draftsmanship."
+    page.should have_text "Sketchbooks are arranged by binder color in standard ROYGBIV order."
+    page.should have_text "Red Sketchbook 1930"
+    page.should have_text "Mostly satirical sketches of friends, family and celebrities of the day."
   end
 
   scenario 'View MS226 (Rubin Carter papers) landing page' do

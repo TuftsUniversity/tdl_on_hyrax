@@ -361,6 +361,66 @@
                 Sources</title>
             </controlaccess>
           </c>
+          <c id="aspace_aaaaaabbbbb111111111222222223333" level="subseries">
+            <did>
+              <unittitle>Sketchbooks</unittitle>
+              <unitid>MS999.001.002.001</unitid>
+              <physdesc altrender="whole"><extent altrender="materialtype spaceoccupied">1
+                  Volume</extent></physdesc>
+              <unitdate normal="1910/1933" type="inclusive">1920 -- 1933</unitdate>
+              <langmaterial id="aspace_bbbbbbbbbbbb11111111112222222222">Sketchbooks are in English.</langmaterial>
+            </did>
+            <arrangement id="aspace_00000000011111111eeeeeeeeeeedddd">
+              <head>Arrangement</head>
+              <p>Sketchbooks are arranged by binder color in standard ROYGBIV order.</p>
+            </arrangement>
+            <accessrestrict id="aspace_aaaaaaaaa4444444444333333eeeeeee">
+              <head>Conditions Governing Access</head>
+              <p>Open for research.</p>
+            </accessrestrict>
+            <userestrict id="aspace_cccccccccccccccccc77777777777777">
+              <head>Conditions Governing Use</head>
+              <p>Copyright has been retained by donor.</p>
+            </userestrict>
+            <scopecontent id="aspace_bbbbbbbbbbbbbbbbbbffffffffffffff">
+              <head>Scope and Contents</head>
+              <p>Sketchbooks reveal surprisingly competent draftsmanship.</p>
+            </scopecontent>
+            <controlaccess>
+              <genreform source="aat">Sketchbooks</genreform>
+            </controlaccess>
+            <c id="aspace_ffffffffffffffffffffffff44444444" level="item">
+              <did>
+                <unittitle>Red Sketchbook</unittitle>
+                <unitid>MS999.001.002.001.00001</unitid>
+                <unitdate normal="1910/1910" type="inclusive">1930</unitdate>
+                <container id="aspace_2222222222222ffffffffffff7777777"
+                  label="Books (3123064475432139)" type="volume">1</container>
+                <dao xlink:actuate="onRequest" xlink:href="http://hdl.handle.net/false/noreal"
+                  xlink:show="new" xlink:title="Diary">
+                  <daodesc>
+                    <p>Sketchbook: 1920-</p>
+                  </daodesc>
+                </dao>
+              </did>
+              <accessrestrict id="aspace_9999999993333333333333333fffffff">
+                <head>Conditions Governing Access</head>
+                <p>Open for research.</p>
+              </accessrestrict>
+              <userestrict id="aspace_11111111111111119999999999999999">
+                <head>Conditions Governing Use</head>
+                <p>Copyright retained by donor.</p>
+              </userestrict>
+              <scopecontent id="aspace_77777777777777222222222222222222">
+                <head>Scope and Contents</head>
+                <p>Mostly satirical sketches of friends, family and celebrities of the day.</p>
+              </scopecontent>
+              <controlaccess>
+                <title source="local"> Cartooning -- Massachusetts -- Boston --
+                  Sources</title>
+              </controlaccess>
+            </c>
+          </c>
         </c>
         <c id="aspace_5a68e246a95937d7889527b7xxxxxxxx" level="item">
           <did>
