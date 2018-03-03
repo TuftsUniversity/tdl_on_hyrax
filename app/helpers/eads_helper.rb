@@ -689,19 +689,19 @@ module EadsHelper
     # The ead param is not a Nokogiri::XML::Element, so .ng_xml must be called.
     nodes = ead.ng_xml.xpath("//c[@id='" + item_id + "']")
 
-    if nodes.size > 0
+    unless nodes.empty?
       series = nodes[0]
 
       # Construct series_level out of the unitid which will be like "XX123.018.006.002"
       nodes = series.xpath("//c[@id='" + item_id + "']/did/unitid")
 
-      if nodes.size > 0
+      unless nodes.empty?
         unitid = nodes[0].text
         # Remove everything before the first period.
         series_level_regex = /^[^\.]+(.+)$/
 
         if unitid =~ series_level_regex
-          series_level = $1
+          series_level = Regexp.last_match(1)
           # Remove all leading zeros.
           found = ""
           found = series_level.sub!(/\.0+/, ".") until found.nil?
