@@ -687,27 +687,29 @@ module EadsHelper
     series = nil
     series_level = ""
     # The ead param is not a Nokogiri::XML::Element, so .ng_xml must be called.
-    nodes = ead.ng_xml.xpath("//c[@id='" + item_id + "']")
+    # Find new ASpace series tags like <c id="aspace_1ba86c68818ab59b72d6fd01b6c15017" ...>
+    # or old CIDER series tags like <c01 id="MS001.001" ...>
+    nodes = ead.ng_xml.xpath("//*[@id='" + item_id + "']")
 
     unless nodes.empty?
       series = nodes[0]
 
-      # Construct series_level out of the unitid which will be like "XX123.018.006.002"
+      # In old CIDER EADs the unitid is the item's id
+      # New ASpace EADs have the unitid in a node like <did><unitid>MS001.001</unitid>...</did>
       nodes = series.xpath("//c[@id='" + item_id + "']/did/unitid")
+      unitid = (nodes.empty? ? item_id : nodes[0].text)
 
-      unless nodes.empty?
-        unitid = nodes[0].text
-        # Remove everything before the first period.
-        series_level_regex = /^[^\.]+(.+)$/
+      # Construct series_level out of the unitid which will be like "XX123.018.006.002"
+      # Remove everything before the first period.
+      series_level_regex = /^[^\.]+(.+)$/
 
-        if unitid =~ series_level_regex
-          series_level = Regexp.last_match(1)
-          # Remove all leading zeros.
-          found = ""
-          found = series_level.sub!(/\.0+/, ".") until found.nil?
-          # Remove the leading period.
-          series_level.sub!(/^./, "")
-        end
+      if unitid =~ series_level_regex
+        series_level = Regexp.last_match(1)
+        # Remove all leading zeros.
+        found = ""
+        found = series_level.sub!(/\.0+/, ".") until found.nil?
+        # Remove the leading period.
+        series_level.sub!(/^./, "")
       end
     end
 
