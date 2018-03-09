@@ -2,12 +2,20 @@ namespace :tufts do
   namespace :fixtures do
     desc "Create contribute collections"
     task load_fixtures: :environment do
-      Tufts::PopulateFixtures.create_fixtures
+      if Rails.env == "production"
+        puts "Don't ingest fixtures in production"
+      else
+        Tufts::PopulateFixtures.create_fixtures
+      end
     end
 
     desc "Create contribute collections"
     task delete_fixtures: :environment do
-      Tufts::PopulateFixtures.eradicate_fixtures
+      if Rails.env == "production"
+        puts "Don't ingest fixtures in production"
+      else
+        Tufts::PopulateFixtures.eradicate_fixtures
+      end
     end
 
     desc "Refresh default Hydra fixtures"
