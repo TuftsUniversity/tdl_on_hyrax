@@ -23,4 +23,5 @@
 
 //= require_tree .
 //= require hyrax
-
+//= require 'bookbag/bookbag.js'
+//= require 'bookbag/datepicker.js'
