@@ -8,7 +8,6 @@ module Hyrax
 
     before_action :load_fedora_document
 
-
     def audio_transcriptonly
       respond_to do |wants|
         wants.html { presenter && parent_presenter }

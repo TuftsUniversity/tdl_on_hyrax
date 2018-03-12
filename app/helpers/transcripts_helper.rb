@@ -1,6 +1,4 @@
 module TranscriptsHelper
-
-
   def self.format_participants(participants)
     result = ""
     participant_number = 0
@@ -17,13 +15,12 @@ module TranscriptsHelper
       result << "        </div> <!-- participant_row -->\n"
     end
 
-    if result.length > 0
+    unless result.empty?
       result = "<div class=\"participant_table\">\n" + result + "      </div> <!-- participant_table -->\n"
     end
 
-    return result
+    result
   end
-
 
   # convert fedora transcript object to html
   def self.show_transcript(tei, active_timestamps, path)
@@ -31,29 +28,26 @@ module TranscriptsHelper
     transcript_html = format_transcript(chunks, active_timestamps, path)
     participant_html = format_participants(participants)
 
-    return transcript_html, participant_html
+    [transcript_html, participant_html]
   end
-
 
   def self.get_time_table(tei)
     chunks = TranscriptChunk.parse(tei)
     table = extract_time_table(chunks)
 
-    return table
+    table
   end
-
 
   def self.extract_time_table(chunks)
     table = {}
     chunks.each do |chunk|
       milliseconds = chunk.start_in_milliseconds
       string_minutes, string_just_seconds, string_total_seconds = displayable_time(milliseconds)
-      table[chunk.name.to_s] = {:time => milliseconds, :display_time => string_minutes + ":" + string_just_seconds}
+      table[chunk.name.to_s] = { time: milliseconds, display_time: string_minutes + ":" + string_just_seconds }
     end
 
-    return table
+    table
   end
-
 
   # return html string of the transcript
   # iterate over chunks and create appropriate divs with classes, links, etc.
@@ -66,12 +60,12 @@ module TranscriptsHelper
 
       result << "                <div class=\"transcript_chunk\" id=\"chunk" + string_total_seconds + "\">\n"
 
-      unless (milliseconds.nil?)
+      unless milliseconds.nil?
         result << "                  <div class=\"transcript_row\">\n"
         result << "                    <div class=\"transcript_speaker\">\n"
 
-        if (active_timestamps)
-          result << "                      <a class=\"transcript_chunk_link\" data-time=\"" + milliseconds.to_s + "\" href=\""+ path + "?timestamp/" + string_minutes + ":" + string_just_seconds + "\">" + string_minutes + ":" + string_just_seconds + "</a>\n"
+        if active_timestamps
+          result << "                      <a class=\"transcript_chunk_link\" data-time=\"" + milliseconds.to_s + "\" href=\"" + path + "?timestamp/" + string_minutes + ":" + string_just_seconds + "\">" + string_minutes + ":" + string_just_seconds + "</a>\n"
         else
           result << "                      <span class=\"transcript_chunk_link\">" + string_minutes + ":" + string_just_seconds + "</span>\n"
         end
@@ -87,16 +81,16 @@ module TranscriptsHelper
         text = utterance.text
         timepoint_id = utterance.timepoint_id
 
-        if (who)
+        if who
           result << "                  <div class=\"transcript_row\">\n"
-          result << "                    <div class=\"transcript_speaker\">"+ (who.nil? ? "" : who) + "</div>\n"
-          result << "                    <div class=\"transcript_utterance\"  id=\""+timepoint_id+"\">"+ (text.nil? ? "" : text) + "</div>\n"
+          result << "                    <div class=\"transcript_speaker\">" + (who.nil? ? "" : who) + "</div>\n"
+          result << "                    <div class=\"transcript_utterance\"  id=\"" + timepoint_id + "\">" + (text.nil? ? "" : text) + "</div>\n"
           result << "                  </div> <!-- transcript_row -->\n"
         else
           unless text.nil?
             result << "                  <div class=\"transcript_row\">\n"
             result << "                    <div class=\"transcript_speaker\">" "</div>\n"
-            result << "                    <div class=\"transcript_utterance\" id=\""+ timepoint_id+"\"><span class = \"transcript_notation\">["+ text + "]</span></div>\n"
+            result << "                    <div class=\"transcript_utterance\" id=\"" + timepoint_id + "\"><span class = \"transcript_notation\">[" + text + "]</span></div>\n"
             result << "                  </div> <!-- transcript_row -->\n"
           end
         end
@@ -107,9 +101,8 @@ module TranscriptsHelper
 
     result << "              </div> <!-- transcript_table -->\n"
 
-    return result
+    result
   end
-
 
   def self.parse_notations(node)
     result = ""
@@ -117,13 +110,13 @@ module TranscriptsHelper
     node.children.each do |child|
       childName = child.name
 
-      if (childName == "text")
+      if childName == "text"
         result += child.text
-      elsif (childName == "unclear")
+      elsif childName == "unclear"
         result += "<span class=\"transcript_notation\">[" + child.text + "]</span>"
-      elsif (childName == "event" || childName == "gap" || childName == "vocal" || childName == "kinesic")
+      elsif childName == "event" || childName == "gap" || childName == "vocal" || childName == "kinesic"
         unless child.attributes.empty?
-        desc = child.attributes["desc"]
+          desc = child.attributes["desc"]
           unless desc.nil?
             result += "<span class=\"transcript_notation\">[" + desc + "]</span>"
           end
@@ -131,26 +124,21 @@ module TranscriptsHelper
       end
     end
 
-    return result
+    result
   end
-
 
   private # all methods that follow will be made private: not accessible for outside objects
 
-  # convert a transcript time in milliseconds into displayable strings for UI
-  def self.displayable_time(milliseconds)
-    int_total_seconds = milliseconds.to_i / 1000 # truncated to the second
-    int_minutes = int_total_seconds / 60
-    int_just_seconds = int_total_seconds - (int_minutes * 60) # the seconds for seconds:minutes (0:00) display
-    string_minutes = int_minutes.to_s
-    string_just_seconds = int_just_seconds.to_s
+    # convert a transcript time in milliseconds into displayable strings for UI
+    def self.displayable_time(milliseconds)
+      int_total_seconds = milliseconds.to_i / 1000 # truncated to the second
+      int_minutes = int_total_seconds / 60
+      int_just_seconds = int_total_seconds - (int_minutes * 60) # the seconds for seconds:minutes (0:00) display
+      string_minutes = int_minutes.to_s
+      string_just_seconds = int_just_seconds.to_s
 
-    if (int_just_seconds < 10)
-      string_just_seconds = "0" + string_just_seconds
+      string_just_seconds = "0" + string_just_seconds if int_just_seconds < 10
+
+      [string_minutes, string_just_seconds, int_total_seconds.to_s]
     end
-
-    return string_minutes, string_just_seconds, int_total_seconds.to_s
-  end
-
-
 end

@@ -38,8 +38,8 @@ Rails.application.routes.draw do
 
   get 'concern/eads/:id/fa' => 'hyrax/eads#fa_overview', :constraints => { id: /.*/ }, as: :fa_overview
   get 'concern/eads/:id/fa/:item_id' => 'hyrax/eads#fa_series', :constraints => { id: /.*/, item_id: /.*/ }, as: :fa_series
-  get 'concern/audios/:id/transcriptonly', :to => 'hyrax/audios#audio_transcriptonly', :constraints => { id: /.*/ }, :as =>'audio_transcriptonly'
-  get 'concern/videos/:id/transcriptonly', :to => 'hyrax/videos#video_transcriptonly', :constraints => { id: /.*/ }, :as =>'video_transcriptonly'
+  get 'concern/audios/:id/transcriptonly', to: 'hyrax/audios#audio_transcriptonly', constraints: { id: /.*/ }, as: 'audio_transcriptonly'
+  get 'concern/videos/:id/transcriptonly', to: 'hyrax/videos#video_transcriptonly', constraints: { id: /.*/ }, as: 'video_transcriptonly'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

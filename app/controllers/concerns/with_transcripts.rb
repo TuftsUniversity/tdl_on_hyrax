@@ -13,7 +13,7 @@ module WithTranscripts
       @media_play_path = nil
       @media_download_path = nil
 
-      return unless @document_fedora.class.instance_of?(Audio.class) ||  @document_fedora.class.instance_of?(Video.class)
+      return unless @document_fedora.class.instance_of?(Audio.class) || @document_fedora.class.instance_of?(Video.class)
 
       file_sets = @document_fedora.file_sets
 
@@ -27,14 +27,13 @@ module WithTranscripts
             @document_tei = Datastreams::Tei.from_xml(original_file.content)
             @document_tei.ng_xml.remove_namespaces! unless @document_tei.nil?
           else
-            filename_extension = (@document_fedora.class.instance_of?(Audio.class) ? "mp3" : "mp4");
+            filename_extension = (@document_fedora.class.instance_of?(Audio.class) ? "mp3" : "mp4")
             derivative_paths = Hyrax::DerivativePath.derivatives_for_reference(file_set)
             derivative_paths.each do |derivative_path|
-              if derivative_path.end_with?(filename_extension)
-                @media_play_path = hyrax.download_path(file_set)
-                @media_download_path = hyrax.download_path(file_set, file: filename_extension)
-                break
-              end
+              next unless derivative_path.end_with?(filename_extension)
+              @media_play_path = hyrax.download_path(file_set)
+              @media_download_path = hyrax.download_path(file_set, file: filename_extension)
+              break
             end
           end
         end
