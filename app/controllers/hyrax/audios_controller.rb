@@ -1,11 +1,18 @@
-# Generated via
-#  `rails generate hyrax:work Audio`
-
 module Hyrax
-  class AudiosController < ApplicationController
+  class AudiosController < CatalogController
+    helper :transcripts
     include Hyrax::WorksControllerBehavior
-    include Hyrax::BreadcrumbsForWorks
+    include WithTranscripts
     self.curation_concern_type = ::Audio
     self.show_presenter = Hyrax::AudioPresenter
+
+    before_action :load_fedora_document
+
+
+    def audio_transcriptonly
+      respond_to do |wants|
+        wants.html { presenter && parent_presenter }
+      end
+    end
   end
 end

@@ -1,0 +1,31 @@
+<%= render "curation_concerns/shared/item_header" %>
+
+<div class="col-md-8 col-md-offset-2">
+
+<%
+if @document_tei.present?
+  transcript_html, participant_html = TranscriptsHelper.show_transcript(@document_tei, true, Rails.application.routes.url_helpers.curation_concerns_tufts_audio_path(params[:id]))
+
+  unless participant_html.empty?
+%>
+    <div>
+      <b>Participants</b>
+      <br>
+      <br>
+      <%= raw participant_html %>
+    </div>  <!-- participant_div -->
+    <hr/>
+<%
+  end
+
+  unless transcript_html.empty?
+%>
+    <div class="transcript_box">
+      <%= raw transcript_html %>
+    </div>  <!-- transcript_box -->
+<%
+  end
+end
+%>
+
+</div>
