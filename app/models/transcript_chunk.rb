@@ -10,11 +10,11 @@ class TranscriptChunk
 
   # should we create an object for the entire transcript and move the parse and speaker code there
 
-  # TEI has speaker data, parse_participants stores data in @@speakers
-  @@speakers = []
+  # TEI has speaker data, parse_participants stores data in @speakers
+  @speakers = []
 
   def self.get_speakers
-    @@speakers
+    @speakers
   end
 
   # instance variable for each transcript chunk
@@ -32,12 +32,12 @@ class TranscriptChunk
   def self.parse(om_document)
     parse_participants(om_document)
     result = parse_transcript(om_document)
-    [result, @@speakers]
+    [result, @speakers]
   end
 
   # parse tei participant element and store in class variable
   def self.parse_participants(om_document)
-    @@speakers = []
+    @speakers = []
 
     node_sets = om_document.find_by_terms(:participants)
     node_sets.each do |node|
@@ -49,7 +49,7 @@ class TranscriptChunk
         role = role.nil? ? '' : role.value
         gender = child.attributes['sex'].to_s
         name = child.text
-        participant = TranscriptChunk.add_speaker(name, initials, role, gender)
+        TranscriptChunk.add_speaker(name, initials, role, gender)
       end
     end
   end
@@ -83,7 +83,6 @@ class TranscriptChunk
     node_sets = om_document.find_by_terms_and_value(:u)
 
     node_sets.each do |node|
-      string_total_seconds = ""
       timepoint_id = node.attributes["start"]
       next if timepoint_id.nil?
       timepoint_id = timepoint_id.value
@@ -99,18 +98,14 @@ class TranscriptChunk
       # <u who="RK">well thank you it&#8217;s really a great privilege and honour ....</u>
       # loop over children adding utterances
       node.children.each do |child|
-        childName = child.name
-        if childName == "u"
-          whoNode = child.attributes["who"]
-          speaker = if whoNode
-                      TranscriptChunk.get_speaker(whoNode.value)
-                    else
-                      get_last_speaker(result)
-                    end
+        child_name = child.name
+        if child_name == "u"
+          who_node = child.attributes["who"]
+          speaker = who_node ? TranscriptChunk.get_speaker(who_node.value) : get_last_speaker(result)
           who = TranscriptChunk.get_speaker_initials(speaker)
           text = parse_notations(child)
           current_transcript_chunk.add_utterance(text, who, timepoint_id)
-        elsif childName == "event" || childName == "gap" || childName == "vocal" || childName == "kinesic"
+        elsif child_name == "event" || child_name == "gap" || child_name == "vocal" || child_name == "kinesic"
           unless child.attributes.empty?
             desc = child.attributes["desc"]
             unless desc.nil?
@@ -133,7 +128,7 @@ class TranscriptChunk
   end
 
   # add an utterance to this transcript chunk
-  def add_utterance(text, speaker_initials = '', timepoint_id)
+  def add_utterance(text, speaker_initials, timepoint_id)
     utterance = Utterance.new(text, speaker_initials, timepoint_id)
     @utterances << utterance
   end
@@ -178,14 +173,14 @@ class TranscriptChunk
     speaker = get_speaker(initials)
     if speaker.nil?
       speaker = Speaker.new(name, initials, role, gender)
-      @@speakers << speaker
+      @speakers << speaker
     end
     speaker
   end
 
   # look up speaker by passed initials
   def self.get_speaker(initials)
-    @@speakers.each do |speaker|
+    @speakers.each do |speaker|
       return speaker if speaker.initials == initials
     end
     nil
@@ -197,7 +192,7 @@ class TranscriptChunk
     attr_reader :speaker_initials
     attr_reader :timepoint_id
 
-    def initialize(text, speaker_initials = nil, timepoint_id)
+    def initialize(text, speaker_initials, timepoint_id)
       @text = text
       @speaker_initials = speaker_initials
       @timepoint_id = timepoint_id
@@ -225,13 +220,13 @@ class TranscriptChunk
     result = ''
 
     node.children.each do |child|
-      childName = child.name
+      child_name = child.name
 
-      if childName == "text"
+      if child_name == "text"
         result += child.text
-      elsif childName == "unclear"
+      elsif child_name == "unclear"
         result += "<span class=\"transcript_notation\">[" + child.text + "]</span>"
-      elsif childName == "event" || childName == "gap" || childName == "vocal" || childName == "kinesic"
+      elsif child_name == "event" || child_name == "gap" || child_name == "vocal" || child_name == "kinesic"
         unless child.attributes.empty?
           desc = child.attributes["desc"]
           unless desc.nil?

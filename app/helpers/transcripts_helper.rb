@@ -42,7 +42,7 @@ module TranscriptsHelper
     table = {}
     chunks.each do |chunk|
       milliseconds = chunk.start_in_milliseconds
-      string_minutes, string_just_seconds, string_total_seconds = displayable_time(milliseconds)
+      string_minutes, string_just_seconds, _string_total_seconds = displayable_time(milliseconds)
       table[chunk.name.to_s] = { time: milliseconds, display_time: string_minutes + ":" + string_just_seconds }
     end
 
@@ -56,7 +56,6 @@ module TranscriptsHelper
     chunks.each do |chunk|
       milliseconds = chunk.start_in_milliseconds
       string_minutes, string_just_seconds, string_total_seconds = displayable_time(milliseconds)
-      div_id = chunk.name
 
       result << "                <div class=\"transcript_chunk\" id=\"chunk" + string_total_seconds + "\">\n"
 
@@ -89,7 +88,7 @@ module TranscriptsHelper
         else
           unless text.nil?
             result << "                  <div class=\"transcript_row\">\n"
-            result << "                    <div class=\"transcript_speaker\">" "</div>\n"
+            result << "                    <div class=\"transcript_speaker\"></div>\n"
             result << "                    <div class=\"transcript_utterance\" id=\"" + timepoint_id + "\"><span class = \"transcript_notation\">[" + text + "]</span></div>\n"
             result << "                  </div> <!-- transcript_row -->\n"
           end
@@ -108,13 +107,13 @@ module TranscriptsHelper
     result = ""
 
     node.children.each do |child|
-      childName = child.name
+      child_name = child.name
 
-      if childName == "text"
+      if child_name == "text"
         result += child.text
-      elsif childName == "unclear"
+      elsif child_name == "unclear"
         result += "<span class=\"transcript_notation\">[" + child.text + "]</span>"
-      elsif childName == "event" || childName == "gap" || childName == "vocal" || childName == "kinesic"
+      elsif child_name == "event" || child_name == "gap" || child_name == "vocal" || child_name == "kinesic"
         unless child.attributes.empty?
           desc = child.attributes["desc"]
           unless desc.nil?
@@ -127,18 +126,16 @@ module TranscriptsHelper
     result
   end
 
-  private # all methods that follow will be made private: not accessible for outside objects
+  # convert a transcript time in milliseconds into displayable strings for UI
+  def self.displayable_time(milliseconds)
+    int_total_seconds = milliseconds.to_i / 1000 # truncated to the second
+    int_minutes = int_total_seconds / 60
+    int_just_seconds = int_total_seconds - (int_minutes * 60) # the seconds for seconds:minutes (0:00) display
+    string_minutes = int_minutes.to_s
+    string_just_seconds = int_just_seconds.to_s
 
-    # convert a transcript time in milliseconds into displayable strings for UI
-    def self.displayable_time(milliseconds)
-      int_total_seconds = milliseconds.to_i / 1000 # truncated to the second
-      int_minutes = int_total_seconds / 60
-      int_just_seconds = int_total_seconds - (int_minutes * 60) # the seconds for seconds:minutes (0:00) display
-      string_minutes = int_minutes.to_s
-      string_just_seconds = int_just_seconds.to_s
+    string_just_seconds = "0" + string_just_seconds if int_just_seconds < 10
 
-      string_just_seconds = "0" + string_just_seconds if int_just_seconds < 10
-
-      [string_minutes, string_just_seconds, int_total_seconds.to_s]
-    end
+    [string_minutes, string_just_seconds, int_total_seconds.to_s]
+  end
 end

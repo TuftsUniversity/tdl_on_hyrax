@@ -11,13 +11,17 @@ Metrics/BlockLength:
   Exclude: 
     - config/**/*
     - app/controllers/catalog_controller.rb
+    - app/controllers/concerns/with_transcripts.rb
     - spec/**/*
     - app/models/concerns/tufts/**/*
     - lib/tasks/**/*
     - app/helpers/eads_helper.rb
     - app/helpers/rcrs_helper.rb
+    - app/helpers/transcripts_helper.rb
     - app/models/datastreams/ead.rb
     - app/models/datastreams/rcr.rb
+    - app/models/datastreams/tei.rb
+    - app/models/transcript_chunk.rb
 Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
@@ -26,6 +30,7 @@ Metrics/LineLength:
     - lib/tufts/populate_fixtures.rb
     - config/sitemap.rb
     - app/helpers/eads_helper.rb
+    - app/helpers/transcripts_helper.rb
     - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
 Metrics/ClassLength: 
@@ -34,16 +39,23 @@ Metrics/ClassLength:
     - app/presenters/hyrax/work_show_presenter.rb
     - lib/tufts/populate_fixtures.rb
     - app/models/datastreams/ead.rb
+    - app/models/transcript_chunk.rb
 Metrics/CyclomaticComplexity:
   Exclude:
     - app/controllers/concerns/with_eads.rb
     - app/controllers/concerns/with_rcrs.rb
+    - app/controllers/concerns/with_transcripts.rb
     - app/helpers/eads_helper.rb
+    - app/helpers/transcripts_helper.rb
+    - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
 Metrics/PerceivedComplexity:
   Exclude:
+    - app/controllers/concerns/with_transcripts.rb
     - app/helpers/eads_helper.rb
     - app/helpers/rcrs_helper.rb
+    - app/helpers/transcripts_helper.rb
+    - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
 Lint/HandleExceptions:
   Exclude:
@@ -51,20 +63,30 @@ Lint/HandleExceptions:
     - lib/pid_methods.rb
 Metrics/AbcSize:
   Exclude:
+    - app/controllers/concerns/with_transcripts.rb
     - app/helpers/eads_helper.rb
     - app/helpers/rcrs_helper.rb
+    - app/helpers/transcripts_helper.rb
+    - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
 Metrics/MethodLength:
   Exclude:
     - app/controllers/concerns/with_rcrs.rb
+    - app/controllers/concerns/with_transcripts.rb
     - app/helpers/eads_helper.rb
     - app/helpers/rcrs_helper.rb
+    - app/helpers/transcripts_helper.rb
+    - app/models/transcript_chunk.rb
     - lib/pid_methods.rb
     - lib/metadata_methods.rb
     - lib/tufts/populate_fixtures.rb
 Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
+    - app/helpers/transcripts_helper.rb
+Naming/AccessorMethodName:
+  Exclude:
+    - app/models/transcript_chunk.rb
 Naming/VariableNumber:
   Exclude:
     - spec/factories/ead.rb
@@ -104,6 +126,7 @@ Style/GuardClause:
 Style/NestedTernaryOperator:
   Exclude:
     - app/helpers/eads_helper.rb
+    - app/helpers/transcripts_helper.rb
 Style/Next:
   Exclude:
     - app/helpers/eads_helper.rb
