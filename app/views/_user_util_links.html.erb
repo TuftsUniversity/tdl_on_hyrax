@@ -1,9 +1,18 @@
 <ul class="util-nav tdl-right-nav">
   <li>
+    <%= link_to(
+      "My List",
+      '#',
+      data: { toggle: "modal", target: "#aeon-cart-modal" },
+      class: "item-option",
+      role: 'menuitem'
+    ) %>
+<!--
     <a id="my_list_button" href="#cart_modal" data-toggle="modal">
       My List (<span id="list_num">0</span>)
       <span class="icon-flipped glyphicon glyphicon-shopping-cart glyph-left" aria-hidden="true"></span>
     </a>
+-->
   </li>
   <li>
     <% if has_user_authentication_provider? %>
