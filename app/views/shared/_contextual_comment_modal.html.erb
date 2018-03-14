@@ -1,0 +1,43 @@
+<!-- comment modal -->
+<div class="modal fade" id="comment_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Send Comment<%= ("show" == @current_action || "eadoverview" == @current_action || "eadinternal" == @current_action || "transcriptonly" == @current_action) ? " about " + show_title().to_s() : "" %></h3>
+      </div <div class="modal-body">
+
+      <form class="form-inline comment_form" action="javascript:submitFeedback(<%= raw (" show " == @current_action || "eadoverview " == @current_action || "eadinternal " == @current_action || "transcriptonly " == @current_action) ? "
+        'http://#{request.host}:#{request.port}#{request.fullpath}' " : " '' " %>, '<%= form_authenticity_token %>');">
+
+        <fieldset>
+
+          <div class="control-group">
+            <label class="control-label" for="inputComment">Comment</label>
+
+            <div class="controls">
+              <textarea class="input-xlarge" id="inputComment" rows="3"></textarea>
+            </div>
+          </div>
+
+
+          <div class="control-group">
+            <label for="inputEmail" class="control-label">Email Address (optional):</label>
+
+            <div class="controls">
+              <input type="text" placeholder="" id="inputEmail" class="input-xlarge" />
+
+              <p class="help-block"></p>
+            </div>
+          </div>
+
+
+          <div class="pull-right" style="margin-right: 16px">
+            <button class="btn btn-primary" type="submit">Send</button>
+            <button class="btn" data-dismiss="modal">Cancel</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
