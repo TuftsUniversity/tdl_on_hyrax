@@ -1,11 +1,17 @@
-# Generated via
-#  `rails generate hyrax:work Video`
-
 module Hyrax
-  class VideosController < ApplicationController
+  class VideosController < CatalogController
+    helper :transcripts
     include Hyrax::WorksControllerBehavior
-    include Hyrax::BreadcrumbsForWorks
+    include WithTranscripts
     self.curation_concern_type = ::Video
     self.show_presenter = Hyrax::VideoPresenter
+
+    before_action :load_fedora_document
+
+    def video_transcriptonly
+      respond_to do |wants|
+        wants.html { presenter && parent_presenter }
+      end
+    end
   end
 end
