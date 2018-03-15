@@ -11,7 +11,7 @@ module WithRcrs
       @document_rcr = nil
       @rcr_download_path = nil
 
-      return unless @document_fedora.class.instance_of?(Rcr.class)
+      return unless @document_fedora.instance_of?(Rcr)
 
       file_sets = @document_fedora.file_sets
       unless file_sets.nil? || file_sets.empty?
