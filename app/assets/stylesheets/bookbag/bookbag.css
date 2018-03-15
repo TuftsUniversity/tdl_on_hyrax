@@ -222,3 +222,7 @@
 #reservationActions {
     clear: both;
 }
+
+.item-option {
+  outline:none
+}
