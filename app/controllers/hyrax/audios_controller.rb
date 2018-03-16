@@ -12,6 +12,8 @@ module Hyrax
       respond_to do |wants|
         wants.html { presenter && parent_presenter }
       end
+
+      render layout: "homepage"
     end
   end
 end
