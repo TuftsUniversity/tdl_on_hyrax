@@ -168,7 +168,7 @@ module EadsHelper
       rcr_url = "tufts:" + rcr_url
       ingested, f4_id = PidMethods.ingested?(rcr_url)
       if ingested
-        result = "<a href=\"" + curation_concerns_tufts_rcr_path(f4_id) + "\">" + name + "</a>"
+        result = "<a href=\"" + hyrax_rcr_path(f4_id) + "\">" + name + "</a>"
       end
     end
 
@@ -200,7 +200,7 @@ module EadsHelper
       end
 
       result = if ingested
-                 "<a href=\"" + curation_concerns_tufts_rcr_path(f4_id) + "\">" + name + "</a>"
+                 "<a href=\"" + hyrax_rcr_path(f4_id) + "\">" + name + "</a>"
                else
                  name
                end
@@ -452,7 +452,7 @@ module EadsHelper
               unless child_url.empty?
                 ingested, f4_id = PidMethods.ingested?(child_url)
               end
-              result << (ingested ? "<a href=\"" + curation_concerns_tufts_rcr_path(f4_id) + "\">" : "") + child_text + (ingested ? "</a>" : "")
+              result << (ingested ? "<a href=\"" + hyrax_rcr_path(f4_id) + "\">" : "") + child_text + (ingested ? "</a>" : "")
             end
           end
         end
@@ -803,7 +803,7 @@ module EadsHelper
                 unless grandchild_url.empty?
                   ingested, f4_id = PidMethods.ingested?(grandchild_url)
                 end
-                series_names_and_subjects << (ingested ? "<a href=\"" + curation_concerns_tufts_rcr_path(f4_id) + "\">" : "") + grandchild_text + (ingested ? "</a>" : "")
+                series_names_and_subjects << (ingested ? "<a href=\"" + hyrax_rcr_path(f4_id) + "\">" : "") + grandchild_text + (ingested ? "</a>" : "")
               end
             end
           end
