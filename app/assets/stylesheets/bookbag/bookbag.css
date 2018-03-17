@@ -40,6 +40,9 @@
     overflow-y: hidden;
     word-wrap: break-word;
     padding-bottom: .5em;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
 }
 
 .myListContents p {
@@ -59,7 +62,6 @@
 .register {margin: 1em;text-align: center;background: rgba(196, 84, 20, 0.1);padding: .5em;border: 1px solid #c45414;border-radius: 5px;float:left;width:96%;}
 
 .myListContents .aeon-row {
-    width:90%;
     float:left;
     padding: .4em 1%;
 }
@@ -162,21 +164,6 @@
     float:right;
 }
 
-.myList .btn, .ui-dialog .ui-dialog-buttonpane button, #myListNav .btn, .actions .btn, #results .btn {
-    margin: 0 4px;
-    border: 1px outset #dddddd;
-    background-color:#dddddd;
-    -webkit-appearance:none;
-    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    letter-spacing: -.5px;
-    padding:4px 6px;
-    color:#000;
-}
-
-.myList .btn:hover, .ui-dialog .ui-dialog-buttonpane button:hover, #myListNav .btn:hover, .actions .btn:hover, #results .btn:hover {box-shadow:0px 0px 3px #c45414;color: #c45414;cursor:pointer;text-decoration:none !important;}
-.myList .btn:active, .ui-dialog .ui-dialog-buttonpane button:active, #myListNav .btn:active, .actions .btn:active, #results .btn:active {border: 1px inset #dddddd;color: #c45414;}
-
 .additional_notes {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -225,4 +212,8 @@
 
 .item-option {
   outline:none
+}
+
+.review {
+  margin-top: 10px;
 }

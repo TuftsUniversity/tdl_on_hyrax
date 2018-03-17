@@ -166,7 +166,7 @@ $(document).ready(function () {
                 };
 
 
-                var template = '<div class="aeon-row"><div class="requestInputs"><input type="checkbox" checked="checked" name="Request" value="{{identifier}}"/><input type="hidden" name="ReferenceNumber_{{identifier}}" value="{{referenceNumber}}"/><input type="hidden" name="ItemNumber_{{identifier}}" value="{{itemNumber}}"/><input type="hidden" name="Site_{{identifier}}" value="{{site}}"/><input type="hidden" name="ItemTitle_{{identifier}}" value="{{title}}"/><input type="hidden" name="ItemSubtitle_{{identifier}}" value="{{subTitle}}"/><input type="hidden" name="ItemInfo1_{{identifier}}" value="{{itemInfo1}}"/><input type="hidden" name="ItemInfo2_{{identifier}}" value="{{itemInfo2}}"/><input type="hidden" name="ItemInfo3_{{identifier}}" value="{{itemInfo3}}"/><input type="hidden" name="Author_{{identifier}}" value="{{itemAuthor}}"/><input type="hidden" name="ItemAuthor_{{identifier}}" value="{{itemAuthor}}"/><input type="hidden" name="ItemDate_{{identifier}}" value="{{itemDate}}"/><input type="hidden" name="CallNumber_{{identifier}}" value="{{callNumber}}"/><input type="hidden" name="ItemVolume_{{identifier}}" value="{{itemVolume}}"/></div><div class="collectionTitle"><p>{{title}}</p></div><div class="title"><p>{{subTitle}}</p></div><div class="CallNumber"><p>{{callNumber}}</p></div><div class="volume"><p>{{itemVolume}}</p></div><button class="list-delete btn" href="#" data-identifier="{{identifier}}">Delete</button></div>'
+                var template = '<div class="aeon-row"><div class="requestInputs"><input type="checkbox" checked="checked" name="Request" value="{{identifier}}"/><input type="hidden" name="ReferenceNumber_{{identifier}}" value="{{referenceNumber}}"/><input type="hidden" name="ItemNumber_{{identifier}}" value="{{itemNumber}}"/><input type="hidden" name="Site_{{identifier}}" value="{{site}}"/><input type="hidden" name="ItemTitle_{{identifier}}" value="{{title}}"/><input type="hidden" name="ItemSubtitle_{{identifier}}" value="{{subTitle}}"/><input type="hidden" name="ItemInfo1_{{identifier}}" value="{{itemInfo1}}"/><input type="hidden" name="ItemInfo2_{{identifier}}" value="{{itemInfo2}}"/><input type="hidden" name="ItemInfo3_{{identifier}}" value="{{itemInfo3}}"/><input type="hidden" name="Author_{{identifier}}" value="{{itemAuthor}}"/><input type="hidden" name="ItemAuthor_{{identifier}}" value="{{itemAuthor}}"/><input type="hidden" name="ItemDate_{{identifier}}" value="{{itemDate}}"/><input type="hidden" name="CallNumber_{{identifier}}" value="{{callNumber}}"/><input type="hidden" name="ItemVolume_{{identifier}}" value="{{itemVolume}}"/></div><div class="collectionTitle"><p>{{title}}</p></div><div class="title"><p>{{subTitle}}</p></div><div class="CallNumber"><p>{{callNumber}}</p></div><div class="volume"><p>{{itemVolume}}</p></div><button class="list-delete btn btn-default" href="#" data-identifier="{{identifier}}">Delete</button></div>'
                 var aeon_item = {
                     identifier: sanitize(item.identifier),
                     referenceNumber: sanitize(item.referenceNumber),
@@ -206,7 +206,7 @@ $(document).ready(function () {
 
 
             if (count < 1) {
-                $('.myListContents').append('<div class="empty">Your List is empty! Click on the icon that looks like this <i class="icon-plus-sign"></i> to add it to your list.</div>');
+                $('.myListContents').append('<div class="empty">Your List is empty! Click on the icon that looks like this <span class="glyphicon glyphicon-plus-sign"></span></i> to add it to your list.</div>');
                 $('#myListNav #myListButton').removeClass('hasContents');
                 $('.listActions').hide();
             }
@@ -248,7 +248,7 @@ $(document).ready(function () {
         } else {
             //if list is empty, set count to zero
             $(listCount).text('0');
-            $('.myListContents').append('<div class="empty">Your List is empty! Click on the icon that looks like this <i class="icon-plus-sign"></i> to add it to your list.</div>');
+            $('.myListContents').append('<div class="empty">Your List is empty! Click on the icon that looks like this <span class="glyphicon glyphicon-plus-sign"></span> to add it to your list.</div>');
             $('#myListNav #myListButton').removeClass('hasContents');
             $('.listActions').hide();
             $('#myListNav #myListButton').removeClass('hasContents');
@@ -419,10 +419,10 @@ $(document).ready(function () {
     });
 
     $('#myListActions').append('<div id="requestActions" class="listActions">' +
-        '<button class="btn request-copies" href="#"><i class="icon-file"></i>&nbsp;Request Copies</button>' +
-        '<button class="btn request-room" href="#"><i class="icon-book"></i>&nbsp;Request in Reading Room</button>' +
-        '<button class="btn review" href="#"><i class="icon-upload"></i>&nbsp;Save in TASCR</button>' +
-        '<button class="btn myListRemoveAll remove-all" href="#"><i class="icon-trash"></i>&nbsp;Remove all Items from List</button>' + '</div>');
+        '<button class="btn btn-default request-copies" href="#"><span class="glyphicon glyphicon-file"></span>&nbsp;Request Copies</button>' +
+        '<button class="btn btn-default request-room" href="#"><span class="glyphicon glyphicon-book"></span></i>&nbsp;Request in Reading Room</button>' +
+        '<button class="btn btn-default review" href="#"><span class="glyphicon glyphicon-upload"></span></i>&nbsp;Save in TASCR</button>' +
+        '<button class="btn btn-default myListRemoveAll remove-all" href="#"><span class="glyphicon glyphicon-trash"></span>&nbsp;Remove all Items from List</button>' + '</div>');
 
     function moveCheckedItemsToRequestForm()
     {
