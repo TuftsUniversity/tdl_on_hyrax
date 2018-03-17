@@ -1,10 +1,14 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
+require 'spec_helper'
 require 'rspec/rails'
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'capybara/poltergeist'
+require 'selenium-webdriver'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -23,7 +27,38 @@ require 'rspec/rails'
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 #
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+# Adding the below to deal with random Capybara-related timeouts in CI.
+# Found in this thread: https://github.com/teampoltergeist/poltergeist/issues/375
+poltergeist_options = {
+  js_errors: false,
+  timeout: 30,
+  logger: false,
+  debug: false,
+  phantomjs_logger: StringIO.new,
+  phantomjs_options: [
+    '--load-images=no',
+    '--ignore-ssl-errors=yes'
+  ]
+}
 
+Capybara.register_driver(:poltergeist) do |app|
+  Capybara::Poltergeist::Driver.new(app, poltergeist_options)
+end
+
+# Capybara.register_driver :chrome do |app|
+#  profile = Selenium::WebDriver::Chrome::Profile.new
+#  Capybara::Selenium::Driver.new(app, :browser => :chrome, profile: profile)
+# end
+
+Capybara.javascript_driver = :poltergeist
+
+Capybara.register_driver :chrome do |app|
+  profile = Selenium::WebDriver::Chrome::Profile.new
+  profile['extensions.password_manager_enabled'] = false
+  Capybara::Selenium::Driver.new(app, browser: :chrome, profile: profile)
+end
+
+Capybara.default_max_wait_time = 10
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
@@ -57,4 +92,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.order = "random"
+  config.include Capybara::DSL
 end
