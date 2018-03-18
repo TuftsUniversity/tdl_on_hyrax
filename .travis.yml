@@ -19,6 +19,7 @@ before_script:
 script:
   - bundle exec rubocop
   - bundle exec rake db:migrate
+  - bundle exec rake hyrax:default_admin_set:create
   - bundle exec rake travis
 addons:
   apt:
