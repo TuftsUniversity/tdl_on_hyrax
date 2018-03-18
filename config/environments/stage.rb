@@ -104,4 +104,3 @@ Hyrax.config do |config|
   config.upload_path = ->() { Pathname.new('/usr/local/hydra/mira-data/current/uploads') }
   config.cache_path  = ->() { Pathname.new('/usr/local/hydra/mira-data/current/cache') }
 end
-
