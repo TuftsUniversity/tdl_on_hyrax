@@ -29,6 +29,7 @@ unless Rails.env.production?
         dir: Rails.root.join("solr", "conf")
       ) do
         FcrepoWrapper.wrap(fcrepo_params) do
+					Rake::Task["tufts:fixtures:refresh"].invoke
           Rake::Task["spec"].invoke
         end
       end
