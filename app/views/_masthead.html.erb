@@ -30,8 +30,8 @@
   <div id="tufts-searchbar">
   <% if(controller.action_name == "show") %>
     <div class="container">
-      <#%= render 'shared/back_to_search' %>
-      <#%= render 'shared/download_options' %>
+      <%= render 'shared/back_to_search' %>
+      <%= render 'shared/download_options' %>
     </div>
   <% elsif controller.action_name == 'fa_overview' || controller.action_name == 'fa_series'%>
     <div class="container">

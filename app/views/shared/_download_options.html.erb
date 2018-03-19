@@ -14,7 +14,7 @@
     </ul>
   </div>
 <% else %>
-  <% if controller.controller_name == 'tufts_audios' %>
+  <% if controller.controller_name == 'audios' %>
     <div class="tdl-search-widgets">
       <ul class="tdl-right-nav">
         <% if @document_tei.present? %>
@@ -29,7 +29,7 @@
         </li>
       </ul>
     </div>
-  <% elsif controller.controller_name == 'tufts_videos' %>
+  <% elsif controller.controller_name == 'videos' %>
     <div class="tdl-search-widgets">
       <ul class="tdl-right-nav">
         <% if @document_tei.present? %>
@@ -44,7 +44,7 @@
         </li>
       </ul>
     </div>
-  <% elsif controller.controller_name == 'tufts_rcrs' %>
+  <% elsif controller.controller_name == 'rcrs' %>
     <div class="tdl-search-widgets">
       <ul class="tdl-right-nav">
         <% if @document_rcr.present? %>

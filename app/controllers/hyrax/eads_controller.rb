@@ -2,7 +2,6 @@ module Hyrax
   class EadsController < CatalogController
     helper :eads
     include Hyrax::WorksControllerBehavior
-    include Hyrax::BreadcrumbsForWorks
     include WithEads
     self.curation_concern_type = ::Ead
     self.show_presenter = Hyrax::EadPresenter
