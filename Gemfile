@@ -45,6 +45,8 @@ gem 'sidekiq'
 gem 'sitemap_generator'
 gem 'tufts-curation', github: 'curationexperts/tufts-curation', tag: 'v1.0.0'
 
+gem 'blacklight_oai_provider', git: 'https://github.com/UNC-Libraries/blacklight_oai_provider.git', branch: 'master'
+
 group :production do
   gem 'passenger'
   gem 'therubyracer'
