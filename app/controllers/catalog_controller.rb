@@ -3,6 +3,8 @@ class CatalogController < ApplicationController
   include BlacklightAdvancedSearch::Controller
   include Hydra::Catalog
   include Hydra::Controller::ControllerBehavior
+  include BlacklightOaiProvider::CatalogControllerBehavior
+
 
   # This filter applies the hydra access controls
   before_action :enforce_show_permissions, only: :show
@@ -296,6 +298,13 @@ class CatalogController < ApplicationController
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
     config.spell_max = 5
+
+    # OAI-PMH Settings
+    config.oai = {
+      provider: {
+        record_prefix: 'oai:tufts'
+      }
+    }
   end
   # disable the bookmark control from displaying in gallery view
   # Hyrax doesn't show any of the default controls on the list view, so
