@@ -37,5 +37,8 @@ public/sitemap.xml.gz
 # ignore any files created from running coveralls locally
 coverage/
 
+# ruby env
+.ruby-*
+
 .versions.conf
 fits.log
