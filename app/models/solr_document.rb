@@ -31,7 +31,7 @@ class SolrDocument
     identifier: 'id',
     title: 'title_tesim',
     creator: 'creator_tesim',
-    subject: ['subject_tesim', 'personal_name_tesim', 'geographic_name_tesim', 'corporate_name_tesim'],
+    subject: ['subject_tesim', 'personal_name_tesim', 'geographic_name_tesim', 'geog_name_tesim', 'corporate_name_tesim'],
     description: 'description_tesim',
     publisher: 'publisher_tesim',
     date: 'primary_date_tesim',
