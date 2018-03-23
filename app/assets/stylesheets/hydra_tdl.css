@@ -11,3 +11,7 @@
 h2#welcome_header {
   margin-top: 15px;
 }
+
+.main-header {
+  border-bottom: 1px solid #999999;
+}
