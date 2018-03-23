@@ -1,12 +1,8 @@
-<% title = @presenter.title[0]
-   provide :page_title,  title + " - " + application_name
-   provide :page_header do %>
-    <h2><%= title %></h2>
-<% end %>
+<%= render "shared/item_header" %>
 
 <div class="col-md-12 tdl-content">
   <div class="row col-md-6">
-    <video controls="controls" preload="auto" width="445px" height="390px">
+    <video controls="controls" preload="metadata" width="445px" height="390px">
       <source src="<%= @media_play_path %>?file=mp4" type="video/mp4">
       <source src="<%= @media_play_path %>?file=webm" type="video/webm">
       Your browser does not support the video tag.
