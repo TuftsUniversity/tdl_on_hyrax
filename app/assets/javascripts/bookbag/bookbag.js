@@ -9,7 +9,7 @@
  bagCount - the element which displays the number of items in the bookbag.
  ================================================================================================ */
 
-$(document).ready(function () {
+var bookbagInitializer = function () {
     // Sets global selector variables
     var listAdd = '.list-add';
     var listDelete = '.list-delete';
@@ -547,7 +547,7 @@ $(document).ready(function () {
 
     return false;
 
-});
+};
 
 
 // Disables inputs when checkbox is unchecked
@@ -645,3 +645,7 @@ $(function () {
 
     });
 }());
+
+
+$(document).ready(bookbagInitializer);
+$(document).on('turbolinks:load', bookbagInitializer); // Turbolinks 5
