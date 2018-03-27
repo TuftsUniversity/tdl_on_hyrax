@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.6'
+ gem 'rails', '~> 5.1.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -43,7 +43,7 @@ gem 'hydra-role-management'
 gem 'mysql2'
 gem 'sidekiq'
 gem 'sitemap_generator'
-gem 'tufts-curation', github: 'curationexperts/tufts-curation', tag: 'v1.0.0'
+gem 'tufts-curation', github: 'TuftsUniversity/tufts-curation'
 
 gem 'blacklight_oai_provider', git: 'https://github.com/UNC-Libraries/blacklight_oai_provider.git', branch: 'master'
 
@@ -72,7 +72,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'hyrax', '2.0.1'
+gem 'hyrax', github: 'samvera/hyrax', ref: 'c42434073491ae65f2e5c37310c8528c6fd63983'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
