@@ -5,11 +5,10 @@
     <% end %>
   <% end %>
 
-  <dt>This object appears in collection:</dt>
-  <dd>TBD</dd>
-  <%= @presenter.attribute_to_html(:subject, { linked: true }) %>
-  <%= @presenter.attribute_to_html(:genre, { linked: true }) %>
-  <%= @presenter.attribute_to_html(:permanent_url, { linked: true }) %>
+  <%= @presenter.attribute_to_html(:member_of_collections, { render_as: :linked, search_field: 'collection'}) %>
+  <%= @presenter.attribute_to_html(:subject, { render_as: :linked, search_field: 'subject' }) %>
+  <%= @presenter.attribute_to_html(:genre, {}) %>
+  <%= @presenter.attribute_to_html(:permanent_url, {}) %>
 
   <div class="well ">
     <dl class="dl-horizontal">

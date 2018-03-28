@@ -24,6 +24,10 @@ module Hyrax
       solr_document[:rights_statement_tesim]
     end
 
+    def member_of_collections
+      solr_document[:member_of_collections_ssim]
+    end
+
     ##
     # @return [Boolean] true; all works in the app are templatable.
     def work_templatable?
