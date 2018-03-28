@@ -43,7 +43,7 @@ gem 'hydra-role-management'
 gem 'mysql2'
 gem 'sidekiq'
 gem 'sitemap_generator'
-gem 'tufts-curation', github: 'TuftsUniversity/tufts-curation'
+gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', branch: 'master'
 
 gem 'blacklight_oai_provider', git: 'https://github.com/UNC-Libraries/blacklight_oai_provider.git', branch: 'master'
 
