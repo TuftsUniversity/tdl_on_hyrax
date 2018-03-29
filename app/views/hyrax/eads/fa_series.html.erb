@@ -25,7 +25,7 @@
 
 
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-12">
         <h2><%= series_title %></h2>
       </div>
     </div>
@@ -33,7 +33,7 @@
     <hr>
 
     <div class="row" id="outermost">
-      <div class="col-xs-3">
+      <div class="col-md-3">
         <div class="TOC" data-spy="affix" data-offset-top="90">
           <h6>On this page:</h6>
           <ul class="nav nav-tabs nav-stacked" style="margin: 0px;">
@@ -57,9 +57,9 @@
         </div>
       </div>
 
-      <div class="col-xs-9">
+      <div class="col-md-9">
         <div class="row" id="overview_and_tooltip">
-          <div class="col-xs-8">
+          <div class="col-md-8">
             <p>
               This series is part of
               <a data-turbolinks='false' href="<%= Rails.application.routes.url_helpers.hyrax_ead_path(params[:id]) %>"><%= @collection_title %></a>
@@ -221,7 +221,7 @@
 
           </div>
 
-          <div class="col-xs-4">
+          <div class="col-md-4">
             <%
               unitid = EadsHelper.unitid(@document_ead)
               if EadsHelper.collection_has_online_content(unitid)
