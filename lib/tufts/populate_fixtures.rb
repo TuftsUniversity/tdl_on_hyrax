@@ -101,7 +101,7 @@ module Tufts
       when "rcr"
         object = Rcr.new(id: pid)
       else
-        logger.warn "There is no support for #{metadata[model]} fixtures.  You'll have to add it."
+        Rails.logger.warn "There is no support for #{metadata[model]} fixtures.  You'll have to add it."
       end
 
       object.admin_set = admin_set
@@ -122,12 +122,24 @@ module Tufts
       # create actor to attach fileset to object
       actor = Hyrax::Actors::FileSetActor.new(file_set, @user)
       # actor.create_metadata("visibility" => Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC)
-      path = Rails.root.join('spec', metadata[:file])
-      actor.create_content(File.open(path))
-      Hyrax.config.callback.run(:after_import_local_file_success, file_set, @user, path)
-      actor.attach_to_work(object)
-      actor.file_set.permissions_attributes = work_permissions
-      file_set.save
+      # Ldp::Conflict
+      tries = 3
+      begin
+        path = Rails.root.join('spec', metadata[:file])
+        actor.create_content(File.open(path))
+        Hyrax.config.callback.run(:after_import_local_file_success, file_set, @user, path)
+        actor.attach_to_work(object)
+        actor.file_set.permissions_attributes = work_permissions
+        file_set.save!
+      rescue Ldp::Conflict
+        tries -= 1
+        if tries > 0
+          sleep(5.seconds)
+          retry
+        else
+          Rails.logger.error "Fixture file missing original for #{file_set.id}"
+        end
+      end
 
       MULTI_TERMS.each do |term|
         val = Array(metadata[term])
@@ -140,13 +152,12 @@ module Tufts
       end
 
       # TODO: Download show download link to all users needs metadata
-
       # add to collection if it exists
-      collection_title = metadata[:collection_title]
-      unless collection_title.nil?
-        collection = Collection.where(title: collection_title)
-        object.member_of_collections = collection
-      end
+      #      collection_title = metadata[:collection_title]
+      #      unless collection_title.nil?
+      #        collection = Collection.where(title: collection_title)
+      #        object.member_of_collections = collection
+      #      end
 
       object.save!
 
@@ -162,7 +173,7 @@ module Tufts
           sleep(5.seconds)
           retry
         else
-          logger.error "Fixture file missing original for #{file_set.id}"
+          Rails.logger.error "Fixture file missing original for #{file_set.id}"
         end
       end
       # save and return object
@@ -255,6 +266,7 @@ module Tufts
         date_created: "2016",
         displays_in: ["dl"],
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
         file: 'fixtures/MS999.archival.xml',
         model: "ead"
       },
@@ -265,6 +277,7 @@ module Tufts
         date_created: "2016",
         displays_in: ["dl"],
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
         file: 'fixtures/MS226.archival.xml',
         model: "ead", format_label: "text/xml"
 
