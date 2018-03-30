@@ -5,7 +5,7 @@ feature 'RCR' do
   # include TestHelpers    comment back in when ldap is ready
 
   before do
-    FactoryGirl.create(:tufts_RCR00579_rcr)
+    FactoryBot.create(:tufts_RCR00579_rcr)
   end
 
   scenario 'View RCR00579 ("Tisch Library") page' do

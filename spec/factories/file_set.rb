@@ -1,16 +1,23 @@
-FactoryGirl.define do
-  # The ::FileSet model is defined in .internal_test_app/app/models by the
-  # curation_concerns:install generator.
-  factory :file_set, class: FileSet do
+FactoryBot.define do
+  factory :file_set do
     transient do
-      user { FactoryGirl.create(:user) }
+      user { create(:user) }
       content nil
+    end
+    after(:build) do |fs, evaluator|
+      fs.apply_depositor_metadata evaluator.user.user_key
     end
 
     after(:create) do |file, evaluator|
-      if evaluator.content
-        Hydra::Works::UploadFileToFileSet.call(file, evaluator.content)
-      end
+      Hydra::Works::UploadFileToFileSet.call(file, evaluator.content) if evaluator.content
+    end
+
+    trait :public do
+      read_groups ["public"]
+    end
+
+    trait :registered do
+      read_groups ["registered"]
     end
 
     factory :file_with_work do
@@ -18,15 +25,9 @@ FactoryGirl.define do
         file.title = ['testfile']
       end
       after(:create) do |file, evaluator|
-        if evaluator.content
-          Hydra::Works::UploadFileToFileSet.call(file, evaluator.content)
-        end
-        FactoryGirl.create(:generic_work, user: evaluator.user).members << file
+        Hydra::Works::UploadFileToFileSet.call(file, evaluator.content) if evaluator.content
+        create(:work, user: evaluator.user).members << file
       end
-    end
-
-    after(:build) do |file, evaluator|
-      file.apply_depositor_metadata(evaluator.user.user_key)
     end
   end
 end

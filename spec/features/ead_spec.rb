@@ -5,8 +5,8 @@ feature 'EAD' do
   # include TestHelpers    comment back in when ldap is ready
 
   before do
-    FactoryGirl.create(:tufts_MS999_ead)
-    FactoryGirl.create(:tufts_MS226_ead)
+    FactoryBot.create(:tufts_MS999_ead)
+    FactoryBot.create(:tufts_MS226_ead)
   end
 
   # The MS999 EAD fixture is a new ASpace EAD.

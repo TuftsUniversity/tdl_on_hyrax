@@ -1,14 +1,18 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :tufts_RCR00579_rcr, class: Rcr do
     transient do
-      user { FactoryGirl.create(:user) } # find_or_create ???
+      user { create(:user) } # find_or_create ???
     end
     id { 's4655g578' }
     title { ["Tisch Library"] }
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     before(:create) do |work, evaluator|
-      work.ordered_members << FactoryGirl.create(:file_set, user: evaluator.user, title: ['A Contained FileSet'])
+      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: 'blah9')
+    end
+
+    after(:build) do |work, evaluator|
+     work.apply_depositor_metadata(evaluator.user.user_key)
     end
 
     after(:create) do |work, _evaluator|

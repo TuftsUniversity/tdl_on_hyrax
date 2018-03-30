@@ -40,6 +40,7 @@ gem 'blacklight_range_limit', '~> 6.3', '>= 6.3.2'
 gem 'coveralls', require: false
 gem 'devise_ldap_authenticatable'
 gem 'hydra-role-management'
+gem 'ldp', '0.7.0'
 gem 'mysql2'
 gem 'sidekiq'
 gem 'sitemap_generator'
@@ -91,7 +92,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.3'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem "factory_bot_rails"
   gem 'ffaker'
   gem 'ladle'
   gem 'simplecov'
