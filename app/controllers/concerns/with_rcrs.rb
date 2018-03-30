@@ -9,7 +9,6 @@ module WithRcrs
 
       @document_fedora = ActiveFedora::Base.find(params[:id])
       @document_rcr = nil
-      @rcr_download_path = nil
 
       return unless @document_fedora.instance_of?(Rcr)
 
@@ -21,7 +20,6 @@ module WithRcrs
           original_content = original_file.content
           unless original_content.nil?
             @document_rcr = Datastreams::Rcr.from_xml(original_content)
-            @rcr_download_path = hyrax.download_path(file_set)
           end
         end
       end
