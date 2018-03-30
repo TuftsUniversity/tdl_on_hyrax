@@ -18,13 +18,11 @@ module WithTranscripts
 
       file_sets.each do |file_set|
         original_file = file_set.original_file
-        unless original_file.nil?
-          if original_file.mime_type == "text/xml"
-            @document_tei = Datastreams::Tei.from_xml(original_file.content)
-            @document_tei.ng_xml.remove_namespaces! unless @document_tei.nil?
-            break
-          end
-        end
+        next if original_file.nil?
+        next unless original_file.mime_type == "text/xml"
+        @document_tei = Datastreams::Tei.from_xml(original_file.content)
+        @document_tei.ng_xml.remove_namespaces! unless @document_tei.nil?
+        break
       end
     end
   end
