@@ -6,7 +6,7 @@ feature 'RCR' do
 
   before do
     FactoryBot.create(:tufts_RCR00579_rcr)
-    sleep(10)
+    sleep(20)
   end
 
   scenario 'View RCR00579 ("Tisch Library") page' do
