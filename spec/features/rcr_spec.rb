@@ -6,7 +6,8 @@ feature 'RCR' do
 
   before do
     FactoryBot.create(:tufts_RCR00579_rcr)
-    sleep(20)
+    # This is not used, but without it the RCR is not created in time for the spec to visit.
+    FactoryBot.create(:tufts_MS226_ead)
   end
 
   scenario 'View RCR00579 ("Tisch Library") page' do
