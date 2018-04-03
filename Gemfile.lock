@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/TuftsUniversity/blacklight_oai_provider.git
+  revision: ca525ed49420941a5caf3c361089a2dffc2c9bd9
+  branch: master
+  specs:
+    blacklight_oai_provider (1.4.1)
+      blacklight (>= 6.1)
+      oai (~> 0.4.0)
+      rails (>= 4.2)
+
+GIT
   remote: https://github.com/TuftsUniversity/tufts-curation
   revision: 3a6be968385a0d53da98cb4fbe9bfd4fda5bef81
   branch: master
@@ -7,16 +17,6 @@ GIT
       active-fedora (>= 11.5, <= 12.99)
       activesupport
       hyrax (>= 2.0.0, <= 2.2.0)
-
-GIT
-  remote: https://github.com/UNC-Libraries/blacklight_oai_provider.git
-  revision: a6c1704c47268a7d892d549704b296df404f866a
-  branch: master
-  specs:
-    blacklight_oai_provider (1.4.1)
-      blacklight (>= 6.1)
-      oai (~> 0.4.0)
-      rails (>= 4.2)
 
 GIT
   remote: https://github.com/samvera/hyrax.git
