@@ -38,6 +38,7 @@ class SolrDocument
     type: 'human_readable_type_tesim',
     format: 'format_label_tesim',
     relation: 'is_part_of_tesim',
+    source: "source_tesim",
     rights: 'rights_note_tesim'
   )
 end
