@@ -8,7 +8,7 @@ FactoryBot.define do
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     before(:create) do |work, evaluator|
-      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: 'blah9')
+      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: 'BlahBlah9')
     end
 
     after(:build) do |work, evaluator|
@@ -17,10 +17,16 @@ FactoryBot.define do
 
     after(:create) do |work, _evaluator|
       rcr_test_file_1 = File.open(File.expand_path(File.join(Rails.root.to_s, "spec", "fixtures", "RCR00579.xml")))
-      original_file = work.file_sets[0].build_original_file
-      original_file.content = rcr_test_file_1
-      work.file_sets[0].save
-      work.save
+      Hydra::Works::AddFileToFileSet.call(work.file_sets[0], rcr_test_file_1, :original_file, versioning: true)
+      #      if work.file_sets[0].files[0].nil?
+      #        original_file = work.file_sets[0].build_original_file
+      #      else
+      #        original_file = work.file_sets[0].files[0]
+      #      end
+      #      original_file.content = rcr_test_file_1
+      #      original_file.save
+      #      work.file_sets[0].save!
+      work.save!
     end
   end
 end
