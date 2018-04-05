@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
   concern :oai_provider, BlacklightOaiProvider::Routes::Provider.new
 
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
