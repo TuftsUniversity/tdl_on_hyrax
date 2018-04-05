@@ -14,7 +14,7 @@ module Tufts
                     :held_by, :identifier, :internal_note, :is_format_of, :is_replaced_by, :language, :legacy_pid,
                     :personal_name, :primary_date, :provenance, :publisher, :qr_note, :qr_status,
                     :rejection_reason, :replaces, :resource_type, :retention_period, :rights_holder, :rights_note,
-                    :geographic_name, :steward, :subject, :table_of_contents, :temporal, :is_part_of, :tufts_license].freeze
+                    :geographic_name, :steward, :subject, :table_of_contents, :temporal, :is_part_of, :tufts_license, :source].freeze
     EARLY_TERMS = [:date_uploaded, :date_modified].freeze
     REMOVE_TERMS = [:keyword, :based_near, :location].freeze
     SINGULAR_TERMS = Tufts::PopulateFixtures.singular_terms - REMOVE_TERMS - EARLY_TERMS
