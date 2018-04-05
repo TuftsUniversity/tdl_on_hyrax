@@ -74,7 +74,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'hyrax', github: 'samvera/hyrax', ref: 'c42434073491ae65f2e5c37310c8528c6fd63983'
+gem 'hyrax', '2.1.0beta2'
+# github: 'samvera/hyrax', ref: 'c42434073491ae65f2e5c37310c8528c6fd63983'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
@@ -99,3 +100,5 @@ group :test do
   gem 'simplecov'
   gem 'simplecov-rcov'
 end
+
+gem 'riiif', '~> 1.1'
