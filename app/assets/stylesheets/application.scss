@@ -15,12 +15,16 @@
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require_self
  */
-@import 'settings';
 @import 'blacklight';
+
+@import 'settings';
 @import 'tdl_common';
-@import 'ead';
-@import 'rcr';
-@import 'generic_object_overrides';
-@import 'transcript';
-@import 'toc';
+
+@import 'object_css/ead';
+@import 'object_css/rcr';
+@import 'object_css/generic_object_overrides';
+@import 'object_css/transcript';
+@import 'object_css/toc';
+@import 'object_css/voting_record';
+
 @import 'mediaelement/mediaelementplayer.css';
