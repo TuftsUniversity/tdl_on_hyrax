@@ -41,8 +41,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'concern/eads/:id/fa' => 'hyrax/eads#fa_overview', :constraints => { id: /.*/ }, as: :fa_overview
-  get 'concern/eads/:id/fa/:item_id' => 'hyrax/eads#fa_series', :constraints => { id: /.*/, item_id: /.*/ }, as: :fa_series
+  get 'concern/eads/:id/fa', to: 'hyrax/eads#fa_overview', constraints: { id: /.*/ }, as: 'fa_overview'
+  get 'concern/eads/:id/fa/:item_id', to: 'hyrax/eads#fa_series', constraints: { id: /.*/, item_id: /.*/ }, as: 'fa_series'
   get 'concern/audios/:id/transcriptonly', to: 'hyrax/audios#audio_transcriptonly', constraints: { id: /.*/ }, as: 'audio_transcriptonly'
   get 'concern/videos/:id/transcriptonly', to: 'hyrax/videos#video_transcriptonly', constraints: { id: /.*/ }, as: 'video_transcriptonly'
 
