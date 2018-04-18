@@ -1,4 +1,7 @@
 module MetadataMethods
+
+# This may be obsolete - all this information should be available from @presenter
+
   def self.get_metadata(fedora_obj)
     datastream = fedora_obj.datastreams["DCA-META"]
 
