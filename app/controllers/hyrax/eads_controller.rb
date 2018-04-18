@@ -11,6 +11,11 @@ module Hyrax
     def fa_overview
       @id = params[:id]
       # or, to use "id" instead of "@id" in views, do this: render locals: {id:  params[:id]}
+
+      respond_to do |wants|
+        wants.html { presenter && parent_presenter }
+      end
+
       render layout: "homepage"
     end
 
@@ -18,6 +23,11 @@ module Hyrax
       @id = params[:id]
       @item_id = params[:item_id]
       # or, to use "id" instead of "@id" in views, do this: render locals: {id:  params[:id], item_id: params[:item_id]}
+
+      respond_to do |wants|
+        wants.html { presenter && parent_presenter }
+      end
+
       render layout: "homepage"
     end
   end

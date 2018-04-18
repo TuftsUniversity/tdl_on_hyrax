@@ -46,5 +46,7 @@ Rails.application.routes.draw do
   get 'concern/audios/:id/transcriptonly', to: 'hyrax/audios#audio_transcriptonly', constraints: { id: /.*/ }, as: 'audio_transcriptonly'
   get 'concern/videos/:id/transcriptonly', to: 'hyrax/videos#video_transcriptonly', constraints: { id: /.*/ }, as: 'video_transcriptonly'
 
+  match 'feedback', to: 'feedback#show', via: [:post]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
