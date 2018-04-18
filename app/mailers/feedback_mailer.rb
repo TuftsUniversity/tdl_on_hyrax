@@ -1,13 +1,12 @@
 class FeedbackMailer < ApplicationMailer
-  default :from => "donotreply@dl.tufts.edu"
+  default :subject => "TDL Content Feedback"
 
   def feedback(params)
     @params = params
 
     # TBD - get "to" and "subject" from settings...
-    mail(:to => "brian.goodmon@tufts.edu",
-      :from => params[:email],
-      :subject => "TDL Content Feedback")
+    mail(:to => Rails.configuration.tdl_feedback_address,
+      :from => params[:email])
   end
 
 end
