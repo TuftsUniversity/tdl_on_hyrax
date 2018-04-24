@@ -4,7 +4,7 @@ module HyraxHelper
   include Hyrax::HyraxHelperBehavior
 
   ##
-  # Creates the download bar links, based on controller name.
+  # Creates an array download bar link data, based on controller name.
   #
   # @param {str} controller_name
   #   The name of the current controller.
@@ -12,18 +12,17 @@ module HyraxHelper
   # @return {arr}
   #   An array of hashes with link data, for use in _download_options view.
   # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/MethodLength
+  # r ubocop:disable Metrics/MethodLength - purposely disabled for now
   def download_link_info(controller_name)
     download_links = []
 
-    case controller_name
     # Add the transcript link in any controller.
-    when /.*/
-      download_links << transcript_link(@presenter.transcript_id) if @document_tei.present?
+    download_links << transcript_link(@presenter.transcript_id) if @document_tei.present?
+
+    case controller_name
     when 'audios'
       download_links << audio_link(@presenter.media_id)
     when 'images'
-      # byebug
       download_links << add_to_list_link
       download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
     when 'rcrs'
@@ -35,7 +34,7 @@ module HyraxHelper
     download_links
   end # end download_link_info
   # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/MethodLength
+  # r ubocop:enable Metrics/MethodLength
 
   ##
   # The info for the "Add to List" link.
@@ -85,7 +84,7 @@ module HyraxHelper
   ##
   # The info for "Download Low-Resolution Image" link.
   #
-  # @param {?} file_set
+  # @param {arr} file_set
   #   The file_set that the image is in.
   #
   # @return {hash}
