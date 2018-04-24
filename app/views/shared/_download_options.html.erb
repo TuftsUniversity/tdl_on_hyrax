@@ -1,64 +1,13 @@
-<% if @downloadable %>
-  <% file_set = @presenter.solr_document._source["hasRelatedImage_ssim"] %>
-  <% img = Riiif::Engine.routes.url_helpers.image_path(file_set, "full") %>
+<% download_links = download_link_info(controller.controller_name) %>
+<% unless download_links.empty? %>
   <div class="tdl-search-widgets">
     <ul class="tdl-right-nav">
+     <% download_links.each do |link| %>
       <li>
-        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-        <a data-turbolinks="false" href="">Add to List</a>
+        <span class="<%= link[:icons] %>" aria-hidden="true"></span>
+        <a data-turbolinks="false" href="<%= link[:url] %>" target="_blank"><%= link[:text] %></a>
       </li>
-      <li>
-        <span class="glyphicon glyphicon-picture glyph-left" aria-hidden="true"></span>
-        <a data-turbolinks="false" href="<%= img %>" target="_blank")>Download low-resolution image</a>
-      </li>
+     <% end %>
     </ul>
   </div>
-<% else %>
-  <% if controller.controller_name == 'audios' %>
-    <div class="tdl-search-widgets">
-      <ul class="tdl-right-nav">
-        <% if @document_tei.present? %>
-          <% transcript_download_path = hyrax.download_path(@presenter.transcript_id) %>
-          <li>
-            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-            <a data-turbolinks="false" href="<%= transcript_download_path %>">Download Transcript</a>
-          </li>
-        <% end %>
-        <% media_download_path = hyrax.download_path(@presenter.media_id, file: "mp3") %>
-        <li>
-          <span class="glyphicon glyphicon-headphones glyph-left" aria-hidden="true"></span>
-          <a data-turbolinks="false" href="<%= media_download_path %>">Download Audio File</a>
-        </li>
-      </ul>
-    </div>
-  <% elsif controller.controller_name == 'videos' %>
-    <div class="tdl-search-widgets">
-      <ul class="tdl-right-nav">
-        <% if @document_tei.present? %>
-          <% transcript_download_path = hyrax.download_path(@presenter.transcript_id) %>
-          <li>
-            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-            <a data-turbolinks="false" href="<%= transcript_download_path %>">Download Transcript</a>
-          </li>
-        <% end %>
-        <% media_download_path = hyrax.download_path(@presenter.media_id, file: "mp4") %>
-        <li>
-          <span class="glyphicon glyphicon-film glyph-left" aria-hidden="true"></span>
-          <a data-turbolinks="false" href="<%= media_download_path %>">Download Video File</a>
-        </li>
-      </ul>
-    </div>
-  <% elsif controller.controller_name == 'rcrs' %>
-    <div class="tdl-search-widgets">
-      <ul class="tdl-right-nav">
-        <% if @document_rcr.present? %>
-          <% rcr_download_path = hyrax.download_path(@presenter.rcr_id) %>
-          <li>
-            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-            <a data-turbolinks="false" href="<%= rcr_download_path %>">Download EAC</a>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 <% end %>
