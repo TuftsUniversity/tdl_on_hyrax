@@ -4,6 +4,40 @@ module HyraxHelper
   include Hyrax::HyraxHelperBehavior
 
   ##
+  # Creates the download bar links, based on controller name.
+  #
+  # @param {str} controller_name
+  #   The name of the current controller.
+  #
+  # @return {arr}
+  #   An array of hashes with link data, for use in _download_options view.
+  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/MethodLength
+  def download_link_info(controller_name)
+    download_links = []
+
+    case controller_name
+    # Add the transcript link in any controller.
+    when /.*/
+      download_links << transcript_link(@presenter.transcript_id) if @document_tei.present?
+    when 'audios'
+      download_links << audio_link(@presenter.media_id)
+    when 'images'
+      # byebug
+      download_links << add_to_list_link
+      download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
+    when 'rcrs'
+      download_links << eac_link(@presenter.rcr_id) if @document_rcr.present?
+    when 'videos'
+      download_links << video_link(media_id)
+    end # end case controller
+
+    download_links
+  end # end download_link_info
+  # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/MethodLength
+
+  ##
   # The info for the "Add to List" link.
   #
   # @return {hash}
@@ -13,6 +47,54 @@ module HyraxHelper
       icons: 'glyphicon glyphicon-plus-sign',
       url: '',
       text: 'Add to List'
+    }
+  end
+
+  ##
+  # The info for "Download Audio" link.
+  #
+  # @param {str} media_id
+  #   The media id of the mp3.
+  #
+  # @return {hash}
+  #   The infor for the "Download Audio" link.
+  def audio_link(media_id)
+    {
+      icons: 'glyphicon glyphicon-headphones glyph-left',
+      url: hyrax.download_path(media_id, file: "mp3"),
+      text: 'Download Audio File'
+    }
+  end
+
+  ##
+  # The info for "Download EAC" link.
+  #
+  # @param {str} rcr_id
+  #   The rcr id for the eac.
+  #
+  # @return {hash}
+  #   The infor for the "Download EAC" link.
+  def eac_link(rcr_id)
+    {
+      icons: 'glyphicon glyphicon-file',
+      url: hyrax.download_path(rcr_id),
+      text: 'Download EAC'
+    }
+  end
+
+  ##
+  # The info for "Download Low-Resolution Image" link.
+  #
+  # @param {?} file_set
+  #   The file_set that the image is in.
+  #
+  # @return {hash}
+  #   The infor for the "Download Low-Resolution Image" link.
+  def low_res_image_link(file_set)
+    {
+      icons: 'glyphicon glyphicon-picture glyph-left',
+      url: Riiif::Engine.routes.url_helpers.image_path(file_set, 'full'),
+      text: 'Download Low-Resolution Image'
     }
   end
 
@@ -33,55 +115,18 @@ module HyraxHelper
   end
 
   ##
-  # Creates the download bar links, based on controller name.
+  # The info for "Download Video" link.
   #
-  # @param {str} controller_name
-  #   The name of the current controller.
+  # @param {str} media_id
+  #   The media id of the mp4.
   #
-  # @return {arr}
-  #   An array of hashes with link information.
-  def download_link_info(controller_name)
-    download_links = []
-
-    case controller_name
-    when 'audios'
-      if @document_tei.present?
-        download_links << transcript_link(@presenter.transcript_id)
-      end
-      download_links << {
-        icons: 'glyphicon glyphicon-headphones glyph-left',
-        url: hyrax.download_path(@presenter.media_id, file: "mp3"),
-        text: 'Download Audio File'
-      }
-    when 'images'
-      file_set = @presenter.solr_document._source['hasRelatedImage_ssim']
-      download_links << add_to_list_link
-      download_links << {
-        icons: 'glyphicon glyphicon-picture glyph-left',
-        url: Riiif::Engine.routes.url_helpers.image_path(file_set, 'full'),
-        text: 'Download low-resolution image'
-      }
-    when 'rcrs'
-      if @document_rcr.present?
-        download_links << {
-          icons: 'glyphicon glyphicon-file',
-          url: hyrax.download_path(@presenter.rcr_id),
-          text: 'Download EAC'
-         }
-      end
-    when 'videos'
-      if @document_tei.present?
-        download_links << transcript_link(@presenter.transcript_id)
-      end
-      download_links << {
-        icons: 'glyphicon glyphicon-film glyph-left',
-        url: hyrax.download_path(@presenter.media_id, file: "mp4"),
-        text: 'Download Video File'
-      }
-    else
-      # Rubocop requires an else block.
-    end # end case controller
-
-    download_links
-  end # end download_link_info
+  # @return {hash}
+  #   The info for the "Download Video" link.
+  def video_link(media_id)
+    {
+      icons: 'glyphicon glyphicon-film glyph-left',
+      url: hyrax.download_path(media_id, file: "mp4"),
+      text: 'Download Video File'
+    }
+  end
 end # end HyraxHelper
