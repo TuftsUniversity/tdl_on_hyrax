@@ -3,9 +3,10 @@
   <div class="tdl-search-widgets">
     <ul class="tdl-right-nav">
      <% download_links.each do |link| %>
+        <% is_blank = link[:blank] === false ? "" : 'target="_blank"' %>
       <li>
         <span class="<%= link[:icons] %>" aria-hidden="true"></span>
-        <a data-turbolinks="false" href="<%= link[:url] %>" target="_blank"><%= link[:text] %></a>
+        <a data-turbolinks="false" href="<%= link[:url] %>" <%= is_blank %>><%= link[:text] %></a>
       </li>
      <% end %>
     </ul>
