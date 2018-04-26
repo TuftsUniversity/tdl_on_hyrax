@@ -47,8 +47,7 @@ module HyraxHelper
     {
       icons: 'glyphicon glyphicon-plus-sign',
       url: '',
-      text: 'Add to List',
-      blank: false
+      text: 'Add to List'
     }
   end
 
@@ -64,7 +63,8 @@ module HyraxHelper
     {
       icons: 'glyphicon glyphicon-headphones glyph-left',
       url: hyrax.download_path(media_id, file: "mp3"),
-      text: 'Download Audio File'
+      text: 'Download Audio File',
+      label: "Audio: #{media_id.first}"
     }
   end
 
@@ -80,7 +80,8 @@ module HyraxHelper
     {
       icons: 'glyphicon glyphicon-file',
       url: hyrax.download_path(rcr_id),
-      text: 'Download EAC'
+      text: 'Download EAC',
+      label: "EAC: #{rcr_id.first}"
     }
   end
 
@@ -95,7 +96,8 @@ module HyraxHelper
     {
       icons: 'glyphicon glyphicon-file',
       url: hyrax.download_path(pdf_id),
-      text: 'Download PDF'
+      text: 'Download PDF',
+      label: "PDF: #{pdf_id.first}"
     }
   end
 
@@ -111,7 +113,8 @@ module HyraxHelper
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
       url: Riiif::Engine.routes.url_helpers.image_path(file_set, 'full'),
-      text: 'Download Low-Resolution Image'
+      text: 'Download Low-Resolution Image',
+      label: "Image: #{file_set.first}"
     }
   end
 
@@ -127,7 +130,8 @@ module HyraxHelper
     {
       icons: 'glyphicon glyphicon-file',
       url: hyrax.download_path(transcript_id),
-      text: 'Download Transcript'
+      text: 'Download Transcript',
+      label: "Transcript: #{transcript_id.first}"
     }
   end
 
@@ -143,7 +147,8 @@ module HyraxHelper
     {
       icons: 'glyphicon glyphicon-film glyph-left',
       url: hyrax.download_path(media_id, file: "mp4"),
-      text: 'Download Video File'
+      text: 'Download Video File',
+      label: "Video: #{media_id.first}"
     }
   end
 end
