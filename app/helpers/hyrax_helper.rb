@@ -12,6 +12,7 @@ module HyraxHelper
   # @return {arr}
   #   An array of hashes with link data, for use in _download_options view.
   # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/MethodLength
   def download_link_info(controller_name)
     download_links = []
 
@@ -35,6 +36,7 @@ module HyraxHelper
     download_links
   end
   # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/MethodLength
 
   ##
   # The info for the "Add to List" link.
