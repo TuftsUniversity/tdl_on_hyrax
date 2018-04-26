@@ -12,7 +12,7 @@ module HyraxHelper
   # @return {arr}
   #   An array of hashes with link data, for use in _download_options view.
   # rubocop:disable Metrics/CyclomaticComplexity
-  # r ubocop:disable Metrics/MethodLength - purposely disabled for now
+  # rubocop:disable Metrics/MethodLength - purposely disabled for now
   def download_link_info(controller_name)
     download_links = []
 
@@ -23,7 +23,7 @@ module HyraxHelper
     when 'audios'
       download_links << audio_link(@presenter.media_id)
     when 'images'
-      if(@downloadable)
+      if @downloadable
         download_links << add_to_list_link
         download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
       end
@@ -36,7 +36,7 @@ module HyraxHelper
     download_links
   end
   # rubocop:enable Metrics/CyclomaticComplexity
-  # r ubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength
 
   ##
   # The info for the "Add to List" link.
