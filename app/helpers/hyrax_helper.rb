@@ -24,6 +24,8 @@ module HyraxHelper
     when 'images'
       download_links << add_to_list_link
       download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
+    when 'pdfs'
+      download_links << pdf_link(@presenter.solr_document._source['hasRelatedMediaFragment_ssim'])
     when 'rcrs'
       download_links << eac_link(@presenter.rcr_id) if @document_rcr.present?
     when 'videos'
@@ -81,13 +83,28 @@ module HyraxHelper
   end
 
   ##
+  # The info for "Download PDF" link.
+  #
+  # @param {?} ?
+  #   ??
+  # @return {hash}
+  #   The info for the "Download PDF" link.
+  def pdf_link(pdf_id)
+    {
+      icons: 'glyphicon glyphicon-file',
+      url: hyrax.download_path(pdf_id),
+      text: 'Download PDF'
+    }
+  end
+
+  ##
   # The info for "Download Low-Resolution Image" link.
   #
   # @param {arr} file_set
   #   The file_set that the image is in.
   #
   # @return {hash}
-  #   The infor for the "Download Low-Resolution Image" link.
+  #   The info for the "Download Low-Resolution Image" link.
   def low_res_image_link(file_set)
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
