@@ -23,16 +23,18 @@ module HyraxHelper
     when 'audios'
       download_links << audio_link(@presenter.media_id)
     when 'images'
-      download_links << add_to_list_link
-      download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
+      if(@downloadable)
+        download_links << add_to_list_link
+        download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
+      end
     when 'rcrs'
       download_links << eac_link(@presenter.rcr_id) if @document_rcr.present?
     when 'videos'
       download_links << video_link(media_id)
-    end # end case controller
+    end
 
     download_links
-  end # end download_link_info
+  end
   # rubocop:enable Metrics/CyclomaticComplexity
   # r ubocop:enable Metrics/MethodLength
 
@@ -128,4 +130,4 @@ module HyraxHelper
       text: 'Download Video File'
     }
   end
-end # end HyraxHelper
+end
