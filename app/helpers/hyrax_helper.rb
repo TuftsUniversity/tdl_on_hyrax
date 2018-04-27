@@ -30,7 +30,7 @@ module HyraxHelper
     when 'rcrs'
       download_links << eac_link(@presenter.rcr_id) if @document_rcr.present?
     when 'videos'
-      download_links << video_link(media_id)
+      download_links << video_link(@presenter.media_id)
     end
 
     download_links
