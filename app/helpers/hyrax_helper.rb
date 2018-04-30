@@ -62,7 +62,7 @@ module HyraxHelper
   def audio_link(media_id)
     {
       icons: 'glyphicon glyphicon-headphones glyph-left',
-      url: hyrax.download_path(media_id, file: "mp3"),
+      url: hyrax.download_path(media_id),
       text: 'Download Audio File',
       label: "Audio: #{media_id.first}"
     }
