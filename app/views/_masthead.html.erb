@@ -45,11 +45,11 @@
   <% else %>
   <div id='searchbar-parent'>
     <div class="navbar-center">
-      <% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions'])) %>
+      <% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions', 'advanced'])) %>
         <%= render_search_bar %>
       <% end %>
 		</div> <!-- End navbar-center -->
-		<% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions'])) %>
+		<% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions', 'advanced'])) %>
       <div id='search_link'>
         <%= link_to 'Advanced Search', '/advanced' %>
       </div>
