@@ -1,11 +1,14 @@
-<% file_set = @presenter.solr_document._source["hasRelatedImage_ssim"] %>
+<%
+   file_set_id = @presenter.solr_document._source["hasRelatedImage_ssim"] 
+   file_set = FileSet.find(file_set_id).first
+%>
 <%= render "shared/item_header" %>
 <% collector = can?(:collect, @presenter.id) %>
 <% editor = can?(:edit, @presenter.id) %>
 <div class="col-md-12 tdl-content tdl-show-image">
   <div class="row col-md-6">
       <a href="somewhere" >
-        <%= image_tag(Riiif::Engine.routes.url_helpers.image_path(file_set, "400,")) %>
+        <%= image_tag(Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,")) %>
       </a>
   </div>
   <div class="col-md-6">
