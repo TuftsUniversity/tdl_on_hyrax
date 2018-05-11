@@ -112,7 +112,7 @@ module HyraxHelper
   def low_res_image_link(file_set)
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
-      url: Riiif::Engine.routes.url_helpers.image_path(file_set, 'full'),
+      url: hyrax.download_path(file_set),
       text: 'Download Low-Resolution Image',
       label: "Image: #{file_set.first}"
     }
