@@ -60,18 +60,14 @@ module MetadataMethods
     # When the "read more" link is clicked the hidden span will be shown, and there will be a "read less" link that
     # will have the opposite effect.  If no "read less" link is desired, pass "" for the fourth parameter.
     # Also include the javascript file read_more_or_less.js which has the functions that hide/show the spans.
-    result = ""
 
     if text.length <= length
-      result << text
+      text
     else
-      result << (text[0..(length - 1)] +
-          "<span id=\"readmore\" style=" ">...  <a href=\"javascript:readmore();\">" + read_more_text + "</a></span><span id=\"readless\" style=\"display:none\">" +
-          text[length..text.length] +
-          "  <a href=\"javascript:readless();\">" + read_less_text + "</a></span>")
+      "#{text[0..(length - 1)]}<span id=\"readmore\" style=" ">...  <a href=\"javascript:readmore();\">\
+      #{read_more_text}</a></span><span id=\"readless\" style=\"display:none\">\
+      #{text[length..text.length]}<a href=\"javascript:readless();\">\
+      #{read_less_text}</a></span>"
     end
-
-    return result
   end
-
 end
