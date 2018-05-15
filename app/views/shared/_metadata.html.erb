@@ -1,8 +1,12 @@
 <dl class="metadatapane">
-  <% unless @presenter.description.nil? %>
-    <% @presenter.description.each do |description| %>
-      <p class="descrip-field"><%= description %></p>
-    <% end %>
+  <% unless @presenter.description.empty? %>
+    <%
+      full_description = ''
+      @presenter.description.each do |description|
+        full_description += (full_description.empty? ? "" : '<br/><br/>') + description
+      end
+    %>
+    <p class="descrip-field"><%= raw MetadataMethods.read_more_or_less(full_description, 400) %></p>
   <% end %>
 
   <%= @presenter.attribute_to_html(:member_of_collections, { render_as: :linked, search_field: 'collection'}) %>

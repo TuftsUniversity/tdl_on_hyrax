@@ -27,6 +27,7 @@
 //= require 'bookbag/bookbag.js'
 //= require 'bookbag/datepicker.js'
 //= require 'feedback'
+//= require 'read_more_or_less'
 
 
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
