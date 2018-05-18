@@ -102,3 +102,5 @@ group :test do
 end
 
 gem 'riiif', '~> 1.1'
+
+gem 'high_voltage', '~> 3.0.0'

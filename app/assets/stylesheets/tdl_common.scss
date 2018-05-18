@@ -291,3 +291,33 @@ h2#welcome_header {
   margin-bottom: 10px;
 }
 
+/* ---------------------
+ * Static Collection Pages
+ * -------------------- */
+
+#static_thumbnail {
+  text-align:center;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#static_thumbnail li {
+  width: 214px;
+  font-size:small;
+  float: left;
+  left: -50%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+#static_thumbnail ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  float: left;
+  left: 50%;
+  position: relative;
+  text-align: center;
+}
+

@@ -1,0 +1,48 @@
+<%-
+@page_title = "Walter B. Wriston Archives"
+-%>
+<!-- LEFT SIDE/ FOR FLUID COLUMN TITLE ROW -->
+<div class="row-fluid">
+  <div class="col-md-12">
+  </div>
+
+  <!-- nested row LEFT -->
+  <div class="row-fluid">
+
+    <div class="col-md-3">
+      <%= render :partial => 'pages/menu' %>
+    </div>
+
+
+    <!-- nested Fluid RIGHT -->
+    <div class="row">
+      <div class="col-md-7">
+        <h2><%= @page_title %></h2>
+        <p></p>
+        <div id="static_thumbnail">
+          <ul class="thumbnails ">
+            <li class="col-md-3">
+              <div class="thumbnail">
+                <a href="/catalog/tufts:MS134.006.035.00004"><%= image_tag('featured_collections/wriston-tuhome.jpg') %></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+          <p>The <a
+          href="http://dca.lib.tufts.edu/features/wriston/">Walter B. Wriston Archives</a> provides access to
+          hundreds of articles, speeches, photographs, and other
+          resources from Wriston’s prolific career as a banker
+          and former chairman of Citicorp. To learn more about
+          Walter B. Wriston, you can visit the <a
+          href="http://dca.lib.tufts.edu/features/wriston/">online
+          exhibit portal for the Walter B. Wriston archives</a>,
+          <a
+          href="/catalog/tufts:UA069.001.DO.MS134">read more about the materials in the collection</a>, or just browse the <a
+          href="/catalog?f[collection_facet][]=Walter+B.+Wriston+Papers%2C+1918-2006&search_field=all_fields&utf8=%E2%9C%93">digital
+          objects from the Walter B. Wriston collection</a>
+          directly.</p>
+      </div>
+    </div>
+  </div>
+</div>

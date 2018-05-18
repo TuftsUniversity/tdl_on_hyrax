@@ -304,6 +304,7 @@ GEM
       tilt
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
+    high_voltage (3.0.0)
     hiredis (0.6.1)
     htmlentities (4.3.4)
     http-cookie (1.0.3)
@@ -882,6 +883,7 @@ DEPENDENCIES
   fcrepo_wrapper
   ffaker
   geckodriver-helper
+  high_voltage (~> 3.0.0)
   hydra-role-management
   hyrax (= 2.1.0beta2)
   jbuilder (~> 2.5)
