@@ -5,15 +5,15 @@ FactoryBot.define do
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     creator { ["Creator"] }
     primary_date { ["1900"] }
-    contributor { ["Ba Contrib"] }
-    temporal { ["Ba Temporal"] }
+    contributor { ["Bad Contrib"] }
+    temporal { ["Bad Temporal"] }
   end
 
   factory :image2, class: Image do
     title { ['Image 2'] }
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
-    contributor { ["Goo Contrib"] }
-    temporal { ["Goo Temporal"] }
+    contributor { ["Good Contrib"] }
+    temporal { ["Good Temporal"] }
   end
 end
