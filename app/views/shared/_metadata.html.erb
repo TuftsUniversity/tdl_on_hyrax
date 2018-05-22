@@ -22,7 +22,10 @@
       <dd><%= link_to(
         "DCA Citation Guide",
         "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
-        target: "_blank") %></dd>
+        target: "_blank") %>
+        &nbsp;&nbsp;
+        <%= link_to 'EndNote', polymorphic_path([main_app, @presenter], format: 'endnote') %>
+      </dd>
       <% unless @presenter.rights_statement.nil? %>
         <dt>Usage:</dt>
         <dd><%= link_to(
@@ -31,6 +34,8 @@
           target: "_blank") %></dd>
       <% end %>
     </dl>
-    <p>To request a high-resolution image, choose Add to List.</p>
+    <% if @presenter.solr_document._source["has_model_ssim"].include?("Image") %>
+      <p>To request a high-resolution image, choose Add to List.</p>
+    <% end %>
   </div>
 </dl>
