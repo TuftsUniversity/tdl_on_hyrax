@@ -340,11 +340,11 @@ class CatalogController < ApplicationController
     index
   end
 
-  def no_creator?(contrib_field, document)
+  def no_creator?(_, document)
     document._source['creator_tesim'].nil?
   end
 
-  def no_primary_date?(contrib_field, document)
+  def no_primary_date?(_, document)
     document._source['primary_date_tesim'].nil?
   end
 end
