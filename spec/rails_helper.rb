@@ -64,6 +64,9 @@ Capybara.default_max_wait_time = 10
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
+  include LdapManager
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -94,4 +97,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.order = "random"
   config.include Capybara::DSL
+
+  config.after(:suite) do
+    stop_ldap
+  end
 end
