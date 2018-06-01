@@ -16,4 +16,10 @@ FactoryBot.define do
     contributor { ["Good Contrib"] }
     temporal { ["Good Temporal"] }
   end
+
+  factory :authenticated_image, class: Image do
+    title { ['Tufts Only'] }
+    displays_in { ['dl'] }
+    visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_AUTHENTICATED }
+  end
 end
