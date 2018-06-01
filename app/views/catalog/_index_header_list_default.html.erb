@@ -1,0 +1,6 @@
+  <h2>
+    <%= link_to document.title_or_label, document %>
+    <% if document.visibility == "authenticated" %>
+      <span class="glyphicon glyphicon-lock"></span>
+    <% end %>
+  </h2>
