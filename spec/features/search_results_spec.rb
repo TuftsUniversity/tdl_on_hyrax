@@ -4,12 +4,13 @@ i_need_ldap
 
 feature 'Search Results' do
   let(:admin) { FactoryBot.create(:ldap_admin) }
-  let(:authenticated_image) { FactoryBot.create(:authenticated_image) }
   let(:search_results) { '/catalog?f[human_readable_type_sim][]=Image' }
 
   before(:all) do
     FactoryBot.create(:image1)
     FactoryBot.create(:image2)
+    # Fedora throws errors if you try to do this in a let() block
+    @authenticated_image = FactoryBot.create(:authenticated_image)
   end
 
   scenario "Contributor shows only when there's no Creator" do
@@ -24,15 +25,17 @@ feature 'Search Results' do
     expect(page).not_to have_text("Bad Temporal")
   end
 
-  scenario "Works with Authenticated visibility only show when user is authenticated" do
-    authenticated_image
-
+  scenario "Lock icon doesn't show on open-visiblity works" do
     visit search_results
     expect(page).not_to have_css(".glyphicon-lock")
+  end
 
+  scenario "Lock icon shows on authenticated-visibility works" do
     sign_in(admin)
     visit search_results
     # Verify that the glyph is present and in the correct record.
-    expect(find("#document_#{authenticated_image.id}")).to have_css(".glyphicon-lock")
+    # rubocop:disable RSpec/InstanceVariable
+    expect(find("#document_#{@authenticated_image.id}")).to have_css(".glyphicon-lock")
+    # rubocop:enable RSpec/InstanceVariable
   end
 end

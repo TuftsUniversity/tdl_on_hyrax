@@ -64,7 +64,6 @@ Capybara.default_max_wait_time = 10
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-
   include LdapManager
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
