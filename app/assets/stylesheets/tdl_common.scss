@@ -8,8 +8,6 @@ body {
   background: radial-gradient(ellipse farthest-corner at center center , #CEDCE7 0%, #596A72 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 
-
-
 /* ------------------------
  *  TYPOGRAPHY
  * ------------------------ */
@@ -206,6 +204,15 @@ h3 {
 /* Only in show pages ? */
 .tdl-content {
   min-height: 400px;
+}
+
+/* ------------------------
+ *  SEARCH RESULTS
+ * ------------------------ */
+#search-results .glyphicon-lock {
+  margin-left: 5px;
+  color: $tufts_blue;
+  font-size: .8em;
 }
 
 /* ------------------------
