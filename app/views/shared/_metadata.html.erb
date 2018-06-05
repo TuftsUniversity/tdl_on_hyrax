@@ -9,8 +9,45 @@
     <p class="descrip-field"><%= raw MetadataMethods.read_more_or_less(full_description, 400) %></p>
   <% end %>
 
-  <%= @presenter.attribute_to_html(:member_of_collections, { render_as: :linked, search_field: 'collection'}) %>
-  <%= @presenter.attribute_to_html(:subject, { render_as: :linked, search_field: 'subject' }) %>
+  <%
+    sources = @presenter.source
+    if sources.present?
+      source_legacy_pid = 'tufts:' + sources.first
+      collections = Ead.where(legacy_pid_tesim: source_legacy_pid)
+      if collections.present?
+        collection = collections.first
+  %>
+    This object is in collection
+    <ul class="tabular">
+      <li class="attribute attribute-source">
+        <a href="/concern/eads/<%= collection.id %>"><%= collection.title.first %></a>
+      </li>
+    </ul>
+  <%
+      end
+    else
+      # It has no solr "source" field, so it isn't in a collection with an EAD, but
+      # it might still be in a collection.
+      collections = @presenter.member_of_collections
+      if collections.present?
+  %>
+    Other objects in collection
+  <%
+        collections.each do |collection|
+          search_path = Rails.application.routes.url_helpers.search_catalog_path(:"f[member_of_collections_ssim][]" => collection)
+  %>
+    <ul class="tabular">
+      <li class="attribute attribute-source">
+        <a href="<%=search_path %>"><%= collection %></a>
+      </li>
+    </ul>
+  <%
+        end
+      end
+    end
+  %>
+
+  <%= @presenter.attribute_to_html(:subject, { render_as: :linked }) %>
   <%= @presenter.attribute_to_html(:genre, {}) %>
   <%= @presenter.attribute_to_html(:permanent_url, {}) %>
 

@@ -7,7 +7,7 @@
      series_names_and_subjects, series_related_material, series_alt_formats, series_originals_loc, series_other_finding_aids,
      series_items, unitid = EadsHelper.get_series_info(series)
    # @collection_title and @series_full_title are also used in the _subnav.html.erb partial
-   @collection_title = EadsHelper.title(@document_ead).first
+   @collection_title, collection_title_only = EadsHelper.title(@document_ead)
    @series_full_title = "Series " + series_level + ": " + series_title
    provide :page_title, @series_full_title + " - " + application_name
 %>
@@ -225,9 +225,11 @@
             <%
               unitid = EadsHelper.unitid(@document_ead)
               if EadsHelper.collection_has_online_content(unitid)
+                search_field = ERB::Util.h(Solrizer.solr_name('member_of_collections', :symbol))
+                search_path = Rails.application.routes.url_helpers.search_catalog_path(:"f[#{search_field}][]" => collection_title_only)
             %>
                 <div class="tooltip-demo well">
-                  <h5><a href="/catalog?utf8=✓&search_field=source&q=<%= unitid %>">View Online Materials</a><span class="glyphicon glyphicon-arrow-right glyph-right" aria-hidden="true"></span></h5>
+                  <h5><a href="<%= search_path %>">View Online Materials</a><span class="glyphicon glyphicon-arrow-right glyph-right" aria-hidden="true"></span></h5>
                   <p>Use <strong>My List</strong> to request materials that are not online.</p>
                 </div>
             <% end %>
