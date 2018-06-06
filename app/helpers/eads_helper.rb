@@ -870,6 +870,7 @@ module EadsHelper
     creator = ""
     page = ""
     thumbnail = ""
+    thumbnail_path = ""
     access_restrict = ""
     available_online = false
     can_request = false
@@ -962,7 +963,7 @@ module EadsHelper
 
         if !daoloc_audience.nil? && daoloc_audience.text == "internal"
           # an audience="internal" attribute in a daoloc tag means this item is in the Dark Archive;
-          # leave page and thumbnail = "" so that values will not be returned for them
+          # leave page and thumbnail_path = "" so that values will not be returned for them
           # and so that the href will not be included in title.  Set physloc to the dark
           # archive message.
           can_request = true
@@ -980,10 +981,11 @@ module EadsHelper
       end
 
       unless page.empty?
-        available_online, f4_id = PidMethods.ingested?(page)
+        available_online, f4_id, f4_thumb_path = PidMethods.ingested?(page)
         if available_online
           page = f4_id
-          thumbnail = f4_id unless thumbnail.empty?
+          # only show thumbnail if EAD says to, but the pid in the EAD will be wrong.
+          thumbnail_path = f4_thumb_path unless thumbnail.empty?
         end
       end
     end
@@ -1000,13 +1002,11 @@ module EadsHelper
         physloc = "Dark Archive"
       else
         # ASpace EADs lack the <daogrp><daoloc> page and thumbnail attributes, so compute them from item_id thusly:
-        available_online, f4_id = PidMethods.ingested?(page)
+        available_online, f4_id, f4_thumb_path = PidMethods.ingested?(page)
 
         if available_online
           page = f4_id
-          # if page_doc.datastreams.include?("Thumbnail.png")  How do we know if it has a thumbnail or not???
-          #   thumbnail = page_pid
-          # end
+          thumbnail_path = f4_thumb_path
         elsif dao_href.nil?
           # It's not in Solr, and it's not in darkarchive, and it has no href, so it must be unprocessed.
           can_request = true
@@ -1023,7 +1023,7 @@ module EadsHelper
 
     if available_online
       if !page.empty?
-        item_url = "/concern/tufts_images/" + page # TBD!!! this might not be an image;  it could be a PDF!
+        item_url = "/concern/images/" + page # TBD!!! this might not be an image;  it could be a PDF!
       elsif !external_page.empty?
         item_url = external_page
       end
@@ -1060,7 +1060,7 @@ module EadsHelper
 
     paragraphs = get_scopecontent_paragraphs(scopecontent) unless scopecontent.nil?
 
-    [unitdate, creator, physloc_orig, access_restrict, item_id, title, paragraphs, labels, values, page, thumbnail, available_online, can_request, next_level_items]
+    [unitdate, creator, physloc_orig, access_restrict, item_id, title, paragraphs, labels, values, page, thumbnail_path, available_online, can_request, next_level_items]
   end
 
   def self.parse_origination(node)

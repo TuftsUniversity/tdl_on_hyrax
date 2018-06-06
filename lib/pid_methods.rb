@@ -2,6 +2,7 @@ module PidMethods
   def self.ingested?(pid)
     result = false
     f4_id = ""
+    thumbnail_path = ""
 
     if pid.start_with?("tufts:")
       solr_connection = ActiveFedora.solr.conn
@@ -13,18 +14,17 @@ module PidMethods
       if collection_length > 0
         result = true
         f4_id = response['response']['docs'][0]['id']
+        thumbnail_path = response['response']['docs'][0]['thumbnail_path_ss']
       end
-
-      result = (collection_length > 0)
     else
       begin
         ActiveFedora::Base.load_instance_from_solr(pid)
-        f4_id = pid
         result = true
+        f4_id = pid
       rescue
       end
     end
 
-    [result, f4_id]
+    [result, f4_id, thumbnail_path]
   end
 end
