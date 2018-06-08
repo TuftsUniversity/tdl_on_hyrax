@@ -1002,7 +1002,7 @@ module EadsHelper
         physloc = "Dark Archive"
       else
         # ASpace EADs lack the <daogrp><daoloc> page and thumbnail attributes, so compute them from item_id thusly:
-        available_online, f4_id, f4_thumb_path, model = PidMethods.ingested?("tufts:" + item_id)  # TBD - is this always true???
+        available_online, f4_id, f4_thumb_path, model = PidMethods.ingested?("tufts:" + item_id) # TBD - is this always true???
 
         if available_online
           page = f4_id

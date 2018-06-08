@@ -49,6 +49,7 @@ Metrics/CyclomaticComplexity:
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
+    - lib/pid_methods.rb
 Metrics/PerceivedComplexity:
   Exclude:
     - app/controllers/concerns/with_transcripts.rb
@@ -69,6 +70,7 @@ Metrics/AbcSize:
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
+    - lib/pid_methods.rb
 Metrics/MethodLength:
   Exclude:
     - app/controllers/concerns/with_rcrs.rb
