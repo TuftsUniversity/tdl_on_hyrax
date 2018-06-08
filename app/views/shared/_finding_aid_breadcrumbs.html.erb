@@ -8,8 +8,8 @@
       </div>
 
       <% if controller.action_name == 'fa_overview'%>
-        <div class="pull-right tdl-search-widgets" style="display: none;">    <!-- display: none; for now until pdfs become available -->
+        <div class="pull-right tdl-search-widgets" style="display: none;">    <!-- TBD display: none; for now until pdfs become available -->
           <span class="glyphicon glyphicon-file glyph-left" aria-hidden="true"></span>
-          <a href="/file_assets/pdf/<%= params[:id] %>"></i>Download Collection Guide (PDF)</a>    <!-- this route is probably wrong -->
+          <a href="/file_assets/pdf/<%= params[:id] %>"></i>Download Collection Guide (PDF)</a>    <!-- TBD this route is probably wrong -->
         </div>
       <% end %>

@@ -104,8 +104,8 @@ module HyraxHelper
   ##
   # The info for "Download Low-Resolution Image" link.
   #
-  # @param {arr} file_set
-  #   The file_set that the image is in.
+  # @param {arr} file_set id
+  #   Id of the file_set that the image is in.
   #
   # @return {hash}
   #   The info for the "Download Low-Resolution Image" link.

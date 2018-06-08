@@ -981,7 +981,7 @@ module EadsHelper
       end
 
       unless page.empty?
-        available_online, f4_id, f4_thumb_path = PidMethods.ingested?(page)
+        available_online, f4_id, f4_thumb_path, model = PidMethods.ingested?(page)
         if available_online
           page = f4_id
           # only show thumbnail if EAD says to, but the pid in the EAD will be wrong.
@@ -1002,7 +1002,7 @@ module EadsHelper
         physloc = "Dark Archive"
       else
         # ASpace EADs lack the <daogrp><daoloc> page and thumbnail attributes, so compute them from item_id thusly:
-        available_online, f4_id, f4_thumb_path = PidMethods.ingested?(page)
+        available_online, f4_id, f4_thumb_path, model = PidMethods.ingested?("tufts:" + item_id)  # TBD - is this always true???
 
         if available_online
           page = f4_id
@@ -1023,7 +1023,7 @@ module EadsHelper
 
     if available_online
       if !page.empty?
-        item_url = "/concern/images/" + page # TBD!!! this might not be an image;  it could be a PDF!
+        item_url = "/concern/" + model.downcase + "s/" + page # TBD this is sketchy - isn't there a rails-y way to change model name into controller name?
       elsif !external_page.empty?
         item_url = external_page
       end
@@ -1060,7 +1060,7 @@ module EadsHelper
 
     paragraphs = get_scopecontent_paragraphs(scopecontent) unless scopecontent.nil?
 
-    [unitdate, creator, physloc_orig, access_restrict, item_id, title, paragraphs, labels, values, page, thumbnail_path, available_online, can_request, next_level_items]
+    [unitdate, creator, physloc_orig, access_restrict, item_id, title, paragraphs, labels, values, item_url, thumbnail_path, available_online, can_request, next_level_items]
   end
 
   def self.parse_origination(node)
