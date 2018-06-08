@@ -4,6 +4,7 @@
     <ul class="tdl-right-nav">
      <% download_links.each do |link| %>
         <% dl_stuff = link[:label] ? "id='file_download' target='_blank' data-label='#{link[:label]}'".html_safe : '' %>
+        <% dl_stuff << (link[:download].present? ? " download='#{link[:download]}'".html_safe : '') %>
       <li>
         <span class="<%= link[:icons] %>" aria-hidden="true"></span>
         <a data-turbolinks="false" href="<%= link[:url] %>" <%= dl_stuff %>><%= link[:text] %></a>
