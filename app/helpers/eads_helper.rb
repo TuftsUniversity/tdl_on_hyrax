@@ -1023,7 +1023,7 @@ module EadsHelper
 
     if available_online
       if !page.empty?
-        item_url = "/concern/" + model.downcase.pluralize + "/" + page # TBD - isn't there a rails-ier way to change model name into controller name?
+        item_url = Rails.application.routes.url_helpers.send("hyrax_#{model.downcase}_path", page)
       elsif !external_page.empty?
         item_url = external_page
       end
