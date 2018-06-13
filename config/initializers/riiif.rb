@@ -1,4 +1,11 @@
 Riiif::Image.file_resolver = Riiif::HTTPFileResolver.new
+
+if Rails.env.production?
+  Riiif::Image.file_resolver.cache_path = '/tdr/hyrax_iiif/prod'
+elsif Rails.env.stage?
+  Riiif::Image.file_resolver.cache_path = '/tdr/hyrax_iiif/dev'
+end
+
 Riiif::Image.info_service = lambda do |id, _file|
   # id will look like a path to a pcdm:file
   # (e.g. rv042t299%2Ffiles%2F6d71677a-4f80-42f1-ae58-ed1063fd79c7)
