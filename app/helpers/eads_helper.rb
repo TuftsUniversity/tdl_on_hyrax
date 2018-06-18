@@ -168,7 +168,7 @@ module EadsHelper
       rcr_url = "tufts:" + rcr_url
       ingested, f4_id = PidMethods.ingested?(rcr_url)
       if ingested
-        result = "<a href=\"" + hyrax_rcr_path(f4_id) + "\">" + name + "</a>"
+        result = "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" + name + "</a>"
       end
     end
 
@@ -200,7 +200,7 @@ module EadsHelper
       end
 
       result = if ingested
-                 "<a href=\"" + hyrax_rcr_path(f4_id) + "\">" + name + "</a>"
+                 "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" + name + "</a>"
                else
                  name
                end
@@ -452,7 +452,7 @@ module EadsHelper
               unless child_url.empty?
                 ingested, f4_id = PidMethods.ingested?(child_url)
               end
-              result << (ingested ? "<a href=\"" + hyrax_rcr_path(f4_id) + "\">" : "") + child_text + (ingested ? "</a>" : "")
+              result << (ingested ? "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" : "") + child_text + (ingested ? "</a>" : "")
             end
           end
         end
@@ -796,14 +796,14 @@ module EadsHelper
                grandchildname == "title" || grandchildname == "genreform" || grandchildname == "famname"
               grandchild_text = element_grandchild.text
               grandchild_id = element_grandchild.attribute("id")
-              grandchild_url = (grandchild_id.nil? ? "" : grandchild_id.text)
+              grandchild_url = (grandchild_id.nil? ? "" : "tufts:" + grandchild_id.text)
 
               unless grandchild_text.empty?
                 ingested = false
                 unless grandchild_url.empty?
                   ingested, f4_id = PidMethods.ingested?(grandchild_url)
                 end
-                series_names_and_subjects << (ingested ? "<a href=\"" + hyrax_rcr_path(f4_id) + "\">" : "") + grandchild_text + (ingested ? "</a>" : "")
+                series_names_and_subjects << (ingested ? "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" : "") + grandchild_text + (ingested ? "</a>" : "")
               end
             end
           end
