@@ -2,7 +2,6 @@
 #  `rails generate hyrax:work Image`
 module Hyrax
   class ImagePresenter < GenericWorkPresenter
-
     # IIIF metadata for inclusion in the manifest
     #  Called by the `iiif_manifest` gem to add metadata
     #
@@ -13,6 +12,5 @@ module Hyrax
     def manifest_metadata
       super.delete_if { |data| data["value"].blank? }
     end
-
   end
 end
