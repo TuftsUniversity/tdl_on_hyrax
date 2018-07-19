@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  simple_form: # All these labels are for the IIIF Manifest, used by Spotlight.
+    labels:
+      defaults:
+        publisher: "Publisher"
+        date: "Date"
+        subject: "Subject"
+        type: "Type"
+        format_label: "Format"
+        rights_statement: "Rights Statement"
+        corporate_name: "Corporation"
+        geog_name: "Area of Interest"
+        bibliographic_citation: "Citation"
+        identifier: "Public URL"

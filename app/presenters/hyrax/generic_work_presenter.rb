@@ -37,5 +37,28 @@ module Hyrax
     def work_templatable?
       true
     end
+
+
+    ## All methods below here are used in manifest.json ##
+    def date
+      solr_document[:primary_date_tesim] || solr_document[:temporal_tesim]
+    end
+
+    def type
+      solr_document[:has_model_ssim]
+    end
+
+    def corporate_name
+      solr_document[:corporate_name_tesim]
+    end
+
+    def geog_name
+      solr_document[:geog_name_tesim]
+    end
+
+    def bibliographic_citation
+      solr_document[:bibliographic_citation_tesim]
+    end
+
   end
 end
