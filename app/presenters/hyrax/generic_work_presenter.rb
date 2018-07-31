@@ -38,8 +38,8 @@ module Hyrax
       true
     end
 
-
     ## All methods below here are used in manifest.json ##
+
     def date
       solr_document[:primary_date_tesim] || solr_document[:temporal_tesim]
     end
@@ -59,6 +59,5 @@ module Hyrax
     def bibliographic_citation
       solr_document[:bibliographic_citation_tesim]
     end
-
   end
 end
