@@ -7,6 +7,12 @@
       <a class="thumbnail" href="somewhere">
         <%= image_tag(hyrax.download_path(file_set_id.first) + "?file=thumbnail") %>
       </a>
+
+      <h6>
+        <%= link_to "/pdfviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false } do %>
+          open in viewer <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+        <% end %>
+     </h6>
   </div>
   <div class="col-md-6">
     <%= render "shared/metadata" %>
