@@ -10,6 +10,11 @@
       <a href="somewhere" >
         <%= image_tag(Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,")) %>
       </a>
+      <h6>
+        <%= link_to "/imageviewer/#{@presenter.id}", data: { turbolinks: false } do %>
+          open in viewer <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+        <% end %>
+     </h6>
   </div>
   <div class="col-md-6">
     <%= render "shared/metadata" %>

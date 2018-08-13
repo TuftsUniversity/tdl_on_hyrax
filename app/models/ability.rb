@@ -22,6 +22,7 @@ class Ability
     end
 
     can [:fa_overview], ActiveFedora::Base
+    can [:imageviewer], ActiveFedora::Base
     can [:fa_series], ActiveFedora::Base
     can [:audio_transcriptonly], ActiveFedora::Base
     can [:video_transcriptonly], ActiveFedora::Base

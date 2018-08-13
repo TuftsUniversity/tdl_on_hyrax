@@ -29,7 +29,6 @@ Rails.application.routes.draw do
   concern :exportable, Blacklight::Routes::Exportable.new
 
   match '/robots.txt', to: 'application#robots', via: [:get]
-  match '/imageviewer/:id', to: 'imageviewer#show', constraints: { id: /.*/ }, as: 'imageviewer', via: [:get]
   match '/pdfviewer/:id/:parent', to: 'pdfviewer#index', constraints: { id: /.*/ }, as: 'pdfviewer', via: [:get]
 
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
@@ -44,6 +43,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'concern/images/:id/imageviewer', to: 'hyrax/images#advanced', constraints: { id: /.*/ }, as: 'imageviewer'
   get 'concern/eads/:id/fa', to: 'hyrax/eads#fa_overview', constraints: { id: /.*/ }, as: 'fa_overview'
   get 'concern/eads/:id/fa/:item_id', to: 'hyrax/eads#fa_series', constraints: { id: /.*/, item_id: /.*/ }, as: 'fa_series'
   get 'concern/audios/:id/transcriptonly', to: 'hyrax/audios#audio_transcriptonly', constraints: { id: /.*/ }, as: 'audio_transcriptonly'

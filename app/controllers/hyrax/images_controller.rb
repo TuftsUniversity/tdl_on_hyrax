@@ -18,6 +18,16 @@ module Hyrax
       render json: manifest_json
     end
 
+    def advanced
+      @id = params[:id]
+      # or, to use "id" instead of "@id" in views, do this: render locals: {id:  params[:id]}
+
+      respond_to do |wants|
+        wants.html { presenter && parent_presenter }
+      end
+      render layout: "homepage"
+    end
+
     private
 
       ###
