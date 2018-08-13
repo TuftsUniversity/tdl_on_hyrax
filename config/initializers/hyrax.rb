@@ -127,7 +127,6 @@ Hyrax.config do |config|
 
   # Fields to display in the IIIF metadata section; default is the required fields
   config.iiif_metadata_fields = [ # Hyrax::Forms::WorkForm.required_fields
-    :title,
     :creator,
     :publisher,
     :date,
