@@ -2,9 +2,8 @@
 #  `rails generate hyrax:work Image`
 
 module Hyrax
-  class ImagesController < ApplicationController
+  class ImagesController < CatalogController
     include Hyrax::WorksControllerBehavior
-    include Hyrax::BreadcrumbsForWorks
     self.curation_concern_type = ::Image
     self.show_presenter = Hyrax::ImagePresenter
 
@@ -25,7 +24,7 @@ module Hyrax
       respond_to do |wants|
         wants.html { presenter && parent_presenter }
       end
-      render layout: "homepage"
+      render layout: "imageviewer"
     end
 
     private
