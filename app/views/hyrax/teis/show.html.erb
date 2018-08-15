@@ -1,0 +1,20 @@
+<% file_set_id = @presenter.solr_document._source["hasRelatedImage_ssim"] %>
+<%= render "shared/item_header" %>
+<% collector = can?(:collect, @presenter.id) %>
+<% editor = can?(:edit, @presenter.id) %>
+<div class="col-md-12 tdl-content tdl-show-image">
+  <div class="row col-md-6">
+      <a class="thumbnail" href="somewhere">
+        <%= image_tag(hyrax.download_path(file_set_id.first) + "?file=thumbnail") %>
+      </a>
+
+      <h6>
+        <%= link_to "/pdfviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false } do %>
+          open in viewer <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+        <% end %>
+     </h6>
+  </div>
+  <div class="col-md-6">
+    <%= render "shared/metadata" %>
+  </div>
+</div>
