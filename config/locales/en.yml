@@ -30,6 +30,6 @@ en:
         format_label: "Format"
         rights_statement: "Rights"
         corporate_name: "Corporation"
-        geog_name: "Geographic Name"
+        geog_name: "Area of Interest"
         bibliographic_citation: "Citation"
-        identifier: "Identifier"
+        identifier: "Permanent URL"
