@@ -130,7 +130,6 @@ Hyrax.config do |config|
     :creator,
     :publisher,
     :date,
-    :date_created,
     :subject,
     :type,
     :format_label,
