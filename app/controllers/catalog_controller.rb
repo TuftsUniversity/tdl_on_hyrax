@@ -137,148 +137,87 @@ class CatalogController < ApplicationController
       }
     end
 
-    # Now we see how to over-ride Solr request handler defaults, in this
-    # case for a BL 'search field', which is really a dismax aggregate
-    # of Solr search fields.
-    # creator, title, description, publisher, date_created,
-    # subject, language, resource_type, format, identifier, based_near,
-    config.add_search_field('contributor') do |field|
-      # solr_parameters hash are sent to Solr as ordinary url query params.
+    ##
+    # Adds a search field. Saves some lines. Can optionally pass a block for more customization.
+    # @param {str} name
+    #   The name of the field, to be displayed and indexed as.
+    # @param {BlacklightConfiguration} config
+    #   The blacklight_config that we're adding the search fields to.
+    def self.add_search_field(name, config)
+      config.add_search_field(name) do |field|
+        solr_name = solr_name(name, :stored_searchable)
 
-      # :solr_local_parameters will be sent using Solr LocalParams
-      # syntax, as eg {! qf=$title_qf }. This is neccesary to use
-      # Solr parameter de-referencing like $title_qf.
-      # See: http://wiki.apache.org/solr/LocalParams
-      solr_name = solr_name('contributor', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
+        # :solr_local_parameters will be sent using Solr LocalParams
+        # syntax, as eg {! qf=$title_qf }. This is neccesary to use
+        # Solr parameter de-referencing like $title_qf.
+        # See: http://wiki.apache.org/solr/LocalParams
+        field.solr_local_parameter = {
+          qf: solr_name,
+          pf: solr_name
+        }
+
+        yield(field) if block_given?
+        field
+      end
     end
 
-    config.add_search_field('creator') do |field|
-      solr_name = solr_name('creator', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
+    ##
+    # An extension of add_search_field that hides the field from basic search.
+    # @param {str} name
+    #   The name of the field, to be displayed and indexed as.
+    # @param {BlacklightConfiguration} config
+    #   The blacklight_config that we're adding the search fields to.
+    def self.add_advanced_search_field(name, config)
+      add_search_field(name, config) do |field|
+        field.include_in_simple_select = false
+        field.solr_local_parameter.delete(:pf)
+      end
     end
 
-    config.add_search_field('title') do |field|
-      solr_name = solr_name('title', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
-    config.add_search_field('description') do |field|
-      field.label = 'Abstract or Summary'
-      solr_name = solr_name('description', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
-    config.add_search_field('publisher') do |field|
-      solr_name = solr_name('publisher', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
+    add_search_field('title', config)
+    add_search_field('creator', config)
+    add_search_field('description', config)
+    add_advanced_search_field('abstract', config)
+    add_advanced_search_field('bibliographic_citation', config)
+    add_search_field('contributor', config)
+    add_advanced_search_field('corporate_name', config)
+    add_advanced_search_field('creator_department', config)
     config.add_search_field('date_created') do |field|
       solr_name = solr_name('created', :stored_searchable)
-      field.solr_local_parameters = {
+      field.solr_local_parameter = {
         qf: solr_name,
         pf: solr_name
       }
     end
-
-    config.add_search_field('subject') do |field|
-      solr_name = solr_name('subject', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
-    config.add_search_field('language') do |field|
-      solr_name = solr_name('language', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
-    config.add_search_field('resource_type') do |field|
-      solr_name = solr_name('resource_type', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
-    # config.add_search_field('format') do |field|
-    #   solr_name = solr_name('format', :stored_searchable)
-    #   field.solr_local_parameters = {
-    #     qf: solr_name,
-    #     pf: solr_name
-    #   }
-    # end
-
-    config.add_search_field('identifier') do |field|
-      solr_name = solr_name('id', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
+    add_advanced_search_field('genre', config)
+    add_search_field('keyword', config)
+    add_search_field('language', config)
     config.add_search_field('based_near') do |field|
       field.label = 'Location'
       solr_name = solr_name('based_near_label', :stored_searchable)
-      field.solr_local_parameters = {
+      field.solr_local_parameter = {
         qf: solr_name,
         pf: solr_name
       }
     end
+    add_advanced_search_field('personal_name', config)
+    add_search_field('publisher', config)
+    add_search_field('subject', config)
+    add_advanced_search_field('temporal', config)
 
-    config.add_search_field('keyword') do |field|
-      solr_name = solr_name('keyword', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
+    add_search_field('resource_type', config) { |f| f.include_in_advanced_search = false; }
+    add_search_field('identifier', config) { |f| f.include_in_advanced_search = false; }
+    add_search_field('rights_statement', config) { |f| f.include_in_advanced_search = false; }
+    add_search_field('license', config) { |f| f.include_in_advanced_search = false; }
     config.add_search_field('depositor') do |field|
       solr_name = solr_name('depositor', :symbol)
-      field.solr_local_parameters = {
+      field.include_in_advanced_search = false
+      field.solr_local_parameter = {
         qf: solr_name,
         pf: solr_name
       }
     end
 
-    config.add_search_field('rights_statement') do |field|
-      solr_name = solr_name('rights_statement', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
-    config.add_search_field('license') do |field|
-      solr_name = solr_name('license', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name
-      }
-    end
-
-    include AdvancedSearchFields
     # 'sort results by' select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
@@ -301,6 +240,7 @@ class CatalogController < ApplicationController
       }
     }
   end
+
   # disable the bookmark control from displaying in gallery view
   # Hyrax doesn't show any of the default controls on the list view, so
   # this method is not called in that context.
