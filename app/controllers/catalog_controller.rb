@@ -182,6 +182,7 @@ class CatalogController < ApplicationController
     add_search_field('contributor', config)
     add_advanced_search_field('corporate_name', config)
     add_advanced_search_field('creator_department', config)
+    add_search_field('primary_date', config) { |f| f.label = "Date" }
     config.add_search_field('date_created') do |field|
       solr_name = solr_name('created', :stored_searchable)
       field.solr_local_parameter = {
@@ -205,10 +206,10 @@ class CatalogController < ApplicationController
     add_search_field('subject', config)
     add_advanced_search_field('temporal', config)
 
-    add_search_field('resource_type', config) { |f| f.include_in_advanced_search = false; }
-    add_search_field('identifier', config) { |f| f.include_in_advanced_search = false; }
-    add_search_field('rights_statement', config) { |f| f.include_in_advanced_search = false; }
-    add_search_field('license', config) { |f| f.include_in_advanced_search = false; }
+    add_search_field('resource_type', config) { |f| f.include_in_advanced_search = false }
+    add_search_field('identifier', config) { |f| f.include_in_advanced_search = false }
+    add_search_field('rights_statement', config) { |f| f.include_in_advanced_search = false }
+    add_search_field('license', config) { |f| f.include_in_advanced_search = false }
     config.add_search_field('depositor') do |field|
       solr_name = solr_name('depositor', :symbol)
       field.include_in_advanced_search = false
