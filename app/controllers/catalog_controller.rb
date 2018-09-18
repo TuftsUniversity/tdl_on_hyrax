@@ -240,6 +240,17 @@ class CatalogController < ApplicationController
         record_prefix: 'oai:tufts'
       }
     }
+
+    config.advanced_search = {
+      form_solr_parameters: {
+        "facet.field" => [
+          solr_name('human_readable_type', :facetable),
+          solr_name('subject', :facetable),
+          solr_name('member_of_collections', :symbol)
+        ],
+        "facet.limit" => 5
+      }
+    }
   end
 
   # disable the bookmark control from displaying in gallery view
