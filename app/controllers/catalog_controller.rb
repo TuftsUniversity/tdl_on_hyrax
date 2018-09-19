@@ -21,7 +21,14 @@ class CatalogController < ApplicationController
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     config.advanced_search[:url_key] ||= 'advanced'
     config.advanced_search[:query_parser] ||= 'dismax'
-    config.advanced_search[:form_solr_parameters] ||= {}
+    config.advanced_search[:form_solr_parameters] ||= {
+      "facet.field" => [
+        solr_name('human_readable_type', :facetable),
+        solr_name('subject', :facetable),
+        solr_name('member_of_collections', :symbol)
+      ],
+      "facet.limit" => 5
+    }
 
     config.view.gallery.partials = [:index_header, :index]
     config.view.masonry.partials = [:index]
@@ -238,17 +245,6 @@ class CatalogController < ApplicationController
     config.oai = {
       provider: {
         record_prefix: 'oai:tufts'
-      }
-    }
-
-    config.advanced_search = {
-      form_solr_parameters: {
-        "facet.field" => [
-          solr_name('human_readable_type', :facetable),
-          solr_name('subject', :facetable),
-          solr_name('member_of_collections', :symbol)
-        ],
-        "facet.limit" => 5
       }
     }
   end
