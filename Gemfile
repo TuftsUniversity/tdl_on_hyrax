@@ -45,7 +45,7 @@ gem 'mysql2'
 gem 'pdfjs_viewer-rails'
 gem 'sidekiq'
 gem 'sitemap_generator'
-gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: '1.0.12'
+gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: '1.0.13'
 # gem 'tufts-curation', :path => '../tufts-curation'
 
 # gem 'blacklight_oai_provider', git: 'https://github.com/UNC-Libraries/blacklight_oai_provider.git', branch: 'master'
