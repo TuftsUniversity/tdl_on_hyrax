@@ -7,7 +7,7 @@ feature 'Search Results' do
   let(:search_results) { '/catalog?f[human_readable_type_sim][]=Image' }
 
   before(:all) do
-    FactoryBot.create(:image1)
+    @open_visibility_image = FactoryBot.create(:image1)
     FactoryBot.create(:image2)
     # Fedora throws errors if you try to do this in a let() block
     @authenticated_image = FactoryBot.create(:authenticated_image)
@@ -27,7 +27,9 @@ feature 'Search Results' do
 
   scenario "Lock icon doesn't show on open-visiblity works" do
     visit search_results
-    expect(page).not_to have_css(".glyphicon-lock")
+    # rubocop:disable RSpec/InstanceVariable
+    expect(find("#document_#{@open_visibility_image.id}")).not_to have_css(".glyphicon-lock")
+    # rubocop:enable RSpec/InstanceVariable
   end
 
   scenario "Lock icon shows on authenticated-visibility works" do
