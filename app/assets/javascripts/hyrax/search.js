@@ -21,9 +21,8 @@ Hyrax.Search = (function($) {
 
   // Builds a url using the search_field selection and getQuery().
   var buildUrl = function() {
-    var wl = window.location,
-      url =  "http://" + wl.host + wl.pathname + "?utf8=\u2713&search_field=advanced&";
-    return url + search_field + '=' + getQuery();
+    return "http://" + window.location.host +
+      "/catalog?utf8=\u2713&search_field=advanced&" + search_field + '=' + getQuery();
   }
 
   // Gets the query from the text input.
