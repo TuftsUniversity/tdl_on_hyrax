@@ -158,7 +158,7 @@ class CatalogController < ApplicationController
         # syntax, as eg {! qf=$title_qf }. This is neccesary to use
         # Solr parameter de-referencing like $title_qf.
         # See: http://wiki.apache.org/solr/LocalParams
-        field.solr_local_parameter = {
+        field.solr_local_parameters = {
           qf: solr_name,
           pf: solr_name
         }
@@ -177,7 +177,7 @@ class CatalogController < ApplicationController
     def self.add_advanced_search_field(name, config)
       add_search_field(name, config) do |field|
         field.include_in_simple_select = false
-        field.solr_local_parameter.delete(:pf)
+        field.solr_local_parameters.delete(:pf)
       end
     end
 
@@ -192,7 +192,7 @@ class CatalogController < ApplicationController
     add_search_field('primary_date', config) { |f| f.label = "Date" }
     config.add_search_field('date_created') do |field|
       solr_name = solr_name('created', :stored_searchable)
-      field.solr_local_parameter = {
+      field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name
       }
@@ -203,7 +203,7 @@ class CatalogController < ApplicationController
     config.add_search_field('based_near') do |field|
       field.label = 'Location'
       solr_name = solr_name('based_near_label', :stored_searchable)
-      field.solr_local_parameter = {
+      field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name
       }
@@ -220,7 +220,7 @@ class CatalogController < ApplicationController
     config.add_search_field('depositor') do |field|
       solr_name = solr_name('depositor', :symbol)
       field.include_in_advanced_search = false
-      field.solr_local_parameter = {
+      field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name
       }
