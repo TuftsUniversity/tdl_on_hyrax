@@ -21,6 +21,8 @@
 // Required by Blacklight
 //= require blacklight/blacklight
 
+// Need hyrax app before our code
+//= require 'hyrax/app.js'
 //= require_tree .
 //= require hyrax
 //= require 'mustache/mustache.js'

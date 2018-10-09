@@ -33,3 +33,11 @@ en:
         geog_name: "Area of Interest"
         bibliographic_citation: "Citation"
         identifier: "Permanent URL"
+
+  tufts:
+    search:
+      option:
+        keyword: "Keyword"
+        title: "Title"
+        creator: "Creator/Author"
+        subject: "Subject"

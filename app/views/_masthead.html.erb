@@ -14,7 +14,7 @@
         <ul class="tdl-right-nav">
           <li><%= link_to 'Contact', '/contact' %></li>
           <li><%= link_to 'About', '/about' %></li>
-          <li><a href="">Search</a></li>
+          <li><%= link_to 'Search', '/advanced' %></li>
         </ul>
       </div>
       <% if(controller.action_name == "show" || controller.action_name == 'fa_overview' || controller.action_name == 'fa_series' || controller.action_name == 'audio_transcriptonly' || controller.action_name == 'video_transcriptonly') %>
