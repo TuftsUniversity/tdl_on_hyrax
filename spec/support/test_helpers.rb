@@ -19,4 +19,20 @@ module TestHelpers
     fill_in('user_password', with: user.password)
     click_button('Log in')
   end
+
+  ##
+  # Runs a basic search.
+  #
+  # @params
+  #   type {string} The selection in the basic search dropdown - title, subject, etc.
+  #   query {string} The query to search for.
+  def basic_search(type, query)
+    visit root_path
+    fill_in('search-field-header', with: query)
+    click_button('Keyword')
+    within('#search-form-header') do
+      click_link(type)
+    end
+    click_button('Go')
+  end
 end

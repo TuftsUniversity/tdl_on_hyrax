@@ -17,6 +17,14 @@ FactoryBot.define do
     temporal { ["Good Temporal"] }
   end
 
+  factory :image3, class: Image do
+    title { ['Unique Title'] }
+    creator { ["Travis"] }
+    subject { ["elephant"] }
+    displays_in { ['dl'] }
+    visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
+  end
+
   factory :authenticated_image, class: Image do
     title { ['Tufts Only'] }
     displays_in { ['dl'] }
