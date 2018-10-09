@@ -9,6 +9,7 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'selenium-webdriver'
+require 'active_fedora/cleaner'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -97,7 +98,42 @@ RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL
 
+
+  config.before :suite do
+    DatabaseCleaner.clean_with(:truncation)
+    # Noid minting causes extra LDP requests which slow the test suite.
+    Hyrax.config.enable_noids = false
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, js: true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   config.after(:suite) do
     stop_ldap
   end
+end
+
+# Deletes everything in Fedora.
+def clean_fedora
+  ActiveFedora::Cleaner.clean!
+end
+
+##
+# Deletes everything in Solr.
+def clean_solr
+  solr = ActiveFedora::SolrService.instance.conn
+  solr.delete_by_query("*:*", params: { commit: true })
 end

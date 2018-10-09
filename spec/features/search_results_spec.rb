@@ -13,6 +13,11 @@ feature 'Search Results' do
     @authenticated_image = FactoryBot.create(:authenticated_image)
   end
 
+  after(:all) do
+    clean_solr
+    clean_fedora
+  end
+
   scenario "Contributor shows only when there's no Creator" do
     visit search_results
     expect(page).to have_text("Good Contrib")
