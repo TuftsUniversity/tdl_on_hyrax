@@ -13,8 +13,14 @@
 
 .table .collapse_td {padding: 0; padding-top: 3px; width: 10px;}
 .table .title_td {width: 489px;}
-.table .folder_title_td {width: 489px;}
-.table .item_title_td {width: 489px;}
+.table .folder_title_td {
+  width: 489px;
+  word-break: break-word;
+}
+.table .item_title_td {
+  width: 489px;
+  word-break: break-word;
+}
 .table .label_value_td {width: 205px;}
 .table .label_value_table {width: 205px;}
 .table .label_value_table_tr {width: 205px;}
