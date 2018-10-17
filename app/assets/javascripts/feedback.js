@@ -1,26 +1,22 @@
 function submitFeedback(url, authenticity_token) {
   var params,
       message = document.getElementById("inputComment").value,
-      optionalEmail = document.getElementById("inputEmail").value;
+      emailAddress = document.getElementById("inputEmail").value;
 
   if (message == null || message.length == 0) {
     alert("Please enter a message.");
     return;
   }
 
-  if (optionalEmail == null || optionalEmail.length == 0) {
-    optionalEmail = "unknown@unknowable.com";	// feedback_controller.rb expects an email address -- make one up.
-  } else {
-    var regexp = new RegExp("\\w+@\\w+\\.\\w+");
+  var regexp = new RegExp("\\w+@\\w+\\.\\w+");
 
-    if (!optionalEmail.match(regexp)) {
-      alert("Please enter a valid email address or leave the email address field blank.");
+  if (emailAddress == null || emailAddress.length == 0 || !emailAddress.match(regexp)) {
+      alert("Please enter a valid email address.");
       return;
-    }
   }
 
   params  = "name=Unknown";		// feedback_controller.rb expects a name -- make one up.
-  params += "&email=" + optionalEmail;
+  params += "&email=" + emailAddress;
   params += "&message=" + message;
   params += "&utf8=#x2713;";
 
