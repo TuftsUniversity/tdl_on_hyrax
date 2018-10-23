@@ -15,9 +15,7 @@ module TranscriptsHelper
       result << "        </div> <!-- participant_row -->\n"
     end
 
-    unless result.empty?
-      result = "<div class=\"participant_table\">\n" + result + "      </div> <!-- participant_table -->\n"
-    end
+    result = "<div class=\"participant_table\">\n" + result + "      </div> <!-- participant_table -->\n" unless result.empty?
 
     result
   end
@@ -116,9 +114,7 @@ module TranscriptsHelper
       elsif child_name == "event" || child_name == "gap" || child_name == "vocal" || child_name == "kinesic"
         unless child.attributes.empty?
           desc = child.attributes["desc"]
-          unless desc.nil?
-            result += "<span class=\"transcript_notation\">[" + desc + "]</span>"
-          end
+          result += "<span class=\"transcript_notation\">[" + desc + "]</span>" unless desc.nil?
         end
       end
     end

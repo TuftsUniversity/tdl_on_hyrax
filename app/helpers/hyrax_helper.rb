@@ -17,7 +17,7 @@ module HyraxHelper
     download_links = []
 
     # Add the transcript link in any controller.
-    download_links << transcript_link(@presenter.transcript_id) if @document_tei.present?
+    download_links << transcript_link(@presenter.transcript_id) if @document_tei.present? && @presenter.class.to_s != "Hyrax::TeiPresenter"
 
     case controller_name
     when 'audios'

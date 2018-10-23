@@ -108,9 +108,7 @@ class TranscriptChunk
         elsif child_name == "event" || child_name == "gap" || child_name == "vocal" || child_name == "kinesic"
           unless child.attributes.empty?
             desc = child.attributes["desc"]
-            unless desc.nil?
-              current_transcript_chunk.add_utterance(desc, nil, timepoint_id)
-            end
+            current_transcript_chunk.add_utterance(desc, nil, timepoint_id) unless desc.nil?
           end
         end
       end
@@ -229,9 +227,7 @@ class TranscriptChunk
       elsif child_name == "event" || child_name == "gap" || child_name == "vocal" || child_name == "kinesic"
         unless child.attributes.empty?
           desc = child.attributes["desc"]
-          unless desc.nil?
-            result += "<span class=\"transcript_notation\">[" + desc + "]</span>"
-          end
+          result += "<span class=\"transcript_notation\">[" + desc + "]</span>" unless desc.nil?
         end
       end
     end

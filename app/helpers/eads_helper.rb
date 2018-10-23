@@ -167,9 +167,7 @@ module EadsHelper
     if !name.empty? && !rcr_url.empty?
       rcr_url = "tufts:" + rcr_url
       ingested, f4_id = PidMethods.ingested?(rcr_url)
-      if ingested
-        result = "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" + name + "</a>"
-      end
+      result = "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" + name + "</a>" if ingested
     end
 
     result
@@ -352,9 +350,7 @@ module EadsHelper
           unittitle = did_child.text
         elsif childname == "unitdate"
           datetype = did_child.attribute("type")
-          unless !datetype.nil? && datetype.text == "bulk"
-            unitdate = did_child.text
-          end
+          unitdate = did_child.text unless !datetype.nil? && datetype.text == "bulk"
         end
 
         unless unittitle.empty? || unitdate.empty?
@@ -449,9 +445,7 @@ module EadsHelper
 
             unless child_text.empty?
               ingested = false
-              unless child_url.empty?
-                ingested, f4_id = PidMethods.ingested?(child_url)
-              end
+              ingested, f4_id = PidMethods.ingested?(child_url) unless child_url.empty?
               result << (ingested ? "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" : "") + child_text + (ingested ? "</a>" : "")
             end
           end
@@ -800,9 +794,7 @@ module EadsHelper
 
               unless grandchild_text.empty?
                 ingested = false
-                unless grandchild_url.empty?
-                  ingested, f4_id = PidMethods.ingested?(grandchild_url)
-                end
+                ingested, f4_id = PidMethods.ingested?(grandchild_url) unless grandchild_url.empty?
                 series_names_and_subjects << (ingested ? "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" : "") + grandchild_text + (ingested ? "</a>" : "")
               end
             end
@@ -916,9 +908,7 @@ module EadsHelper
           end
         elsif childname == "unitdate"
           datetype = did_child.attribute("type")
-          unless !datetype.nil? && datetype.text == "bulk"
-            unitdate = did_child.text
-          end
+          unitdate = did_child.text unless !datetype.nil? && datetype.text == "bulk"
         elsif childname == "unitid"
           # In ASpace EADs the human-readable item id is in <c><did><unitid>... instead of the id attribute of the <c id=...>
           item_id = did_child.text
