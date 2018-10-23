@@ -2,19 +2,51 @@
 <%= render "shared/item_header" %>
 <% collector = can?(:collect, @presenter.id) %>
 <% editor = can?(:edit, @presenter.id) %>
+<% unless (['tufts:UA069.005.DO.00002','tufts:UA069.005.DO.00021','tufts:UA069.005.DO.00017','tufts:UA069.005.DO.00018','tufts:UA069.005.DO.00019','tufts:UA069.005.DO.00012','tufts:UA069.005.DO.00015','tufts:UA069.005.DO.00005'] & @presenter.solr_document._source["legacy_pid_tesim"]).empty? %>
+
+<%= render :partial => 'streets' %>
+
+<% else %>
+
 <div class="col-md-12 tdl-content tdl-show-image">
   <div class="row col-md-6">
-      <a class="thumbnail" href="somewhere">
-        <%= image_tag(hyrax.download_path(file_set_id.first) + "?file=thumbnail") %>
-      </a>
-
+    <ul class="tei-thumbnails">
+     <li class="span6 tei-centertext">
+      <div class="bookcover2"><%= @presenter.title.first %></div>
+      <br>
       <h6>
-        <%= link_to "/pdfviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false } do %>
-          open in viewer <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
-        <% end %>
-     </h6>
+      <%= link_to "/teiviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false } do %>
+        View Book <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+      <% end %>
+      </h6>
+    </li>
+   </ul>
   </div>
   <div class="col-md-6">
-    <%= render "shared/metadata" %>
-  </div>
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#information">Information</a></li>
+      <li><a data-toggle="tab" href="#table-of-contents">Table of Contents</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="information" class="tab-pane active">
+        <%= render "shared/metadata" %>
+      </div>
+
+      <div id="table-of-contents" class="tab-pane">
+        <table class="table noborder">
+          <tbody>
+          <tr class="borderbottom">
+            <td class="collapse_td  ">
+              <a data-pid="<%= params[:id] %>" class="myImageGalleryLauncher" href="#myImageGallery"><i class="icon-picture"></i></a></td>
+            <td><a data-pid="<%= params[:id] %>" class="myImageGalleryLauncher" href="#myImageGallery"> View all images in this book </a></td>
+          </tr>
+          <% toc_results, chapter_list =  TeisHelper.get_toc(@document_tei, @presenter.id) %>
+          <%= raw toc_results %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> <!-- right column -->
 </div>
+<% end %>
