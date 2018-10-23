@@ -39,6 +39,7 @@ gem 'blacklight_advanced_search'
 gem 'blacklight_range_limit', '~> 6.3', '>= 6.3.2'
 gem 'coveralls', require: false
 gem 'devise_ldap_authenticatable'
+gem 'easy_logging'
 gem 'hydra-role-management'
 gem 'ldp', '0.7.0'
 gem 'mysql2'
