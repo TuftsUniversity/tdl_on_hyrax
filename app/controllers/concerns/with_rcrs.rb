@@ -18,9 +18,7 @@ module WithRcrs
         original_file = file_set.original_file
         unless original_file.nil?
           original_content = original_file.content
-          unless original_content.nil?
-            @document_rcr = Datastreams::Rcr.from_xml(original_content)
-          end
+          @document_rcr = Datastreams::Rcr.from_xml(original_content) unless original_content.nil?
         end
       end
     end
