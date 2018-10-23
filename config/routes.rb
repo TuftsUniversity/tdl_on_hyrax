@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/about', to: 'high_voltage/pages#show', defaults: { "id" => "index" }
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
   concern :oai_provider, BlacklightOaiProvider::Routes::Provider.new
 
@@ -42,8 +43,10 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
-
+  get '/image_overlay/:id', to: 'gallery#image_overlay', constraints: { id: /.*/ }, as: 'overlay'
+  get '/image_gallery/:id/:start/:number', to: 'gallery#image_gallery', constraints: { id: /.*/ }, as: 'gallery'
   get 'imageviewer/:id', to: 'hyrax/images#advanced', constraints: { id: /.*/ }, as: 'imageviewer'
+  get 'teiviewer/:parent/:id(/chapter/:chapter)', to: 'hyrax/teis#advanced', as: 'teiviewer'
   get 'concern/eads/:id/fa', to: 'hyrax/eads#fa_overview', constraints: { id: /.*/ }, as: 'fa_overview'
   get 'concern/eads/:id/fa/:item_id', to: 'hyrax/eads#fa_series', constraints: { id: /.*/, item_id: /.*/ }, as: 'fa_series'
   get 'concern/audios/:id/transcriptonly', to: 'hyrax/audios#audio_transcriptonly', constraints: { id: /.*/ }, as: 'audio_transcriptonly'
