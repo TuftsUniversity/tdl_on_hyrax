@@ -7,6 +7,12 @@ AllCops:
     - script/**/*
     - vendor/**/*
     - tmp/**/*
+    - lib/tufts/tei_parser.rb
+    - lib/tufts/tei_toc.rb
+    - lib/tufts/tei_constraints.rb
+    - app/controllers/gallery_controller.rb
+    - app/helpers/characterization.rb
+    - lib/pid_methods.rb
 Metrics/BlockLength: 
   Exclude: 
     - config/**/*
@@ -50,6 +56,7 @@ Metrics/CyclomaticComplexity:
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
     - lib/pid_methods.rb
+    - app/controllers/concerns/with_teis.rb
 Metrics/PerceivedComplexity:
   Exclude:
     - app/controllers/concerns/with_transcripts.rb
@@ -71,6 +78,7 @@ Metrics/AbcSize:
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
     - lib/pid_methods.rb
+    - app/helpers/hyrax_helper.rb
 Metrics/MethodLength:
   Exclude:
     - app/controllers/concerns/with_rcrs.rb
