@@ -44,3 +44,5 @@ coverage/
 fits.log
 
 .idea
+
+tei_parsing.log
