@@ -1,0 +1,25 @@
+.bookcover2 {
+    background: url(/assets/tei/bookcover2.png) no-repeat;
+    font-size: 15px;
+    font-weight: bold;
+    height: 300px;
+    width: 200px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-right:40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #ffffff;
+}
+.tei-thumbnails {
+  list-style-type: none;
+  list-style: none;
+}
+.tei-centertext {
+    text-align: center;
+}
+
+.tei-spacer {
+  margin-top: 30px;
+}
