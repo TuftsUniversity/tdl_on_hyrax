@@ -25,4 +25,18 @@ module PidMethods
 
     [result, f4_id, thumbnail_path, model]
   end
+
+  def self.urn_to_f3_pid(urn)
+    return urn if is_f3_pid?(urn)
+    pid = ""
+    index_of_colon = urn.rindex(':')
+    pid = "tufts" + urn[index_of_colon, urn.length]
+    pid
+    end
+
+  def self.is_f3_pid?(pid)
+    # if this is a urn say no, otherwise say yes
+    # unless pid.
+    !pid.include? 'central'
+  end
 end
