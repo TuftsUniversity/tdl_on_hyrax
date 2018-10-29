@@ -34,7 +34,7 @@ class GalleryController < ApplicationController
           image_title = ""
         end
 
-        figures << { pid: image_pid, caption: image_title, full_title: full_title }
+        figures << { pid: @image.id, caption: image_title, full_title: full_title }
       end
     end
 
@@ -57,7 +57,7 @@ class GalleryController < ApplicationController
                   end
     pid = params[:id]
     item_link = '/catalog/' + pid
-    image_url = '/file_assets/medium/' + pid
+    image_url = '/downloads/' + pid + '?file=thumbnail'
 
   #  logger.error(convert_url_to_local_path(@document_fedora.datastreams["Basic.jpg"].dsLocation))
     #imagesize = ImageSize.new File.open(convert_url_to_local_path(@document_fedora.datastreams["Basic.jpg"].dsLocation), "rb").read

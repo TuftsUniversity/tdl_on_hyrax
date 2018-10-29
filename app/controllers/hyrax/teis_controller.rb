@@ -2,7 +2,7 @@
 #  `rails generate hyrax:work Tei`
 
 module Hyrax
-  class TeisController < ApplicationController
+  class TeisController < CatalogController
     include Hyrax::WorksControllerBehavior
     include Hyrax::BreadcrumbsForWorks
     include WithTeis
