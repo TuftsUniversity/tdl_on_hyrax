@@ -87,7 +87,7 @@ $(function(){
 
 
                   var pid = $(this).data('pid');
-                  $.getJSON('/file_assets/image_overlay/' + pid , function(data)
+                  $.getJSON('/image_overlay/' + pid , function(data)
                   {
                     var template = $('#image_overlay_template').html();
                     var html = Mustache.to_html(template, data);
@@ -105,7 +105,7 @@ $(function(){
               });
     }
     function updateThumbs(gallery,show) {
-        $.getJSON('/file_assets/image_gallery/' + pid + '/' + gallery_start + '/' + gallery_page_size, function (data) {
+        $.getJSON('/image_gallery/' + pid + '/' + gallery_start + '/' + gallery_page_size, function (data) {
             total_count = parseInt(data.count);
             var template = $('#gallery_overlay_template').html();
             var html = Mustache.to_html(template, data);

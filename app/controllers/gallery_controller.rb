@@ -1,9 +1,12 @@
 class GalleryController < ApplicationController
   def image_gallery
     @document_fedora = Tei.find(params[:id])
-    metadata = Tufts::ModelMethods.get_metadata(@document_fedora)
-    title = metadata[:titles].nil? ? "" : metadata[:titles].first
-    xml = @document_fedora.datastreams["Archival.xml"].ng_xml
+
+    #metadata = Tufts::ModelMethods.get_metadata(@document_fedora)
+    title = @document_fedora.title.first
+    #title = metadata[:titles].nil? ? "" : metadata[:titles].first
+    xml = Nokogiri::XML(@document_fedora.file_sets.first.original_file.content)
+    xml.remove_namespaces! unless xml.nil?
     node_sets = xml.xpath('//figure')
     total_length = node_sets.length
 
@@ -15,13 +18,15 @@ class GalleryController < ApplicationController
     unless node_sets.nil?
       node_sets = node_sets.slice(start, end_figure)
       node_sets.each do |node|
-        image_pid = Tufts::PidMethods.urn_to_pid(node[:n])
+        image_pid = PidMethods.urn_to_f3_pid(node[:n])
         image_title = ""
         full_title = ""
-        @image = Image.find(image_pid)
+        @image = Image.where(legacy_pid_tesim: image_pid)
+
+        @image = @image.first
         begin
-          image_metadata = Tufts::ModelMethods.get_metadata(@image)
-          image_title = image_metadata[:titles].nil? ? "" : image_metadata[:titles].first
+          #image_metadata = Tufts::ModelMethods.get_metadata(@image)
+          image_title = @image.title.first unless @image.title.nil? #image_metadata[:titles].nil? ? "" : image_metadata[:titles].first
           full_title = image_title
           image_title = image_title.slice(0, 17) + '...' if image_title.length > 20
 
@@ -33,7 +38,7 @@ class GalleryController < ApplicationController
       end
     end
 
-    render json: { figures: figures, count: total_length, title: "Illustrations from the " + title }
+    render json: { figures: figures, count: total_length, title: "Illustrations from the " + title.to_s }
   end
 
   def image_overlay
@@ -54,8 +59,8 @@ class GalleryController < ApplicationController
     item_link = '/catalog/' + pid
     image_url = '/file_assets/medium/' + pid
 
-    logger.error(convert_url_to_local_path(@document_fedora.datastreams["Basic.jpg"].dsLocation))
-    imagesize = ImageSize.new File.open(convert_url_to_local_path(@document_fedora.datastreams["Basic.jpg"].dsLocation), "rb").read
+  #  logger.error(convert_url_to_local_path(@document_fedora.datastreams["Basic.jpg"].dsLocation))
+    #imagesize = ImageSize.new File.open(convert_url_to_local_path(@document_fedora.datastreams["Basic.jpg"].dsLocation), "rb").read
 
     render json: { back_url: "#", item_title: title, item_date: temporal, image_url: image_url, item_link: item_link, item_description: description, width: imagesize.height, height: imagesize.width }
   end
