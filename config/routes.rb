@@ -22,6 +22,14 @@ Rails.application.routes.draw do
   devise_for :users
   mount Hydra::RoleManagement::Engine => '/'
 
+  # Hide the dashboard from non-admin users.
+  non_admin_constraint = lambda do |request|
+    !request.env['warden'].authenticate? || !request.env['warden'].user.admin?
+  end
+  constraints non_admin_constraint do
+    get '/dashboard', to: redirect('catalog')
+  end
+
   mount Qa::Engine => '/authorities'
   mount Hyrax::Engine, at: '/'
   resources :welcome, only: 'index'

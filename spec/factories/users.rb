@@ -17,6 +17,13 @@ FactoryBot.define do
     end
   end
 
+  factory :ldap_user, class: User do
+    email 'claire@example.org'
+    username 'cc414'
+    password 'retneprac'
+    display_name 'Claire Carpenter'
+  end
+
   factory :ldap_admin, class: User do
     email 'belle@example.org'
     username 'bb459'
