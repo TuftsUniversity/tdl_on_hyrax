@@ -336,3 +336,11 @@ h2#welcome_header {
 #static_thumbnail div.thumbnail {
   margin-bottom: 0;
 }
+
+.tuftsicon_lock_open {
+  transform: scale(1, -1);
+  margin-left: 5px;
+  width: 14px;
+  display: inline-block;
+  vertical-align: baseline;
+}

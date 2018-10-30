@@ -37,7 +37,7 @@ feature 'Search Results' do
     visit search_results
     # Verify that the glyph is present and in the correct record.
     # rubocop:disable RSpec/InstanceVariable
-    expect(find("#document_#{@authenticated_image.id}")).to have_css(".glyphicon-lock")
+    expect(find("#document_#{@authenticated_image.id}")).to have_css(".tuftsicon_lock_open")
     # rubocop:enable RSpec/InstanceVariable
   end
 end

@@ -1,6 +1,10 @@
   <h2>
     <%= link_to document.title_or_label, document %>
     <% if document.visibility == "authenticated" %>
-      <span class="glyphicon glyphicon-lock"></span>
+      <% if user_signed_in? %>
+        <img src="<%= asset_path('tuftsicon_lock_open.svg') %>" class="tuftsicon_lock_open"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-lock"></span>
+      <% end %>
     <% end %>
   </h2>
