@@ -56,10 +56,13 @@ class CatalogController < ApplicationController
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
-    config.add_facet_field solr_name('human_readable_type', :facetable), label: 'Type'
-    config.add_facet_field solr_name('subject', :facetable), limit: 5
-    config.add_facet_field solr_name('member_of_collections', :symbol), limit: 5, label: 'Collections'
+    #    config.add_facet_field solr_name('human_readable_type', :facetable), label: 'Type'
+    config.add_facet_field solr_name('object_type', :facetable), label: 'Format'
+    # config.add_facet_field solr_name('subject', :facetable), limit: 5
+    config.add_facet_field solr_name('names', :facetable), limit: 5, label: 'Names'
     config.add_facet_field 'pub_date_facet_isim', label: 'Year', range: true
+    config.add_facet_field solr_name('subject_topic', :facetable), limit: 5, label: 'Subject'
+    config.add_facet_field solr_name('member_of_collections', :symbol), limit: 5, label: 'Collections'
 
     # The generic_type isn't displayed on the facet list
     # It's used to give a label to the filter that comes from the user profile
@@ -189,7 +192,7 @@ class CatalogController < ApplicationController
     add_search_field('contributor', config)
     add_advanced_search_field('corporate_name', config)
     add_advanced_search_field('creator_department', config)
-    add_search_field('primary_date', config) { |f| f.label = "Date" }
+    add_search_field('aggregate_date', config) { |f| f.label = "Date" }
     config.add_search_field('date_created') do |field|
       solr_name = solr_name('created', :stored_searchable)
       field.solr_local_parameters = {
@@ -232,12 +235,12 @@ class CatalogController < ApplicationController
     # except in the relevancy case).
     # label is key, solr field is value
     config.add_sort_field "score desc, pub_date_isi desc, title_si asc", label: 'relevance'
-    config.add_sort_field 'pub_date_isi desc, title_si asc', label: 'date \u25BC'
-    config.add_sort_field 'pub_date_isi asc, title_si asc', label: 'date \u25B2'
-    config.add_sort_field 'author_si desc, title_si asc', label: 'creator \u25BC'
-    config.add_sort_field 'author_si asc, title_si asc', label: 'creator \u25B2'
-    config.add_sort_field 'title_si desc, pub_date_isi desc', label: 'title \u25BC'
-    config.add_sort_field 'title_si asc, pub_date_isi asc', label: 'title \u25B2'
+    config.add_sort_field 'pub_date_improved_isi desc, title_si asc', label: "date \u25BC"
+    config.add_sort_field 'pub_date_improved_isi asc, title_si asc', label: "date \u25B2"
+    config.add_sort_field 'author_si desc, title_si asc', label: "creator \u25BC"
+    config.add_sort_field 'author_si asc, title_si asc', label: "creator \u25B2"
+    config.add_sort_field 'title_si desc, pub_date_isi desc', label: "title \u25BC"
+    config.add_sort_field 'title_si asc, pub_date_isi asc', label: "title \u25B2"
 
     # If there are more than this many search results, no spelling ('did you
     # mean') suggestion is offered.
