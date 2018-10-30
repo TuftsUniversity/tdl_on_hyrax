@@ -20,6 +20,7 @@ class Ability
     can [:create, :show, :add_user, :remove_user, :index, :edit, :update, :destroy], Role if current_user.admin?
 
     can [:fa_overview], ActiveFedora::Base
+    can [:advanced], ActiveFedora::Base
     can [:imageviewer], ActiveFedora::Base
     can [:fa_series], ActiveFedora::Base
     can [:audio_transcriptonly], ActiveFedora::Base
