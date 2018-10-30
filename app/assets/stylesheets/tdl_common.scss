@@ -214,10 +214,8 @@ h6 {
 /* ------------------------
  *  SEARCH RESULTS
  * ------------------------ */
-#search-results .glyphicon-lock {
+#search-results .permissions-lock {
   margin-left: 5px;
-  color: $tufts_blue;
-  font-size: .8em;
 }
 
 /* ------------------------
@@ -335,12 +333,4 @@ h2#welcome_header {
 
 #static_thumbnail div.thumbnail {
   margin-bottom: 0;
-}
-
-.tuftsicon_lock_open {
-  transform: scale(1, -1);
-  margin-left: 5px;
-  width: 14px;
-  display: inline-block;
-  vertical-align: baseline;
 }

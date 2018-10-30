@@ -28,7 +28,7 @@ feature 'Search Results' do
   scenario "Lock icon doesn't show on open-visiblity works" do
     visit search_results
     # rubocop:disable RSpec/InstanceVariable
-    expect(find("#document_#{@open_visibility_image.id}")).not_to have_css(".glyphicon-lock")
+    expect(find("#document_#{@open_visibility_image.id}")).not_to have_css(".permissions-lock")
     # rubocop:enable RSpec/InstanceVariable
   end
 
@@ -37,7 +37,7 @@ feature 'Search Results' do
     visit search_results
     # Verify that the glyph is present and in the correct record.
     # rubocop:disable RSpec/InstanceVariable
-    expect(find("#document_#{@authenticated_image.id}")).to have_css(".tuftsicon_lock_open")
+    expect(find("#document_#{@authenticated_image.id}")).to have_css(".permissions-lock")
     # rubocop:enable RSpec/InstanceVariable
   end
 end
