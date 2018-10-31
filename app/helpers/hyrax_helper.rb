@@ -111,7 +111,6 @@ module HyraxHelper
   #   The info for the "Download Low-Resolution Image" link.
   def low_res_image_link(file_set_id)
     file_set = FileSet.find(file_set_id).first
-    filename = file_set[:title].first.chomp(".tiff").chomp(".tif").chomp(".jpg").chomp(".png").chomp(".archival").concat(".jpg")
 
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
