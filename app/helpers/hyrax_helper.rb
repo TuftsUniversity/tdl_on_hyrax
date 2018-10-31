@@ -118,7 +118,7 @@ module HyraxHelper
       url: Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,"),
       text: 'Download Low-Resolution Image',
       label: "Image: #{file_set_id.first}",
-      download: filename
+      download: @presenter.id
     }
   end
 
