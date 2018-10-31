@@ -86,7 +86,7 @@ Rails.application.configure do
 end
 
 Hyrax.config do |config|
-  config.derivatives_path = Pathname.new('/usr/local/hydra/mira-data/current/derivatives')
-  config.upload_path = ->() { Pathname.new('/usr/local/hydra/mira-data/current/uploads') }
-  config.cache_path  = ->() { Pathname.new('/usr/local/hydra/mira-data/current/cache') }
+  config.derivatives_path = Pathname.new('/usr/local/hydra/mira-data/derivatives')
+  config.upload_path = ->() { Pathname.new('/usr/local/hydra/mira-data/uploads') }
+  config.cache_path  = ->() { Pathname.new('/usr/local/hydra/mira-data/cache') }
 end
