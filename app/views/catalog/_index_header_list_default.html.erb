@@ -1,6 +1,10 @@
   <h2>
     <%= link_to document.title_or_label, document %>
     <% if document.visibility == "authenticated" %>
-      <span class="glyphicon glyphicon-lock"></span>
+      <% if user_signed_in? %>
+        <span class="fa fa-unlock permissions-lock" aria-hidden="true"></span>
+      <% else %>
+        <span class="fa fa-lock permissions-lock" aria-hidden="true"></span>
+      <% end %>
     <% end %>
   </h2>

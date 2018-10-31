@@ -2,9 +2,7 @@ class GalleryController < ApplicationController
   def image_gallery
     @document_fedora = Tei.find(params[:id])
 
-    #metadata = Tufts::ModelMethods.get_metadata(@document_fedora)
     title = @document_fedora.title.first
-    #title = metadata[:titles].nil? ? "" : metadata[:titles].first
     xml = Nokogiri::XML(@document_fedora.file_sets.first.original_file.content)
     xml.remove_namespaces! unless xml.nil?
     node_sets = xml.xpath('//figure')
@@ -21,11 +19,14 @@ class GalleryController < ApplicationController
         image_pid = PidMethods.urn_to_f3_pid(node[:n])
         image_title = ""
         full_title = ""
+logger.info("Gallery searching for Image: #{image_pid}")
         @image = Image.where(legacy_pid_tesim: image_pid)
 
         @image = @image.first
+logger.info("Gallery Image not found: #{@image.nil?}")
+        image_id = @image.thumbnail_id unless @image.nil?
+
         begin
-          #image_metadata = Tufts::ModelMethods.get_metadata(@image)
           image_title = @image.title.first unless @image.title.nil? #image_metadata[:titles].nil? ? "" : image_metadata[:titles].first
           full_title = image_title
           image_title = image_title.slice(0, 17) + '...' if image_title.length > 20
@@ -34,7 +35,7 @@ class GalleryController < ApplicationController
           image_title = ""
         end
 
-        figures << { pid: @image.id, caption: image_title, full_title: full_title }
+        figures << { pid: image_id, caption: image_title, full_title: full_title }
       end
     end
 
