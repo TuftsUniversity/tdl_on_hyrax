@@ -294,8 +294,12 @@ module Tufts
               end
               result +="<ul class=thumbnails><li>"
               pid = PidMethods.urn_to_f3_pid(child['n'])
-              result +='<a data-pid="'+ pid+'" href="/catalog/' + pid + '"  class="thumbnail">'
-              result +='<img src="http://dl.tufts.edu/file_assets/thumb/' + pid + '">'
+              image = Image.where(legacy_pid_tesim: pid)
+              image = image.first
+              image_id = image.thumbnail_id unless image.nil?
+              object_id = image.id
+              result +='<a data-pid="'+ object_id + '" href="/concern/images/' + object_id + '"  class="thumbnail">'
+              result +='<img src="/downloads/' + image_id + '?file=thumbnail">'
               result +="</a>"
               result +="</li></ul>"
             elsif child.name == "quote"
