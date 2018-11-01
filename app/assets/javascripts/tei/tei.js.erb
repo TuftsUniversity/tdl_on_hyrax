@@ -13,22 +13,14 @@
 //= require 'tei/tei.js'
 //= require 'mustache/mustache.js'
 $(function(){
-      $('.collapse_td').on('click', function(e){
-
+      $('.collapse_tei_td').on('click', function(e){
         e.preventDefault();
         var par = $(this).parents("tr").eq(0);
         var col_cont = par.find('.collapse_content');
         col_cont.toggle();
-        var tog_img= par.find('img');
-        if (col_cont.is(':visible'))
-        {
-
-            tog_img.attr('src', asset-url('/img/button_collapse.png'));
-        }
-        else
-        {
-            tog_img.attr('src',assets-url('/img/button_expand.png'));
-        }
+console.log("BLAH")
+console.log("BLAH" + $(this).find('span').toString());
+        par.find('span').toggleClass('glyphicon-minus').toggleClass('glyphicon-plus');
       });
 
 

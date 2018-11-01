@@ -26,7 +26,7 @@ module Tufts
           else
             title = node['n']
           end
-          toc_result += TOC_PREDICATE + "<a class='collapse_td' href='/teiviewer/" + 'parent' + '/' + pid + "/chapter/" + (node['id'].nil? ? "title" : node['id']) + "'>" + title + "</a><br/>" + TOC_SUFFIX
+          toc_result += TOC_PREDICATE + "<a class='collapse_tei_td' href='/teiviewer/" + 'parent' + '/' + pid + "/chapter/" + (node['id'].nil? ? "title" : node['id']) + "'>" + title + "</a><br/>" + TOC_SUFFIX
           chapter_list << (node['id'].nil? ? 'title' : node['id'])
         end
       end
@@ -36,7 +36,7 @@ module Tufts
       unless node_sets.nil?
         node_sets.each do |node|
           if node['type'].to_s == 'section' || node['type'].to_s == "part" || !xml.xpath("//TEI.2/text/body/div1[@id='" + node['id'].to_s + "']/div2").to_s.empty?
-            toc_result += TOC_COLLAPSE_PREDICATE + "<a class='collapse_td' href='/teiviewer/" + 'parent' + '/' + pid + "/chapter/" + node['id'].to_s + "'>" + node['n'].to_s + "</a>"
+            toc_result += TOC_COLLAPSE_PREDICATE + "<a class='collapse_tei_td' href='/teiviewer/" + 'parent' + '/' + pid + "/chapter/" + node['id'].to_s + "'>" + node['n'].to_s + "</a>"
             toc_result += "<div class='collapse_content'>"
             toc_result2, chapter_list = get_subsection(pid, node, chapter_list)
             toc_result += toc_result2
