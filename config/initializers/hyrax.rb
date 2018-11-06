@@ -49,6 +49,7 @@ Hyrax.config do |config|
   if Rails.env == 'production'
     config.analytics = true
     config.google_analytics_id = 'UA-38431398-1'
+    config.analytic_start_date = Time.zone.local(2018, 11, 1)
   end
 
   # Date you wish to start collecting Google Analytic statistics for
