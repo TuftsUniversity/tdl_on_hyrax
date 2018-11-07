@@ -2,5 +2,5 @@
 <% provide :page_header do %>
   <h2> <%= @presenter %> </h2>
   <%= render partial: "shared/multi_field", locals: {tag_name: :p, field_name: :creator} %>
-  <%= render partial: "shared/multi_field", locals: {tag_name: :p, field_name: :date_created} %>
+  <p><%= @presenter.date.first unless @presenter.date.empty? %></p>
 <% end %>
