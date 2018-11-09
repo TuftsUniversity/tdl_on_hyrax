@@ -7,7 +7,39 @@
         <% dl_stuff << (link[:download].present? ? " download='#{link[:download]}'".html_safe : '') %>
       <li>
         <span class="<%= link[:icons] %>" aria-hidden="true"></span>
-        <a data-turbolinks="false" href="<%= link[:url] %>" <%= dl_stuff %>><%= link[:text] %></a>
+        <a class="list-add" data-turbolinks="false" href="#"
+           data-pid="<%= @presenter.id %>"
+           data-identifier="<%= @presenter.id.gsub(/[^0-9a-z ]/i, '') %>"
+           <% if @presenter.model.model_name.name == "Ead" %>
+              data-itemtitle="<%=strip_tags(@presenter.title.first) unless @presenter.title.empty? %>"
+           <% else %>
+               data-itemtitle="<%= strip_tags("get_ead_title(@presenter, false)") %>"
+           <% end %>
+           <% if defined? series_title %>
+              data-itemsubtitle="<%= strip_tags(series_title) %>"
+            <% else %>
+              data-itemsubtitle="<%=strip_tags(@presenter.title.first) unless @presenter.title.empty? %>"
+            <% end %>
+            data-site="DCA"
+            data-author="<%= strip_tags(@presenter.creator.first) unless @presenter.creator.empty? %>"
+            data-itemauthor="<%= strip_tags(@presenter.creator.first) unless @presenter.creator.empty? %>"
+            data-iteminfo2="<%= strip_tags(@presenter.creator.first) unless @presenter.creator.empty? %>"
+            data-iteminfo3="<%= strip_tags(@presenter.permanent_url.first) unless @presenter.permanent_url.nil? || @presenter.permanent_url.empty? %>"
+            <% if defined? series_id %>
+              data-itemvolume="<%= strip_tags(series_id) %>"
+              data-callnumber="<%= strip_tags(series_id.split('.').first) unless @presenter.source.nil? || @presenter.source.empty? %>"
+            <% else %>
+              data-itemvolume="<%= j @presenter.id %>"
+              <% if defined? unitid %>
+                data-callnumber="<%= strip_tags(unitid) %>"
+              <% else %>
+                data-callnumber="<%= strip_tags(@presenter.source.first) unless @presenter.source.nil? || @presenter.source.empty? %>"
+              <% end %>
+            <% end %>
+            data-itemdate="<%= strip_tags(@presenter.date.first) unless @presenter.date.empty? %>">
+
+          <%= link[:text] %>
+        </a>
       </li>
      <% end %>
     </ul>
