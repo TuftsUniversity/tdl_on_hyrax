@@ -6,7 +6,6 @@
         <% dl_stuff = link[:label] ? "id='file_download' target='_blank' data-label='#{link[:label]}'".html_safe : '' %>
         <% dl_stuff << (link[:download].present? ? " download='#{link[:download]}'".html_safe : '') %>
       <li>
-<% byebug %>
         <span class="<%= link[:icons] %>" aria-hidden="true"></span>
         <a class="list-add" data-turbolinks="false" href="#"
            data-pid="<%= @presenter.id %>"
