@@ -36,7 +36,7 @@
                 data-callnumber="<%= strip_tags(@presenter.source.first) unless @presenter.source.nil? || @presenter.source.empty? %>"
               <% end %>
             <% end %>
-            data-itemdate="<%= strip_tags(@presenter.date.first) unless @presenter.date.empty? %>">
+            data-itemdate="<%= strip_tags(@presenter.date.first) unless @presenter.date.nil? || @presenter.date.empty? %>">
 
           <%= link[:text] %>
         </a>
