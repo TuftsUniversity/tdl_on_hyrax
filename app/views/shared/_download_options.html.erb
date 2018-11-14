@@ -6,6 +6,7 @@
         <% dl_stuff = link[:label] ? "id='file_download' target='_blank' data-label='#{link[:label]}'".html_safe : '' %>
         <% dl_stuff << (link[:download].present? ? " download='#{link[:download]}'".html_safe : '') %>
       <li>
+<% byebug %>
         <span class="<%= link[:icons] %>" aria-hidden="true"></span>
         <a class="list-add" data-turbolinks="false" href="#"
            data-pid="<%= @presenter.id %>"
@@ -13,7 +14,7 @@
            <% if @presenter.model.model_name.name == "Ead" %>
               data-itemtitle="<%=strip_tags(@presenter.title.first) unless @presenter.title.empty? %>"
            <% else %>
-               data-itemtitle="<%= strip_tags("get_ead_title(@presenter, false)") %>"
+               data-itemtitle="<%= strip_tags(@presenter.member_of_collections.first) unless @presenter.member_of_collections.empty? %>"
            <% end %>
            <% if defined? series_title %>
               data-itemsubtitle="<%= strip_tags(series_title) %>"
