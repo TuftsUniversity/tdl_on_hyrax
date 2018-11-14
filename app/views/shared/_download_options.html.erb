@@ -13,7 +13,7 @@
            <% if @presenter.model.model_name.name == "Ead" %>
               data-itemtitle="<%=strip_tags(@presenter.title.first) unless @presenter.title.empty? %>"
            <% else %>
-               data-itemtitle="<%= strip_tags(@presenter.member_of_collections.first) unless @presenter.member_of_collections.empty? %>"
+               data-itemtitle="<%= strip_tags(@presenter.member_of_collections.first) unless @presenter.member_of_collections.nil? || @presenter.member_of_collections.empty? %>"
            <% end %>
            <% if defined? series_title %>
               data-itemsubtitle="<%= strip_tags(series_title) %>"
