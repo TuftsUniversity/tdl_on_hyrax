@@ -21,15 +21,20 @@ module HyraxHelper
 
     case controller_name
     when 'audios'
+      download_links << add_to_list_link
       download_links << audio_link(@presenter.media_id)
     when 'images'
       download_links << add_to_list_link
       download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
+    when 'teis'
+      download_links << add_to_list_link
     when 'pdfs'
+      download_links << add_to_list_link
       download_links << pdf_link(@presenter.solr_document._source['hasRelatedMediaFragment_ssim'])
     when 'rcrs'
       download_links << eac_link(@presenter.rcr_id) if @document_rcr.present?
     when 'videos'
+      download_links << add_to_list_link
       download_links << video_link(@presenter.media_id)
     end
 
