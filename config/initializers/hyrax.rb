@@ -46,11 +46,11 @@ Hyrax.config do |config|
   # Google Analytics tracking ID to gather usage statistics
   # config.google_analytics_id = 'UA-99999999-1'
 
-  #if Rails.env == 'production'
-    config.analytics = true
-    config.google_analytics_id = 'UA-38431398-1'
-    config.analytic_start_date = Time.zone.local(2018, 11, 1)
-  #end
+  # if Rails.env == 'production'
+  config.analytics = true
+  config.google_analytics_id = 'UA-38431398-1'
+  config.analytic_start_date = Time.zone.local(2018, 11, 1)
+  # end
 
   # Date you wish to start collecting Google Analytic statistics for
   # Leaving it blank will set the start date to when ever the file was uploaded by
