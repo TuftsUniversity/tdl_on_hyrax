@@ -7,6 +7,7 @@ class CatalogController < ApplicationController
 
   # This filter applies the hydra access controls
   before_action :enforce_show_permissions, only: :show
+  before_action :add_embargo_limiter, only: [:index, :show]
 
   def self.uploaded_field
     solr_name('system_create', :stored_sortable, type: :date)
@@ -36,7 +37,8 @@ class CatalogController < ApplicationController
 
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
-    config.search_builder_class = ::SearchBuilder
+#    config.search_builder_class = ::SearchBuilder
+    config.search_builder_class = TuftsCatalogSearchBuilder
 
     # Show gallery view
     config.view.gallery.partials = [:index_header, :index]
@@ -304,5 +306,11 @@ class CatalogController < ApplicationController
   #   If primary_date is in the doc or not.
   def no_primary_date?(_, document)
     document._source['primary_date_tesim'].nil?
+  end
+ 
+  private
+
+  def  add_embargo_limiter
+#    self.solr_search_params_logic << "-visibility_ssi:'restricted'"
   end
 end
