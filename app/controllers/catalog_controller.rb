@@ -37,7 +37,7 @@ class CatalogController < ApplicationController
 
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
-#    config.search_builder_class = ::SearchBuilder
+    #    config.search_builder_class = ::SearchBuilder
     config.search_builder_class = TuftsCatalogSearchBuilder
 
     # Show gallery view
@@ -307,10 +307,10 @@ class CatalogController < ApplicationController
   def no_primary_date?(_, document)
     document._source['primary_date_tesim'].nil?
   end
- 
+
   private
 
-  def  add_embargo_limiter
-#    self.solr_search_params_logic << "-visibility_ssi:'restricted'"
-  end
+    def add_embargo_limiter
+      #    self.solr_search_params_logic << "-visibility_ssi:'restricted'"
+    end
 end

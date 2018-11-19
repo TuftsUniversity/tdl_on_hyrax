@@ -13,4 +13,3 @@ class TuftsCatalogSearchBuilder < Hyrax::CatalogSearchBuilder
     solr_parameters[:fq] << '-embargo_note_tesim:*'
   end
 end
-
