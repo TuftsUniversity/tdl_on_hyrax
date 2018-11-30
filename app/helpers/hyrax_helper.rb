@@ -52,7 +52,8 @@ module HyraxHelper
     {
       icons: 'glyphicon glyphicon-plus-sign',
       url: '',
-      text: 'Add to List'
+      text: 'Add to List',
+      class: 'list-add'
     }
   end
 
@@ -116,7 +117,6 @@ module HyraxHelper
   #   The info for the "Download Low-Resolution Image" link.
   def low_res_image_link(file_set_id)
     file_set = FileSet.find(file_set_id).first
-
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
       url: Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,"),
