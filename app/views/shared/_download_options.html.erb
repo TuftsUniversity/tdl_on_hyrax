@@ -6,7 +6,7 @@
         <% # Check if there's label stuff, and build attributes if so. %>
         <% dl_stuff = link[:label] ? "id='file_download' target='_blank' data-label='#{link[:label]}'".html_safe : '' %>
         <% # Add the download attribute. %>
-        <% dl_stuff << (link[:download].present? ? " download='#{link[:download]}'".html_safe : '') %>
+        <% #dl_stuff << (link[:download].present? ? " download='#{link[:download]}'".html_safe : '') %>
       <li>
         <span class="<%= link[:icons] %>" aria-hidden="true"></span>
         <a class="<%= link[:class] %>" data-turbolinks="false"

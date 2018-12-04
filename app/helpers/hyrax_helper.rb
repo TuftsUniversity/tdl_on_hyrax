@@ -116,10 +116,10 @@ module HyraxHelper
   # @return {hash}
   #   The info for the "Download Low-Resolution Image" link.
   def low_res_image_link(file_set_id)
-    file_set = FileSet.find(file_set_id).first
+    file_id = FileSet.find(file_set_id).first.files.first.id
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
-      url: Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,"),
+      url: "/download?id=#{URI.encode(file_id)}",
       text: 'Download Low-Resolution Image',
       label: "Image: #{file_set_id.first}",
       download: @presenter.id

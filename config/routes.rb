@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :oai_provider
-
     concerns :searchable
     concerns :range_searchable
   end
@@ -61,6 +60,8 @@ Rails.application.routes.draw do
   get 'concern/videos/:id/transcriptonly', to: 'hyrax/videos#video_transcriptonly', constraints: { id: /.*/ }, as: 'video_transcriptonly'
 
   match 'feedback', to: 'feedback#show', via: [:post]
+
+  get '/download', to: 'tufts/downloads#download'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
