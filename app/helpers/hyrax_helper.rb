@@ -119,10 +119,9 @@ module HyraxHelper
     file_id = FileSet.find(file_set_id).first.files.first.id
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
-      url: "/download?id=#{URI.encode(file_id)}",
+      url: "/download/#{CGI.escape(file_id)}?filename=#{@presenter.id}",
       text: 'Download Low-Resolution Image',
-      label: "Image: #{file_set_id.first}",
-      download: @presenter.id
+      label: "Image: #{file_set_id.first}"
     }
   end
 
