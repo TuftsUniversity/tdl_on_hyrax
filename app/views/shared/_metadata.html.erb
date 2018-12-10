@@ -53,7 +53,8 @@
   %>
 
   <%= @presenter.attribute_to_html(:subject, { render_as: :linked }) %>
-  <%= @presenter.attribute_to_html(:genre, {}) %>
+  <%= @presenter.attribute_to_html(:genre, { render_as: :linked }) %>
+  <%= @presenter.attribute_to_html(:temporal, { render_as: :linked }) %>
   <%= @presenter.attribute_to_html(:permanent_url, {}) %>
 
   <div class="well ">

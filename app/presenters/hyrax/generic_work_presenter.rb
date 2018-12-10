@@ -16,6 +16,10 @@ module Hyrax
       solr_document[:genre_tesim]
     end
 
+    def temporal
+      solr_document[:temporal_tesim]
+    end
+
     def permanent_url
       solr_document[:identifier_tesim]
     end
