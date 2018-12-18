@@ -45,7 +45,7 @@ module Hyrax
     ## All methods below here are used in manifest.json ##
 
     def date
-      solr_document[:primary_date_tesim] || solr_document[:temporal_tesim]
+      solr_document[:primary_date_tesim] || solr_document[:temporal_tesim] || solr_document[:file_set_date_created_simplified_tesim]
     end
 
     def type
