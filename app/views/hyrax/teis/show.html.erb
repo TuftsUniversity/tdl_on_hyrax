@@ -4,7 +4,7 @@
 <%= render "shared/item_header" %>
 <% collector = can?(:collect, @presenter.id) %>
 <% editor = can?(:edit, @presenter.id) %>
-<% unless (['tufts:UA069.005.DO.00002','tufts:UA069.005.DO.00021','tufts:UA069.005.DO.00017','tufts:UA069.005.DO.00018','tufts:UA069.005.DO.00019','tufts:UA069.005.DO.00012','tufts:UA069.005.DO.00015','tufts:UA069.005.DO.00005'] & @presenter.solr_document._source["legacy_pid_tesim"]).empty? %>
+<% unless (['tufts:UA069.005.DO.00002','tufts:UA069.005.DO.00020','tufts:UA069.005.DO.00021','tufts:UA069.005.DO.00017','tufts:UA069.005.DO.00018','tufts:UA069.005.DO.00019','tufts:UA069.005.DO.00012','tufts:UA069.005.DO.00015','tufts:UA069.005.DO.00005'] & @presenter.solr_document._source["legacy_pid_tesim"]).empty? %>
 
 <%= render :partial => 'streets' %>
 
