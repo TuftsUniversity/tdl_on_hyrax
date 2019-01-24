@@ -224,9 +224,9 @@ class CatalogController < ApplicationController
     add_advanced_search_field('genre', config)
     add_search_field('keyword', config)
     add_search_field('language', config)
-    config.add_search_field('based_near') do |field|
-      field.label = 'Location'
-      solr_name = solr_name('based_near_label', :stored_searchable)
+    config.add_search_field('geog_name') do |field|
+      field.label = 'Geographic Name'
+      solr_name = solr_name('geog_name', :stored_searchable)
       field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name
