@@ -4,9 +4,9 @@
 <% editor = can?(:edit, @presenter.id) %>
 <div class="col-md-12 tdl-content tdl-show-image">
   <div class="row col-md-6">
-      <a class="thumbnail" href="somewhere">
+      <%= link_to "/pdfviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false }, class: 'thumbnail' do %>
         <%= image_tag(hyrax.download_path(file_set_id.first) + "?file=thumbnail") %>
-      </a>
+      <% end %>
 
       <h6>
         <%= link_to "/pdfviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false } do %>
