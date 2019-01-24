@@ -18,15 +18,13 @@ $(function(){
         var par = $(this).parents("tr").eq(0);
         var col_cont = par.find('.collapse_content');
         col_cont.toggle();
-console.log("BLAH")
-console.log("BLAH" + $(this).find('span').toString());
         par.find('span').toggleClass('glyphicon-minus').toggleClass('glyphicon-plus');
       });
 
 
       ////add modals to the thumbnails
 
-      $('.thumbnail').attr('href','#myImageOverlay');
+      $('.tei-thumbnail').attr('href','#myImageOverlay');
       addThumbListeners();
 
 
@@ -68,12 +66,12 @@ console.log("BLAH" + $(this).find('span').toString());
 
     function removeThumbListeners()
     {
-        $('a.thumbnail, a.gallery_thumbnail').unbind('click');
+        $('a.tei-thumbnail, a.gallery_thumbnail').unbind('click');
     }
 
     function addThumbListeners()
     {
-        $('a.thumbnail, a.gallery_thumbnail').on('click', function(e){
+        $('a.tei-thumbnail, a.gallery_thumbnail').on('click', function(e){
                     e.preventDefault();
 
 
