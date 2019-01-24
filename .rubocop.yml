@@ -39,6 +39,7 @@ Metrics/LineLength:
     - app/helpers/transcripts_helper.rb
     - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
+    - config/initializers/assets.rb
 Metrics/ClassLength: 
   Exclude:
     - app/controllers/catalog_controller.rb
