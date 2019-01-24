@@ -99,7 +99,7 @@ class CatalogController < ApplicationController
     )
     config.add_index_field(
       solr_name('member_of_collections', :symbol),
-      label: 'Collections',
+      label: 'Collection',
       link_to_search: solr_name('member_of_collections', :symbol)
     )
 
