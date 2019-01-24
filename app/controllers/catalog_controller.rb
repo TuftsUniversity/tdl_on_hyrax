@@ -256,8 +256,8 @@ class CatalogController < ApplicationController
     # except in the relevancy case).
     # label is key, solr field is value
     config.add_sort_field "score desc, pub_date_isi desc, title_si asc", label: 'relevance'
-    config.add_sort_field 'pub_date_improved_isi desc, title_si asc', label: "date \u25BC"
-    config.add_sort_field 'pub_date_improved_isi asc, title_si asc', label: "date \u25B2"
+    config.add_sort_field 'pub_date_sortable_isi desc, title_si asc', label: "date \u25BC"
+    config.add_sort_field 'pub_date_sortable_isi asc, title_si asc', label: "date \u25B2"
     config.add_sort_field 'author_si desc, title_si asc', label: "creator \u25BC"
     config.add_sort_field 'author_si asc, title_si asc', label: "creator \u25B2"
     config.add_sort_field 'title_si desc, pub_date_isi desc', label: "title \u25BC"
