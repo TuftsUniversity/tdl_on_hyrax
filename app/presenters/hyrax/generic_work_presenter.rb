@@ -20,6 +20,14 @@ module Hyrax
       solr_document[:temporal_tesim]
     end
 
+    def is_part_of
+      solr_document[:is_part_of_tesim]
+    end
+
+    def steward
+      solr_document[:steward_tesim]
+    end
+
     def permanent_url
       solr_document[:identifier_tesim]
     end

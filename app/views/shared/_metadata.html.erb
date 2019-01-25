@@ -15,17 +15,18 @@
   <% end %>
 
   <%
-    # sources = @presenter.source
-    if true == false #if sources.present?
-      source_legacy_pid = 'tufts:' + sources.first
-      collections = Ead.where(legacy_pid_tesim: source_legacy_pid)
-      if collections.present?
-        collection = collections.first
+    steward = @presenter.steward
+    is_part_of = @presenter.is_part_of
+    if (is_part_of.present? && (steward.present? && steward.first.downcase == "tisch"))
+      collections = nil
+      if is_part_of.present?
+        is_part_of = is_part_of.first
+        search_path = "/catalog?q=" + URI::encode(is_part_of) + "&search_field=is_part_of"
   %>
     This object is in collection
     <ul class="tabular">
       <li class="attribute attribute-source">
-        <a href="/concern/eads/<%= collection.id %>"><%= collection.title.first %></a>
+        <a href="<%= search_path %>"><%= is_part_of %></a>
       </li>
     </ul>
   <%
