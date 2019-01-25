@@ -1,0 +1,25 @@
+<%= render "shared/item_header" %>
+<% collector = can?(:collect, @presenter.id) %>
+<% editor = can?(:edit, @presenter.id) %>
+<style>
+.attribute-permission {
+  display:none;
+}
+table tr>th:nth-of-type(4),   table tr>td:nth-of-type(4){
+    display: none;
+}
+</style>
+<div class="col-md-12 tdl-content tdl-show-image">
+  <div class="row col-md-6">
+   <%= render 'representative_media', presenter: @presenter %>
+  </div>
+  <div class="col-md-6">
+    <%= render "shared/metadata" %>
+  </div>
+<div class="row">
+  <div class="col-sm-12">
+    <%= render 'items', presenter: @presenter %>
+  </div>
+</div>
+
+</div>
