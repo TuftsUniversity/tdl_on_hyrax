@@ -98,6 +98,9 @@ Metrics/ModuleLength:
 Naming/AccessorMethodName:
   Exclude:
     - app/models/transcript_chunk.rb
+Naming/PredicateName:
+  Exclude:
+    - app/presenters/hyrax/generic_work_presenter.rb
 Naming/VariableNumber:
   Exclude:
     - spec/factories/ead.rb
