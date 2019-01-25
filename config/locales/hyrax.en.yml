@@ -45,6 +45,7 @@ en:
           subject_tesim: Subject
           title_tesim: Title
           bibliographic_citation: Citation
+          permanent_url: Permanent URL
   hyrax:
     product_name:           "Tufts Digital Library"
     product_twitter_handle: "@SamveraRepo"
