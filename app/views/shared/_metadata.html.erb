@@ -15,8 +15,8 @@
   <% end %>
 
   <%
-    sources = @presenter.source
-    if sources.present?
+    # sources = @presenter.source
+    if true == false #if sources.present?
       source_legacy_pid = 'tufts:' + sources.first
       collections = Ead.where(legacy_pid_tesim: source_legacy_pid)
       if collections.present?
@@ -36,7 +36,7 @@
       collections = @presenter.member_of_collections
       if collections.present?
   %>
-    Other objects in collection
+    This object is in collection
   <%
         collections.each do |collection|
           search_path = Rails.application.routes.url_helpers.search_catalog_path(:"f[member_of_collections_ssim][]" => collection)
