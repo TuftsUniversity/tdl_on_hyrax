@@ -33,6 +33,7 @@ public/assets/
 
 # ignore generated sitemap files
 public/sitemap.xml.gz
+public/sitemap*
 
 # ignore any files created from running coveralls locally
 coverage/
