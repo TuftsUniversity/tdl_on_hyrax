@@ -40,6 +40,7 @@ Metrics/LineLength:
     - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
     - config/initializers/assets.rb
+    - lib/metadata_methods.rb
 Metrics/ClassLength: 
   Exclude:
     - app/controllers/catalog_controller.rb
