@@ -152,7 +152,7 @@ module HyraxHelper
   def video_link(media_id)
     {
       icons: 'glyphicon glyphicon-film glyph-left',
-      url: "#{hyrax.download_path(media_id, file: 'mp4')}?filename=#{@presenter.id}.mp4",
+      url: "#{hyrax.download_path(media_id, file: 'mp4')}&filename=#{@presenter.id}.mp4",
       text: 'Download Video File',
       label: "Video: #{media_id.first}"
     }
