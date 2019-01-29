@@ -68,7 +68,7 @@ module HyraxHelper
   def audio_link(media_id)
     {
       icons: 'glyphicon glyphicon-headphones glyph-left',
-      url: hyrax.download_path(media_id),
+      url: build_link(media_id, 'mp3'),
       text: 'Download Audio File',
       label: "Audio: #{media_id.first}"
     }
@@ -85,7 +85,7 @@ module HyraxHelper
   def eac_link(rcr_id)
     {
       icons: 'glyphicon glyphicon-file',
-      url: hyrax.download_path(rcr_id),
+      url: build_link(rcr_id, 'xml'),
       text: 'Download EAC',
       label: "EAC: #{rcr_id.first}"
     }
@@ -101,7 +101,7 @@ module HyraxHelper
   def pdf_link(pdf_id)
     {
       icons: 'glyphicon glyphicon-file',
-      url: hyrax.download_path(pdf_id),
+      url: build_link(pdf_id, 'pdf'),
       text: 'Download PDF',
       label: "PDF: #{pdf_id.first}"
     }
@@ -115,13 +115,12 @@ module HyraxHelper
   #
   # @return {hash}
   #   The info for the "Download Low-Resolution Image" link.
-  def low_res_image_link(file_set_id)
-    file_id = FileSet.find(file_set_id).first.files.first.id
+  def low_res_image_link(image_id)
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
-      url: "/download/#{CGI.escape(file_id)}?filename=#{@presenter.id}",
+      url: build_link(image_id, 'jpg'),
       text: 'Download Low-Resolution Image',
-      label: "Image: #{file_set_id.first}"
+      label: "Image: #{image_id.first}"
     }
   end
 
@@ -136,7 +135,7 @@ module HyraxHelper
   def transcript_link(transcript_id)
     {
       icons: 'glyphicon glyphicon-file',
-      url: hyrax.download_path(transcript_id),
+      url: build_link(transcript_id, 'xml'),
       text: 'Download Transcript',
       label: "Transcript: #{transcript_id.first}"
     }
@@ -153,9 +152,25 @@ module HyraxHelper
   def video_link(media_id)
     {
       icons: 'glyphicon glyphicon-film glyph-left',
-      url: hyrax.download_path(media_id, file: "mp4"),
+      url: "#{hyrax.download_path(media_id, file: 'mp4')}?filename=#{@presenter.id}.mp4",
       text: 'Download Video File',
       label: "Video: #{media_id.first}"
     }
   end
+
+  private
+
+    ##
+    # Builds a download and attaches the appropriate filename.
+    #
+    # @param {str/arr} id
+    #   The id of the object.
+    # @param {str} file_ext
+    #   The file extension to use.
+    #
+    # @return {str}
+    #   The download uri.
+    def build_link(id, file_ext)
+      "#{hyrax.download_path(id)}?filename=#{@presenter.id}.#{file_ext}"
+    end
 end

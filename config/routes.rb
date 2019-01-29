@@ -61,8 +61,5 @@ Rails.application.routes.draw do
 
   match 'feedback', to: 'feedback#show', via: [:post]
 
-  # Allows users to download IIIF derivatives.
-  get '/download/:id', to: 'tufts/downloads#download'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
