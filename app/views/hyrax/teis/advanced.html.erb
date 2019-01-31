@@ -31,7 +31,6 @@
         next_url = "#"
     end
 -%>
-<% cache (@document_fedora.id + (params[:chapter].nil? ? "HOME_CACHE" : params[:chapter]) + @document_fedora.date_modified.to_s + @document_fedora.file_sets.first.date_modified.to_s).strip do %>
     <% unless ['tufts:UA069.005.DO.00002', 'tufts:UA069.005.DO.00021', 'tufts:UA069.005.DO.00017', 'tufts:UA069.005.DO.00018', 'tufts:UA069.005.DO.00019', 'tufts:UA069.005.DO.00012', 'tufts:UA069.005.DO.00015', 'tufts:UA069.005.DO.00005'].include? @document_fedora.id %>
 
 
@@ -43,6 +42,7 @@
           <!-- span12 -->
         </div>  <!-- row -->
 
+<% cache (@document_fedora.id + (params[:chapter].nil? ? "HOME_CACHE" : params[:chapter]) + @document_fedora.date_modified.to_s + @document_fedora.file_sets.first.date_modified.to_s).strip do %>
         <div class="row tdl-content">
           <div class="col-md-7">
             <div class="pull-right">
