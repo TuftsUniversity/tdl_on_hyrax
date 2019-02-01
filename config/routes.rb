@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   mount Blacklight::Engine => '/'
   mount BlacklightAdvancedSearch::Engine => '/'
   concern :searchable, Blacklight::Routes::Searchable.new
-
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :oai_provider
     concerns :searchable
     concerns :range_searchable
   end
+  match '/catalog/:id', to: 'catalog#show_legacy', constraints: { id: /.*/ }, as: 'catalogviewer', via: [:get]
 
   # override welcome route so we can make search bar available on homepage
   # note: this has to go before hyrax is mounted
@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
     concerns :exportable
   end
+
+  get 'catalog', to: :show, controller: 'catalog'
 
   resources :bookmarks do
     concerns :exportable
