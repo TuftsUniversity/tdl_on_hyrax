@@ -42,7 +42,7 @@
           <!-- span12 -->
         </div>  <!-- row -->
 
-<% cache (@document_fedora.id + (params[:chapter].nil? ? "HOME_CACHE" : params[:chapter]) + @document_fedora.date_modified.to_s + @document_fedora.file_sets.first.date_modified.to_s).strip do %>
+<% cache (@document_fedora.id + (params[:chapter].nil? ? "HOME_CACHE" : params[:chapter]) + @document_fedora.date_modified.to_s + @document_fedora.file_sets.@document_fedora.file_sets.first.original_file.versions.last.created.to_s).strip do %>
         <div class="row tdl-content">
           <div class="col-md-7">
             <div class="pull-right">
