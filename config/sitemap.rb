@@ -1,6 +1,5 @@
 require 'byebug'
 SitemapGenerator::Sitemap.default_host = 'https://dl.tufts.edu'
-# SitemapGenerator::Sitemap.default_host = 'https://tdl-prod-01.uit.tufts.edu'
 
 SitemapGenerator::Sitemap.create do
   # We set a boolean value in our environment files to prevent generation in staging or development
