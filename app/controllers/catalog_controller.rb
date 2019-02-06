@@ -287,11 +287,11 @@ class CatalogController < ApplicationController
     items = ActiveFedora::Base.where(legacy_pid_tesim: id)
     item = items.first unless items.empty?
     if item.nil?
-      redirect_to "https://tdl-prod-01.uit.tufts.edu"
+      redirect_to "https://dl.tufts.edu"
     else
       f4id = item.id
       model = item.class.to_s.pluralize.underscore
-      redirect_to "https://tdl-prod-01.uit.tufts.edu/concern/#{model}/#{f4id}"
+      redirect_to "https://dl.tufts.edu/concern/#{model}/#{f4id}"
     end
   end
 
