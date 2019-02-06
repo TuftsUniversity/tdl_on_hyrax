@@ -13,7 +13,7 @@
 %>
 <%# javascript_includes << "ead.js" %>
 <%# stylesheet_links << "ead/ead.css" %>
-<% cache_key = (@id + @item_id + @document_fedora.date_modified.to_s + @document_fedora.file_sets.@document_fedora.file_sets.first.original_file.versions.last.created.to_s).strip %>
+<% cache_key = (@id + @item_id + @document_fedora.date_modified.to_s + @document_fedora.file_sets.first.original_file.versions.last.created.to_s).strip %>
 <% cache cache_key do %>
 
     <%
