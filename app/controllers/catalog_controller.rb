@@ -236,7 +236,7 @@ class CatalogController < ApplicationController
     add_search_field('publisher', config)
     add_search_field('subject', config)
     add_advanced_search_field('temporal', config)
-
+    add_search_field('source', config) { |f| f.include_in_advanced_search = false }
     add_search_field('resource_type', config) { |f| f.include_in_advanced_search = false }
     add_search_field('identifier', config) { |f| f.include_in_advanced_search = false }
     add_search_field('rights_statement', config) { |f| f.include_in_advanced_search = false }
