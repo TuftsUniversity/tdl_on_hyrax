@@ -54,8 +54,8 @@ module HyraxHelper
       download_link = base_url + file_set.id + params
     when 'image'
       file_set = obj.file_sets[0]
-       base_url = "https://dl.tufts.edu"
-      download_link = (Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: base_url, size: "400,"))
+      base_url = "https://dl.tufts.edu"
+      download_link = Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: base_url, size: "400,")
     when 'pdf'
       base_url = "https://dl.tufts.edu/downloads/"
       file_set = obj.file_sets[0]
