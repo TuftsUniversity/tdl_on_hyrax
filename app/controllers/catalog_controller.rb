@@ -46,6 +46,7 @@ class CatalogController < ApplicationController
     config.default_solr_params = {
       qt: 'search',
       rows: 10,
+      fq: 'workflow_state_name_ssim:published',
       qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
     }
 
