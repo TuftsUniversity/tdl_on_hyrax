@@ -282,17 +282,30 @@ class CatalogController < ApplicationController
     false
   end
 
+  def legacy_file_assets
+    id = params[:id]
+    items = ActiveFedora::Base.where(legacy_pid_tesim: id)
+    item = items.first unless items.empty?
+
+    raise ActionController::RoutingError, 'Not Found' if item.nil?
+
+    link = view_context.get_link_to_primary_binary(item)
+
+    raise ActionController::RoutingError, 'Not Found' if link == ""
+
+    redirect_to link
+  end
+
   def show_legacy
     id = params[:id]
     items = ActiveFedora::Base.where(legacy_pid_tesim: id)
     item = items.first unless items.empty?
-    if item.nil?
-      redirect_to "https://dl.tufts.edu"
-    else
-      f4id = item.id
-      model = item.class.to_s.pluralize.underscore
-      redirect_to "https://dl.tufts.edu/concern/#{model}/#{f4id}"
-    end
+
+    raise ActionController::RoutingError, 'Not Found' if item.nil?
+
+    f4id = item.id
+    model = item.class.to_s.pluralize.underscore
+    redirect_to "https://dl.tufts.edu/concern/#{model}/#{f4id}"
   end
 
   def welcome
