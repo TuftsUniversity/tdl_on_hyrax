@@ -59,7 +59,7 @@ module HyraxHelper
     when 'pdf'
       base_url = "https://dl.tufts.edu/downloads/"
       file_set = obj.file_sets[0]
-      params = "?file=pdf"
+      params = ""
       download_link = base_url + file_set.id + params
     end
 
