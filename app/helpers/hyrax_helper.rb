@@ -141,9 +141,13 @@ module HyraxHelper
   # @return {hash}
   #   The info for the "Download Low-Resolution Image" link.
   def low_res_image_link(image_id)
+    file_set_id = @presenter.solr_document._source["file_set_ids_ssim"].first
+    file_set = FileSet.find(file_set_id)
+    base_url = "https://dl.tufts.edu"
+    download_link = Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: base_url, size: "400,")
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
-      url: build_link(image_id, 'jpg'),
+      url: download_link,
       text: 'Download Low-Resolution Image',
       label: "Image: #{image_id.first}"
     }
