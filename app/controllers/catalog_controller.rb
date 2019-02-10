@@ -43,12 +43,20 @@ class CatalogController < ApplicationController
     config.view.slideshow.partials = [:index]
 
     # # Default parameters to send to solr for all search-like requests. See also SolrHelper# solr_search_params
-    config.default_solr_params = {
-      qt: 'search',
-      rows: 10,
-      fq: 'workflow_state_name_ssim:published',
-      qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
-    }
+    if Rails.env == "test"
+      config.default_solr_params = {
+        qt: 'search',
+        rows: 10,
+        qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
+      }
+    else
+      config.default_solr_params = {
+        qt: 'search',
+        rows: 10,
+        fq: 'workflow_state_name_ssim:published',
+        qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
+      }
+    end
 
     # solr field configuration for document/show views
     config.index.title_field = solr_name('title', :stored_searchable)
