@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   # note: this has to go before hyrax is mounted
   root 'catalog#welcome'
 
+  get 'contact', to: 'contact#show'
+  post 'contact', to: 'contact#show'
+
   devise_for :users
   mount Hydra::RoleManagement::Engine => '/'
 

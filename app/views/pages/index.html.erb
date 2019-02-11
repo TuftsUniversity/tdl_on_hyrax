@@ -1,17 +1,18 @@
 <%-
   @page_title = "About Us"
 -%>
-<!-- LEFT SIDE/ FOR FLUID COLUMN TITLE ROW -->
-<div class="row">
 
-  <!-- nested row LEFT -->
-  <div class="row">
+<div class="row-fluid">
+  <div class="col-md-12"></div>
 
+  <div class="row-fluid">
+
+    <!-- nested LEFT -->
     <div class="col-md-3">
       <%= render :partial => 'pages/menu' %>
     </div>
-    <!-- nested Fluid RIGHT -->
 
+    <!-- nested RIGHT -->
     <div class="col-md-6">
       <h2><%= @page_title %></h2>
       <p>The Tufts Digital Library is a collaboration between the Tufts libraries and Educational Technology
@@ -45,6 +46,7 @@
         interfaces were developed using Samvera’s Hyrax, with indexing powered by
         <a href="http://lucene.apache.org/solr/">Solr</a>.</p>
     </div>
+
     <div id="breadcrumbdivider">&nbsp;</div>
   </div>
 </div>
