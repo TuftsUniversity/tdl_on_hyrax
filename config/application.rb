@@ -25,5 +25,8 @@ module TdlOnHyrax
 
     # Used in feedback_mailer.rb
     config.tdl_feedback_address = "brian.goodmon@tufts.edu"
+    config.tdl_feedback_subject = "TDL Content Feedback"
+    config.tdl_contact_address = "brian.goodmon@tufts.edu"
+    config.tdl_contact_subject = "Contact DCA"
   end
 end

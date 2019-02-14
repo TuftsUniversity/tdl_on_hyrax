@@ -9,6 +9,14 @@ class FeedbackController < ApplicationController
     @errors = []
     if request.post? && validate
       FeedbackMailer.feedback(params).deliver_now
+    end
+  end
+
+  # show the contact form
+  def show_contact
+    @errors = []
+    if request.post? && validate
+      FeedbackMailer.contact(params).deliver_now
       flash[:notice] = I18n.t('blacklight.feedback.complete')
     end
   end
