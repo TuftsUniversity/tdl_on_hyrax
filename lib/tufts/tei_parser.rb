@@ -133,7 +133,10 @@ module Tufts
           image = image.first
           image_id = image.thumbnail_id unless image.nil?
           object_id = image.id
-          result += ("<br/><br/><img src='/downloads/#{image_id}?file=thumbnail'>")
+          base_url = "https://dl.tufts.edu"
+          iiif_url = Riiif::Engine.routes.url_helpers.image_url(image.file_sets[0].files.first.id, host: base_url, size: "400,")
+#          result += ("<br/><br/><img src='/downloads/#{image_id}?file=thumbnail'>")
+           result += ("<br/><br/><img src='#{iiif_url}'>")
 #          result += ("<br/><br/><img alt=\"\" src=\"" + "/file_assets/" + pid + "\"></img>")
         end
       end
