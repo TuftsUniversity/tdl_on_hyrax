@@ -18,7 +18,11 @@ class FeedbackController < ApplicationController
     return unless request.post? && validate
 
     FeedbackMailer.contact(params).deliver_now
+
     flash[:notice] = I18n.t('blacklight.feedback.complete')
+    params[:name] = ''
+    params[:email] = ''
+    params[:message] = ''
   end
 
   protected

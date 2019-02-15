@@ -1,7 +1,9 @@
 function submitFeedback(url, authenticity_token) {
   var params,
-      message = document.getElementById("inputComment").value,
-      emailAddress = document.getElementById("inputEmail").value;
+      messageField = document.getElementById("inputComment"),
+      emailAddressField = document.getElementById("inputEmail"),
+      message = messageField.value,
+      emailAddress = emailAddressField.value;
 
   if (message == null || message.length == 0) {
     alert("Please enter a message.");
@@ -34,5 +36,8 @@ function submitFeedback(url, authenticity_token) {
     data: encodeURI(params)
   });
 
-  $('#comment_modal').modal('hide')
+  messageField.value = "";
+  emailAddressField.value = "";
+
+  $('#comment_modal').modal('hide');
 }
