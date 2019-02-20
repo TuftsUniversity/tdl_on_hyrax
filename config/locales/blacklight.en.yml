@@ -1,3 +1,8 @@
 en:
   blacklight:
-    application_name: 'Blacklight'
+    application_name: 'Tufts Digital Library'
+    feedback:
+      valid_name: 'A name is required'
+      valid_email: 'A valid email address is required'
+      need_message: 'A message is required'
+      complete: 'Your message has been sent.'

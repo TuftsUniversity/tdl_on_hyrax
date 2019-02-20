@@ -2,11 +2,27 @@
 class FeedbackController < ApplicationController
   # http://expressica.com/simple_captcha/
   # include SimpleCaptcha::ControllerHelpers
+  layout 'homepage'
 
   # show the feedback form
   def show
     @errors = []
-    FeedbackMailer.feedback(params).deliver_now if request.post? && validate
+    return unless request.post? && validate
+
+    FeedbackMailer.feedback(params).deliver_now
+  end
+
+  # show the contact form
+  def show_contact
+    @errors = []
+    return unless request.post? && validate
+
+    FeedbackMailer.contact(params).deliver_now
+
+    flash[:notice] = I18n.t('blacklight.feedback.complete')
+    params[:name] = ''
+    params[:email] = ''
+    params[:message] = ''
   end
 
   protected

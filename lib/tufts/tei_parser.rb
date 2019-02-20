@@ -99,7 +99,11 @@ module Tufts
             type = sel[:type]
             if sel.name == 'figure'
               pid = PidMethods.urn_to_f3_pid(sel['n'])
-              result.push("<br/><br/><img alt=\"\" src=\"" + "/file_assets/" + pid + "\"></img>")
+              image = Image.where(legacy_pid_tesim: pid)
+              image = image.first
+              image_id = image.thumbnail_id unless image.nil?
+              object_id = image.id
+              result.push("<br/><br/><img src='/downloads/#{image_id}?file=thumbnail'>")
             else
               result.push("<div class='" + sel.name + " " + (type.nil? ? "" : type) + "'>")
             end
@@ -111,7 +115,44 @@ module Tufts
         result.join
       end
 
-      def self.show_tei_page(fedora_obj, tei, chapter)
+      def self.render_image_page(fedora_obj, tei, chapter)
+      result = ""
+
+      node_sets = tei.xpath('//body/div1/div2[@id="' + chapter +'"]/p/figure/head|//body/div1[@id="'+chapter+'"]/figure/head')
+      unless node_sets.nil?
+        node_sets.each do |node|
+          result += "<h6>" + node + "</h6><br/>"
+        end
+      end
+
+      node_sets = tei.xpath('//body/div1/div2[@id="' + chapter +'"]/p/figure|//body/div1[@id="'+chapter+'"]/figure')
+      unless node_sets.nil?
+        node_sets.each do |node|
+          pid = PidMethods.urn_to_f3_pid(node['n'])
+          image = Image.where(legacy_pid_tesim: pid)
+          image = image.first
+          image_id = image.thumbnail_id unless image.nil?
+          object_id = image.id
+          base_url = "https://dl.tufts.edu"
+          iiif_url = Riiif::Engine.routes.url_helpers.image_url(image.file_sets[0].files.first.id, host: base_url, size: "400,")
+#          result += ("<br/><br/><img src='/downloads/#{image_id}?file=thumbnail'>")
+           result += ("<br/><br/><img src='#{iiif_url}'>")
+#          result += ("<br/><br/><img alt=\"\" src=\"" + "/file_assets/" + pid + "\"></img>")
+        end
+      end
+
+      node_sets = tei.xpath('//body/div1/div2[@id="' + chapter +'"]/p/figure/figDesc|//body/div1[@id="'+chapter+'"]/figure/figDesc')
+      unless node_sets.nil?
+        node_sets.each do |node|
+
+          result += ("<p>"+ node+"</p>")
+        end
+      end
+
+      result
+    end
+
+    def self.show_tei_page(fedora_obj, tei, chapter)
     # render the requested chapter.
     # NOTE: should break this out into a method probably.
     result = ""
@@ -137,7 +178,7 @@ module Tufts
     #peek ahead and see if this is an image book if not render it as a standard text book.
     #result +="<p> is chapter image book : "+ (is_chapter_image_book(fedora_obj, chapter).to_s) +"</p>"
     if is_chapter_image_book(fedora_obj, tei, chapter)
-      result += render_image_page(fedora_obj, chapter)
+      result += render_image_page(fedora_obj, tei, chapter)
     else
       result += render_text_page(tei, chapter, footnotes)
     end

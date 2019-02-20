@@ -96,6 +96,7 @@ Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
+    - app/helpers/hyrax_helper.rb
 Naming/AccessorMethodName:
   Exclude:
     - app/models/transcript_chunk.rb

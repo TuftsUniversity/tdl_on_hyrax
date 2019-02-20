@@ -40,6 +40,31 @@ module HyraxHelper
 
     download_links
   end
+
+  def get_link_to_primary_binary(obj)
+    download_link = ""
+
+    model = obj.class.to_s.downcase
+
+    case  model
+    when 'audio'
+      base_url = "https://dl.tufts.edu/downloads/"
+      file_set = obj.file_sets[0]
+      params = "?file=mp3"
+      download_link = base_url + file_set.id + params
+    when 'image'
+      file_set = obj.file_sets[0]
+      base_url = "https://dl.tufts.edu"
+      download_link = Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: base_url, size: "400,")
+    when 'pdf'
+      base_url = "https://dl.tufts.edu/downloads/"
+      file_set = obj.file_sets[0]
+      params = ""
+      download_link = base_url + file_set.id + params
+    end
+
+    download_link
+  end
   # rubocop:enable Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/MethodLength
 
@@ -116,9 +141,13 @@ module HyraxHelper
   # @return {hash}
   #   The info for the "Download Low-Resolution Image" link.
   def low_res_image_link(image_id)
+    file_set_id = @presenter.solr_document._source["file_set_ids_ssim"].first
+    file_set = FileSet.find(file_set_id)
+    base_url = "https://dl.tufts.edu"
+    download_link = Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: base_url, size: "400,")
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
-      url: build_link(image_id, 'jpg'),
+      url: download_link,
       text: 'Download Low-Resolution Image',
       label: "Image: #{image_id.first}"
     }

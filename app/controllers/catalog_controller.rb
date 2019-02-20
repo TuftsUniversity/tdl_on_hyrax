@@ -43,11 +43,20 @@ class CatalogController < ApplicationController
     config.view.slideshow.partials = [:index]
 
     # # Default parameters to send to solr for all search-like requests. See also SolrHelper# solr_search_params
-    config.default_solr_params = {
-      qt: 'search',
-      rows: 10,
-      qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
-    }
+    config.default_solr_params = if Rails.env == "test"
+                                   {
+                                     qt: 'search',
+                                     rows: 10,
+                                     qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
+                                   }
+                                 else
+                                   {
+                                     qt: 'search',
+                                     rows: 10,
+                                     fq: 'workflow_state_name_ssim:published',
+                                     qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
+                                   }
+                                 end
 
     # solr field configuration for document/show views
     config.index.title_field = solr_name('title', :stored_searchable)
@@ -144,7 +153,7 @@ class CatalogController < ApplicationController
       all_names = config.show_fields.values.map(&:field).join(" ")
       title_name = solr_name("title", :stored_searchable)
       field.solr_parameters = {
-        qf: %( #{all_names} title_tesim description_tesim creator_tesim
+        qf: %( #{all_names} id title_tesim description_tesim creator_tesim
         keyword_tesim abstract_tesim accrual_policy_tesim
         alternative_title_tesim audience_tesim contributor_tesim
         corporate_name_tesim created_by_tesim creator_dept_tesim
@@ -236,7 +245,7 @@ class CatalogController < ApplicationController
     add_search_field('publisher', config)
     add_search_field('subject', config)
     add_advanced_search_field('temporal', config)
-
+    add_search_field('source', config) { |f| f.include_in_advanced_search = false }
     add_search_field('resource_type', config) { |f| f.include_in_advanced_search = false }
     add_search_field('identifier', config) { |f| f.include_in_advanced_search = false }
     add_search_field('rights_statement', config) { |f| f.include_in_advanced_search = false }
@@ -280,6 +289,32 @@ class CatalogController < ApplicationController
   # this method is not called in that context.
   def render_bookmarks_control?
     false
+  end
+
+  def legacy_file_assets
+    id = params[:id]
+    items = ActiveFedora::Base.where(legacy_pid_tesim: id)
+    item = items.first unless items.empty?
+
+    raise ActionController::RoutingError, 'Not Found' if item.nil?
+
+    link = view_context.get_link_to_primary_binary(item)
+
+    raise ActionController::RoutingError, 'Not Found' if link == ""
+
+    redirect_to link
+  end
+
+  def show_legacy
+    id = params[:id]
+    items = ActiveFedora::Base.where(legacy_pid_tesim: id)
+    item = items.first unless items.empty?
+
+    raise ActionController::RoutingError, 'Not Found' if item.nil?
+
+    f4id = item.id
+    model = item.class.to_s.pluralize.underscore
+    redirect_to "https://dl.tufts.edu/concern/#{model}/#{f4id}"
   end
 
   def welcome
