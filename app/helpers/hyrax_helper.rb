@@ -13,29 +13,31 @@ module HyraxHelper
   #   An array of hashes with link data, for use in _download_options view.
   # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/PerceivedComplexity
   def download_link_info(controller_name)
     download_links = []
+    unless @presenter.solr_document._source['workflow_state_name_ssim'].any? && (@presenter.solr_document._source['workflow_state_name_ssim'].include? "unpublished")
+      # Add the transcript link in any controller.
+      download_links << transcript_link(@presenter.transcript_id) if @document_tei.present? && @presenter.class.to_s != "Hyrax::TeiPresenter"
 
-    # Add the transcript link in any controller.
-    download_links << transcript_link(@presenter.transcript_id) if @document_tei.present? && @presenter.class.to_s != "Hyrax::TeiPresenter"
-
-    case controller_name
-    when 'audios'
-      download_links << add_to_list_link
-      download_links << audio_link(@presenter.media_id)
-    when 'images'
-      download_links << add_to_list_link
-      download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
-    when 'teis'
-      download_links << add_to_list_link
-    when 'pdfs'
-      download_links << add_to_list_link
-      download_links << pdf_link(@presenter.solr_document._source['hasRelatedMediaFragment_ssim'])
-    when 'rcrs'
-      download_links << eac_link(@presenter.rcr_id) if @document_rcr.present?
-    when 'videos'
-      download_links << add_to_list_link
-      download_links << video_link(@presenter.media_id)
+      case controller_name
+      when 'audios'
+        download_links << add_to_list_link
+        download_links << audio_link(@presenter.media_id)
+      when 'images'
+        download_links << add_to_list_link
+        download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
+      when 'teis'
+        download_links << add_to_list_link
+      when 'pdfs'
+        download_links << add_to_list_link
+        download_links << pdf_link(@presenter.solr_document._source['hasRelatedMediaFragment_ssim'])
+      when 'rcrs'
+        download_links << eac_link(@presenter.rcr_id) if @document_rcr.present?
+      when 'videos'
+        download_links << add_to_list_link
+        download_links << video_link(@presenter.media_id)
+      end
     end
 
     download_links
