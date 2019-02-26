@@ -14,9 +14,10 @@ module HyraxHelper
   # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/LineLength
   def download_link_info(controller_name)
     download_links = []
-    unless @presenter.solr_document._source['workflow_state_name_ssim'].any? && (@presenter.solr_document._source['workflow_state_name_ssim'].include? "unpublished")
+    unless !@presenter.solr_document._source['workflow_state_name_ssim'].nil? && @presenter.solr_document._source['workflow_state_name_ssim'].any? && (@presenter.solr_document._source['workflow_state_name_ssim'].include? "unpublished")
       # Add the transcript link in any controller.
       download_links << transcript_link(@presenter.transcript_id) if @document_tei.present? && @presenter.class.to_s != "Hyrax::TeiPresenter"
 
