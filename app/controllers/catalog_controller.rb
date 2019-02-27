@@ -153,7 +153,7 @@ class CatalogController < ApplicationController
       all_names = config.show_fields.values.map(&:field).join(" ")
       title_name = solr_name("title", :stored_searchable)
       field.solr_parameters = {
-        qf: %( #{all_names} id title_tesim description_tesim creator_tesim
+        qf: %( #{all_names} id all_text_timv title_tesim description_tesim creator_tesim
         keyword_tesim abstract_tesim accrual_policy_tesim
         alternative_title_tesim audience_tesim contributor_tesim
         corporate_name_tesim created_by_tesim creator_dept_tesim
@@ -305,14 +305,25 @@ class CatalogController < ApplicationController
     redirect_to link
   end
 
+  # rubocop:disable Metrics/MethodLength
   def show_legacy
     id = params[:id]
-    items = ActiveFedora::Base.where(legacy_pid_tesim: id)
-    item = items.first unless items.empty?
+    if id.starts_with?('oai:tufts:')
+      f4id = id.gsub('oai:tufts:', '')
+      begin
+        item = ActiveFedora::Base.find(f4id, cast: true)
+      rescue
+        raise ActionController::RoutingError, 'Not Found' if item.nil?
+      end
+    else
+      items = ActiveFedora::Base.where(legacy_pid_tesim: id)
+      item = items.first unless items.empty?
 
-    raise ActionController::RoutingError, 'Not Found' if item.nil?
+      raise ActionController::RoutingError, 'Not Found' if item.nil?
 
-    f4id = item.id
+      f4id = item.id
+    end
+
     model = item.class.to_s.pluralize.underscore
     redirect_to "https://dl.tufts.edu/concern/#{model}/#{f4id}"
   end
