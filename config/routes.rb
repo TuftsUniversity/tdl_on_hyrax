@@ -68,6 +68,6 @@ Rails.application.routes.draw do
 
   match 'feedback', to: 'feedback#show', via: [:post]
   ele = { object_type_sim: ['Generic Objects'], names_sim: ['American Antiquarian Society'] }
-  match '/election_datasets', to: 'catalog#index', f: ele, q: '', search_field: 'all_fields'
+  match '/election_datasets', to: 'catalog#index', f: ele, q: '', search_field: 'all_fields', via: [:get]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
