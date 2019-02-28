@@ -67,6 +67,7 @@ Rails.application.routes.draw do
   get 'concern/videos/:id/transcriptonly', to: 'hyrax/videos#video_transcriptonly', constraints: { id: /.*/ }, as: 'video_transcriptonly'
 
   match 'feedback', to: 'feedback#show', via: [:post]
-
+  ele = {:object_type_sim => ['Generic Objects'], :names_sim => ['American Antiquarian Society']}
+  match '/election_datasets', :to => 'catalog#index', :f => ele, :q=>'', :search_field=>'all_fields'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
