@@ -223,10 +223,11 @@
 
           <div class="col-md-4">
             <%
-              unitid = EadsHelper.unitid(@document_ead)
-              if EadsHelper.collection_has_online_content(unitid)
+              collection = @document_fedora.member_of_collections.first  # This relies on the EAD belonging to exactly one collection!!!
+              collection_title = collection.title.first if collection.present?
+              if collection_title.present? && EadsHelper.collection_has_online_content(collection_title)
                 search_field = ERB::Util.h(Solrizer.solr_name('member_of_collections', :symbol))
-                search_path = Rails.application.routes.url_helpers.search_catalog_path(:"f[#{search_field}][]" => collection_title_only)
+                search_path = Rails.application.routes.url_helpers.search_catalog_path(:"f[#{search_field}][]" => collection_title)
             %>
                 <div class="tooltip-demo well">
                   <h5><a href="<%= search_path %>">View Online Materials</a><span class="glyphicon glyphicon-arrow-right glyph-right" aria-hidden="true"></span></h5>

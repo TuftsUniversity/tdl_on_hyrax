@@ -1,12 +1,12 @@
 module EadsHelper
-  def self.collection_has_online_content(unitid)
+  def self.collection_has_online_content(collection_title)
     solr_connection = ActiveFedora.solr.conn
-    fq = 'source_tesim:' + unitid
+    fq = 'member_of_collections_ssim:"' + collection_title.gsub('"', '\\"') + '"'
 
-    response = solr_connection.get 'select', params: { fq: fq, rows: '1' }
+    response = solr_connection.get('select', params: { fq: fq, rows: '2' })
     collection_length = response['response']['docs'].length
 
-    collection_length > 0
+    collection_length > 1  # The EAD itself will be a member of the collection
   end
 
   def self.eadid(ead)
