@@ -6,7 +6,7 @@ module EadsHelper
     response = solr_connection.get('select', params: { fq: fq, rows: '2' })
     collection_length = response['response']['docs'].length
 
-    collection_length > 1  # The EAD itself will be a member of the collection
+    collection_length > 1 # The EAD itself will be a member of the collection
   end
 
   def self.eadid(ead)
