@@ -2,6 +2,12 @@
     top: 135px;  // where EAD_TOC sticks when it sticks
 }
 
+@media (max-width: 991px) {
+    .TOC.affix {
+        position: static;
+    }
+}
+
 .TOC > h6 {
     color: #666666;
     font-size: 11px;
@@ -37,4 +43,5 @@
 
 .TOC > ul > li:last-child > a {
     border-radius: 0 0 4px 4px;
+    margin-bottom: 20px;
 }
