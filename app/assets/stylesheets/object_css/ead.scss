@@ -24,7 +24,7 @@
   float: left;
 }
 .table .info_div {
-  width: 205px;
+  max-width: 205px;
   float: right;
 }
 @media only screen and (max-width: 1199px) {
@@ -34,8 +34,8 @@
     margin-top: 10px;
   }
 }
-.table .info_table {width: 205px;}
-.table .info_tr {width: 205px;}
+.table .info_table {max-width: 205px;}
+.table .info_tr {max-width: 205px;}
 .table .info_label_td {width: 55px; text-align: right; vertical-align: top; padding-right: 7px;}
 .table .info_value_td {width: 150px; text-align: left; vertical-align: top;}
 .table .availableonline_td {width: 130px;}
