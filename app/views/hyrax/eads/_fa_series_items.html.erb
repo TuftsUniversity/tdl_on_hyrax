@@ -17,7 +17,8 @@
 #     item_title = "-" + indentation_level.to_s + "-" + (@row_count - 1).to_s + "- " + item_title # to show indentation level and row number for debugging
       is_top_level = indentation_level == 0
       is_folder = !next_level_items.empty?
-      row_class = " class=\"" + (is_folder ? "folder_title_td" : "item_title_td") + " ead_indent" + indentation_level.to_s + "\""
+      indent_class = "ead_indent" + indentation_level.to_s
+      title_class = (is_folder ? "folder_title_div" : "item_title_div")
 
       if is_folder
         next_row = @row_count
@@ -34,41 +35,43 @@
 %>
       <tr<%= raw(is_top_level ? " class=\"topLevelRow\"" : "") %>>
         <td class="collapse_td"><%= raw(expand_collapse) %></td>
-        <td<%= raw(row_class) %>><%= raw(item_title) %>
-          <span class="smalltext">
-          <br>
+        <td class="title_and_info_td">
+          <div class="<%= raw(indent_class) %>"> <!-- row ? -->
+            <div class="<%= raw(title_class) %>"> <!-- col-md-9 ? -->
+              <%= raw(item_title) %>
+              <span class="smalltext">
+              <br>
 <%
-          item_paragraphs.each do |item_paragraph|
+              item_paragraphs.each do |item_paragraph|
 %>
-            <br><%= raw(item_paragraph) %>
+                <br><%= raw(item_paragraph) %>
 <%
-          end
-          if is_folder
+              end
+              if is_folder
 %>
-            <br>There might be additional items in this folder.
+                <br>There might be additional items in this folder.
 <%
-          end
+              end
 %>
-          </span>
+              </span>
+            </div>
+
+            <div class="info_div"> <!-- col-md-3  ? -->
+              <table class="info_table">
+<%
+              item_labels.each_with_index do |label, index|
+%>
+                <tr class="info_tr">
+                  <td class="smalltext info_label_td"><%= raw(label) %>:</td>
+                  <td class="smalltext info_value_td"><%= raw(item_values[index]) %></td>
+                </tr>
+<%
+              end
+%>
+              </table>
+            </div>
+          </div>
         </td>
-
-
-
-        <td class="label_value_td">
-        <table class="label_value_table">
-<%
-        item_labels.each_with_index do |label, index|
-%>
-          <tr class="label_value_table_tr">
-            <td class="smalltext label_td"><%= raw(label) %>:</td>
-            <td class="smalltext value_td"><%= raw(item_values[index]) %></td>
-          </tr>
-<%
-        end
-%>
-        </table>
-        </td>
-
         <td class="availableonline_td" align="center">
 <%
       if can_request
@@ -111,7 +114,7 @@
         end
       end
 %>
-          </td>
+        </td>
       </tr>
 
 <%

@@ -12,20 +12,32 @@
 }
 
 .table .collapse_td {padding: 0; padding-top: 3px; width: 10px;}
-.table .title_td {width: 489px;}
-.table .folder_title_td {
-  width: 489px;
+.table .title_and_info_td {width: 694px;}
+.table .folder_title_div {
+  max-width: 410px;
   word-break: break-word;
+  float: left;
 }
-.table .item_title_td {
-  width: 489px;
+.table .item_title_div {
+  max-width: 410px;
   word-break: break-word;
+  float: left;
 }
-.table .label_value_td {width: 205px;}
-.table .label_value_table {width: 205px;}
-.table .label_value_table_tr {width: 205px;}
-.table .label_td {width: 55px; text-align: right; vertical-align: top; padding-right: 7px;}
-.table .value_td {width: 150px; text-align: left; vertical-align: top;}
+.table .info_div {
+  width: 205px;
+  float: right;
+}
+@media only screen and (max-width: 1199px) {
+  .table .info_div {
+    float: left;
+    clear: left;
+    margin-top: 10px;
+  }
+}
+.table .info_table {width: 205px;}
+.table .info_tr {width: 205px;}
+.table .info_label_td {width: 55px; text-align: right; vertical-align: top; padding-right: 7px;}
+.table .info_value_td {width: 150px; text-align: left; vertical-align: top;}
 .table .availableonline_td {width: 130px;}
 .table .thumbnail_td {width: 70px;}
 
