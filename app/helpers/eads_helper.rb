@@ -1,12 +1,17 @@
 module EadsHelper
-  def self.collection_has_online_content(collection_title)
+  def self.collection_has_online_content(collection_title, ead_id)
     solr_connection = ActiveFedora.solr.conn
-    fq = 'member_of_collections_ssim:"' + collection_title.gsub('"', '\\"') + '"'
+    q = 'member_of_collections_ssim:"' + collection_title.gsub('"', '\\"') + '"'
 
-    response = solr_connection.get('select', params: { fq: fq, rows: '2' })
+    # filter the ead itself and broader meta collection, Collection Descriptions is a
+    # special case as all EADs will be part of that collection since they are themselves
+    # Collection Descriptions
+
+    fq = '-id:"' + ead_id + '" AND -member_of_collections_ssim:"Collection Descriptions"'
+    response = solr_connection.get('select', params: { q: q, fq: fq, rows: '2' })
     collection_length = response['response']['docs'].length
 
-    collection_length > 1 # The EAD itself will be a member of the collection
+    collection_length > 0 # The EAD itself will be a member of the collection
   end
 
   def self.eadid(ead)
