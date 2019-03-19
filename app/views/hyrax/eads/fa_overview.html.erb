@@ -2,7 +2,9 @@
    # retrieve items that can not be cached
    title, title_only, inclusive_date, bulk_date = EadsHelper.title(@document_ead)
    provide :page_title,  title_only + " - " + application_name
-%>
+   provide :page_header do %>
+     <h2><%= title %></h2>
+<% end %>
 <% #javascript_includes << "ead.js" %>
 <% #stylesheet_links << "ead.css" %>
 <% cache_key = (@id + @document_fedora.date_modified.to_s + (@document_fedora.file_sets.first.original_file.versions.last.nil? ? @document_fedora.file_sets.first.date_modified.to_s : @document_fedora.file_sets.first.original_file.versions.last.created.to_s)).strip %>
@@ -38,14 +40,6 @@
        serieses = EadsHelper.get_serieses(@document_ead)
        metadata = nil; #EadsHelper.get_metadata(@document_fedora)
     %>
-
-    <div class="row">
-      <div class="col-md-12">
-        <h2><%= title %></h2>
-      </div>
-    </div>
-
-    <hr>
 
     <div class="row" id="outermost">
       <div class="col-md-3">

@@ -10,7 +10,9 @@
    @collection_title, collection_title_only = EadsHelper.title(@document_ead)
    @series_full_title = "Series " + series_level + ": " + series_title
    provide :page_title, @series_full_title + " - " + application_name
-%>
+   provide :page_header do %>
+     <h2><%= series_title %></h2>
+<% end %>
 <%# javascript_includes << "ead.js" %>
 <%# stylesheet_links << "ead/ead.css" %>
 <% cache_key = (@id + @item_id + @document_fedora.date_modified.to_s + (@document_fedora.file_sets.first.original_file.versions.last.nil? ? @document_fedora.file_sets.first.date_modified.to_s : @document_fedora.file_sets.first.original_file.versions.last.created.to_s)).strip %>
@@ -22,15 +24,6 @@
        metadata = nil; # EadsHelper.get_metadata(@document_fedora)
 
     %>
-
-
-    <div class="row">
-      <div class="col-md-12">
-        <h2><%= series_title %></h2>
-      </div>
-    </div>
-
-    <hr>
 
     <div class="row" id="outermost">
       <div class="col-md-3">
