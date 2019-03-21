@@ -84,7 +84,6 @@ group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
 
-gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'rsolr', '>= 1.0'
 
@@ -107,3 +106,10 @@ end
 gem 'riiif', '~> 1.1'
 
 gem 'high_voltage', '~> 3.0.0'
+
+# github alerts
+gem "bootstrap-sass", ">= 3.4.1"
+gem "devise", ">= 4.6.0"
+gem "loofah", ">= 2.2.3"
+gem "rack", ">= 2.0.6"
+gem "rubyzip", ">= 1.2.2"
