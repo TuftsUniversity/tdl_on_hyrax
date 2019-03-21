@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     concerns :range_searchable
   end
   match '/catalog/:id', to: 'catalog#show_legacy', constraints: { id: /.*/ }, as: 'catalogviewer', via: [:get]
+  match '/filtered_catalog(.:format)', to: 'catalog#index', as: 'filteredcatalog', via: [:get]
 
   # override welcome route so we can make search bar available on homepage
   # note: this has to go before hyrax is mounted

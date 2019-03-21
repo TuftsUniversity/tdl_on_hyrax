@@ -6,7 +6,13 @@ class SearchBuilder < Hyrax::CatalogSearchBuilder
   #  include Hydra::AccessControlsEnforcement
   #  include Hyrax::SearchFilters
   include BlacklightAdvancedSearch::AdvancedSearchBuilder
-  self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr, :add_dl_filter, :suppress_embargo_records]
+  self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr, :add_dl_filter, :suppress_embargo_records, :supress_eads_conditionally]
+
+  def supress_eads_conditionally(solr_parameters)
+    Rails.logger.error "SOLR PARAMETERS #{@scope.request.env}"
+    solr_parameters[:fq] ||= []
+    solr_parameters[:fq] << '-has_model_ssim:Ead' if @scope.request.env["PATH_INFO"].include?("/filtered_catalog")
+  end
 
   def add_dl_filter(solr_parameters)
     solr_parameters[:fq] ||= []
