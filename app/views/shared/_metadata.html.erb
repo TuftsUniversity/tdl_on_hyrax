@@ -63,6 +63,10 @@
     <dl class="dl-horizontal">
       <dt>ID: </dt>
       <dd><%= @presenter.id %></dd>
+      <% unless @presenter.aspace_cuid.nil? %>
+        <dt>Component ID: </dt>
+        <dd><%= @presenter.aspace_cuid.first %></dd>
+      <% end %>
       <dt>To Cite:</dt>
       <dd><%= link_to(
         "DCA Citation Guide",
@@ -70,11 +74,7 @@
         target: "_blank") %>
         &nbsp;&nbsp;
         <%= link_to 'EndNote', polymorphic_path([main_app, @presenter], format: 'endnote') %>
-     </dd>
-      <% unless @presenter.aspace_cuid.nil? %>
-        <dt>Component ID: </dt>
-        <dd><%= @presenter.aspace_cuid.first %></dd>
-      <% end %>
+      </dd>
       <% unless @presenter.rights_statement.nil? %>
         <dt>Usage:</dt>
         <dd><%= link_to(
