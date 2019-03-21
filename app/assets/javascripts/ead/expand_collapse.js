@@ -1,6 +1,6 @@
 function toggleDisplay(imgName, firstRow, lastRow) {
   var img = $(imgName);
-  var rows = $("#theTable tr").not(".label_value_table_tr");
+  var rows = $("#theTable tr").not(".info_tr");
   var display = (img.attr("src").indexOf("button_expand.png") != -1);
   var imgSrc = (display ? "/assets/ead/button_collapse.png" : "/assets/ead/button_expand.png");
   var rowIndex;
@@ -34,7 +34,7 @@ function toggleDisplay(imgName, firstRow, lastRow) {
 }
 
 function displayAll(display) {
-  var rows = $("#theTable tr").not(".label_value_table_tr");
+  var rows = $("#theTable tr").not(".info_tr");
   var imgSrc = (display ? "/assets/ead/button_collapse.png" : "/assets/ead/button_expand.png");
   var rowDisplay = (display ? "" : "none");
   var rowIndex;
