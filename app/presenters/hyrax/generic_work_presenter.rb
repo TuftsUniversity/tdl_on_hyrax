@@ -60,6 +60,10 @@ module Hyrax
       solr_document[:has_model_ssim]
     end
 
+    def aspace_cuid
+      solr_document[:aspace_cuid_tesim]
+    end
+
     def corporate_name
       solr_document[:corporate_name_tesim]
     end

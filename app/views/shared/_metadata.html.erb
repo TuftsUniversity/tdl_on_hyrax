@@ -70,7 +70,11 @@
         target: "_blank") %>
         &nbsp;&nbsp;
         <%= link_to 'EndNote', polymorphic_path([main_app, @presenter], format: 'endnote') %>
-      </dd>
+     </dd>
+      <% unless @presenter.aspace_cuid.nil? %>
+        <dt>Component ID: </dt>
+        <dd><%= @presenter.aspace_cuid.first %></dd>
+      <% end %>
       <% unless @presenter.rights_statement.nil? %>
         <dt>Usage:</dt>
         <dd><%= link_to(
