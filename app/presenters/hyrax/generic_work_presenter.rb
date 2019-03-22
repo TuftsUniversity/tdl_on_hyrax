@@ -2,6 +2,22 @@ module Hyrax
   class GenericWorkPresenter < Hyrax::WorkShowPresenter
     Tufts::Terms.shared_terms.each { |term| delegate term, to: :solr_document }
 
+    def multi_attributes_to_html(fields, options = {})
+      field_info = {}
+
+      fields.each do |f|
+        unless respond_to?(f)
+          Rails.logger.warn("#{self.class} attempted to render #{f}, but no method exists with that name.")
+          continue
+        end
+
+        values = send(f)
+        field_info[f] = values unless values.empty?
+      end
+
+      Tufts::Renderers::MergedAttributeRenderer.new(field_info, options).render
+    end
+
     def date_modified
       return if solr_document[:date_modified_dtsi].nil?
       DateTime.parse(solr_document[:date_modified_dtsi]).in_time_zone.strftime('%F')
@@ -70,6 +86,10 @@ module Hyrax
 
     def geog_name
       solr_document[:geog_name_tesim]
+    end
+
+    def personal_name
+      solr_document[:personal_name_tesim]
     end
 
     def bibliographic_citation
