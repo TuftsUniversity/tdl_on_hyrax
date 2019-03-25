@@ -12,7 +12,7 @@ module Hyrax
         end
 
         values = send(f)
-        field_info[f] = values unless values.empty?
+        field_info[f] = values unless values.nil? || values.empty?
       end
 
       Tufts::Renderers::MergedAttributeRenderer.new(field_info, options).render
