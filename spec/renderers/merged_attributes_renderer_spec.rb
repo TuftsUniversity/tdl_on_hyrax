@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe Tufts::Renderers::MergedAttributeRenderer do
-  let(data) { { field1: ['data'], field2: ['other data'] } }
-  let(other_data) { { field2: ['data'], field1: ['other data'] } }
+  let(:data) { { field1: ['data'], field2: ['other data'] } }
+  let(:other_data) { { field2: ['data'], field1: ['other data'] } }
 
   it 'builds appropriate html' do # rubocop:disable RSpec/MultipleExpectations
     html = described_class.new(data, {}).render
