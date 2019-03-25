@@ -1,7 +1,6 @@
 module Tufts
   module Renderers
     class MergedAttributeRenderer < Hyrax::Renderers::LinkedAttributeRenderer
-
       ##
       # @function
       # Takes multiple hashes of field information and builds one <ul> out of it.
@@ -30,9 +29,8 @@ module Tufts
         end
 
         markup << %(</ul></td></tr>)
-        markup.html_safe
+        markup.html_safe # rubocop:disable Rails/OutputSafety
       end
     end
   end
 end
-
