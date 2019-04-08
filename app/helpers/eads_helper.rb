@@ -996,8 +996,9 @@ module EadsHelper
         can_request = true
         physloc = "Dark Archive"
       else
-        # ASpace EADs lack the <daogrp><daoloc> page and thumbnail attributes, so compute them from item_id thusly:
-        available_online, f4_id, f4_thumb_path, model = PidMethods.ingested?("tufts:" + item_id) # TBD - is this always true???
+        # ASpace EADs lack the <daogrp><daoloc> page and thumbnail attributes, so compute them from item_id thusly
+        # (and searching in solr for the item by its handle, which is in the dao's href):
+        available_online, f4_id, f4_thumb_path, model = PidMethods.ingested?(dao_href.text)
 
         if available_online
           page = f4_id

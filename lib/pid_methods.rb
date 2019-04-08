@@ -5,7 +5,7 @@ module PidMethods
     thumbnail_path = ""
     model = ""
 
-    fq = (pid.start_with?("tufts:") ? ('legacy_pid_tesim:"' + pid + '"') : ('id:"' + pid + '"'))
+    fq = (pid.start_with?("tufts:") ? ('legacy_pid_tesim:"' + pid + '"') : (pid.include?("hdl.handle.net/10427/") ? ('identifier_tesim:"' + pid + '"') : ('id:"' + pid + '"')))
 
     solr_connection = ActiveFedora.solr.conn
 
