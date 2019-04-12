@@ -97,12 +97,15 @@
             Add to List
           </a>
 <%
-        else
-          if thumbnail_path.empty?
+        end
+      end
+
+      if available_online
+        if thumbnail_path.empty?
 %>
           <span class="glyphicon glyphicon-ok glyph-left" aria-hidden="true"></span>
 <%
-          else
+        else
 %>
           <ul class="thumbnails">
             <li class="nothumbnailmargin">
@@ -110,7 +113,6 @@
             </li>
           </ul>
 <%
-          end
         end
       end
 %>
