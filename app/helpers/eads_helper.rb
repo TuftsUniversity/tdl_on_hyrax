@@ -1002,7 +1002,7 @@ module EadsHelper
 
         if available_online
           page = f4_id
-          thumbnail_path = f4_thumb_path unless model == "Tei"  # unless ["Tei", "Foo"].include?(model)
+          thumbnail_path = f4_thumb_path unless model == "Tei" # unless ["Tei", "Foo"].include?(model)
         elsif dao_href.nil?
           # It's not in Solr, and it's not in darkarchive, and it has no href, so it must be unprocessed.
           can_request = true
