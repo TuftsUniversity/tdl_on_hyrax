@@ -986,7 +986,12 @@ module EadsHelper
     end
 
     # ASpace EADs have a <dao> element.
-    unless dao.nil?
+    if dao.nil?
+      if physloc.empty? && item_type != "subseries"
+        # Items that have no dao and no physloc must be requested.
+        can_request = true
+      end
+    else
       dao_href = dao.attribute("href")
       if !dao_href.nil? && dao_href.text.include?("darkarchive")
         # In an ASpace EAD, an href="https://darkarchive.lib.tufts.edu/" attribute in the <dao> element
@@ -996,7 +1001,7 @@ module EadsHelper
         can_request = true
         physloc = "Dark Archive"
       else
-        # ASpace EADs lack the <daogrp><daoloc> page and thumbnail attributes, so compute them from item_id thusly
+        # ASpace EADs lack the <daogrp><daoloc> page and thumbnail attributes, so compute them thusly
         # (and searching in solr for the item by its handle, which is in the dao's href):
         available_online, f4_id, f4_thumb_path, model = PidMethods.ingested?(dao_href.text) unless dao_href.nil?
 
