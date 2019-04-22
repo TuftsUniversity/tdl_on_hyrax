@@ -1024,7 +1024,7 @@ module EadsHelper
 
     if available_online
       if !page.empty?
-        item_url = Rails.application.routes.url_helpers.send("hyrax_#{model.downcase}_path", page)
+        item_url = Rails.application.routes.url_helpers.send("hyrax_#{model.underscore}_path", page) # underscore also downcases
       elsif !external_page.empty?
         item_url = external_page
       end
