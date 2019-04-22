@@ -1044,7 +1044,7 @@ module EadsHelper
       values << physloc_unprocessed
     end
 
-    unless item_id.empty?
+    unless item_id.empty? || item_id.start_with?("aspace")
       labels << "Item ID"
       values << item_id
     end
