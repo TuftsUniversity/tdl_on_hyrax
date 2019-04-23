@@ -987,8 +987,9 @@ module EadsHelper
 
     # ASpace EADs have a <dao> element.
     if dao.nil?
-      if physloc.empty? && item_type != "subseries"
-        # Items that have no dao and no physloc must be requested.
+      if physloc.empty? && (item_type != "subseries" || next_level_items.empty?)
+        # An item that has neither dao nor location, or a subseries that has no children can be requested,
+        # but a subseries that is not empty can NOT be requested
         can_request = true
       end
     else
