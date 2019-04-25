@@ -227,9 +227,39 @@
                   <p>Some of the materials from this collection are available online. Not all materials have necessarily been digitized.</p>
                 </div>
             <% end %>
-            <% if series_items.empty? %>
+
+            <% if series_items.empty?
+                 # This is an empty item, so it should be requestable.
+                 eadid, url = EadsHelper.eadid(@document_ead)
+                 callnumber = EadsHelper.unitid(@document_ead)
+                 author = EadsHelper.author(@document_ead)
+                 ead_title = EadsHelper.title(@document_ead, true).first
+                 stripped_eadid = strip_tags(eadid)
+                 stripped_url = strip_tags(url)
+                 stripped_unitid = strip_tags(unitid)
+                 stripped_author = strip_tags(author)
+                 stripped_ead_title = strip_tags(ead_title)
+            %>
                 <div class="tooltip-demo well">
-                  <%#= render :partial => 'shared/add_to_list', :locals => {:metadata => metadata, :series_title => series_title, :unitid => unitid, :series_id => @item_id} %>
+
+                  <span class="glyphicon glyphicon-plus-sign glyph-left" aria-hidden="true"></span>
+                  <a class="list-add" data-pid="<%= j @id %>"
+                                      data-identifier="<%= j unitid.gsub(/[^0-9a-z ]/i, '') %>"
+                                      data-itemtitle="<%= stripped_ead_title %>"
+                                      data-site="DCA"
+                                      data-itemsubtitle="<%= strip_tags(series_title) %>"
+                                      data-itemnumber=""
+                                      data-iteminfo1="<%= strip_tags(item_default_access_restrict) %>"
+                                      data-itemauthor="<%= stripped_author %>"
+                                      data-iteminfo2="<%= strip_tags(creator) %>"
+                                      data-iteminfo3="<%= stripped_url %>"
+                                      data-itemdate="<%=strip_tags(inclusive_date) %>"
+                                      data-referencenumber="<%= stripped_eadid %>"
+                                      data-callnumber="<%= strip_tags(callnumber) %>"
+                                      data-itemvolume="<%= stripped_unitid %>" href="#">
+                    Add to List
+                  </a>
+
                   <p>Use <strong>My List</strong> to request materials that are not online.</p>
                 </div>
             <% end %>
