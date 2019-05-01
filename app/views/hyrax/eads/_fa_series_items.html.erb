@@ -75,11 +75,7 @@
         <td class="availableonline_td" align="center">
 <%
       if available_online
-        if thumbnail_path.empty?
-%>
-          <span class="glyphicon glyphicon-ok glyph-left" aria-hidden="true"></span>
-<%
-        else
+        unless thumbnail_path.empty?
 %>
           <ul class="thumbnails">
             <li class="nothumbnailmargin">
