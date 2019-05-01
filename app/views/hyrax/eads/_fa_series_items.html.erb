@@ -74,8 +74,23 @@
         </td>
         <td class="availableonline_td" align="center">
 <%
+      if available_online
+        if thumbnail_path.empty?
+%>
+          <span class="glyphicon glyphicon-ok glyph-left" aria-hidden="true"></span>
+<%
+        else
+%>
+          <ul class="thumbnails">
+            <li class="nothumbnailmargin">
+              <a href="<%= raw(path) %>" class="thumbnail"><img class="thumbnailwidth" src="<%= thumbnail_path %>"></a>
+            </li>
+          </ul>
+<%
+        end
+      end
+
       if can_request
-        unless available_online
           access_restrict = series_restrict if access_restrict.empty?
           access_restrict = access_restrict.strip unless access_restrict.empty?
 %>
@@ -97,23 +112,6 @@
             Add to List
           </a>
 <%
-        end
-      end
-
-      if available_online
-        if thumbnail_path.empty?
-%>
-          <span class="glyphicon glyphicon-ok glyph-left" aria-hidden="true"></span>
-<%
-        else
-%>
-          <ul class="thumbnails">
-            <li class="nothumbnailmargin">
-              <a href="<%= raw(path) %>" class="thumbnail"><img class="thumbnailwidth" src="<%= thumbnail_path %>"></a>
-            </li>
-          </ul>
-<%
-        end
       end
 %>
         </td>
