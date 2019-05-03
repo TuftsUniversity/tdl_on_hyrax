@@ -3,6 +3,10 @@ module Hyrax
     helper :rcrs
     include Hyrax::WorksControllerBehavior
     include WithRcrs
+    include WithShowEnforcement
+
+    before_action :enforce_show_permissions, only: :show
+
     self.curation_concern_type = ::Rcr
     self.show_presenter = Hyrax::RcrPresenter
 

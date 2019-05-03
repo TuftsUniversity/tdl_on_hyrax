@@ -3,6 +3,10 @@ module Hyrax
     helper :transcripts
     include Hyrax::WorksControllerBehavior
     include WithTranscripts
+    include WithShowEnforcement
+
+    before_action :enforce_show_permissions, only: :show
+
     self.curation_concern_type = ::Video
     self.show_presenter = Hyrax::VideoPresenter
 

@@ -4,6 +4,10 @@
 module Hyrax
   class ImagesController < CatalogController
     include Hyrax::WorksControllerBehavior
+    include WithShowEnforcement
+
+    before_action :enforce_show_permissions, only: :show
+
     self.curation_concern_type = ::Image
     self.show_presenter = Hyrax::ImagePresenter
 

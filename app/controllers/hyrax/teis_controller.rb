@@ -6,6 +6,10 @@ module Hyrax
     include Hyrax::WorksControllerBehavior
     include Hyrax::BreadcrumbsForWorks
     include WithTeis
+    include WithShowEnforcement
+
+    before_action :enforce_show_permissions, only: :show
+
     self.curation_concern_type = ::Tei
     self.show_presenter = Hyrax::TeiPresenter
 
