@@ -152,6 +152,47 @@ module Tufts
       result
     end
 
+    def self.render_pb(node)
+      if node['n'].nil?
+        result = ""
+      else
+        result = "<p>" + node['n'] + "</p>"
+      end
+
+      result
+    end 
+
+    def self.get_foot_note(child)
+      footnotes =""
+      note_id = child['n'].nil? ? child['id'] : child['n']
+      unless note_id.nil?
+        result = "<a href='#'>[" + note_id + "]</a>&nbsp;"
+      else
+        note_id = ""
+      end
+
+      child_text = child.text.to_s.strip
+
+      if child.name == "note"
+        footnotes = "<p>["+ note_id +"] " + child_text + "</p>"
+      end
+
+      return result, footnotes
+    end
+
+    def self.get_block_quote(node)
+      result = '<blockquote>'
+
+      children = node.children
+      children.each do |child|
+        child_text = child.text.to_s.strip
+
+        result += "<p>" + child.text + "</p>"
+      end
+      result += "</blockquote>"
+      result
+    end
+
     def self.show_tei_page(fedora_obj, tei, chapter)
     # render the requested chapter.
     # NOTE: should break this out into a method probably.
@@ -338,7 +379,13 @@ module Tufts
               image = Image.where(legacy_pid_tesim: pid)
               image = image.first
               image_id = image.thumbnail_id unless image.nil?
-              object_id = image.id
+              object_id = image.id unless image.nil?
+              if object_id.nil?
+                object_id = "unknown"
+              end
+              if image_id.nil?
+                image_id = "unknown"
+              end
               result +='<a data-pid="'+ object_id + '" href="/concern/images/' + object_id + '"  class="thumbnail">'
               result +='<img src="/downloads/' + image_id + '?file=thumbnail">'
               result +="</a>"
@@ -371,6 +418,24 @@ module Tufts
 
           return result, in_left_td, footnotes
         end
+
+     def self.render_table(node, in_left_td)
+      result = "<table>"
+      rows = node.children
+      rows.each do |row|
+        result += "<tr>"
+        cols = row.children
+        cols.each do |col|
+          result += "<td>"
+          text = col.text.to_s.strip
+          result += (text.nil? || text.length == 0) ? "&nbsp;" : text
+          result += "</td>"
+        end
+        result += "</tr>"
+      end
+      result += "</table>"
+      result
+    end
 
 
             def self.render_footnotes(footnotes)

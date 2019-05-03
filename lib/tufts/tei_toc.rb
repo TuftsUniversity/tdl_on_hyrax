@@ -58,7 +58,8 @@ module Tufts
 
           title = node['n'] unless node['n'].nil?
 
-          toc_result += TOC_PREDICATE + "<a href='/teiviewer/" + pid + '/' + "fileset" + "/chapter/" + (node['id'].nil? ? "title" : node['id']) + "'>" + title + "</a>" + TOC_SUFFIX
+          toc_result += TOC_PREDICATE + "<a href='/teiviewer/" + 'parent' + '/' + pid + "/chapter/" + node['id'].to_s + "'>" + node['n'].to_s + "</a>" + TOC_SUFFIX
+#          toc_result += TOC_PREDICATE + "<a href='/teiviewer/" + pid + '/' + "fileset" + "/chapter/" + (node['id'].nil? ? "title" : node['id']) + "'>" + title + "</a>" + TOC_SUFFIX
           chapter_list << node['id']
         end
       end
