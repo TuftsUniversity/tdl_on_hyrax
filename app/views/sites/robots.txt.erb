@@ -1,5 +1,13 @@
 # robots.txt
 # Block the bots
+User-agent: SemrushBot/3~bl
+User-agent: SemrushBot
+User-agent: SputnikBot/2.3
+User-agent: SputnikBot
+User-agent: YandexBot/3.0
+User-agent: YandexBot
+User-agent: FemtosearchBot
+User-agent: FemtosearchBot/1.0
 User-agent: 360Spider
 User-agent: Alexibot
 User-agent: Aqua_Products
@@ -385,7 +393,8 @@ Disallow: /catalog.html? # sometimes they use .html to get searches, Sneaky Goog
 Disallow: /catalog/facet # blocks facet pages
 Disallow: /catalog/range_limit
 Disallow: /file_assets
-
+Disallow: /catalog.atom?
+Disallow: /catalog.rss?
 # Load the sitemap if it is present
 <%- if File.exists? "#{Rails.root}/public/sitemap.xml.gz" -%>
 Sitemap: <%= "#{root_url :locale => nil}sitemap.xml.gz" %>
