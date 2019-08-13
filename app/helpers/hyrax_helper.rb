@@ -28,7 +28,8 @@ module HyraxHelper
         download_links << audio_link(@presenter.media_id)
       when 'images'
         download_links << add_to_list_link
-        download_links << low_res_image_link(@presenter.solr_document._source['hasRelatedImage_ssim'])
+        archival_id = @presenter.solr_document._source['hasRelatedImage_ssim']
+        download_links << (current_user && current_user.has_role?(:archivist) ? high_res_image_link(archival_id) : low_res_image_link(archival_id))
       when 'teis'
         download_links << add_to_list_link
       when 'pdfs'
@@ -147,12 +148,29 @@ module HyraxHelper
   def low_res_image_link(image_id)
     file_set_id = @presenter.solr_document._source["file_set_ids_ssim"].first
     file_set = FileSet.find(file_set_id)
-    base_url = "https://dl.tufts.edu"
-    download_link = Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: base_url, size: "400,")
+    download_link = Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,")
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
       url: download_link,
       text: 'Download Low-Resolution Image',
+      label: "Image: #{image_id.first}"
+    }
+  end
+
+  ##
+  # The info for "Download High-Resolution Image" link.
+  #
+  # @param {arr} file_set id
+  #   Id of the file_set that the image is in.
+  #
+  # @return {hash}
+  #   The info for the "Download High-Resolution Image" link.
+  def high_res_image_link(image_id)
+    file_set_id = @presenter.solr_document._source["file_set_ids_ssim"].first
+    {
+      icons: 'glyphicon glyphicon-picture glyph-left',
+      url:  "#{hyrax.download_path(file_set_id)}",
+      text: 'Download High-Resolution Image',
       label: "Image: #{image_id.first}"
     }
   end
