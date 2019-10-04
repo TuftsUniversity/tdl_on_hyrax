@@ -95,7 +95,7 @@
     </processinfo>
     <relatedmaterial id="aspace_e79c131036e69697935387191127de55">
       <head>Related Materials</head>
-      <p>Lorem Ipsum rare book collection, Cornell University.</p>
+      <p><archref href="https://fakey.org/fake1">Lorem Ipsum rare book collection</archref>, <archref href="https://fakey.edu/fake2">Cornell University</archref>.</p>
       <p>Lorem Ipsum faculty papers, University of Chicago.</p>
     </relatedmaterial>
     <scopecontent id="aspace_4434a5d8c1992a3af6eff2b856aa4a97">
@@ -117,6 +117,7 @@
       <head>Other Finding Aids</head>
       <p>A detailed item level list with transcriptions of diaries and letters is available in the
         repository.</p>
+      <p>Selected entries are reproduced in <archref href="https://fakey.org/fake5">The Diary Project</archref>.</p>
     </otherfindaid>
     <originalsloc id="aspace_979bc596fbd2cc1973b0e4078ecdc72e">
       <head>Existence and Location of Originals</head>
@@ -143,8 +144,8 @@
     </prefercite>
     <separatedmaterial id="aspace_e82b86d1f2d7c6a0a6b16e16b7a0b311">
       <head>Separated Materials</head>
-      <p>Taxidermy originally in this collection has been transferred to the natural history
-        museum.</p>
+      <p>Taxidermy originally in this collection has been transferred to the
+          <archref href="https://fakey.org/fake3">Natural History Museum</archref>.</p>
     </separatedmaterial>
     <controlaccess>
       <subject source="local">University of Chicago</subject>
@@ -204,7 +205,8 @@
         </prefercite>
         <separatedmaterial id="aspace_d7015e9f9faad5136d03f893a7ce4db0">
           <head>Separated Materials</head>
-          <p>Silk stockings found in this series have been transferred to the Textile Museum.</p>
+          <p>Silk stockings found in this series have been transferred to the
+              <archref href="https://fakey.org/fake4">Textile Museum</archref>.</p>
         </separatedmaterial>
         <processinfo id="aspace_724755a747cca31ee48e3a712262db0f">
           <head>Processing Information</head>
@@ -229,7 +231,7 @@
         </appraisal>
         <relatedmaterial id="aspace_00fb342d84c8e411fcbe6032ae2a0540">
           <head>Related Materials</head>
-          <p>Lorem Ipsum rare book collection, Cornell University.</p>
+          <p><archref href="https://fakey.org/fake1">Lorem Ipsum rare book collection</archref>, <archref href="https://fakey.edu/fake2">Cornell University</archref>.</p>
           <p>Lorem Ipsum faculty papers, University of Chicago.</p>
         </relatedmaterial>
         <originalsloc id="aspace_007521b68af5ff1809263dbb18e970a1">
@@ -245,6 +247,7 @@
           <head>Other Finding Aids</head>
           <p>A detailed item level list with transcriptions of diaries and letters is available in
             the repository.</p>
+          <p> Selected entries are reproduced in <archref href="https://fakey.org/fake5">The Diary Project</archref>.</p>
           <p>There is also Lorem Ipsum material to be found online. Please visit
             <extref>https://somerandomwebsite.org/collections/LoremIpsum</extref> and/or <extptr
               xlink:href="https://someotherrandomwebsite.org/collections/LoremIpsum"

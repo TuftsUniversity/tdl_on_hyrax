@@ -203,7 +203,9 @@ module Datastreams
         end
         t.relatedmaterial(path: "relatedmaterial") do
           t.head(path: "head")
-          t.p(path: "p")
+          t.p(path: "p") do
+            t.archref(path: "archref")
+          end
         end
         t.processinfo(path: "processinfo") do
           t.head(path: "head")
