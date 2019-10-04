@@ -29,7 +29,7 @@ module HyraxHelper
       when 'images'
         download_links << add_to_list_link
         archival_id = @presenter.solr_document._source['hasRelatedImage_ssim']
-        download_links << (current_user && current_user.has_role?(:archivist) ? high_res_image_link(archival_id) : low_res_image_link(archival_id))
+        download_links << (current_user && current_user.role?(:archivist) ? high_res_image_link(archival_id) : low_res_image_link(archival_id))
       when 'teis'
         download_links << add_to_list_link
       when 'pdfs'
@@ -169,7 +169,7 @@ module HyraxHelper
     file_set_id = @presenter.solr_document._source["file_set_ids_ssim"].first
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
-      url:  "#{hyrax.download_path(file_set_id)}",
+      url:  hyrax.download_path(file_set_id).to_s,
       text: 'Download High-Resolution Image',
       label: "Image: #{image_id.first}"
     }

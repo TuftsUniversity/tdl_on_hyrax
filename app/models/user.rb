@@ -43,7 +43,7 @@ class User < ApplicationRecord
     reload
   end
 
-  def has_role?(role_sym)
+  def role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
 
