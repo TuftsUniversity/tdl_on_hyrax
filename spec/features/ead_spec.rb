@@ -48,7 +48,7 @@ feature 'EAD' do
     page.should have_text "Although Ipsum's rare books were safely ensconced at Oberlin,"
     page.should have_text "No further accruals are expected."
     page.should have_text "Duplicate materials were discaded during processing, as was Mr. Ipsum's rather careworn feather boa."
-    page.should have_text "Taxidermy originally in this collection has been transferred to the natural history museum."
+    page.should have_text "Taxidermy originally in this collection has been transferred to the Natural History Museum."
     page.should have_text "Processing funded by a generous grant from NEH, 2015."
     page.should have_text "University of Chicago"
     page.should have_text "Adolescence"
