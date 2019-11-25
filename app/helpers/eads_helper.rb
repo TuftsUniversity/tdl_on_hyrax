@@ -394,12 +394,22 @@ module EadsHelper
     result
   end
 
-  def self.get_paragraphs(element)
+  def self.handle_archrefs(element)
+    element.search(:archref).each do |archref|
+      href = archref.attribute('href')
+      archref.content = '<a href="' + href.text + '" target="blank">' + archref.text + '</a>' unless href.nil?
+    end
+  end
+
+  def self.get_paragraphs(element, can_contain_archref = false)
     result = []
 
     unless element.nil?
       element.element_children.each do |element_child|
-        result << element_child.text if element_child.name == "p"
+        if element_child.name == "p"
+          handle_archrefs(element_child) if can_contain_archref
+          result << element_child.text
+        end
       end
 
       result << element.text if result.empty? # No <p> was found, so use the full text of the element.
@@ -424,6 +434,7 @@ module EadsHelper
             extptr.content = '<a href="' + extptr_href.text + '" target="blank">' + (extptr_title.nil? ? extptr_href.text : extptr_title.text) + '</a>'
           end
         end
+        handle_archrefs(element_child)
         result << element_child.text
       end
 
@@ -467,6 +478,7 @@ module EadsHelper
 
     unless relatedmaterialps.nil?
       relatedmaterialps.each do |relatedmaterialp|
+        handle_archrefs(relatedmaterialp)
         result << relatedmaterialp.text
       end
     end
@@ -480,6 +492,7 @@ module EadsHelper
 
     unless separatedmaterialps.nil?
       separatedmaterialps.each do |separatedmaterialp|
+        handle_archrefs(separatedmaterialp)
         result << separatedmaterialp.text
       end
     end
@@ -665,6 +678,7 @@ module EadsHelper
 
     unless otherfindaidps.nil?
       otherfindaidps.each do |otherfindaidp|
+        handle_archrefs(otherfindaidp)
         result << otherfindaidp.text
       end
     end
@@ -774,9 +788,9 @@ module EadsHelper
         elsif childname == "appraisal"
           series_appraisal = get_paragraphs(element_child)
         elsif childname == "separatedmaterial"
-          series_separated_material = get_paragraphs(element_child)
+          series_separated_material = get_paragraphs(element_child, true)
         elsif childname == "relatedmaterial"
-          series_related_material = get_paragraphs(element_child)
+          series_related_material = get_paragraphs(element_child, true)
         elsif childname == "altformavail"
           series_alt_formats = get_paragraphs(element_child)
         elsif childname == "originalsloc"
