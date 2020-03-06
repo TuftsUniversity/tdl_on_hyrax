@@ -153,9 +153,9 @@ h6 {
   flex-basis: 80%;
 }
 #tufts-searchbar {
-  height: 45px;
+  min_height: 45px;
   padding-top: 1px;
-  padding-botom: 1px;
+  padding-bottom: 1px;
 }
 #tufts-controls-spacer {
   height: 45px;
