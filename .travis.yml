@@ -6,7 +6,7 @@ dist: trusty
 jdk:
   - oraclejdk8
 rvm:
-  - 2.3.4
+  - 2.4.3
 before_script:
   - cp config/redis.yml.sample config/redis.yml
   - cp config/fedora.yml.sample config/fedora.yml
