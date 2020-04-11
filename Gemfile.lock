@@ -18,6 +18,15 @@ GIT
       activesupport
       hyrax (>= 2.0.0, <= 2.2.0)
 
+GIT
+  remote: https://github.com/devisaah/pdfjs_viewer-rails.git
+  revision: dc82f42ebc9eb02f79c9adc48571ca2184deeb63
+  specs:
+    pdfjs_viewer-rails (0.3.1)
+      json (> 1.8.4)
+      rails (> 4.2.0)
+      sass-rails (~> 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -572,10 +581,6 @@ GEM
     passenger (5.2.0)
       rack
       rake (>= 0.8.1)
-    pdfjs_viewer-rails (0.2.0)
-      json (> 1.8.4)
-      rails (> 4.2.0)
-      sass-rails (~> 5.0)
     poltergeist (1.17.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -911,7 +916,7 @@ DEPENDENCIES
   loofah (>= 2.2.3)
   mysql2
   passenger
-  pdfjs_viewer-rails
+  pdfjs_viewer-rails!
   poltergeist
   puma (~> 3.12)
   rack (>= 2.0.6)
