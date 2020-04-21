@@ -21,6 +21,9 @@ class Ability
 
     can [:fa_overview], ActiveFedora::Base
     can [:advanced], ActiveFedora::Base
+    can [:pdf_page], ActiveFedora::Base
+    can [:pdf_page_metadata], ActiveFedora::Base
+    can [:bookreader], ActiveFedora::Base
     can [:imageviewer], ActiveFedora::Base
     can [:fa_series], ActiveFedora::Base
     can [:audio_transcriptonly], ActiveFedora::Base

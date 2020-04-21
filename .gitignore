@@ -29,6 +29,7 @@ config/fedora.yml
 config/redis.yml
 config/secrets.yml
 config/solr.yml
+config/pdf_pages.yml
 public/assets/
 
 # ignore generated sitemap files

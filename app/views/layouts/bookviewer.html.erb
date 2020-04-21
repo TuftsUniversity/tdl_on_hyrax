@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>bookreader demo</title>
+
+    <%= stylesheet_link_tag '/assets/BookReader/BookReader.css' %>
+    <!-- Custom CSS overrides -->
+    <%= stylesheet_link_tag '/assets/BookReader/bookreader_custom.css' %>
+    <%= stylesheet_link_tag '/assets/imageviewer/BookReaderImageViewer.css' %>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <%= javascript_include_tag "bookreader.js" %>
+</head>
+<body style="background-color: #939598;">
+<%= yield %>
+
+
+
+
+</body>
+</html>
