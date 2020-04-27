@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   match '/catalog/:id', to: 'catalog#show_legacy', constraints: { id: /.*/ }, as: 'catalogviewer', via: [:get]
   match '/filtered_catalog(.:format)', to: 'catalog#index', as: 'filteredcatalog', via: [:get]
-  match '/bookreader/:id', to: 'imageviewer#show_book', constraints: { id: /.*/ }, as: 'bookreader', via: [:get]
+  match '/bookreader/:parent/:id', to: 'imageviewer#show_book', constraints: { id: /.*/ }, as: 'bookreader', via: [:get]
   match '/pdf_pages/:id/metadata', to: 'pdf_pages#dimensions', constraints: { id: /.*/ }, as: 'pdf_page_metadata', via: [:get]
   match '/pdf_pages/:id/:pageNumber', to: 'pdf_pages#show', constraints: { id: /.*/, pageNumber: /.*/ }, as: 'pdf_page', via: [:get]
   # override welcome route so we can make search bar available on homepage

@@ -1,12 +1,13 @@
 class ImageviewerController < CatalogController
   layout "bookviewer"
-  def index; end
 
   def show_book
-    "<h1>blah</h1>"
-  end
-
-  def show
-    "<h1>blah</h1>"
+    parent = params[:parent]
+    obj = ActiveFedora::Base.find(parent, cast: true)
+    published = true
+    published = !obj.state.id.to_s.include?('inactive') unless obj.state.nil?
+    displays = obj.displays_in.include? "dl"
+    redirect_to "/concern/pdfs/#{params[:parent]}" unless published && displays
+    ""
   end
 end
