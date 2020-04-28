@@ -10,5 +10,9 @@
         <%= javascript_include_tag '/assets/pdfviewer/BookReaderPDFViewer.js' %>
     </div>
     <script type="text/javascript">
-        
+        <!--
+            $(document).ready(function() {
+                $('a.logo').closest('span').append('<div class="overview_link"><a href="/concern/pdfs/<%= params[:parent] %>">Back to overview</a><div>');
+            });
+         // -->
     </script>

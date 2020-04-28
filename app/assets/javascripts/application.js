@@ -24,6 +24,14 @@
 // Need hyrax app before our code
 //= require 'hyrax/app.js'
 //= require_tree .
+//= stub bookreader.js
+//= stub ./BookReader/BookReader.js
+//= stub ./BookReader/dragscrollable.js
+//= stub ./BookReader/jquery.bt.min.js
+//= stub ./BookReader/jquery.colorbox-min.js
+//= stub ./BookReader/jquery-ui-1.8.5.custom.min.js
+//= stub ./BookReader/jquery.ui.ipad.js
+//= stub ./pdfviewer/BookReaderPDFViewer.js
 //= require hyrax
 //= require 'mustache/mustache.js'
 //= require 'bookbag/bookbag.js'
