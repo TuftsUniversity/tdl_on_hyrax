@@ -4,13 +4,25 @@
 <% editor = can?(:edit, @presenter.id) %>
 <div class="col-md-12 tdl-content tdl-show-image">
   <div class="row col-md-6">
-      <%= link_to "/pdfviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false }, class: 'thumbnail' do %>
-        <%= image_tag(hyrax.download_path(file_set_id.first) + "?file=thumbnail") %>
+      <% if @presenter.solr_document._source["member_of_collection_ids_ssim"].include? "3x817173v" %>
+        <%= link_to "/bookreader/#{@presenter.id}/#{file_set_id.first}#page/1/mode/2up", data: { turbolinks: false }, class: 'thumbnail' do %>
+          <%= image_tag(hyrax.download_path(file_set_id.first) + "?file=thumbnail") %>
+        <% end %>
+      <% else %>
+        <%= link_to "/pdfviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false }, class: 'thumbnail' do %>
+          <%= image_tag(hyrax.download_path(file_set_id.first) + "?file=thumbnail") %>
+        <% end %>
       <% end %>
 
       <h6>
-        <%= link_to "/pdfviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false } do %>
-          open in viewer <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+        <% if @presenter.solr_document._source["member_of_collection_ids_ssim"].include? "3x817173v" %>
+          <%= link_to "/bookreader/#{@presenter.id}/#{file_set_id.first}#page/1/mode/2up", data: { turbolinks: false } do %>
+            open in viewer <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+          <% end %>
+        <% else %> 
+          <%= link_to "/pdfviewer/#{file_set_id.first}/#{@presenter.id}", data: { turbolinks: false } do %>
+            open in viewer <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+          <% end %>
         <% end %>
      </h6>
   </div>
