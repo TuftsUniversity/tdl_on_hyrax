@@ -239,6 +239,7 @@ module Datastreams
       t.arrangementp(proxy: [:archdesc, :arrangement, :p])
 
       # Biography/History
+      t.bioghist(proxy: [:archdesc, :bioghist])
       t.bioghistp(proxy: [:archdesc, :bioghist, :p])
 
       # Access and Use

@@ -19,7 +19,7 @@
        eadid, handle = EadsHelper.eadid(@document_ead)
        contents = EadsHelper.get_contents(@document_ead)
        arrangement = EadsHelper.get_arrangement(@document_ead)
-       bioghist = EadsHelper.get_bioghist(@document_ead)
+       bioghists = EadsHelper.get_bioghists(@document_ead)
        read_more_about = EadsHelper.read_more_about(@document_ead)
        access_restrictions = EadsHelper.get_access_restrictions(@document_ead)
        use_restrictions = EadsHelper.get_use_restrictions(@document_ead)
@@ -50,7 +50,7 @@
             <% unless contents.empty? %>
                 <li><a data-turbolinks='false' href="#contents">Description</a></li>
             <% end %>
-            <% unless bioghist.empty? %>
+            <% unless bioghists.empty? %>
                 <li><a data-turbolinks='false' href="#bioghist">Biography/History</a></li>
             <% end %>
             <% unless access_restrictions.empty? && use_restrictions.empty? && phystech.empty? && preferred_citation.empty? %>
@@ -133,11 +133,21 @@
            end
         %>
 
-        <% unless bioghist.empty? %>
+        <% unless bioghists.empty? %>
             <h4 id="bioghist" class="EAD_H4">Biography/History</h4>
-            <% bioghist.each do |paragraph| %>
-                <p><%= raw paragraph %></p>
-            <%
+            <% bioghists.each do |bioghist|
+                   head, paragraphs = EadsHelper.get_bioghist_head_and_paragraphs(bioghist)
+                   unless head.empty? %>
+                       <h5 class="EAD_H5"><%= raw head %></h5>
+                <%
+                   end
+
+                   unless paragraphs.empty?
+                       paragraphs.each do |paragraph| %>
+                           <p><%= raw paragraph %></p>
+                    <%
+                       end
+                   end
                end
            end
         %>

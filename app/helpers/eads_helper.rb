@@ -103,14 +103,12 @@ module EadsHelper
     result
   end
 
-  def self.get_bioghist(ead)
+  def self.get_bioghists(ead)
     result = []
-    bioghistps = ead.find_by_terms_and_value(:bioghistp)
+    bioghists = ead.find_by_terms_and_value(:bioghist)
 
-    unless bioghistps.nil?
-      bioghistps.each do |bioghistp|
-        result << bioghistp.text
-      end
+    unless bioghists.nil?
+      result = bioghists
     end
 
     result
@@ -416,6 +414,23 @@ module EadsHelper
     end
 
     result
+  end
+
+  def self.get_bioghist_head_and_paragraphs(element)
+    head = ""
+    paragraphs = []
+
+    unless element.nil?
+      element.element_children.each do |element_child|
+        if element_child.name == "head"
+          head = element_child.text
+        elsif element_child.name == "p"
+          paragraphs << element_child.text
+        end
+      end
+    end
+
+    [head, paragraphs]
   end
 
   def self.get_other_finding_aids_paragraphs(element)
