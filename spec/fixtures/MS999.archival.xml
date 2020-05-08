@@ -63,12 +63,17 @@
       <p>This collection is arranged in two series.</p>
     </arrangement>
     <bioghist id="aspace_6416c28e0692d875166690f488d529ac">
-      <head>Biographical / Historical</head>
+      <head>Life Events</head>
       <p>Lorem Ipsum was born in Peoria, Illinois, in 1850. He attended Oberlin College, and began
         teaching philosophy at the University of Chicago in 1893. He became renowned for his
-        philosophical salons but later in life turned to drink, excess, and show tunes. He died in
-        1933 and left his extensive collections of rare books and autographed playbills to his alma
-        mater.</p>
+        philosophical salons but later in life turned to drink, excess, and show tunes.</p>
+      <p>He died in 1933 and left his extensive collections of rare books and autographed playbills
+        to his alma mater.</p>
+    </bioghist>
+    <bioghist id="aspace_6416c28e0692d875166690f488d529ac">
+      <head>Cultural Impact</head>
+      <p>Lorem Ipsum is notorious in urban legend for many matchmaking stunts.  Given
+        the number of such stories, they must be regarded as apocryphal at best.</p>
     </bioghist>
     <accessrestrict id="aspace_8951585fc249611af7df5560e85cb116">
       <head>Conditions Governing Access</head>
