@@ -107,9 +107,7 @@ module EadsHelper
     result = []
     bioghists = ead.find_by_terms_and_value(:bioghist)
 
-    unless bioghists.nil?
-      result = bioghists
-    end
+    result = bioghists unless bioghists.nil?
 
     result
   end
