@@ -891,6 +891,7 @@ module EadsHelper
     physloc = ""
     physloc_orig = ""
     physloc_unprocessed = ""
+    physdesc = ""
     creator = ""
     page = ""
     thumbnail = ""
@@ -948,6 +949,14 @@ module EadsHelper
           can_request = true
           physloc = did_child.text
           physloc_orig = did_child.text
+        elsif childname == "physdesc"
+          did_child.children.each do |physdesc_child|
+            # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
+            physdesc_child_text = physdesc_child.text.strip
+            unless physdesc_child_text.empty?
+              physdesc << (physdesc.empty? ? "" : ", ") + physdesc_child_text
+            end
+          end
         elsif childname == "container"
           # ASpace puts the location in <container label=""> rather than <physloc>
           unless did_child.attribute("label").nil?
@@ -1089,7 +1098,7 @@ module EadsHelper
 
     paragraphs = get_scopecontent_paragraphs(scopecontent) unless scopecontent.nil?
 
-    [unitdate, creator, physloc_orig, access_restrict, item_id, title, paragraphs, labels, values, item_url, thumbnail_path, available_online, can_request, next_level_items]
+    [unitdate, creator, physloc_orig, physdesc, access_restrict, item_id, title, paragraphs, labels, values, item_url, thumbnail_path, available_online, can_request, next_level_items]
   end
 
   def self.parse_origination(node)
