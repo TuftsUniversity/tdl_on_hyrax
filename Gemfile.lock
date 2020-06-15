@@ -20,13 +20,15 @@ GIT
 
 GIT
   remote: https://github.com/TuftsUniversity/tufts-curation
-  revision: 75cefd83969269d0c08684524878329a43fe8978
-  tag: 1.0.13
+  revision: 330993892c59128aedad862303be5f9f355da421
+  branch: update
   specs:
     tufts-curation (0.1.0)
       active-fedora (>= 11.5, <= 12.99)
+      activerecord
       activesupport
-      hyrax (>= 2.0.0, <= 2.2.0)
+      chronic
+      hyrax (>= 2.0.0, < 2.6.0)
 
 GEM
   remote: https://rubygems.org/
@@ -188,6 +190,7 @@ GEM
       mime-types (>= 1.16)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
     clipboard-rails (1.7.1)
     cliver (0.3.2)
     coffee-rails (4.2.2)
