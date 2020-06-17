@@ -17,7 +17,7 @@ feature 'Search Results' do
     visit search_results
     within('#search-results') do
       expect(page).to have_text('Good Contrib')
-     expect(page).not_to have_text('Bad Contrib')
+      expect(page).not_to have_text('Bad Contrib')
     end
   end
 
