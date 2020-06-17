@@ -15,14 +15,18 @@ feature 'Search Results' do
 
   scenario "Contributor shows only when there's no Creator" do
     visit search_results
-    expect(page).to have_text("Good Contrib")
-    expect(page).not_to have_text("Bad Contrib")
+    within('#search-results') do
+      expect(page).to have_text('Good Contrib')
+     expect(page).not_to have_text('Bad Contrib')
+    end
   end
 
   scenario "Temporal only shows when there's no Primary Date" do
     visit search_results
-    expect(page).to have_text("Good Temporal")
-    expect(page).not_to have_text("Bad Temporal")
+    within('#search-results') do
+      expect(page).to have_text('Good Temporal')
+      expect(page).not_to have_text('Bad Temporal')
+    end
   end
 
   scenario "Lock icon doesn't show on open-visiblity works" do
