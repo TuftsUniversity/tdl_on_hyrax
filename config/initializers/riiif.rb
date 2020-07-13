@@ -36,3 +36,28 @@ Riiif.not_found_image = Rails.root.join('app', 'assets', 'images', 'us_404.svg')
 Riiif.unauthorized_image = Rails.root.join('app', 'assets', 'images', 'us_404.svg')
 
 Riiif::Engine.config.cache_duration_in_days = 365
+
+# Patching a method into HTTPFileResolver that allows us to delete images cached by Riiif.
+module Riiif
+  class HTTPFileResolver
+    ##
+    # Deletes a cached image file.
+    #
+    # @param {str} id
+    #   The FileSet id
+    def delete_cached_file(id)
+      fail_msg = "Couldn't find file for FileSet: #{id}."
+      begin
+        file = find(id)
+        if ::File.exist?(file.path)
+          Rails.logger.info("Deleting File: #{file.path} for FileSet: #{id}.")
+          ::File.unlink(file.path)
+        else
+          Rails.logger.info(fail_msg)
+        end
+      rescue
+        Rails.logger.warn(fail_msg)
+      end
+    end
+  end
+end
