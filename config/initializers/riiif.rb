@@ -40,18 +40,27 @@ Riiif::Engine.config.cache_duration_in_days = 365
 # Patching a method into HTTPFileResolver that allows us to delete images cached by Riiif.
 module Riiif
   class HTTPFileResolver
+    def cached_image_location(fs_id)
+      file_id = FileSet.find(fs_id).files.first.id
+      image_obj = Riiif::Image.new(file_id)
+      # Have to run render to get the path out.
+      _ = image_obj.render(format: 'jpg')
+      image_obj.file.path
+    rescue
+      ''
+    end
+
     ##
     # Deletes a cached image file.
-    #
     # @param {str} id
     #   The FileSet id
     def delete_cached_file(id)
       fail_msg = "Couldn't find file for FileSet: #{id}."
       begin
-        file = find(id)
-        if ::File.exist?(file.path)
-          Rails.logger.info("Deleting File: #{file.path} for FileSet: #{id}.")
-          ::File.unlink(file.path)
+        file_path = cached_image_location(id)
+        if file_path.present? && ::File.exist?(file_path)
+          Rails.logger.info("Deleting File: #{file_path} for FileSet: #{id}.")
+          ::File.unlink(file_path)
         else
           Rails.logger.info(fail_msg)
         end
