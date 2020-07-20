@@ -37,36 +37,27 @@ Riiif.unauthorized_image = Rails.root.join('app', 'assets', 'images', 'us_404.sv
 
 Riiif::Engine.config.cache_duration_in_days = 365
 
-# Patching a method into HTTPFileResolver that allows us to delete images cached by Riiif.
+# Patching HTTPFileResolver to namespace cached images with their FileSet ids.
 module Riiif
   class HTTPFileResolver
-    def cached_image_location(fs_id)
-      file_id = FileSet.find(fs_id).files.first.id
-      image_obj = Riiif::Image.new(file_id)
-      # Have to run render to get the path out.
-      _ = image_obj.render(format: 'jpg')
-      image_obj.file.path
-    rescue
-      ''
+    def find(id)
+      remote = RemoteFile.new(uri(id),
+                              cache_path: cache_path,
+                              basic_auth_credentials: basic_auth_credentials,
+                              fs_id: id.split('/').first)
+      Riiif::File.new(remote.fetch)
     end
 
-    ##
-    # Deletes a cached image file.
-    # @param {str} id
-    #   The FileSet id
-    def delete_cached_file(id)
-      fail_msg = "Couldn't find file for FileSet: #{id}."
-      begin
-        file_path = cached_image_location(id)
-        if file_path.present? && ::File.exist?(file_path)
-          Rails.logger.info("Deleting File: #{file_path} for FileSet: #{id}.")
-          ::File.unlink(file_path)
-        else
-          Rails.logger.info(fail_msg)
+    class RemoteFile
+      private
+
+        def file_name
+          fs_id = @options.fetch(:fs_id)
+          url_hash = Digest::MD5.hexdigest(url)
+
+          full_name = fs_id.present? ? "#{fs_id}-#{url_hash}" : url_hash
+          @cache_file_name ||= ::File.join(cache_path, full_name + ext.to_s)
         end
-      rescue
-        Rails.logger.warn(fail_msg)
-      end
     end
   end
 end
