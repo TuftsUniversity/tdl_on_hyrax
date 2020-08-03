@@ -16,7 +16,7 @@
       <% end %>
 
       <h6>
-        <% if @presenter.solr_document._source["member_of_collection_ids_ssim"].include? "3x817173v" %>
+        <% if member_ids.present? && member_ids.include?('3x817173v') %>
           <%= link_to "/bookreader/#{@presenter.id}/#{file_set_id.first}#page/1/mode/2up", data: { turbolinks: false } do %>
             open in viewer <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
           <% end %>
