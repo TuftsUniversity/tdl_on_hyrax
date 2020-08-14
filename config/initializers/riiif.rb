@@ -60,4 +60,12 @@ module Riiif
         end
     end
   end
+
+  class Image
+    ##
+    # @param [ActiveSupport::HashWithIndifferentAccess] args
+    def render(args)
+      file.extract(OptionDecoder.decode(args, info))
+    end
+  end
 end
