@@ -27,16 +27,7 @@ module Tufts
     end
 
     def self.delete_rails_cache(file_set)
-      # Riiif::Image.cache.delete_matched(/riiif:#{file_set.id}:.*/)
-      file_id = file_set.files.first.id
-      options = { 'rotation' => '0', 'region' => 'full', 'quality' => 'default', 'size' => '400,', 'format' => 'jpg' }
-      key = Riiif::Image.cache_key(file_id, options)
-      if Riiif::Image.cache.exist? key
-        Rails.logger.info "Deleting image in Rails cache."
-        Riiif::Image.cache.delete key
-      else
-        Rails.logger.info "Couldn't find cache for #{file_id}."
-      end
+      Riiif::Image.cache.delete_matched(/riiif:#{file_set.id}:.*/)
     end
 
     def self.riiif_cache_path
