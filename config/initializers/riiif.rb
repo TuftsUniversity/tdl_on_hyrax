@@ -62,7 +62,7 @@ module Riiif
   end
 
   class Image
-    def cache_key(id, options)
+    def self.cache_key(id, options)
       str = options.to_h.merge(id: id)
                    .delete_if { |_, v| v.nil? }
                    .sort_by { |k, _v| k.to_s }
