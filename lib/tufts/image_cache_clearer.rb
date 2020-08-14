@@ -8,7 +8,7 @@ module Tufts
 
       Image.find(image_id).file_sets.each do |fs|
         delete_riiif_cache(fs.id)
-        delete_rails_cache(fs)
+        delete_rails_cache(fs.id)
       end
     rescue
       Rails.logger.error "RESCUE: Couldn't find image: #{image_id}"
@@ -26,8 +26,8 @@ module Tufts
       end
     end
 
-    def self.delete_rails_cache(file_set)
-      Riiif::Image.cache.delete_matched(/riiif:#{file_set.id}:.*/)
+    def self.delete_rails_cache(file_set_id)
+      Riiif::Image.cache.delete_matched(/riiif:#{file_set_id}:.*/)
     end
 
     def self.riiif_cache_path
