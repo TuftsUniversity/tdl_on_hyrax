@@ -64,13 +64,17 @@ module Riiif
   class Image
     def cache_key(id, options)
       str = options.to_h.merge(id: id)
-              .delete_if { |_, v| v.nil? }
-              .sort_by { |k, _v| k.to_s }
-              .to_s
+                   .delete_if { |_, v| v.nil? }
+                   .sort_by { |k, _v| k.to_s }
+                   .to_s
 
+      key = 'riiif:' + id.split('/').first + ':' + Digest::MD5.hexdigest(str)
       # Use a MD5 digest to ensure the keys aren't too long, and a prefix
       # to avoid collisions with other components in shared cache.
-      'riiif:' + id.split('/').first + ':' + Digest::MD5.hexdigest(str)
+      Rails.logger.info("\n\n\n\n\n\n\n\n")
+      Rails.logger.info("Caching: #{id} as #{key}.")
+      Rails.logger.info("\n\n\n\n\n\n\n\n")
+      key
     end
   end
 end

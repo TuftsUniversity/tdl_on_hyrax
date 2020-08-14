@@ -27,6 +27,7 @@ module Tufts
     end
 
     def self.delete_rails_cache(file_set)
+      # Riiif::Image.cache.delete_matched(/riiif:#{file_set.id}:.*/)
       file_id = file_set.files.first.id
       options = { 'rotation' => '0', 'region' => 'full', 'quality' => 'default', 'size' => '400,', 'format' => 'jpg' }
       key = Riiif::Image.cache_key(file_id, options)
