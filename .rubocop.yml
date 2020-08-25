@@ -131,7 +131,7 @@ RSpec/NestedGroups:
 RSpec/VerifiedDoubles:
   Exclude:
     - spec/models/**/*
-Style/FileName: 
+Naming/FileName: 
   Exclude: 
     - "**/Gemfile"
     - "**/*.rake"
