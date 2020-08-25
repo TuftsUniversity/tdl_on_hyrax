@@ -7,6 +7,8 @@ namespace :tufts do
     end
 
     puts "Deleting #{args[:image_id]}'s caches. You will probably need to clear browser cache as well."
-    Tufts::ImageCacheClearer.delete_image_cache(args[:image_id])
+    Image.find(args[:image_id]).file_sets.each do |fsid|
+      Tufts::ImageCacheClearer.delete_image_cache(fsid)
+    end
   end
 end

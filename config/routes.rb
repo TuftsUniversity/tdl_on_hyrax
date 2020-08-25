@@ -45,6 +45,11 @@ Rails.application.routes.draw do
   match '/robots.txt', to: 'application#robots', via: [:get]
   match '/pdfviewer/:id/:parent', to: 'pdfviewer#index', constraints: { id: /.*/ }, as: 'pdfviewer', via: [:get]
 
+  # Mira uses this to clear the cache on images that have been revised.
+  scope module: 'tufts' do
+    post 'image_cache_clear', to: 'image_cache_clear#clear_cache'
+  end
+
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
     concerns :exportable
   end

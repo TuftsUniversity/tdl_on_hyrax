@@ -1,17 +1,15 @@
 module Tufts
   class ImageCacheClearer
-    def self.delete_image_cache(image_id)
-      unless Image.exists?(image_id)
-        Rails.logger.info "Couldn't find image #{image_id}"
+    def self.delete_file_set_cache(file_set_id)
+      unless FileSet.exists?(file_set_id)
+        Rails.logger.info "Couldn't find FileSet #{file_set_id}"
         return
       end
 
-      Image.find(image_id).file_sets.each do |fs|
-        delete_riiif_cache(fs.id)
-        delete_rails_cache(fs.id)
-      end
+      delete_riiif_cache(file_set_id)
+      delete_rails_cache(file_set_id)
     rescue
-      Rails.logger.error "RESCUE: Couldn't find image: #{image_id}"
+      Rails.logger.error "RESCUE: Couldn't find FileSet: #{file_set_id}"
     end
 
     def self.delete_riiif_cache(file_set_id)
