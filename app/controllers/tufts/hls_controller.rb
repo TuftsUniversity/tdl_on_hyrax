@@ -4,11 +4,13 @@ module Tufts
       return '' if params[:file].empty?
 
       if(params[:file] == 'm3u8')
-        byebug
-        super
+        file = path_to_derivs(true)
       else
-        return ''
+        file = path_to_derivs + "/#{params[:file]}"
       end
+      byebug
+
+      file
     end
 
     def path_to_derivs(find_m3u8 = false)
@@ -17,9 +19,7 @@ module Tufts
         full_path
       else
         path_pieces = full_path.split('/')
-        path_pieces.shift
         path_pieces.pop
-        path_pieces.join('/')
       end
     end
 
