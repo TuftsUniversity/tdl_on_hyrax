@@ -63,6 +63,12 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
+
+
+  get '/hls/:id', to: 'tufts/hls#show', as: 'fs_id'
+
+  # resources :hls, only: :show, controller: 'tufts/hls'
+
   get '/image_overlay/:id', to: 'gallery#image_overlay', constraints: { id: /.*/ }, as: 'overlay'
   get '/image_gallery/:id/:start/:number', to: 'gallery#image_gallery', constraints: { id: /.*/ }, as: 'gallery'
   get 'imageviewer/:id', to: 'hyrax/images#advanced', constraints: { id: /.*/ }, as: 'imageviewer'
@@ -77,5 +83,6 @@ Rails.application.routes.draw do
   match 'feedback', to: 'feedback#show', via: [:post]
   ele = { object_type_sim: ['Generic Objects'], names_sim: ['American Antiquarian Society'] }
   match '/election_datasets', to: 'catalog#index', f: ele, q: '', search_field: 'all_fields', via: [:get]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
