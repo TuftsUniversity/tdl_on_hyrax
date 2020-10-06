@@ -1,5 +1,7 @@
 module Tufts
-  class HlsController < Hyrax::DownloadsController
+  class HlsController
+    include Hyrax::LocalFileDownloadsControllerBehavior
+
     def show
       return '' if params[:file].empty?
 

@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   end
 
 
-  get '/hls/:id', to: 'tufts/hls#show', as: 'fs_id'
+  match '/hls/:id', to: 'tufts/hls#show', as: 'hls', via: [:get]
 
   # resources :hls, only: :show, controller: 'tufts/hls'
 
