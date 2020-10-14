@@ -64,10 +64,8 @@ Rails.application.routes.draw do
     end
   end
 
-
+  # Streaming video controller
   match '/hls/:id', to: 'tufts/hls#show', as: 'hls', via: [:get]
-
-  # resources :hls, only: :show, controller: 'tufts/hls'
 
   get '/image_overlay/:id', to: 'gallery#image_overlay', constraints: { id: /.*/ }, as: 'overlay'
   get '/image_gallery/:id/:start/:number', to: 'gallery#image_gallery', constraints: { id: /.*/ }, as: 'gallery'

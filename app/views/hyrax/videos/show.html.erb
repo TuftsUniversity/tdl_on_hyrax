@@ -1,17 +1,9 @@
 <%= render "shared/item_header" %>
-<% # not working for reasons unknown
-  @presenter.file_set_presenters.each do |fs|
-  if(fs.video?)
-    hls_thing = "/hls/#{fs.id}?file=m3u8"
-  end
-  # hls_path also not working for some reason
-end %>
 
 <div class="row tdl-content">
   <div class="col-md-6">
     <video controls="controls" preload="metadata" width="445px" height="390px">
       <source src="<%= main_app.hls_path(@presenter.file_set_presenters.first.id)%>?file=m3u8" type="application/x-mpegURL">
-      <source src="<%= hyrax.download_path(@presenter.media_id) %>?file=mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 <%
@@ -20,7 +12,6 @@ if @document_tei.present?
 
   unless participant_html.empty?
 %>
-
     <br>
     <div class="participant_div">
       <b>Participants</b><br>
@@ -59,21 +50,21 @@ end
 </div>
 
 
-<!--<script>-->
-<!--  $(document).ready(function() {-->
-<!--    $('video, audio').mediaelementplayer({-->
-<!--      success: function (mediaElement, originalNode, instance) {-->
-<!--        var transcriptScroller = TranscriptScroller(mediaElement);-->
+<script>
+  $(document).ready(function() {
+    $('video, audio').mediaelementplayer({
+      success: function (mediaElement, originalNode, instance) {
+        var transcriptScroller = TranscriptScroller(mediaElement);
 
-<!--        mediaElement.addEventListener('timeupdate', function () {-->
-<!--          transcriptScroller.scrollTranscript(mediaElement.currentTime);-->
-<!--        });-->
+        mediaElement.addEventListener('timeupdate', function () {
+          transcriptScroller.scrollTranscript(mediaElement.currentTime);
+        });
 
-<!--        $('.transcript_chunk_link').on("click", function (e) {-->
-<!--          e.preventDefault()-->
-<!--          transcriptScroller.jumpPlayerTo($(e.currentTarget).data('time') / 1000);-->
-<!--        });-->
-<!--      }-->
-<!--    });-->
-<!--  });-->
-<!--</script>-->
+        $('.transcript_chunk_link').on("click", function (e) {
+          e.preventDefault()
+          transcriptScroller.jumpPlayerTo($(e.currentTarget).data('time') / 1000);
+        });
+      }
+    });
+  });
+</script>
