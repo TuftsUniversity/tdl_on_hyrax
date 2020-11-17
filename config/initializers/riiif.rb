@@ -44,10 +44,15 @@ module Riiif
       remote = RemoteFile.new(uri(id),
                               cache_path: cache_path,
                               basic_auth_credentials: basic_auth_credentials,
+                              #verify_mode: OpenSSL::SSL::VERIFY_NONE,
+                              ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE,
                               fs_id: id.split('/').first)
       Riiif::File.new(remote.fetch)
     end
 
+    def download_opts
+      basic_auth_credentials ? { http_basic_authentication: basic_auth_credentials, ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE } : {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE}
+   end
     class RemoteFile
       private
 
