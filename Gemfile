@@ -44,6 +44,7 @@ gem 'hydra-role-management'
 gem 'ldp', '0.7.0'
 gem 'mysql2'
 gem 'pdfjs_viewer-rails', git: 'https://github.com/TuftsUniversity/pdfjs_viewer-rails.git', tag: 'tdl-20200428'
+gem 'riiif', git: 'https://github.com/TuftsUniversity/riiif', branch: 'tufts_1_7_0'
 gem 'sidekiq'
 gem 'sitemap_generator'
 
@@ -104,8 +105,6 @@ group :test do
   gem 'simplecov'
   gem 'simplecov-rcov'
 end
-
-gem 'riiif', '~> 1.1'
 
 gem 'high_voltage', '~> 3.0.0'
 

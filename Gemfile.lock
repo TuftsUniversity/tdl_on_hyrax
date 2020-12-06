@@ -19,6 +19,15 @@ GIT
       sass-rails (~> 5.0)
 
 GIT
+  remote: https://github.com/TuftsUniversity/riiif
+  revision: 07d8959df0bc310557edee310144dab401cc861b
+  branch: tufts_1_7_0
+  specs:
+    riiif (1.7.0)
+      deprecation (>= 1.0.0)
+      railties (>= 4.2, < 6)
+
+GIT
   remote: https://github.com/TuftsUniversity/tufts-curation
   revision: 330993892c59128aedad862303be5f9f355da421
   branch: update
@@ -710,9 +719,6 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     retriable (3.1.2)
-    riiif (1.7.0)
-      deprecation (>= 1.0.0)
-      railties (>= 4.2, < 6)
     rsolr (2.2.1)
       builder (>= 2.1.2)
       faraday (>= 0.9.0)
@@ -925,7 +931,7 @@ DEPENDENCIES
   puma (~> 3.12)
   rack (>= 2.0.6)
   rails (~> 5.1.2)
-  riiif (~> 1.1)
+  riiif!
   rsolr (>= 1.0)
   rspec-rails
   rubocop
