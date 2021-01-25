@@ -65,9 +65,14 @@
     <dl class="dl-horizontal">
       <dt>ID: </dt>
       <dd><%= @presenter.id %></dd>
-      <% unless @presenter.aspace_cuid.nil? %>
-        <dt>Component ID: </dt>
-        <dd><%= @presenter.aspace_cuid.first %></dd>
+      <% if (steward.present? && steward.first.downcase == "dca") %>
+        <% if @presenter.aspace_cuid.nil? %>
+          <dt>Component ID: </dt>
+          <dd><%= @presenter.legacy_pid.first %></dd>
+        <% else %>
+          <dt>Component ID: </dt>
+          <dd><%= @presenter.aspace_cuid.first %></dd>
+        <% end %>
       <% end %>
       <dt>To Cite:</dt>
       <dd><%= link_to(
