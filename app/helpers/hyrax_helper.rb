@@ -22,7 +22,7 @@ module HyraxHelper
     link_var = [] if link_var.nil?
     return download_links if @presenter.class.to_s == "Hyrax::AdminStatsPresenter" || @presenter.class.to_s == "Hyrax::Admin::DashboardPresenter" || link_var.include?("no-link")
     return download_links if @presenter.nil?
-    unless @presenter.class.to_s != "Hyrax::Admin::DashboardPresenter" && !@presenter.solr_document.nil? && !@presenter.solr_document._source['workflow_state_name_ssim'].nil? && @presenter.solr_document._source['workflow_state_name_ssim'].any? && (@presenter.solr_document._source['workflow_state_name_ssim'].include? "unpublished")
+    unless @presenter.class.to_s != "Hyrax::Admin::DashboardPresenter" && @presenter.class.to_s != "Hyrax::UserProfilePresenter" && !@presenter.solr_document.nil? && !@presenter.solr_document._source['workflow_state_name_ssim'].nil? && @presenter.solr_document._source['workflow_state_name_ssim'].any? && (@presenter.solr_document._source['workflow_state_name_ssim'].include? "unpublished")
       # Add the transcript link in any controller.
       download_links << transcript_link(@presenter.transcript_id) if @document_tei.present? && @presenter.class.to_s != "Hyrax::TeiPresenter"
 
