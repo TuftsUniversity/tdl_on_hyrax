@@ -27,19 +27,17 @@ namespace :tufts do
           document_ead.ng_xml.remove_namespaces! unless document_ead.nil?
           bioghisths = document_ead.find_by_terms_and_value(:bioghisth)
 
-          unless bioghisths.nil?
-            found_count += 1
+          next unless bioghisths.nil?
+          found_count += 1
 
-            unless bioghisths.length == 1
-              heads = ''
-
-              bioghisths.each_with_index do |bioghisth, index|
-                heads += (index == 0 ? '' : ', ') + bioghisth.text
-              end
-
-              multi_bioghist_array << id + ': ' + heads
-              msg = 'has multiple bioghists (' + heads + ')'
+          unless bioghisths.length == 1
+            heads = ''
+            bioghisths.each_with_index do |bioghisth, index|
+              heads += (index.zero? ? '' : ', ') + bioghisth.text
             end
+
+            multi_bioghist_array << id + ': ' + heads
+            msg = 'has multiple bioghists (' + heads + ')'
           end
 
         rescue ActiveFedora::ObjectNotFoundError
