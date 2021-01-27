@@ -17,7 +17,10 @@
   <%
     steward = @presenter.steward
     is_part_of = @presenter.is_part_of
-    if (is_part_of.present? && (steward.present? && steward.first.downcase == "tisch"))
+    steward_ary = Array.wrap(steward)
+    is_dca = (steward.present? && steward_ary.first.downcase == "dca")
+
+    if (is_part_of.present? && (steward.present? && Array.wrap(steward).first.downcase == "tisch"))
       collections = nil
       if is_part_of.present?
         is_part_of = is_part_of.first
@@ -65,15 +68,15 @@
     <dl class="dl-horizontal">
       <dt>ID: </dt>
       <dd><%= @presenter.id %></dd>
-      <% if (steward.present? && steward.first.downcase == "dca") %>
-        <% if @presenter.aspace_cuid.nil? %>
-          <dt>Component ID: </dt>
-          <dd><%= @presenter.legacy_pid.first %></dd>
-        <% else %>
-          <dt>Component ID: </dt>
-          <dd><%= @presenter.aspace_cuid.first %></dd>
-        <% end %>
-      <% end %>
+      <% if is_dca %>
+    <% if @presenter.aspace_cuid.nil? && !@presenter.legacy_pid.nil? && !@presenter.legacy_pid.empty? %>
+      <dt>Component ID: </dt>
+      <dd><%= @presenter.legacy_pid.first %></dd>
+    <% elsif !@presenter.aspace_cuid.nil? && !@presenter.aspace_cuid.empty? %>
+      <dt>Component ID: </dt>
+      <dd><%= @presenter.aspace_cuid.first %></dd>
+    <% end %>
+<% end %>
       <dt>To Cite:</dt>
       <dd><%= link_to(
         "DCA Citation Guide",
