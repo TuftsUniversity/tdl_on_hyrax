@@ -36,8 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'blacklight_advanced_search'
-gem 'blacklight_range_limit', '~> 6.3', '>= 6.3.2'
 gem 'blacklight_oai_provider'
+gem 'blacklight_range_limit', '~> 6.3', '>= 6.3.2'
 gem 'coveralls', require: false
 gem 'devise_ldap_authenticatable'
 gem 'easy_logging'
