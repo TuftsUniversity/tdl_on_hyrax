@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   get '/about', to: 'high_voltage/pages#show', defaults: { "id" => "index" }
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
-  concern :oai_provider, BlacklightOaiProvider::Routes::Provider.new
 
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
   mount BlacklightAdvancedSearch::Engine => '/'
   concern :searchable, Blacklight::Routes::Searchable.new
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
-    concerns :oai_provider
     concerns :searchable
     concerns :range_searchable
   end

@@ -52,9 +52,6 @@ gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', 
 # gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: '1.0.13'
 # gem 'tufts-curation', :path => '../tufts-curation'
 
-# gem 'blacklight_oai_provider', git: 'https://github.com/UNC-Libraries/blacklight_oai_provider.git', branch: 'master'
-gem 'blacklight_oai_provider', git: 'https://github.com/TuftsUniversity/blacklight_oai_provider.git', branch: 'master'
-
 group :production do
   gem 'passenger'
   gem 'therubyracer'
