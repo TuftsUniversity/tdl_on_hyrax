@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  concern :oai_provider, BlacklightOaiProvider::Routes.new
+
   get '/about', to: 'high_voltage/pages#show', defaults: { "id" => "index" }
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
 
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
   mount BlacklightAdvancedSearch::Engine => '/'
   concern :searchable, Blacklight::Routes::Searchable.new
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+    concerns :oai_provider
+
     concerns :searchable
     concerns :range_searchable
   end
