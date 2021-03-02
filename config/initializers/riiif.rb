@@ -83,3 +83,31 @@ module Riiif
     end
   end
 end
+# app/services/riiif/option_decode
+#
+require_dependency Riiif::Engine.root.join('app', 'services', 'riiif', 'option_decoder').to_s
+module Riiif
+  class OptionDecoder
+    def decode_region(region)
+      #region = region.gsub("-","")
+      if region.nil? || region == 'full'
+        Riiif::Region::Imagemagick::FullDecoder.new.decode
+      elsif md = /^pct:(\d+),(\d+),(\d+),(\d+)$/.match(region)
+        Riiif::Region::Imagemagick::PercentageDecoder
+          .new(image_info, md[1], md[2], md[3], md[4]).decode
+      elsif md = /^(-?\d+),(-?\d+),(\d+),(\d+)$/.match(region)
+        x = Integer(md[1]) 
+        y = Integer(md[2])
+        x < 0 ? x = 0 : x
+        y < 0 ? y = 0 : x
+        
+        #Rails.logger.error "region #{x} #{y} #{md[3]} #{md[4]}"
+        Riiif::Region::Imagemagick::AbsoluteDecoder.new(x.to_s, y.to_s, md[3], md[4]).decode
+      elsif region == 'square'
+        Riiif::Region::Imagemagick::SquareDecoder.new(image_info).decode
+      else
+        raise InvalidAttributeError, "Invalid region: #{region}"
+      end
+    end
+  end
+end
