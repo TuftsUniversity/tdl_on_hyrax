@@ -9,6 +9,7 @@ module Hyrax
     # Creates a display image only where FileSet is an image.
     #
     # @return [IIIFManifest::DisplayImage] the display image required by the manifest builder.
+    # rubocop:disable Metrics/AbcSize
     def display_image
       return nil unless ::FileSet.exists?(id) && solr_document.image? && current_ability.can?(:read, id)
       # @todo this is slow, find a better way (perhaps index iiif url):
@@ -21,8 +22,8 @@ module Hyrax
       )
       # @see https://github.com/samvera-labs/iiif_manifest
       IIIFManifest::DisplayImage.new(url,
-                                     width: original_file.width.empty? ? 50000 : original_file.width.first ,
-                                     height: original_file.height.empty? ? 50000 : original_file.height.first,
+                                     width: original_file.width.empty? ? 50_000 : original_file.width.first,
+                                     height: original_file.height.empty? ? 50_000 : original_file.height.first,
                                      iiif_endpoint: iiif_endpoint(original_file.id))
     end
 
