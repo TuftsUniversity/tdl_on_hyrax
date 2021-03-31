@@ -53,7 +53,7 @@ class CatalogController < ApplicationController
                                    {
                                      qt: 'search',
                                      rows: 10,
-                                     fq: 'workflow_state_name_ssim:published',
+                                     fq: 'workflow_state_name_ssim:published OR has_model_ssim:Collection',
                                      qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
                                    }
                                  end
@@ -71,7 +71,7 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name('names', :facetable), limit: 5, label: 'Names'
     config.add_facet_field 'pub_date_facet_isim', label: 'Year', range: true
     config.add_facet_field solr_name('subject_topic', :facetable), limit: 5, label: 'Subject'
-    config.add_facet_field solr_name('member_of_collections', :symbol), limit: 5, label: 'Collections'
+    config.add_facet_field solr_name('dl_member_of_collections', :symbol), limit: 5, label: 'Collections'
 
     # The generic_type isn't displayed on the facet list
     # It's used to give a label to the filter that comes from the user profile
