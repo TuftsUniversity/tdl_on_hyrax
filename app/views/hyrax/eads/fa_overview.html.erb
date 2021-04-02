@@ -32,7 +32,7 @@
        appraisal = EadsHelper.get_appraisal(@document_ead)
        separated_material = EadsHelper.get_separated_material(@document_ead)
        sponsor = EadsHelper.get_sponsor(@document_ead)
-       names_and_subjects = EadsHelper.get_names_and_subjects(@document_ead)
+       subjects_genres, related_names = EadsHelper.get_subjects_and_names(@document_ead)
        related_material = EadsHelper.get_related_material(@document_ead)
        altformavail = EadsHelper.get_altformavail(@document_ead)
        originalsloc = EadsHelper.get_originalsloc(@document_ead)
@@ -59,7 +59,7 @@
             <% unless processing_notes.empty? && acquisition_info.empty? && custodial_history.empty? && accruals.empty? && appraisal.empty? && separated_material.empty? && sponsor.empty?%>
                 <li><a data-turbolinks='false' href="#collection_history">Collection History</a></li>
             <% end %>
-            <% unless names_and_subjects.empty? && related_material.empty? && altformavail.empty? && originalsloc.empty? && otherfindaid.empty? %>
+            <% unless subjects_genres.empty? && related_names.empty? && related_material.empty? && altformavail.empty? && originalsloc.empty? && otherfindaid.empty? %>
                 <li><a data-turbolinks='false' href="#related_resources">Related Resources</a></li>
             <% end %>
             <% unless serieses.empty? %>
@@ -250,12 +250,22 @@
             <% end %>
         <% end %>
 
-        <% unless (names_and_subjects.empty? && related_material.empty? && altformavail.empty? && originalsloc.empty? && otherfindaid.empty?) %>
+        <% unless (subjects_genres.empty? && related_names.empty?  && related_material.empty? && altformavail.empty? && originalsloc.empty? && otherfindaid.empty?) %>
             <h4  id="related_resources" class="EAD_H4">Related Resources</h4>
-            <% unless names_and_subjects.empty? %>
+
+            <% unless subjects_genres.empty? %>
             <h5 class="EAD_H5">Subjects and Genre Terms</h5>
             <ul>
-              <% names_and_subjects.each do |list_item| %>
+              <% subjects_genres.each do |list_item| %>
+                  <li><%= raw list_item %></li>
+              <% end %>
+            </ul>
+            <% end %>
+
+            <% unless related_names.empty? %>
+            <h5 class="EAD_H5">Related Names</h5>
+            <ul>
+              <% related_names.each do |list_item| %>
                   <li><%= raw list_item %></li>
               <% end %>
             </ul>

@@ -156,7 +156,15 @@
       <subject source="local">University of Chicago</subject>
       <subject source="local">Adolescence</subject>
       <subject source="local">Advertising</subject>
-      <title source="local">Medford (Mass.)</title>
+      <subject>Books</subject>
+      <title source="local">Medford</title>
+      <title>Tisch Library</title>
+      <persname>PersnameTest</persname>
+      <corpname>CorpnameTest</persname>
+      <famname>FamnameTest</persname>
+      <geogname>GeognameTest</geogname>
+      <genreform>GenreformTest</genreform>
+      <subject>SubjectTest</subject>
     </controlaccess>
     <dsc>
       <c id="aspace_1ba86c68818ab59b72d6fd01b6c15017" level="series">
@@ -263,6 +271,12 @@
         <controlaccess>
           <subject source="local">Letters (correspondence)</subject>
           <genreform source="aat">Diaries</genreform>
+          <persname>PersnameTestSeries</persname>
+          <corpname>CorpnameTestSeries</persname>
+          <famname>FamnameTestSeries</persname>
+          <geogname>GeognameTestSeries</geogname>
+          <genreform>GenreformTestSeries</genreform>
+          <subject>SubjectTestSeries</subject>
         </controlaccess>
         <c id="aspace_5fc68062788bbf01180b4812d1d5d5cf" level="subseries">
           <did>
@@ -396,6 +410,12 @@
             </scopecontent>
             <controlaccess>
               <genreform source="aat">Sketchbooks</genreform>
+              <persname>PersnameTestSubSeries</persname>
+              <corpname>CorpnameTestSubSeries</persname>
+              <famname>FamnameTestSubSeries</persname>
+              <geogname>GeognameTestSubSeries</geogname>
+              <genreform>GenreformTestSubSeries</genreform>
+              <subject>SubjectTestSubSeries</subject>
             </controlaccess>
             <c id="aspace_ffffffffffffffffffffffff44444444" level="item">
               <did>

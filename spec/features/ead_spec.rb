@@ -55,10 +55,12 @@ feature 'EAD' do
     page.should have_text "Taxidermy originally in this collection has been transferred to the Natural History Museum."
     page.should have_text "Processing funded by a generous grant from NEH, 2015."
     page.should have_text "University of Chicago"
-    page.should have_text "Adolescence"
-    page.should have_text "Advertising"
-    page.should have_text "Medford (Mass.)"
+    page.should have_link "Adolescence", href: Rails.application.routes.url_helpers.search_catalog_path(q: "Adolescence", search_field: "subject")
+    page.should have_link "Advertising", href: Rails.application.routes.url_helpers.search_catalog_path(q: "Advertising", search_field: "subject")
+    page.should have_link "Medford", href: Rails.application.routes.url_helpers.search_catalog_path(q: "Medford", search_field: "title")
     page.should have_text "Lorem Ipsum rare book collection, Cornell University."
+    page.should have_link "Lorem Ipsum rare book collection", href: "https://fakey.org/fake1"
+    page.should have_link "Cornell University", href: "https://fakey.edu/fake2"
     page.should have_text "Lorem Ipsum faculty papers, University of Chicago."
     page.should have_text "This collection is also available on microfilm."
     page.should have_text "Some letters in the correspondence series are photocopies; originals reside with the original authors."

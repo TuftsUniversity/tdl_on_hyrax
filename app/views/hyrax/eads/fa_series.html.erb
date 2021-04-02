@@ -3,8 +3,8 @@
    series, series_level = EadsHelper.get_series(@document_ead, @item_id)
    series_title, title_only, inclusive_date, bulk_date, creator, series_physdesc, series_langmaterial, series_scopecontents, series_arrangement,
      series_access_restrict, series_use_restrict, series_phystech, series_prefercite,
-     series_processinfo, series_acquisition_info, series_custodhist, series_accruals, series_appraisal, series_separated_material, 
-     series_names_and_subjects, series_related_material, series_alt_formats, series_originals_loc, series_other_finding_aids,
+     series_processinfo, series_acquisition_info, series_custodhist, series_accruals, series_appraisal, series_separated_material,
+     series_subjects_genres, series_related_names, series_related_material, series_alt_formats, series_originals_loc, series_other_finding_aids,
      series_items, unitid = EadsHelper.get_series_info(series)
    # @collection_title and @series_full_title are also used in the _subnav.html.erb partial
    @collection_title, collection_title_only = EadsHelper.title(@document_ead)
@@ -40,7 +40,7 @@
             <% unless series_processinfo.empty? && series_acquisition_info.empty? && series_custodhist.empty? && series_accruals.empty? && series_appraisal.empty? && series_separated_material.empty? %>
                 <li><a data-turbolinks='false' href="#collection_history">Collection History</a></li>
             <% end %>
-            <% unless series_names_and_subjects.empty? && series_related_material.empty? && series_alt_formats.empty? && series_originals_loc.empty? && series_other_finding_aids.empty? %>
+            <% unless series_subjects_genres.empty? && series_related_names.empty? && series_related_material.empty? && series_alt_formats.empty? && series_originals_loc.empty? && series_other_finding_aids.empty? %>
                 <li><a data-turbolinks='false' href="#related_resources">Related Resources</a></li>
             <% end %>
             <% unless series_items.empty? %>
@@ -174,12 +174,20 @@
                 <% end %>
             <% end %>
 
-            <% unless series_names_and_subjects.empty? && series_related_material.empty? && series_alt_formats.empty? && series_originals_loc.empty? && series_other_finding_aids.empty? %>
+            <% unless series_subjects_genres.empty? && series_related_names.empty? && series_related_material.empty? && series_alt_formats.empty? && series_originals_loc.empty? && series_other_finding_aids.empty? %>
                 <h4 id="related_resources" class="EAD_H4">Related Resources</h4>
-                <% unless series_names_and_subjects.empty? %>
+                <% unless series_subjects_genres.empty? %>
                     <h5 class="EAD_H5">Subjects and Genre Terms</h5>
                     <ul>
-                      <% series_names_and_subjects.each do |list_item| %>
+                      <% series_subjects_genres.each do |list_item| %>
+                          <li><%= raw list_item %></li>
+                      <% end %>
+                    </ul>
+                <% end %>
+                <% unless series_related_names.empty?%>
+                    <h5 class="EAD_H5">Related Names</h5>
+                    <ul>
+                      <% series_related_names.each do |list_item| %>
                           <li><%= raw list_item %></li>
                       <% end %>
                     </ul>

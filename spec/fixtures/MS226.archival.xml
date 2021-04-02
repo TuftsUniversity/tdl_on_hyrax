@@ -10,8 +10,8 @@
 			<publicationstmt>
 				<publisher>Digital Collection and Archives, Tufts University</publisher>
 				<address>
-          <addressLine>Tisch Library, 35 Professors Row, Medford, MA 02155</addressLine>
-        </address>
+					<addressLine>Tisch Library, 35 Professors Row, Medford, MA 02155</addressLine>
+				</address>
 				<date>2015</date>
 			</publicationstmt>
 		</filedesc>
@@ -22,8 +22,8 @@
 			<titleproper>Rubin "Hurricane" Carter papers, 1950-2014</titleproper>
 			<publisher>Digital Collection and Archives, Tufts University</publisher>
 			<address>	 
-        <addressLine>Medford, MA 02155</addressLine>
-      </address>
+				<addressLine>Medford, MA 02155</addressLine>
+			</address>
 			<date>2015</date>
 		</titlepage>
 	</frontmatter>
@@ -34,8 +34,8 @@
 			<repository>
 				<corpname>Digital Collections and Archives, Tufts University</corpname>
 				<address>
-          <addressLine>Medford, MA 02155</addressLine>
-        </address>
+					<addressLine>Medford, MA 02155</addressLine>
+				</address>
 			</repository>
 			<origination>
 				<persname id="RCR01009">Carter, Rubin</persname>
@@ -140,6 +140,12 @@
 			<subject>False imprisonment</subject>
 			<subject>Capital punishment -- United States</subject>
 			<subject>Prisoners -- United States</subject>
+			<persname>PersnameTest</persname>
+			<corpname>CorpnameTest</persname>
+			<famname>FamnameTest</persname>
+			<geogname>GeognameTest</geogname>
+			<genreform>GenreformTest</genreform>
+			<subject>SubjectTest</subject>
 		</controlaccess>
 
 		<acqinfo>
@@ -190,6 +196,14 @@
 						and paperweights, some sent to Carter by fans. </p>
 				</scopecontent>
 				<accessrestrict>This series is open for research.</accessrestrict>
+				<controlaccess>
+					<persname>PersnameTestSeries</persname>
+					<corpname>CorpnameTestSeries</persname>
+					<famname>FamnameTestSeries</persname>
+					<geogname>GeognameTestSeries</geogname>
+					<genreform>GenreformTestSeries</genreform>
+					<subject>SubjectTestSeries</subject>
+				</controlaccess>
 				<c02 level="subseries" id="MS226.001.001">
 					<did>
 						<unittitle>Awards</unittitle>
@@ -197,6 +211,14 @@
 						<physdesc>8.40 cubic ft.</physdesc>
 					</did>
 					<accessrestrict>This series is open for research.</accessrestrict>
+					<controlaccess>
+						<persname>PersnameTestSubSeries</persname>
+						<corpname>CorpnameTestSubSeries</persname>
+						<famname>FamnameTestSubSeries</persname>
+						<geogname>GeognameTestSubSeries</geogname>
+						<genreform>GenreformTestSubSeries</genreform>
+						<subject>SubjectTestSubSeries</subject>
+					</controlaccess>
 
 					<c03 level="item" id="MS226.001.001.001.00001">
 						<did>

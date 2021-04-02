@@ -457,8 +457,13 @@ module EadsHelper
     result
   end
 
-  def self.get_names_and_subjects(ead)
-    result = []
+  def self.search_field_for(tag_name)
+    { "subject" => "subject", "geogname" => "geographic_name", "genreform" => "genreform", "title" => "title", "persname" => "persname", "corpname" => "corpname", "famname" => "family_name" }[tag_name]
+  end
+
+  def self.get_subjects_and_names(ead)
+    subjects_genres = []
+    related_names = []
     controlaccesses = ead.find_by_terms_and_value(:controlaccess)
 
     unless controlaccesses.nil?
@@ -466,23 +471,30 @@ module EadsHelper
         controlaccess.element_children.each do |element_child|
           childname = element_child.name
 
-          if childname == "persname" || childname == "corpname" || childname == "subject" || childname == "geogname" ||
-             childname == "title" || childname == "genreform" || childname == "famname"
+          if ["persname", "corpname", "famname", "subject", "geogname", "genreform", "title"].include?(childname)
             child_text = element_child.text
-            child_id = element_child.attribute("id")
-            child_url = (child_id.nil? ? "" : ("tufts:" + child_id.text))
+            # child_id = element_child.attribute("id")
+            # child_url = (child_id.nil? ? "" : ("tufts:" + child_id.text))
 
             unless child_text.empty?
-              ingested = false
-              ingested, f4_id = PidMethods.ingested?(child_url) unless child_url.empty?
-              result << (ingested ? "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" : "") + child_text + (ingested ? "</a>" : "")
+              search_path = Rails.application.routes.url_helpers.search_catalog_path(q: child_text, search_field: search_field_for(childname))
+              search_tag = '<a data-turbolinks="false" href="' + search_path + '">' + child_text + '</a>'
+
+              if ["persname", "corpname", "famname"].include?(childname)
+                # ingested = false
+                # ingested, f4_id = PidMethods.ingested?(child_url) unless child_url.empty?
+                # related_names << (ingested ? '<a data-turbolinks="false" href="' + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') + child_text + (ingested ? '</a>' : '')
+                related_names << search_tag
+              else
+                subjects_genres << search_tag
+              end
             end
           end
         end
       end
     end
 
-    result
+    [subjects_genres, related_names]
   end
 
   def self.get_related_material(ead)
@@ -766,7 +778,8 @@ module EadsHelper
     series_accruals = []
     series_appraisal = []
     series_separated_material = []
-    series_names_and_subjects = []
+    series_subjects_genres = []
+    series_related_names = []
     series_related_material = []
     series_alt_formats = []
     series_originals_loc = []
@@ -818,16 +831,23 @@ module EadsHelper
           element_child.element_children.each do |element_grandchild|
             grandchildname = element_grandchild.name
 
-            if grandchildname == "persname" || grandchildname == "corpname" || grandchildname == "subject" || grandchildname == "geogname" ||
-               grandchildname == "title" || grandchildname == "genreform" || grandchildname == "famname"
+            if ["persname", "corpname", "famname", "subject", "geogname", "genreform", "title"].include?(grandchildname)
               grandchild_text = element_grandchild.text
-              grandchild_id = element_grandchild.attribute("id")
-              grandchild_url = (grandchild_id.nil? ? "" : "tufts:" + grandchild_id.text)
+              # grandchild_id = element_grandchild.attribute("id")
+              # grandchild_url = (grandchild_id.nil? ? "" : "tufts:" + grandchild_id.text)
 
               unless grandchild_text.empty?
-                ingested = false
-                ingested, f4_id = PidMethods.ingested?(grandchild_url) unless grandchild_url.empty?
-                series_names_and_subjects << (ingested ? "<a href=\"" + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + "\">" : "") + grandchild_text + (ingested ? "</a>" : "")
+                search_path = Rails.application.routes.url_helpers.search_catalog_path(q: grandchild_text, search_field: search_field_for(grandchildname))
+                search_tag = '<a data-turbolinks="false" href="' + search_path + '">' + grandchild_text + '</a>'
+
+                if ["persname", "corpname", "famname"].include?(grandchildname)
+                  # ingested = false
+                  # ingested, f4_id = PidMethods.ingested?(grandchild_url) unless grandchild_url.empty?
+                  # series_related_names << (ingested ? '<a data-turbolinks="false" href="' + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') + grandchild_text + (ingested ? '</a>' : '')
+                  series_related_names << search_tag
+                else
+                  series_subjects_genres << search_tag
+                end
               end
             end
           end
@@ -873,7 +893,7 @@ module EadsHelper
       title = (unittitle.empty? ? "" : unittitle + (unitdate.empty? ? "" : ", " + unitdate))
     end
 
-    [title, unittitle, unitdate, unitdate_bulk, creator, physdesc, series_langmaterial, paragraphs, series_arrangement, series_access_restrict, series_use_restrict, series_phystech, series_prefercite, series_processinfo, series_acquisition_info, series_custodhist, series_accruals, series_appraisal, series_separated_material, series_names_and_subjects, series_related_material, series_alt_formats, series_originals_loc, series_other_finding_aids, series_items, unitid]
+    [title, unittitle, unitdate, unitdate_bulk, creator, physdesc, series_langmaterial, paragraphs, series_arrangement, series_access_restrict, series_use_restrict, series_phystech, series_prefercite, series_processinfo, series_acquisition_info, series_custodhist, series_accruals, series_appraisal, series_separated_material, series_subjects_genres, series_related_names, series_related_material, series_alt_formats, series_originals_loc, series_other_finding_aids, series_items, unitid]
   end
 
   def self.get_series_item_info(item, pid)
@@ -1115,5 +1135,102 @@ module EadsHelper
     end
 
     [name, rcr_url]
+  end
+
+  def self.find_indexable_fields(id, results)
+    document_fedora = ActiveFedora::Base.find(id)
+    document_ead = Datastreams::Ead.from_xml(document_fedora.file_sets.first.original_file.content)
+    document_ead = document_ead.ng_xml.remove_namespaces!
+
+    archdescs = document_ead.xpath('//ead/archdesc')
+
+    return false if archdescs.empty?
+
+    archdescs.each do |archdesc|
+      find_controlaccess(archdesc, results)
+      find_dsc(archdesc, results)
+    end
+
+    # results is a hash table whose keys are field names and values are hash tables with field values as both key and value, like:
+    # {"genreform"=>{"Diaries"=>"Diaries", "Sketchbooks"=>"Sketchbooks"}, "subject"=>{"Adolescence"=>"Adolescence", "Advertising"=>"Advertising"}}.
+    # The reason to have hash tables within hash tables is for best insertion performance and so that field values aren't duplicated, but
+    # it's a little confusing as a returned result, so convert the inner hash tables to arrays so that the above example would look like"
+    # {"genreform"=>["Diaries", "Sketchbooks"], "subject"=>["Adolescence", "Advertising"]}.
+    results.each do |field_name, field_values|
+      results[field_name] = field_values.keys
+    end
+
+    true
+  end
+
+  def self.find_controlaccess(node, results)
+    controlaccess = node.xpath('./controlaccess')
+
+    return false if controlaccess.empty?
+
+    # puts('  ' + node.name + (node.name == 'archdesc' ? '' : (' ' + node['level'] + ' ' + node['id'])))
+    find_tag(controlaccess, 'persname', results)
+    find_tag(controlaccess, 'corpname', results)
+    find_tag(controlaccess, 'famname', results)
+    find_tag(controlaccess, 'geogname', results)
+    find_tag(controlaccess, 'genreform', results)
+    find_tag(controlaccess, 'subject', results)
+    find_tag(controlaccess, 'title', results)
+
+    true
+  end
+
+  def self.find_dsc(node, results)
+    dsc = node.xpath('./dsc')
+
+    return false if dsc.empty?
+
+    unless find_series(dsc, results)  # ASpace series (c)
+      find_series(dsc, results, 1)    # non-ASpace series (c01, c02...)
+    end
+
+    true
+  end
+
+  def self.find_series(node, results, level = 0)
+    if level == 0
+      level_string = ''
+      next_level = 0
+    else
+      level_string = format('%02d', level)
+      next_level = level + 1
+    end
+
+    serieses = node.xpath('./c' + level_string)
+
+    return false if serieses.empty?
+
+    serieses.each do |series|
+      find_controlaccess(series, results)
+      find_series(series, results, next_level)
+    end
+
+    true
+  end
+
+  def self.find_tag(node, tag, results)
+    subnodes = node.xpath('./' + tag)
+
+    return false if subnodes.empty?
+
+    # puts('    ' + tag)
+    tag_hash = results[tag]
+
+    if tag_hash.nil?
+      tag_hash = {}
+      results[tag] = tag_hash
+    end
+
+    subnodes.each do |subnode|
+      # puts('      ' + subnode.text)
+      tag_hash[subnode.text] = subnode.text
+    end
+
+    true
   end
 end
