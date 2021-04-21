@@ -10,9 +10,8 @@ module TestHelpers
 
   ##
   # Signs in.
-  #
-  # @params
-  #   user {User} The user that's logging in.
+  # @param {User} user
+  #   The user that's logging in.
   def sign_in(user)
     visit('/users/sign_in')
     fill_in('user_username', with: user.username)
@@ -22,10 +21,10 @@ module TestHelpers
 
   ##
   # Runs a basic search.
-  #
-  # @params
-  #   type {string} The selection in the basic search dropdown - title, subject, etc.
-  #   query {string} The query to search for.
+  # @param {Str} type
+  #   The selection in the basic search dropdown - title, subject, etc.
+  # @param {str} query
+  #   The query to search for.
   def basic_search(type, query)
     visit root_path
     fill_in('search-field-header', with: query)

@@ -46,18 +46,15 @@ Capybara.register_driver(:poltergeist) do |app|
   Capybara::Poltergeist::Driver.new(app, poltergeist_options)
 end
 
-# Capybara.register_driver :chrome do |app|
-#  profile = Selenium::WebDriver::Chrome::Profile.new
-#  Capybara::Selenium::Driver.new(app, :browser => :chrome, profile: profile)
-# end
-
-Capybara.javascript_driver = :poltergeist
-
+# For debugging JS tests - some tests involving mouse movements require headless mode.
 Capybara.register_driver :chrome do |app|
   profile = Selenium::WebDriver::Chrome::Profile.new
   profile['extensions.password_manager_enabled'] = false
   Capybara::Selenium::Driver.new(app, browser: :chrome, profile: profile)
 end
+
+Capybara.javascript_driver = :poltergeist
+
 
 Capybara.default_max_wait_time = 10
 # Checks for pending migration and applies them before tests are run.
