@@ -155,29 +155,4 @@ feature 'EAD' do
     expect(page).to have_text 'This series is part of Rubin "Hurricane" Carter papers, 1950-2014'
     expect(page).to have_text 'Positive Impact Celebrity Choice award 2000 '
   end
-
-  #  scenario 'View Online Materials should link to associated materials in search results' do
-  #    visit catalog_path(@ead)
-  #    click_link 'View Online Materials', :exact => false
-  #    page.should have_text 'Alliance for Progress or Alianza Para El Progreso? A Reassessment of the Latin American Contribution to the Alliance for Progress'
-  #  end
-
-  #  scenario 'from the Finding Aid Viewer, View Online Materials should link to associated materials in search results' do
-  #    visit catalog_path(@ead)
-  #    click_link 'View Finding Aid', :exact => false
-  #    click_link 'View Online Materials', :exact => false
-  #    page.should have_text 'Alliance for Progress or Alianza Para El Progreso? A Reassessment of the Latin American Contribution to the Alliance for Progress'
-  #  end
-
-  #  scenario 'MS999 (kitchen sink ASpace EAD) should have a View Finding Aid link;  series should contain items' do
-  #    visit catalog_path(@aspace_ead)
-
-  #    click_link 'View Finding Aid', :exact => false
-  #    page.should have_text 'Lorem Ipsum papers, 1897-1933'
-  #    page.should have_text 'Title: Lorem Ipsum papers'
-
-  #    click_link 'Personal papers, 1900 -- 1933', :exact => false
-  #    page.should have_text 'Personal papers, 1900 -- 1933'
-  #    page.should have_text 'This series is part of Lorem Ipsum papers, 1897 -- 1933'
-  #  end
 end
