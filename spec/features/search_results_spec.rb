@@ -8,9 +8,15 @@ feature 'Search Results' do
 
   before(:all) do
     @open_visibility_image = FactoryBot.create(:image1)
-    FactoryBot.create(:image2)
+    @_im = FactoryBot.create(:image2)
     # Fedora throws errors if you try to do this in a let() block
     @authenticated_image = FactoryBot.create(:authenticated_image)
+  end
+
+  after(:all) do
+    @open_visibility_image.destroy!
+    @_im.destroy!
+    @authenticated_image.destroy!
   end
 
   scenario "Contributor shows only when there's no Creator" do
@@ -39,7 +45,6 @@ feature 'Search Results' do
   scenario "Lock icon shows on authenticated-visibility works" do
     sign_in(admin)
     visit search_results
-    # Verify that the glyph is present and in the correct record.
     # rubocop:disable RSpec/InstanceVariable
     expect(find("#document_#{@authenticated_image.id}")).to have_css(".permissions-lock")
     # rubocop:enable RSpec/InstanceVariable
