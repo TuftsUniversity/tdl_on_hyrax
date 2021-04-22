@@ -47,11 +47,11 @@ gem 'hydra-role-management'
 gem 'ldp', '0.7.0'
 gem 'mysql2'
 gem 'okcomputer'
+gem 'om', git: 'https://github.com/TuftsUniversity/om'
 gem 'pdfjs_viewer-rails', git: 'https://github.com/TuftsUniversity/pdfjs_viewer-rails.git', tag: 'tdl-20200428'
 gem 'riiif', git: 'https://github.com/TuftsUniversity/riiif', branch: 'tufts_1_7_0'
 gem 'sidekiq'
 gem 'sitemap_generator'
-gem 'om', git: 'https://github.com/TuftsUniversity/om'
 
 group :production do
   gem 'passenger'
