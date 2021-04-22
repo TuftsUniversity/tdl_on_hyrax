@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '2.4.3'
@@ -8,7 +10,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
+gem 'rails', '5.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -50,17 +52,12 @@ gem 'riiif', git: 'https://github.com/TuftsUniversity/riiif', branch: 'tufts_1_7
 gem 'sidekiq'
 gem 'sitemap_generator'
 
-gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', branch: 'update'
-# gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: '1.0.13'
-# gem 'tufts-curation', :path => '../tufts-curation'
-
 group :production do
   gem 'passenger'
   gem 'therubyracer'
 end
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'geckodriver-helper'
   gem 'poltergeist'
@@ -70,17 +67,13 @@ end
 
 group :development do
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'hyrax', '2.1.0'
-# github: 'samvera/hyrax', ref: 'c42434073491ae65f2e5c37310c8528c6fd63983'
+gem 'hyrax', '2.9.4'
+gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', branch: 'hyrax-2.9'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
