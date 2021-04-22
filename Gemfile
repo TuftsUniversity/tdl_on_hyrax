@@ -52,6 +52,7 @@ gem 'pdfjs_viewer-rails', git: 'https://github.com/TuftsUniversity/pdfjs_viewer-
 gem 'riiif', git: 'https://github.com/TuftsUniversity/riiif', branch: 'tufts_1_7_0'
 gem 'sidekiq'
 gem 'sitemap_generator'
+gem 'om', git: 'https://github.com/TuftsUniversity/om'
 
 group :production do
   gem 'passenger'
