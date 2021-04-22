@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/TuftsUniversity/om
+  revision: b9efc4cb865b1bdff6d00a88fdf28e3f9df50a03
+  specs:
+    om (3.2.0)
+      activemodel (>= 5.1, < 7)
+      activesupport
+      nokogiri (>= 1.4.2)
+      solrizer (>= 3.4, < 5)
+
+GIT
   remote: https://github.com/TuftsUniversity/pdfjs_viewer-rails.git
   revision: d624c83a6fa9e8338989b9ec813caab288d437af
   tag: tdl-20200428
@@ -989,6 +999,7 @@ DEPENDENCIES
   loofah (>= 2.2.3)
   mysql2
   okcomputer
+  om!
   passenger
   pdfjs_viewer-rails!
   poltergeist
@@ -1013,7 +1024,6 @@ DEPENDENCIES
   therubyracer
   tufts-curation!
   turbolinks (~> 5)
-  tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
 
