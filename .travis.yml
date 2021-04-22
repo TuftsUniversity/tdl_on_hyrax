@@ -5,8 +5,10 @@ dist: trusty
 
 jdk:
   - oraclejdk8
+
 rvm:
   - 2.4.3
+
 before_script:
   - cp config/redis.yml.sample config/redis.yml
   - cp config/fedora.yml.sample config/fedora.yml
@@ -17,15 +19,20 @@ before_script:
   - cp config/secrets.yml.sample config/secrets.yml
   - cp config/ldap.yml.sample config/ldap.yml
   - bundle exec rake db:create
+
 script:
   - bundle exec rubocop
   - bundle exec rake db:migrate
   - bundle exec rake travis
+
 addons:
   apt:
     packages:
      - imagemagick
+
 services:
   - redis-server
+  - mysql
+
 notifications:
   email: tdl-commiters@googlegroups.com
