@@ -5,6 +5,7 @@ namespace :tufts do
       if Rails.env == "production"
         puts "Don't ingest fixtures in production"
       else
+        Rails.logger.debug("\nCreating Fixtures")
         Tufts::PopulateFixtures.create_fixtures
       end
     end
@@ -14,6 +15,7 @@ namespace :tufts do
       if Rails.env == "production"
         puts "Don't ingest fixtures in production"
       else
+        Rails.logger.debug("\nEradicating Fixtures")
         Tufts::PopulateFixtures.eradicate_fixtures
       end
     end
