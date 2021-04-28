@@ -1,3 +1,4 @@
+# rubocop:disable Rails/Output
 module Tufts
   class PopulateFixtures
     def self.singular_terms
@@ -318,3 +319,4 @@ module Tufts
     ].freeze
   end
 end
+# rubocop:enable Rails/Output
