@@ -61,7 +61,7 @@ module Tufts
     end
 
     def create_fixtures
-      Rails.logger.debug("\n\n\nBeginning fixture creation.")
+      puts "\n\n\nBeginning fixture creation."
       @seed_data.each_key do |pid|
         find_or_create_object(pid, @seed_data[pid])
       end
@@ -89,11 +89,11 @@ module Tufts
     # @param [String] pid
     # @return [ActiveFedora::Base]
     def create_object(pid, metadata)
-      Rails.logger.debug("\n\nCreating #{pid} with metadata:")
-      Rails.logger.debug(metadata.inspect)
+      puts "\n\nCreating #{pid} with metadata:"
+      puts metadata.inspect
       GC.start
       admin_set = AdminSet.find(AdminSet::DEFAULT_ID)
-      Rails.logger.debug("-- AdminSet: #{admin_set}")
+      puts "-- AdminSet: #{admin_set}"
       case metadata[:model]
       when "image"
         # build core object
@@ -108,18 +108,18 @@ module Tufts
         Rails.logger.warn "There is no support for #{metadata[model]} fixtures.  You'll have to add it."
       end
 
-      Rails.logger.debug("-- Setting admin_set")
+      puts "-- Setting admin_set"
       object.admin_set = admin_set
-      Rails.logger.debug("-- Setting visibility: #{metadata[:visibility]}")
+      puts "-- Setting visibility: #{metadata[:visibility]}"
       object.visibility = metadata[:visibility]
-      Rails.logger.debug("-- Setting email: #{@user.email}")
+      puts "-- Setting email: #{@user.email}"
       object.apply_depositor_metadata @user.email
-      Rails.logger.debug("-- Setting dates: #{DateTime.current.to_date}")
+      puts "-- Setting dates: #{DateTime.current.to_date}"
       object.date_uploaded = DateTime.current.to_date
       object.date_modified = DateTime.current.to_date
 
       # build fileset for object
-      Rails.logger.debug("-- Building FileSet")
+      puts "-- Building FileSet"
       file_set = FileSet.new
       file_label = metadata[:file].sub('fixtures/', '')
       file_set.label = file_label
@@ -130,7 +130,7 @@ module Tufts
 
       # create actor to attach fileset to object
       actor = Hyrax::Actors::FileSetActor.new(file_set, @user)
-      Rails.logger.debug("-- Attaching File #{metadata[:file]} to FileSet.")
+      puts "-- Attaching File #{metadata[:file]} to FileSet."
       tries = 3
       begin
         path = Rails.root.join('spec', metadata[:file])
@@ -142,7 +142,7 @@ module Tufts
       rescue Ldp::Conflict
         tries -= 1
         if tries > 0
-          Rails.logger.debug("-- Failed attaching File, trying again.")
+          puts "-- Failed attaching File, trying again."
           sleep(5.seconds)
           retry
         else
@@ -150,13 +150,13 @@ module Tufts
         end
       end
 
-      Rails.logger.debug("-- Setting Multi-terms")
+      puts "-- Setting Multi-terms"
       MULTI_TERMS.each do |term|
         val = Array(metadata[term])
         object.send("#{term}=", val) unless val.nil?
       end
 
-      Rails.logger.debug("-- Setting Singular-terms")
+      puts "-- Setting Singular-terms"
       SINGULAR_TERMS.each do |term|
         val = metadata[term]
         object.send("#{term}=", val) unless val.nil?
@@ -170,20 +170,20 @@ module Tufts
       #        object.member_of_collections = collection
       #      end
 
-      Rails.logger.debug("-- Saving object")
+      puts "-- Saving object"
       object.save!
 
       # create dervivatives
       object.reload
       file_set.reload
-      Rails.logger.debug("-- Creating derivs")
+      puts "-- Creating derivs"
       tries = 3
       begin
         CreateDerivativesJob.perform_now(file_set, file_set.public_send(:original_file).id)
       rescue NoMethodError
         tries -= 1
         if tries > 0
-          Rails.logger.debug("-- Failed creating derivs, trying again.")
+          puts "-- Failed creating derivs, trying again."
           sleep(5.seconds)
           retry
         else
@@ -191,7 +191,7 @@ module Tufts
         end
       end
       # save and return object
-      Rails.logger.debug("-- Fixture creation successful\n")
+      puts "-- Fixture creation successful\n"
       object
     end
 
