@@ -29,11 +29,13 @@ unless Rails.env.production?
         dir: Rails.root.join("solr", "conf")
       ) do
         FcrepoWrapper.wrap(fcrepo_params) do
-          Rails.logger.debug("\n\nCreating Admin Sets")
+          puts "\n\nCreating Admin Sets"
           Rake::Task["hyrax:default_admin_set:create"].invoke
-          Rails.logger.debug("\nRefreshing Fixtures")
+
+          puts "\nRefreshing Fixtures"
           Rake::Task["tufts:fixtures:refresh"].invoke
-          Rails.logger.debug("\nRSpec!\n")
+
+          puts "\nRSpec!\n"
           Rake::Task["spec"].invoke
         end
       end
