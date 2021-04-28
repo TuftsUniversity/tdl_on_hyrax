@@ -173,7 +173,7 @@ module Tufts
 
       puts "-- Saving object"
       object.save!
-
+      puts "-- Object saved"
       # create dervivatives
       object.reload
       file_set.reload
