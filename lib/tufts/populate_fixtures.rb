@@ -286,7 +286,7 @@ module Tufts
       #   file: 'fixtures/MS999.archival.xml',
       #   model: "ead"
       # },
-      {
+      # {
       #   legacy_pid: "tufts:test.aspace.MS226",
       #   title: "ASpace Rubin Carter Papers",
       #   creator: "Brian Goodmon",
