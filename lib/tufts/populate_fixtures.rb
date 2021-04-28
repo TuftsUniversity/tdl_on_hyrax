@@ -119,6 +119,10 @@ module Tufts
       object.date_uploaded = DateTime.current.to_date
       object.date_modified = DateTime.current.to_date
 
+      puts "-- Saving Before Fileset"
+      object.save! # Trying to avoid race conditions when attaching FileSets later on.
+      puts "-- Saved"
+
       # build fileset for object
       puts "-- Building FileSet"
       file_set = FileSet.new
