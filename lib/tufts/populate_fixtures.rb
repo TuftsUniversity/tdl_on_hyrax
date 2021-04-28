@@ -119,22 +119,6 @@ module Tufts
       object.date_uploaded = DateTime.current.to_date
       object.date_modified = DateTime.current.to_date
 
-      puts "-- Setting Multi-terms"
-      MULTI_TERMS.each do |term|
-        val = Array(metadata[term])
-        object.send("#{term}=", val) unless val.nil?
-      end
-
-      puts "-- Setting Singular-terms"
-      SINGULAR_TERMS.each do |term|
-        val = metadata[term]
-        object.send("#{term}=", val) unless val.nil?
-      end
-
-      puts "-- Saving object"
-      object.save!
-      puts "-- Object saved"
-
       # build fileset for object
       puts "-- Building FileSet"
       file_set = FileSet.new
@@ -167,6 +151,18 @@ module Tufts
         end
       end
 
+      puts "-- Setting Multi-terms"
+      MULTI_TERMS.each do |term|
+        val = Array(metadata[term])
+        object.send("#{term}=", val) unless val.nil?
+      end
+
+      puts "-- Setting Singular-terms"
+      SINGULAR_TERMS.each do |term|
+        val = metadata[term]
+        object.send("#{term}=", val) unless val.nil?
+      end
+
       # TODO: Download show download link to all users needs metadata
       # add to collection if it exists
       #      collection_title = metadata[:collection_title]
@@ -174,6 +170,10 @@ module Tufts
       #        collection = Collection.where(title: collection_title)
       #        object.member_of_collections = collection
       #      end
+
+      puts "-- Saving object"
+      object.save!
+      puts "-- Object saved"
 
       # create dervivatives
       object.reload
