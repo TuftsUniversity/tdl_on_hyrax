@@ -288,17 +288,17 @@ module Tufts
       #   model: "ead"
       # },
       {
-        legacy_pid: "tufts:test.aspace.MS226",
-        title: "ASpace Rubin Carter Papers",
-        creator: "Brian Goodmon",
-        date_created: "2016",
-        displays_in: ["dl"],
-        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
-        rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
-        file: 'fixtures/MS226.archival.xml',
-        model: "ead", format_label: "text/xml"
-
-      },
+      #   legacy_pid: "tufts:test.aspace.MS226",
+      #   title: "ASpace Rubin Carter Papers",
+      #   creator: "Brian Goodmon",
+      #   date_created: "2016",
+      #   displays_in: ["dl"],
+      #   visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+      #   rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
+      #   file: 'fixtures/MS226.archival.xml',
+      #   model: "ead", format_label: "text/xml"
+      #
+      # },
       {
         legacy_pid: "tufts:RCR00579",
         identifier: ["RCR00579", "http://hdl.handle.net/10427/71593"],
