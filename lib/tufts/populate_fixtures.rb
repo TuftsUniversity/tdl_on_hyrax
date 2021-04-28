@@ -93,8 +93,8 @@ module Tufts
       puts "\n\nCreating #{pid} with metadata:"
       puts metadata.inspect
       GC.start
+      puts "-- Creating Admin Set"
       admin_set = AdminSet.find(AdminSet::DEFAULT_ID)
-      puts "-- AdminSet: #{admin_set}"
       case metadata[:model]
       when "image"
         # build core object
@@ -131,10 +131,9 @@ module Tufts
         object.send("#{term}=", val) unless val.nil?
       end
 
-      # Saving before FileSet in order to hopefully avoid EADs having an issue with container saving
-      puts "-- Initial Saving of Object"
+      puts "-- Saving object"
       object.save!
-      puts "-- Object Saved"
+      puts "-- Object saved"
 
       # build fileset for object
       puts "-- Building FileSet"
@@ -175,10 +174,6 @@ module Tufts
       #        collection = Collection.where(title: collection_title)
       #        object.member_of_collections = collection
       #      end
-
-      puts "-- Saving object"
-      object.save!
-      puts "-- Object saved"
 
       # create dervivatives
       object.reload
