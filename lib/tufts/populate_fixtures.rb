@@ -275,18 +275,18 @@ module Tufts
         file: 'fixtures/IMG_2077-a.jpg',
         model: "image"
       },
-      {
-        legacy_pid: "tufts:test.aspace.MS999",
-        title: "Lorem Ipsum papers, 1897-1933",
-        alternative_title: "Kitchen Sink EAD",
-        creator: "Brian Goodmon",
-        date_created: "2016",
-        displays_in: ["dl"],
-        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
-        rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
-        file: 'fixtures/MS999.archival.xml',
-        model: "ead"
-      },
+      # {
+      #   legacy_pid: "tufts:test.aspace.MS999",
+      #   title: "Lorem Ipsum papers, 1897-1933",
+      #   alternative_title: "Kitchen Sink EAD",
+      #   creator: "Brian Goodmon",
+      #   date_created: "2016",
+      #   displays_in: ["dl"],
+      #   visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+      #   rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
+      #   file: 'fixtures/MS999.archival.xml',
+      #   model: "ead"
+      # },
       {
         legacy_pid: "tufts:test.aspace.MS226",
         title: "ASpace Rubin Carter Papers",
