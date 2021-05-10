@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :tufts_MS999_ead, class: Ead do
     transient do
       user { FactoryBot.create(:user) }  # find_or_create ???
+      with_admin_set { false }
     end
     id { 'ks65hc20t' }
     title { ["Lorem Ipsum papers"] }
@@ -27,6 +28,7 @@ FactoryBot.define do
   factory :tufts_MS226_ead, class: Ead do
     transient do
       user { FactoryBot.create(:user) }  # find_or_create ???
+      with_admin_set { false }
     end
     id { 'p2676v52c' }
     title { ['Rubin "Hurricane" Carter papers'] }
