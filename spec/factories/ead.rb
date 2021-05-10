@@ -8,13 +8,13 @@ FactoryBot.define do
     title { ["Lorem Ipsum papers"] }
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
-    before(:create) do |work, evaluator|
-      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "BlahBlah0")
-    end
+    #before(:create) do |work, evaluator|
+      #work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "BlahBlah0")
+    #end
 
-    after(:build) do |work, evaluator|
-      work.apply_depositor_metadata(evaluator.user.user_key)
-    end
+    #after(:build) do |work, evaluator|
+      #work.apply_depositor_metadata(evaluator.user.user_key)
+    #end
 
     after(:create) do |work, _evaluator|
       ead_test_file_1 = File.open(File.expand_path(File.join(Rails.root.to_s, "spec", "fixtures", "MS999.archival.xml")))
@@ -34,13 +34,13 @@ FactoryBot.define do
     title { ['Rubin "Hurricane" Carter papers'] }
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
-    before(:create) do |work, evaluator|
-      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "BlahBlah1")
-    end
+    #before(:create) do |work, evaluator|
+      #work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "BlahBlah1")
+    #end
 
-    after(:build) do |work, evaluator|
-      work.apply_depositor_metadata(evaluator.user.user_key)
-    end
+    #after(:build) do |work, evaluator|
+      #work.apply_depositor_metadata(evaluator.user.user_key)
+    #end
 
     after(:create) do |work, _evaluator|
       ead_test_file_1 = File.open(File.expand_path(File.join(Rails.root.to_s, "spec", "fixtures", "MS226.archival.xml")))
