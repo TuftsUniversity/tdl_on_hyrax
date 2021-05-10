@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :tufts_MS999_ead, class: Ead do
     transient do
-      user { FactoryBot.create(:user) }  # find_or_create ???
+      user { FactoryBot.create(:user) } # find_or_create ???
       with_admin_set { false }
     end
     id { 'ks65hc20t' }
@@ -20,14 +20,14 @@ FactoryBot.define do
       ead_test_file_1 = File.open(File.expand_path(File.join(Rails.root.to_s, "spec", "fixtures", "MS999.archival.xml")))
       original_file = work.file_sets[0].build_original_file
       original_file.content = ead_test_file_1
-    #  work.file_sets[0].save
+      #  work.file_sets[0].save
       work.save
     end
   end
 
   factory :tufts_MS226_ead, class: Ead do
     transient do
-      user { FactoryBot.create(:user) }  # find_or_create ???
+      user { FactoryBot.create(:user) } # find_or_create ???
       with_admin_set { false }
     end
     id { 'p2676v52c' }
@@ -46,7 +46,7 @@ FactoryBot.define do
       ead_test_file_1 = File.open(File.expand_path(File.join(Rails.root.to_s, "spec", "fixtures", "MS226.archival.xml")))
       original_file = work.file_sets[0].build_original_file
       original_file.content = ead_test_file_1
-    #  work.file_sets[0].save
+      #  work.file_sets[0].save
       work.save
     end
   end
