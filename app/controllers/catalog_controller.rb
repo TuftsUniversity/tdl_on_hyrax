@@ -193,7 +193,11 @@ class CatalogController < ApplicationController
         # See: http://wiki.apache.org/solr/LocalParams
         field.solr_local_parameters = {
           qf: solr_name,
-          pf: solr_name
+          pf: solr_name,
+          type: 'lucene',
+          df: solr_name,
+          :"q.op" => 'AND' 
+
         }
 
         yield(field) if block_given?
@@ -241,6 +245,33 @@ class CatalogController < ApplicationController
         pf: solr_name
       }
     end
+
+    config.add_search_field('persname') do |field|
+      field.label = 'Personal Name'
+      field.include_in_advanced_search = false
+      solr_name = solr_name('persname', :stored_searchable)
+      field.solr_local_parameters = {
+        qf: solr_name,
+        pf: solr_name,
+        type: 'lucene',
+        df: solr_name,
+        :"q.op" => 'AND'
+      }
+    end
+
+    config.add_search_field('corpname') do |field|
+      field.label = 'Corporate Name'
+      field.include_in_advanced_search = false
+      solr_name = solr_name('corpname', :stored_searchable)
+      field.solr_local_parameters = {
+        qf: solr_name,
+        pf: solr_name,
+        type: 'lucene',
+        df: solr_name,
+        :"q.op" => 'AND'
+      }
+    end
+
     add_advanced_search_field('personal_name', config)
     add_search_field('publisher', config)
     add_search_field('subject', config)
@@ -290,7 +321,12 @@ class CatalogController < ApplicationController
   def render_bookmarks_control?
     false
   end
-
+  def show_thumb_from_id
+    id = params[:id]
+    item = ActiveFedora::Base.find(id)
+    fs_id = item.representative.id
+    redirect_to "https://dl.tufts.edu/downloads/#{fs_id}?file=thumbnail"
+  end
   def legacy_file_assets
     id = params[:id]
     items = ActiveFedora::Base.where(legacy_pid_tesim: id)
