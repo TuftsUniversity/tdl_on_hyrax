@@ -597,7 +597,8 @@ GEM
     powerpack (0.1.2)
     public_suffix (3.0.2)
     pul_uv_rails (2.0.1)
-    puma (3.12.4)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     qa (2.0.1)
       activerecord-import
       deprecation
@@ -923,7 +924,7 @@ DEPENDENCIES
   passenger
   pdfjs_viewer-rails!
   poltergeist
-  puma (~> 3.12)
+  puma (~> 4.3)
   rack (>= 2.0.6)
   rails (~> 5.1.2)
   riiif!
