@@ -50,7 +50,7 @@ gem 'riiif', git: 'https://github.com/TuftsUniversity/riiif', branch: 'tufts_1_7
 gem 'sidekiq'
 gem 'sitemap_generator'
 
-gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', branch: 'update'
+gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: 'v1.2.5' # , branch: 'update'
 # gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: '1.0.13'
 # gem 'tufts-curation', :path => '../tufts-curation'
 
