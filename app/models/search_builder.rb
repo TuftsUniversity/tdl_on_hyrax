@@ -6,6 +6,7 @@ class SearchBuilder < Hyrax::CatalogSearchBuilder
   #  include Hydra::AccessControlsEnforcement
   #  include Hyrax::SearchFilters
   include BlacklightAdvancedSearch::AdvancedSearchBuilder
+  # rubocop:disable Metrics/LineLength
   self.default_processor_chain += [:add_advanced_parse_q_to_solr, :add_advanced_search_to_solr, :add_dl_filter, :suppress_embargo_records, :supress_eads_conditionally, :show_works_or_works_that_contain_files]
 
   def supress_eads_conditionally(solr_parameters)
