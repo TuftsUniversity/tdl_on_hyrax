@@ -11,5 +11,14 @@ module Hyrax
 
     self.curation_concern_type = ::GenericObject
     self.show_presenter = Hyrax::GenericObjectPresenter
+    def advanced
+      @id = params[:id]
+      # or, to use "id" instead of "@id" in views, do this: render locals: {id:  params[:id]}
+
+      respond_to do |wants|
+        wants.html { presenter && parent_presenter }
+      end
+      render layout: "imageviewer"
+    end
   end
 end
