@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   get '/image_overlay/:id', to: 'gallery#image_overlay', constraints: { id: /.*/ }, as: 'overlay'
   get '/image_gallery/:id/:start/:number', to: 'gallery#image_gallery', constraints: { id: /.*/ }, as: 'gallery'
   get 'imageviewer/:id', to: 'hyrax/images#advanced', constraints: { id: /.*/ }, as: 'imageviewer'
+  get 'gimageviewer/:id', to: 'hyrax/generic_objects#advanced', constraints: { id: /.*/ }, as: 'gimageviewer'
   get 'file_assets/:id', to: 'catalog#legacy_file_assets', constraints: { id: /.*/ }, as: 'fileassetviewer', via: [:get]
   get '/thumb/:id', to: 'catalog#show_thumb_from_id', constraints: { id: /.*/ }, as: 'thumbviewer', via: [:get]
   get 'teiviewer/:parent/:id(/chapter/:chapter)', constraints: { chapter: /[a-zA-Z0-9\-_.:]+/ }, to: 'hyrax/teis#advanced', as: 'teiviewer'
