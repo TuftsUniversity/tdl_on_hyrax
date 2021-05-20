@@ -6,6 +6,9 @@
    file_set = FileSet.find(file_set_id).first
    file_sets = @presenter.solr_document._source["file_set_ids_ssim"]
    has_images = false
+   primary_is_image = false
+   primary_is_image = true if file_set.mime_type.include?('image/')
+
    file_sets.each do |fs|
     results = ActiveFedora::SolrService.query(ActiveFedora::SolrQueryBuilder.construct_query(id: fs), rows: 1, fl: 'id,mime_type_ssi,visibility_ssi')
     unless results[0].nil?
@@ -25,9 +28,13 @@ table tr>th:nth-of-type(4),   table tr>td:nth-of-type(4){
 </style>
 <div class="col-md-12 tdl-content tdl-show-image">
   <div class="row col-md-6">
+    <% if primary_is_image %> 
      <%= link_to "/gimageviewer/#{@presenter.id}", data: { turbolinks: false } do %>
         <%= image_tag(Riiif::Engine.routes.url_helpers.image_url(file_set.original_file.id, host: request.base_url, size: "400,")) %>
       <% end %>
+    <% else %>
+        <%= render 'representative_media', presenter: @presenter %>
+    <% end %>
       <% if has_images %>
       <h6>
         <%= link_to "/gimageviewer/#{@presenter.id}", data: { turbolinks: false } do %>
