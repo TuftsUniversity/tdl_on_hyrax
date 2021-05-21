@@ -1,12 +1,7 @@
-require 'easy_logging'
 
 module Tufts
   module TeiParser
     extend Tufts::TeiToc
-    include EasyLogging
-    # Global pre-configuration for every Logger instance
-    EasyLogging.log_destination = 'tei_parsing.log'
-    EasyLogging.level = Logger::DEBUG
 
     def self.show_tei(fedora_obj, tei, chapter)
       # if there's no chapter specified show the cover
@@ -254,7 +249,7 @@ module Tufts
             unless node_text.nil? || node_text.empty?
               result += "<tr>"
               result += "<td class=pagenumber>"
-              logger.warn "node name #{node.name}"
+              Rails.logger.warn "node name #{node.name}"
               case node.name
                 when "pb"
                   result += render_pb(node)
@@ -292,14 +287,16 @@ module Tufts
                     result += self.ctext(node)
                   else
                     begin
+                      Rails.logger.error "Node info #{node}"
                       ls = node.children
                       ls.each do |l|
                         #result += "<p>" + l.text.to_s.strip + "</p>"
+
                         # uncommenting this causes double printing in concise
                         # encyclopedia, i don't know of a counter test case yet.
                       end
                     rescue
-                      logger.warn "error #{result}"
+                      Rails.logger.warn "error #{result}"
                     end
                   end
                 when "lg"
@@ -314,7 +311,7 @@ module Tufts
                     result += "<p>" + l.text.to_s.strip + "</p>"
                   end
                   rescue
-                    logger.warn "error #{result}"
+                    Rails.logger.warn "error #{result}"
                   end
                 when "head"
                   unless result.nil?
@@ -329,7 +326,7 @@ module Tufts
                     result += switch_to_right
                     in_left_td = false
                   end
-                  logger.warn "#{node.name}"
+                  Rails.logger.warn "#{node.name}"
               end
               if in_left_td
                 result +="</td><td>&nbsp;</td>"
