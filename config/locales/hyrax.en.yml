@@ -45,6 +45,7 @@ en:
           subject_tesim: Subject
           title_tesim: Title
           bibliographic_citation: Citation
+          dc_access_rights: Access Rights
           permanent_url: Permanent URL
   hyrax:
     product_name:           "Tufts Digital Library"

@@ -56,8 +56,28 @@ module Hyrax
       solr_document[:member_of_collections_ssim]
     end
 
+    def dc_access_rights
+      solr_document[:dc_access_rights_tesim]
+    end
+
+    def extent
+      solr_document[:extent_tesim]
+    end
+
     def source
       solr_document[:source_tesim]
+    end
+
+    def doi
+      solr_document[:doi_tesim]
+    end
+
+    def oclc_number
+      solr_document[:oclc_tesim]
+    end
+
+    def isbn
+      solr_document[:isbn_tesim]
     end
 
     ##

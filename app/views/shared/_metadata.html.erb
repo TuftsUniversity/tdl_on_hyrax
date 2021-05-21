@@ -63,6 +63,8 @@
   <%= @presenter.attribute_to_html(:temporal, { render_as: :linked }) %>
   <%= @presenter.attribute_to_html(:permanent_url, {}) %>
   <%= @presenter.attribute_to_html(:bibliographic_citation, {}) %>
+  <%= @presenter.attribute_to_html(:extent, {}) %>
+  <%= @presenter.attribute_to_html(:dc_access_rights, {}) %>
 
   <div class="well ">
     <dl class="dl-horizontal">
@@ -76,6 +78,21 @@
       <dt>Component ID: </dt>
       <dd><%= @presenter.aspace_cuid.first %></dd>
     <% end %>
+    <% if !@presenter.doi.nil? && !@presenter.doi.empty? %>
+      <dt>DOI: </dt>
+      <dd><%= @presenter.doi.first %></dd>
+    <% end %>
+    <% if !@presenter.isbn.nil? && !@presenter.isbn.empty? %>
+      <dt>ISBN: </dt>
+      <dd><%= @presenter.isbn.first %></dd>
+    <% end %>
+    <% if !@presenter.oclc_number.nil? && !@presenter.oclc_number.empty? %>
+      <dt>OCLC No.: </dt>
+      <dd><%= @presenter.oclc_number.first %></dd>
+    <% end %>
+
+
+
 <% end %>
       <dt>To Cite:</dt>
       <dd><%= link_to(
