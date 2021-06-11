@@ -53,7 +53,7 @@ class CatalogController < ApplicationController
                                    {
                                      qt: 'search',
                                      rows: 10,
-                                     fq: 'workflow_state_name_ssim:published',
+                                     fq: 'workflow_state_name_ssim:published OR has_model_ssim:Collection',
                                      qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
                                    }
                                  end
@@ -71,7 +71,7 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name('names', :facetable), limit: 5, label: 'Names'
     config.add_facet_field 'pub_date_facet_isim', label: 'Year', range: true
     config.add_facet_field solr_name('subject_topic', :facetable), limit: 5, label: 'Subject'
-    config.add_facet_field solr_name('member_of_collections', :symbol), limit: 5, label: 'Collections'
+    config.add_facet_field solr_name('dl_member_of_collections', :symbol), limit: 5, label: 'Collections'
 
     # The generic_type isn't displayed on the facet list
     # It's used to give a label to the filter that comes from the user profile
@@ -259,32 +259,6 @@ class CatalogController < ApplicationController
       }
     end
 
-    config.add_search_field('family_name') do |field|
-      field.label = 'Family Name'
-      field.include_in_advanced_search = false
-      solr_name = solr_name('famname', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name,
-        type: 'lucene',
-        df: solr_name,
-        :"q.op" => 'AND'
-      }
-    end
-
-    config.add_search_field('geographic_name') do |field|
-      field.label = 'Geographic Name'
-      field.include_in_advanced_search = false
-      solr_name = solr_name('geogname', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name,
-        type: 'lucene',
-        df: solr_name,
-        :"q.op" => 'AND'
-      }
-    end
-
     config.add_search_field('corpname') do |field|
       field.label = 'Corporate Name'
       field.include_in_advanced_search = false
@@ -347,14 +321,12 @@ class CatalogController < ApplicationController
   def render_bookmarks_control?
     false
   end
-
   def show_thumb_from_id
     id = params[:id]
     item = ActiveFedora::Base.find(id)
     fs_id = item.representative.id
     redirect_to "https://dl.tufts.edu/downloads/#{fs_id}?file=thumbnail"
   end
-
   def legacy_file_assets
     id = params[:id]
     items = ActiveFedora::Base.where(legacy_pid_tesim: id)

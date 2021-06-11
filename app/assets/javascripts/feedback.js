@@ -2,8 +2,10 @@ function submitFeedback(url, authenticity_token) {
   var params,
       messageField = document.getElementById("inputComment"),
       emailAddressField = document.getElementById("inputEmail"),
+      nameField = document.getElementById("inputName"),
       message = messageField.value,
       emailAddress = emailAddressField.value;
+      name = nameField.value;
 
   if (message == null || message.length == 0) {
     alert("Please enter a message.");
@@ -17,7 +19,12 @@ function submitFeedback(url, authenticity_token) {
       return;
   }
 
-  params  = "name=Unknown";		// feedback_controller.rb expects a name -- make one up.
+  if (name == null || name.length == 0) {
+    alert("Please enter your name.");
+    return;
+  }
+
+  params  = "name=" + name;
   params += "&email=" + emailAddress;
   params += "&message=" + message;
   params += "&utf8=#x2713;";
@@ -38,6 +45,7 @@ function submitFeedback(url, authenticity_token) {
 
   messageField.value = "";
   emailAddressField.value = "";
+  nameField.value = "";
 
   $('#comment_modal').modal('hide');
 }
