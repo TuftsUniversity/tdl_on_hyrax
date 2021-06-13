@@ -321,12 +321,14 @@ class CatalogController < ApplicationController
   def render_bookmarks_control?
     false
   end
+
   def show_thumb_from_id
     id = params[:id]
     item = ActiveFedora::Base.find(id)
     fs_id = item.representative.id
     redirect_to "https://dl.tufts.edu/downloads/#{fs_id}?file=thumbnail"
   end
+
   def legacy_file_assets
     id = params[:id]
     items = ActiveFedora::Base.where(legacy_pid_tesim: id)

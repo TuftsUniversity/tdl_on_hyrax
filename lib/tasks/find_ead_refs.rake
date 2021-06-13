@@ -13,7 +13,6 @@ namespace :tufts do
     result
   end
 
-
   desc 'find <archref>, <extref> and/or <extptr> tags in eads'
 
   task find_ead_refs: :environment do
@@ -41,7 +40,7 @@ namespace :tufts do
 
           archrefs.each do |archref|
             path = full_path(archref)
-            msg += "  #{archref.to_s}\n"
+            msg += "  #{archref}\n"
             msg += "    full path is #{path}\n"
             msg += "    NO TEXT!!!!!\n" unless archref.text.present?
             msg += "    NO HREF!!!!!\n" unless archref.attribute('href').present?
@@ -50,7 +49,7 @@ namespace :tufts do
           extrefs.each do |extref|
             path = full_path(extref)
             next if path == 'document/ead/eadheader/filedesc/publicationstmt/p/extref' && id != '5h73q6049' # Almost every EAD has one of these.
-            msg += "  #{extref.to_s}\n"
+            msg += "  #{extref}\n"
             msg += "    full path is #{path}\n"
             msg += "    NO TEXT!!!!!\n" unless extref.text.present?
             msg += "    NO HREF!!!!!\n" unless extref.attribute('href').present?
@@ -59,7 +58,7 @@ namespace :tufts do
           extptrs.each do |extptr|
             path = full_path(extptr)
             next if path == 'document/ead/eadheader/filedesc/publicationstmt/address/addressline/extptr' && id != '5h73q6049' # Almost every EAD has one of these.
-            msg += "  #{extptr.to_s}\n"
+            msg += "  #{extptr}\n"
             msg += "    full path is #{path}\n"
             msg += "    NO TEXT!!!!!\n" unless extptr.text.present?
             msg += "    NO HREF!!!!!\n" unless extptr.attribute('href').present?
@@ -67,7 +66,7 @@ namespace :tufts do
 
         rescue ActiveFedora::ObjectNotFoundError
           # This work was not found.
-          msg +=   "  not found\n"
+          msg += "  not found\n"
         rescue StandardError => ex
           # Something went wrong.  For example, "ActiveFedora::RecordInvalid: Validation failed: Embargo release date Must be a future date".
           exception_msg = " " + ex.class.name + " " + ex.message
