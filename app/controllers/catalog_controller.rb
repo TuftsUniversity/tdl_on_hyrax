@@ -53,7 +53,7 @@ class CatalogController < ApplicationController
                                    {
                                      qt: 'search',
                                      rows: 10,
-                                     fq: 'workflow_state_name_ssim:published',
+                                     fq: 'workflow_state_name_ssim:published OR has_model_ssim:Collection',
                                      qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
                                    }
                                  end
@@ -250,32 +250,6 @@ class CatalogController < ApplicationController
       field.label = 'Personal Name'
       field.include_in_advanced_search = false
       solr_name = solr_name('persname', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name,
-        type: 'lucene',
-        df: solr_name,
-        :"q.op" => 'AND'
-      }
-    end
-
-    config.add_search_field('family_name') do |field|
-      field.label = 'Family Name'
-      field.include_in_advanced_search = false
-      solr_name = solr_name('famname', :stored_searchable)
-      field.solr_local_parameters = {
-        qf: solr_name,
-        pf: solr_name,
-        type: 'lucene',
-        df: solr_name,
-        :"q.op" => 'AND'
-      }
-    end
-
-    config.add_search_field('geographic_name') do |field|
-      field.label = 'Geographic Name'
-      field.include_in_advanced_search = false
-      solr_name = solr_name('geogname', :stored_searchable)
       field.solr_local_parameters = {
         qf: solr_name,
         pf: solr_name,
