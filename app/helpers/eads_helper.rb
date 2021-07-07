@@ -286,6 +286,7 @@ module EadsHelper
 
     unless scopecontentps.nil?
       scopecontentps.each do |scopecontentp|
+        handle_links(scopecontentp)
         result << scopecontentp.text
       end
     end
@@ -321,6 +322,7 @@ module EadsHelper
       if childname == "did"
         did = element_child
       elsif childname == "scopecontent"
+        handle_links(element_child)
         scopecontent = element_child
       elsif childname == "c02" || childname == "c"
         # This method is only called from the overview page, so the series parameter
@@ -378,10 +380,14 @@ module EadsHelper
       scopecontent.element_children.each do |scopecontent_child|
         childname = scopecontent_child.name
         if childname == "p"
+          handle_links(scopecontent_child)
           result << scopecontent_child.text
         elsif childname == "note"
           scopecontent_child.element_children.each do |note_child|
-            result << note_child.text if note_child.name == "p"
+            if note_child.name == "p"
+              handle_links(note_child)
+              result << note_child.text
+            end
           end
         end
       end
@@ -390,22 +396,31 @@ module EadsHelper
     result
   end
 
-  def self.handle_archrefs(element)
-    element.search(:archref).each do |archref|
-      href = archref.attribute('href')
-      archref.content = '<a href="' + href.text + '" target="blank">' + archref.text + '</a>' unless href.nil?
+  def self.handle_links(element)
+    handle_these_links(element, :archref)
+    handle_these_links(element, :extref)
+    handle_these_links(element, :extptr)
+  end
+
+  def self.handle_these_links(element, tag)
+    element.search(tag).each do |found|
+      text = found.text                # returns empty string if tag has no text
+      href = found.attribute("href")   # returns nil if tag has no href attribute
+      title = found.attribute("title") # returns nil if tag has no title attribute
+      the_text = !text.empty? ? text : (!title.nil? ? title : (!href.nil? ? href : ''))
+      the_href = !href.nil? ? href : (!text.empty? ? text : (!title.nil? ? title : ''))
+      found.content = '<a href="' + the_href + '" target="blank">' + the_text + '</a>'
     end
   end
 
-  def self.get_paragraphs(element, can_contain_archref = false)
+  def self.get_paragraphs(element, can_contain_links = false)
     result = []
 
     unless element.nil?
       element.element_children.each do |element_child|
-        if element_child.name == "p"
-          handle_archrefs(element_child) if can_contain_archref
-          result << element_child.text
-        end
+        next unless element_child.name == "p"
+        handle_links(element_child) if can_contain_links
+        result << element_child.text
       end
 
       result << element.text if result.empty? # No <p> was found, so use the full text of the element.
@@ -429,32 +444,6 @@ module EadsHelper
     end
 
     [head, paragraphs]
-  end
-
-  def self.get_other_finding_aids_paragraphs(element)
-    result = []
-
-    unless element.nil?
-      element.element_children.each do |element_child|
-        next unless element_child.name == "p"
-        element_child.search(:extref).each do |extref|
-          extref.content = '<a href="' + extref.text + '" target="blank">' + extref.text + '</a>'
-        end
-        element_child.search(:extptr).each do |extptr|
-          extptr_href = extptr.attribute('href')
-          unless extptr_href.nil?
-            extptr_title = extptr.attribute('title')
-            extptr.content = '<a href="' + extptr_href.text + '" target="blank">' + (extptr_title.nil? ? extptr_href.text : extptr_title.text) + '</a>'
-          end
-        end
-        handle_archrefs(element_child)
-        result << element_child.text
-      end
-
-      result << element.text if result.empty? # No <p> was found, so use the full text of the element.
-    end
-
-    result
   end
 
   def self.search_field_for(tag_name)
@@ -503,7 +492,7 @@ module EadsHelper
 
     unless relatedmaterialps.nil?
       relatedmaterialps.each do |relatedmaterialp|
-        handle_archrefs(relatedmaterialp)
+        handle_links(relatedmaterialp)
         result << relatedmaterialp.text
       end
     end
@@ -517,7 +506,7 @@ module EadsHelper
 
     unless separatedmaterialps.nil?
       separatedmaterialps.each do |separatedmaterialp|
-        handle_archrefs(separatedmaterialp)
+        handle_links(separatedmaterialp)
         result << separatedmaterialp.text
       end
     end
@@ -677,6 +666,7 @@ module EadsHelper
 
     unless altformavailps.nil?
       altformavailps.each do |altformavailp|
+        handle_links(altformavailp)
         result << altformavailp.text
       end
     end
@@ -703,7 +693,7 @@ module EadsHelper
 
     unless otherfindaidps.nil?
       otherfindaidps.each do |otherfindaidp|
-        handle_archrefs(otherfindaidp)
+        handle_links(otherfindaidp)
         result << otherfindaidp.text
       end
     end
@@ -818,11 +808,11 @@ module EadsHelper
         elsif childname == "relatedmaterial"
           series_related_material = get_paragraphs(element_child, true)
         elsif childname == "altformavail"
-          series_alt_formats = get_paragraphs(element_child)
+          series_alt_formats = get_paragraphs(element_child, true)
         elsif childname == "originalsloc"
           series_originals_loc = get_paragraphs(element_child)
         elsif childname == "otherfindaid"
-          series_other_finding_aids = get_other_finding_aids_paragraphs(element_child)
+          series_other_finding_aids = get_paragraphs(element_child, true)
         elsif childname == "c02" || childname == "c03" || childname == "c"
           # The series could be a <c01 level="series"> with c02 children, or
           # it could be a <c02 level="subseries"> with c03 children.

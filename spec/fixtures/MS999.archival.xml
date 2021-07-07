@@ -12,7 +12,24 @@
       </titlestmt>
       <publicationstmt>
         <publisher>Digital Collections and Archives, Tufts University</publisher>
-        <address><addressline>35 Professors Row</addressline><addressline>Tisch Library Building</addressline><addressline>Tufts University</addressline><addressline>Medford, Massachusetts 02155</addressline><addressline>archives@tufts.edu</addressline><addressline>URL: <extptr xlink:href="http://sites.tufts.edu/dca/" xlink:show="new" xlink:title="http://sites.tufts.edu/dca/" xlink:type="simple"/></addressline></address>
+        <p id="logostmt">
+            <extref xlink:actuate="onLoad"
+                    xlink:href="https://dca.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg"
+                    xlink:show="embed"
+                    xlink:type="simple"/>
+        </p>
+        <address>
+            <addressline>35 Professors Row</addressline>
+            <addressline>Tisch Library Building</addressline>
+            <addressline>Tufts University</addressline>
+            <addressline>Medford, Massachusetts 02155</addressline>
+            <addressline>archives@tufts.edu</addressline>
+            <addressline>URL: <extptr xlink:href="https://dca.tufts.edu/"
+                      xlink:show="new"
+                      xlink:title="https://dca.tufts.edu/"
+                      xlink:type="simple"/>
+            </addressline>
+        </address>
       </publicationstmt>
     </filedesc>
     <profiledesc>
@@ -109,10 +126,8 @@
         include manuscripts, speeches, drafts of journal articles, and notes. Personal papers
         include diaries and correspondence with noted thinkers, scholars, and chorus girls of the
         1910s and 1920s, including F. Scott and Zelda Fitzgerald, William James, and Louise
-        Brooks.</p>
-
+        Brooks. <note>Sketchbooks are included under diaries for no good reason.</note></p>
       <p>Diaries cover the years 1910-1933 with a suspicious gap in 1922.</p>
-      <p>This is just a test.</p>
     </scopecontent>
     <accruals id="aspace_f1427389ff539cf34ea93dab9f3c04ec">
       <head>Accruals</head>
@@ -123,6 +138,7 @@
       <p>A detailed item level list with transcriptions of diaries and letters is available in the
         repository.</p>
       <p>Selected entries are reproduced in <archref href="https://fakey.org/fake5">The Diary Project</archref>.</p>
+      <p>To see all of websites crawled as part of the Tufts University web collection, please visit <extref xlink:linktype="simple" href="https://archive-it.org/collections/1646">the Archive-It collection page.</extref></p>
     </otherfindaid>
     <originalsloc id="aspace_979bc596fbd2cc1973b0e4078ecdc72e">
       <head>Existence and Location of Originals</head>
@@ -267,6 +283,7 @@
               xlink:show="new"
               xlink:title="The Lorem Ipsum Collection at someotherrandomwebsite.org"
               xlink:type="simple"/>.</p>
+          <p>To see all of websites crawled as part of the Tufts University web collection, please visit <extref xlink:linktype="simple" href="https://archive-it.org/collections/1646">the Archive-It collection page.</extref></p>
         </otherfindaid>
         <controlaccess>
           <subject source="local">Letters (correspondence)</subject>
@@ -359,10 +376,10 @@
               <unitdate normal="1910/1910" type="inclusive">1910</unitdate>
               <container id="aspace_237fb766c3f32027c84bef038d7775f7"
                 label="Books [3123064475432131]" type="volume">1</container>
-              <dao xlink:actuate="onRequest" xlink:href="http://hdl.handle.net/false/noreal"
-                xlink:show="new" xlink:title="Diary">
+              <dao xlink:actuate="onRequest" xlink:href="http://hdl.handle.net/false/noreal1"
+                xlink:show="new" xlink:title="Lorem Ipsum Diary">
                 <daodesc>
-                  <p>Diary: 1910-</p>
+                  <p>Diary: 1910</p>
                 </daodesc>
               </dao>
             </did>
@@ -407,6 +424,7 @@
             <scopecontent id="aspace_bbbbbbbbbbbbbbbbbbffffffffffffff">
               <head>Scope and Contents</head>
               <p>Sketchbooks reveal surprisingly competent draftsmanship.</p>
+              <note><p>Sketchbooks are included under diaries for no good reason.</p></note>
             </scopecontent>
             <controlaccess>
               <genreform source="aat">Sketchbooks</genreform>
@@ -424,10 +442,10 @@
                 <unitdate normal="1910/1910" type="inclusive">1930</unitdate>
                 <container id="aspace_2222222222222ffffffffffff7777777"
                   label="Books (3123064475432139)" type="volume">1</container>
-                <dao xlink:actuate="onRequest" xlink:href="http://hdl.handle.net/false/noreal"
-                  xlink:show="new" xlink:title="Diary">
+                <dao xlink:actuate="onRequest" xlink:href="http://hdl.handle.net/false/noreal2"
+                  xlink:show="new" xlink:title="Lorem Ipsum Sketchbook">
                   <daodesc>
-                    <p>Sketchbook: 1920-</p>
+                    <p>Sketchbook: 1930-</p>
                   </daodesc>
                 </dao>
               </did>
@@ -487,7 +505,6 @@
         <scopecontent id="aspace_736d9eac616251082c40f88e448fea67">
           <head>Scope and Contents</head>
           <p>Professional papers consists of manuscripts, speeches, notes, and student papers.</p>
-
           <p>Speeches are very dull.</p>
         </scopecontent>
         <accessrestrict id="aspace_b8a02a29e48b1d8993a7800929973340">

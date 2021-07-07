@@ -10,7 +10,7 @@ feature 'EAD' do
   end
 
   # The MS999 EAD fixture is a new ASpace EAD.
-  scenario 'View MS999 ("kitchen sink") landing page' do
+  scenario 'View MS999 (Lorem Ipsum papers/"kitchen sink") landing page' do
     visit '/concern/eads/ks65hc20t'
     page.should have_text 'Lorem Ipsum papers, 1897 -- 1933'
     page.should have_text 'This collection has:'
@@ -32,10 +32,14 @@ feature 'EAD' do
     page.should have_text "Language(s): Materials are in English, French, and Russian."
     page.should have_text "Permanent URL: http://hdl.handle.net/fake/false"
     page.should have_text "Location:"
-    page.should have_text "Digital Collections and Archives, Tufts University "
+    page.should have_text "Digital Collections and Archives, Tufts University"
+    page.should_not have_text "35 Professors Row"
+    page.should_not have_link "https://dca.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg", href: "https://dca.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg"
     page.should have_text "archives@tufts.edu"
-    page.should have_text "http://sites.tufts.edu/dca/"
+    page.should have_link "https://dca.tufts.edu/", href: "https://dca.tufts.edu/"
     page.should have_text "The Lorem Ipsum papers consist of his personal and professional papers."
+    page.should have_text "Professional papers include manuscripts, speeches, drafts of journal articles, and notes."
+    page.should have_text "Personal papers include diaries and correspondence with noted thinkers, scholars, and chorus girls of the 1910s and 1920s, including F. Scott and Zelda Fitzgerald, William James, and Louise Brooks. Sketchbooks are included under diaries for no good reason."
     page.should have_text "Diaries cover the years 1910-1933 with a suspicious gap in 1922."
     page.should have_text "This collection is arranged in two series."
     page.should have_text "Life Events"
@@ -52,7 +56,6 @@ feature 'EAD' do
     page.should have_text "Although Ipsum's rare books were safely ensconced at Oberlin,"
     page.should have_text "No further accruals are expected."
     page.should have_text "Duplicate materials were discaded during processing, as was Mr. Ipsum's rather careworn feather boa."
-    page.should have_text "Taxidermy originally in this collection has been transferred to the Natural History Museum."
     page.should have_text "Processing funded by a generous grant from NEH, 2015."
     page.should have_text "University of Chicago"
     page.should have_link "Adolescence", href: Rails.application.routes.url_helpers.search_catalog_path(q: "Adolescence", search_field: "subject")
@@ -61,6 +64,10 @@ feature 'EAD' do
     page.should have_text "Lorem Ipsum rare book collection, Cornell University."
     page.should have_link "Lorem Ipsum rare book collection", href: "https://fakey.org/fake1"
     page.should have_link "Cornell University", href: "https://fakey.edu/fake2"
+    page.should have_text "Taxidermy originally in this collection has been transferred to the Natural History Museum."
+    page.should have_link "Natural History Museum", href: "https://fakey.org/fake3"
+    page.should have_text "Selected entries are reproduced in The Diary Project"
+    page.should have_link "The Diary Project", href: "https://fakey.org/fake5"
     page.should have_text "Lorem Ipsum faculty papers, University of Chicago."
     page.should have_text "This collection is also available on microfilm."
     page.should have_text "Some letters in the correspondence series are photocopies; originals reside with the original authors."
@@ -74,6 +81,8 @@ feature 'EAD' do
     page.should have_text "Professional papers, 1897 -- 1933"
     page.should have_text "Professional papers consists of manuscripts, speeches, notes, and student papers."
     page.should have_text "Speeches are very dull."
+    page.should have_text "To see all of websites crawled as part of the Tufts University web collection, please visit the Archive-It collection page."
+    page.should have_link "the Archive-It collection page.", href: "https://archive-it.org/collections/1646"
 
     click_link "Personal papers, 1900 -- 1933", exact: false
     page.should have_text "Personal papers, 1900 -- 1933"
@@ -96,6 +105,7 @@ feature 'EAD' do
     page.should have_text "No further accruals are expected."
     page.should have_text "Duplicate materials were discaded during processing, as was Mr. Ipsum's rather careworn feather boa."
     page.should have_text "Silk stockings found in this series have been transferred to the Textile Museum."
+    page.should have_link "Textile Museum", href: "https://fakey.org/fake4"
     page.should have_text "Letters (correspondence)"
     page.should have_text "Lorem Ipsum rare book collection, Cornell University."
     page.should have_text "Lorem Ipsum faculty papers, University of Chicago."
@@ -103,13 +113,22 @@ feature 'EAD' do
     page.should have_text "Some letters in the correspondence series are photocopies; originals reside with the original authors."
     page.should have_text "A detailed item level list with transcriptions of diaries and letters is available in the repository."
     page.should have_text "Correspondence 1900 -- 1933"
-    page.should have_text "Correspondence with many leading lights of the day, including H. L. Mencken, F. Scott and Zelda Fitzgerald, William James, and Louise Brooks, among others."
+    page.should have_text "Personal papers consist largely of correspondence and diaries."
     page.should have_text "MS999.001.001"
     page.should have_text "Diaries 1910 -- 1933"
     page.should have_text "Diaries are salacious and gossipy."
     page.should have_text "MS999.001.002"
     page.should have_text "There is also Lorem Ipsum material to be found online. Please visit https://somerandomwebsite.org/collections/LoremIpsum and/or The Lorem Ipsum Collection at someotherrandomwebsite.org."
-    page.should have_text "New Yorker Cartoons 1922-12-09 - 1927-03-09"
+    page.should have_link "https://somerandomwebsite.org/collections/LoremIpsum", href: "https://somerandomwebsite.org/collections/LoremIpsum"
+    page.should have_link "The Lorem Ipsum Collection at someotherrandomwebsite.org", href: "https://someotherrandomwebsite.org/collections/LoremIpsum"
+    page.should have_link "New Yorker Cartoons 1922-12-09 - 1927-03-09", href: "https://somerandomwebsite.org/collections/LoremIpsum/NewYorkerCartoons"
+    page.should have_text "Lorem Ipsum rare book collection, Cornell University."
+    page.should have_link "Lorem Ipsum rare book collection", href: "https://fakey.org/fake1"
+    page.should have_link "Cornell University", href: "https://fakey.edu/fake2"
+    page.should have_text "Selected entries are reproduced in The Diary Project"
+    page.should have_link "The Diary Project", href: "https://fakey.org/fake5"
+    page.should have_text "To see all of websites crawled as part of the Tufts University web collection, please visit the Archive-It collection page."
+    page.should have_link "the Archive-It collection page.", href: "https://archive-it.org/collections/1646"
 
     click_link "Correspondence 1900 -- 1933", exact: false
     page.should have_text "Location:"
@@ -124,12 +143,16 @@ feature 'EAD' do
     page.should have_text "Location:"
     page.should have_text "3123064475432131"
     page.should_not have_text "Books ["
+    page.should have_link "Diary 1910", href: "http://hdl.handle.net/false/noreal1"
+
     click_link "Sketchbooks 1920 -- 1933", exact: false
     page.should have_text "> Series 1.2.1: Sketchbooks, 1920 -- 1933"
     page.should have_text "Sketchbooks reveal surprisingly competent draftsmanship."
+    page.should have_text "Sketchbooks are included under diaries for no good reason."
     page.should have_text "Sketchbooks are arranged by binder color in standard ROYGBIV order."
     page.should have_text "Red Sketchbook 1930"
     page.should have_text "Mostly satirical sketches of friends, family and celebrities of the day."
+    page.should have_link "Red Sketchbook 1930", href: "http://hdl.handle.net/false/noreal2"
   end
 
   # The MS226 EAD fixture is an old CIDER EAD.
