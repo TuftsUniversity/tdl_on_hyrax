@@ -4,7 +4,7 @@ require 'rails_helper'
 feature 'EAD' do
   # include TestHelpers    comment back in when ldap is ready
 
-  before do
+  before(:all) do
     FactoryBot.create(:tufts_MS999_ead)
     FactoryBot.create(:tufts_MS226_ead)
   end
