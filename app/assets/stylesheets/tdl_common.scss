@@ -12,6 +12,15 @@ body {
  *  TYPOGRAPHY
  * ------------------------ */
 
+@font-face {
+  font-family: "Meta Serif";
+  src: font-url("b95879a4-6677-40bf-9528-ffecf9b247e4.eot?#iefix");
+  src: font-url("b95879a4-6677-40bf-9528-ffecf9b247e4.eot?#iefix") format("eot"),
+  font-url("540baff3-1dae-4349-b607-d71e6a8d5a3e.woff2") format("woff2"),
+  font-url("329d96cf-0721-417a-9888-cc6b095163c3.woff") format("woff"),
+  font-url("c46c5707-21ab-4331-99d5-197ac889ffc7.ttf") format("truetype");
+}
+
 /* Not used as far as I can tell */
 h1 {
   font-size: 24px;
@@ -53,147 +62,69 @@ h6 {
 /* ------------------------
  *  HEADER / NAV
  * ------------------------ */
+header {
+  background-color: $tufts_blue;
+  box-sizing: border-box;
+  min-height: 65px;
+  padding: 0 50px;
 
-.navbar {
-  background-color: #fff;
-  margin-bottom: 0;
+  .no-underline {
+    text-decoration: none;
+  }
 }
 
-#header-navbar {
-  .container {
-    padding-left: 30px;
-    padding-right: 30px;
+.masthead-wrapper {
+  display: block;
+  padding: 7px 0 10px 0;
+}
+
+.masthead-logo {
+  width: 400px;
+  height: 50px;
+  background: transparent asset-url($logo_image) bottom 7px left no-repeat;
+
+  .logo-text {
+    margin-left: 108px;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    font-family: "Meta Serif", Serif;
+    opacity: 0.92;
   }
+}
 
-  .main-nav-content {
-    min-height: 65px;
+header nav {
+  float: right;
+  margin-right: .5em;
+}
 
-    .navbar-brand {
-      width: 216px;
-      padding:0;
-      height: 40px;
-      margin-top: 20px;
-      margin-left: 0;
+.masthead-nav {
+  ul {
+    list-style: none;
+    margin: 0;
+
+    li {
+      float: right;
+      margin-left: 14px;
     }
   }
-}
 
-.blueline {
-  background-color: $tufts_blue;
-  height: 25px;
-  width: 100%;
-}
-
-/* Log In/My List menu */
-.util-nav {
-  margin: 0;
-
-  li {
-    margin-left: 21px;
-    color: #FFF;
-
-    a {
-      color: #FFF;
-      font-size: 12px;
-  } }
-
-  .glyphicon-shopping-cart {
-    color: #FFF;
-} }
-
-/* General styls for all the right-side navs */
-.tdl-right-nav {
-  list-style-type: none;
-
-  li {
-    float: right;
-    margin-left: 14px;
-} }
-
-/* Main nav (above comment button) */
-#main_nav {
-  margin: 0;
-
-  li {
-    text-transform: uppercase;
-    font-size: 12px;
-    margin-bottom: 7px;
-
-    a {
-      color: #000;
-} } }
-
-#comment-button {
-  padding: 2px 7px;
-
-  background-color: $tufts_blue;
-  color: #fff;
-  font-size: 12px;
-
-  float: right;
-  clear: right;
-}
-
-/* ------------------------
- *  SEARCH BAR
- * ------------------------ */
-#search_link {
-  text-align: left;
-  flex-basis: 20%;
-  margin-left: 15px;
-  margin-top: 12px;
-}
-#searchbar-parent {
-  display: flex;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.navbar-center {
-  flex-basis: 80%;
-}
-#tufts-searchbar {
-  min_height: 45px;
-  padding-top: 1px;
-  padding-bottom: 1px;
-}
-#tufts-controls-spacer {
-  height: 45px;
-}
-#tufts-searchbar-wrapper {
-  background-color: #eeeeee;
-  border-bottom: 1px solid #E5E5E5;
-}
-.search-query-form {
-  margin-top: 0;
-}
-
-.tdl-search-widgets {
-  margin-top: 11px;
-  line-height: 16px;
-}
-
-#search-form-header input[type='text'] {
-  min-width: 120px;
-}
-
-@media (max-width: 768px) {
-  #searchbar-parent {
-    width: 90%;
-} }
-
-@media (max-width: 430px) {
-  #content-wrapper {
-    margin-top: 3em;
+  a {
+    color: white;
   }
 
-  #searchbar-parent {
-    display: block;
+  &.lower li {
+    margin-top: 1.5em;
+    margin-right: .25em;
+    font-size: 1.10em;
+    text-transform: uppercase;
+  }
 
-    #search_link {
-      text-align: right;
-      padding-right: 1em;
-} } }
+  &.upper li {
+    font-size: .95em;
+    margin-right: .15em;
+  }
+}
 
 /* ------------------------
  *  BODY / CONTENT

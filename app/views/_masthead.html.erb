@@ -1,61 +1,41 @@
-<div id="header-navbar" class="navbar navbar-fixed-top">
-  <div class="blueline">
-    <div class="container">
-      <%= render '/user_util_links' %>
+<header>
+  <nav>
+    <div class="masthead-nav upper">
+      <ul>
+        <li>
+          <%= link_to(
+                '#',
+                data: { toggle: "modal", target: "#aeon-cart-modal" }
+              ) do %>
+            My List (<span class="listCount">0</span>)
+            <span class="icon-flipped glyphicon glyphicon-shopping-cart glyph-left" aria-hidden="true"></span>
+          <% end %>
+        </li>
+        <li>
+          <% if has_user_authentication_provider? %>
+            <% if current_user %>
+              <%= link_to t('blacklight.header_links.logout'), main_app.destroy_user_session_path %> <%= "[#{ current_user.to_s }]".html_safe unless current_user.to_s.blank? %>
+            <% else %>
+              <%= link_to t('blacklight.header_links.login'), main_app.new_user_session_path %>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
     </div>
-  </div>
 
-  <div class="main-nav-content container">
-    <div class="logo">
-      <%= link_to application_name, '/' , class: "navbar-brand" %>
+    <div class="masthead-nav lower">
+      <ul>
+        <li><%= link_to 'Contact', contact_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+      </ul>
     </div>
-    <div class="right-nav">
-      <div id="main_nav">
-        <ul class="tdl-right-nav">
-          <li><%= link_to 'Contact', '/contact' %></li>
-          <li><%= link_to 'About', '/about' %></li>
-          <li><%= link_to 'Search', '/advanced' %></li>
-        </ul>
-      </div>
-      <% if(controller.action_name == "show" || controller.action_name == 'fa_overview' || controller.action_name == 'fa_series' || controller.action_name == 'audio_transcriptonly' || controller.action_name == 'video_transcriptonly') %>
-        <button type="button" id="comment-button" class="btn" data-toggle="modal" data-target="#comment_modal">
-          Comments about this page?
-          <span class="glyphicon glyphicon-comment glyph-right" aria-hidden="true"></span>
-        </button>
-      <% end %>
-    </div> <!-- End navbar-right -->
-  </div> <!-- End container -->
+  </nav>
 
-<div id ="tufts-searchbar-wrapper">
-  <div id="tufts-searchbar">
-  <% if(controller.action_name == "show" && controller_name != "pages") %>
-    <div class="container">
-      <%= render 'shared/back_to_search' %>
-      <%= render 'shared/download_options' %>
+  <a class="no-underline masthead-wrapper" href="/">
+    <div class="masthead-logo">
+      <span class="logo-text">
+        <span class="hide">Tufts</span> Digital Library
+      </span>
     </div>
-  <% elsif controller.action_name == 'fa_overview' || controller.action_name == 'fa_series'%>
-    <div class="container">
-      <%= render 'shared/finding_aid_breadcrumbs' %>
-    </div>
-  <% elsif controller.action_name == 'audio_transcriptonly' || controller.action_name == 'video_transcriptonly'%>
-    <div class="container">
-      <%= render 'shared/transcriptonly_options' %>
-      <%= render 'shared/download_options' %>
-    </div>
-  <% else %>
-  <div id='searchbar-parent'>
-    <div class="navbar-center">
-      <% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions', 'advanced'])) %>
-        <%= render_search_bar %>
-      <% end %>
-		</div> <!-- End navbar-center -->
-		<% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions', 'advanced'])) %>
-      <div id='search_link'>
-        <%= link_to 'Advanced Search', '/advanced' %>
-      </div>
-    <% end %>
-   </div>
-  <% end %>
-  </div> <!-- End tufts-searchbar -->
-</div>
-</div>
+  </a>
+</header>
