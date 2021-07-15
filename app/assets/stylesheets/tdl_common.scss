@@ -8,6 +8,19 @@ body {
   background: radial-gradient(ellipse farthest-corner at center center , #CEDCE7 0%, #596A72 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
 }
 
+/* https://www.nomensa.com/blog/how-improve-web-accessibility-hiding-elements */
+.only-for-screen-readers {
+  border: 0;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 /* ------------------------
  *  TYPOGRAPHY
  * ------------------------ */
@@ -124,6 +137,12 @@ header nav {
     font-size: .95em;
     margin-right: .15em;
   }
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
 }
 
 /* ------------------------
