@@ -1,5 +1,3 @@
-<% on_homepage = controller.action_name == 'welcome' %>
-
 <!DOCTYPE html>
 <html lang="<%= t("hyrax.document_language", default: '') %>" prefix="og:http://ogp.me/ns#">
   <head>
@@ -7,18 +5,12 @@
     <%= content_for(:head) %>
   </head>
 
-  <body <% if(on_homepage) %> class="homepage" <% end %> >
+  <body>
     <div class="skip-to-content">
       <%= link_to "Skip to Content", "#skip-to-content", data: { turbolinks: false } %>
     </div>
     <%= render '/masthead' %>
-    <% if(on_homepage) %>
-      <div class="homepage-banner">
-        <%= image_tag('banner', class: 'banner-image') %>
-      </div>
-    <% else %>
-      <%= render '/searchbar' %>
-    <% end %>
+    <%= render '/banner' %>
     <%= content_for(:navbar) %>
     <%= content_for(:precontainer_content) %>
     <div id="content-wrapper" class="container" role="main">
@@ -31,7 +23,7 @@
         </div>
       <% end %>
 
-        <a id="skip-to-content"></a>
+        <a name="skip-to-content" id="skip-to-content"></a>
         <%= content_for?(:content) ? yield(:content) : yield %>
 
     </div><!-- /#content-wrapper -->
