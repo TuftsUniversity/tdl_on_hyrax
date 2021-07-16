@@ -1,0 +1,32 @@
+<div id ="tufts-searchbar-wrapper">
+  <div id="tufts-searchbar">
+    <% if(controller.action_name == "show" && controller_name != "pages") %>
+      <div class="container">
+        <%= render 'shared/back_to_search' %>
+        <%= render 'shared/download_options' %>
+      </div>
+    <% elsif controller.action_name == 'fa_overview' || controller.action_name == 'fa_series'%>
+      <div class="container">
+        <%= render 'shared/finding_aid_breadcrumbs' %>
+      </div>
+    <% elsif controller.action_name == 'audio_transcriptonly' || controller.action_name == 'video_transcriptonly'%>
+      <div class="container">
+        <%= render 'shared/transcriptonly_options' %>
+        <%= render 'shared/download_options' %>
+      </div>
+    <% else %>
+      <div id='searchbar-parent'>
+        <div class="navbar-center">
+          <% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions', 'advanced'])) %>
+            <%= render_search_bar %>
+          <% end %>
+        </div>
+        <% unless(controller_name.in?(['contribute', 'templates', 'records', 'sessions', 'advanced'])) %>
+          <div id='search_link'>
+            <%= link_to 'Advanced Search', '/advanced' %>
+          </div>
+        <% end %>
+      </div> <!-- end searchbar-parent -->
+    <% end %>
+  </div> <!-- End tufts-searchbar -->
+</div>

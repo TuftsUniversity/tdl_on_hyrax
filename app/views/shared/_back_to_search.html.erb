@@ -1,9 +1,7 @@
 <% case request.referer %>
 <%   when /catalog/ %>
-
   <div class="pull-left tdl-search-widgets">
     <span class="glyphicon glyphicon-arrow-left glyph-left" aria-hidden="true"></span>
     <a href="<%= request.referer %>">Back to Search Results</a>
   </div>
-
 <% end %>
