@@ -162,7 +162,8 @@ header nav {
   text-align: left;
   flex-basis: 20%;
   margin-left: 15px;
-  margin-top: 12px;
+  margin-top: 1.2em;
+  //margin-top: 12px;
 }
 #searchbar-parent {
   display: flex;
@@ -173,14 +174,7 @@ header nav {
 .navbar-center {
   flex-basis: 80%;
 }
-#tufts-searchbar {
-  min_height: 45px;
-  padding-top: 1px;
-  padding-bottom: 1px;
-}
-#tufts-controls-spacer {
-  height: 45px;
-}
+
 #tufts-searchbar-wrapper {
   background-color: #eeeeee;
   border-bottom: 1px solid #E5E5E5;
@@ -192,6 +186,11 @@ header nav {
 .tdl-search-widgets {
   padding: 7px 0;
   line-height: 16px;
+}
+
+/* Evens out weird Hyrax margins above and below search box */
+#search-form-header {
+  margin-top: 10px;
 }
 
 #search-form-header input[type='text'] {
