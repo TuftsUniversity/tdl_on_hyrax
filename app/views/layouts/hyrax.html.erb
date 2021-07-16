@@ -10,7 +10,13 @@
       <%= link_to "Skip to Content", "#skip-to-content", data: { turbolinks: false } %>
     </div>
     <%= render '/masthead' %>
-    <%= render '/banner' %>
+    <% if(controller.action_name == 'welcome') %>
+      <div class="homepage-banner">
+        <%= image_tag('banner', class: 'banner-image') %>
+      </div>
+    <% else %>
+      <%= render '/searchbar' %>
+    <% end %>
     <%= content_for(:navbar) %>
     <%= content_for(:precontainer_content) %>
     <div id="content-wrapper" class="container" role="main">
@@ -23,7 +29,7 @@
         </div>
       <% end %>
 
-        <a name="skip-to-content" id="skip-to-content"></a>
+        <a id="skip-to-content"></a>
         <%= content_for?(:content) ? yield(:content) : yield %>
 
     </div><!-- /#content-wrapper -->
