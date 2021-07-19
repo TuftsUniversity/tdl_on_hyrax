@@ -55,7 +55,6 @@ end
 
 Capybara.javascript_driver = :poltergeist
 
-
 Capybara.default_max_wait_time = 10
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -95,7 +94,7 @@ RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL
 
-  config.before :suite do
+  config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     # Noid minting causes extra LDP requests which slow the test suite.
     Hyrax.config.enable_noids = false
@@ -109,11 +108,11 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
-  config.before(:each) do
+  config.before do
     DatabaseCleaner.start
   end
 
-  config.after(:each) do
+  config.after do
     DatabaseCleaner.clean
   end
 
