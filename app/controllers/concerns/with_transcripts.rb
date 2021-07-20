@@ -9,7 +9,8 @@ module WithTranscripts
 
       @document_fedora = ActiveFedora::Base.find(params[:id])
       @document_tei = nil
-
+      @has_srt = false
+      @srt_id = ""
       return unless @document_fedora.instance_of?(Audio) || @document_fedora.instance_of?(Video)
 
       file_sets = @document_fedora.file_sets
@@ -19,9 +20,14 @@ module WithTranscripts
       file_sets.each do |file_set|
         original_file = file_set.original_file
         next if original_file.nil?
-        next unless original_file.mime_type == "text/xml"
-        @document_tei = Datastreams::Tei.from_xml(original_file.content)
-        @document_tei.ng_xml.remove_namespaces! unless @document_tei.nil?
+        next unless original_file.mime_type == "text/xml" || original_file.mime_type == "text/plain"
+        if original_file.mime_type == "text/xml"
+          @document_tei = Datastreams::Tei.from_xml(original_file.content)
+          @document_tei.ng_xml.remove_namespaces! unless @document_tei.nil?
+        elsif original_file.mime_type == "text/plain"
+          @has_srt = true
+          @srt_id = file_set.id
+        end
         break
       end
     end
