@@ -16,7 +16,9 @@ class SearchBuilder < Hyrax::CatalogSearchBuilder
 
   def add_dl_filter(solr_parameters)
     solr_parameters[:fq] ||= []
-    solr_parameters[:fq] << 'displays_in_sim:dl'
+    # solr_parameters[:fq] << 'displays_in_sim:dl'
+    # DO NOT CHECK IN PART OF COLLECTIONS
+    solr_parameters[:fq] << 'displays_in_sim:dl OR (has_model_ssim:Collection)' if Rails.env != "production"
   end
 
   # Override default behavior so admin users can see unpublished works in the search results
