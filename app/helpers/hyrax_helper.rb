@@ -125,6 +125,10 @@ module HyraxHelper
     }
   end
 
+  def vtt_link(id)
+    "#{hyrax.download_path(id)}?filename=#{id}.txt"
+  end
+
   ##
   # The info for "Download PDF" link.
   #
