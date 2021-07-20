@@ -49,6 +49,13 @@ class CatalogController < ApplicationController
                                      rows: 10,
                                      qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
                                    }
+                                 elsif Rails.env == "stage"
+                                   {
+                                     qt: 'search',
+                                     rows: 10,
+                                     fq: 'workflow_state_name_ssim:published OR has_model_ssim:Collection',
+                                     qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
+                                   }
                                  else
                                    {
                                      qt: 'search',
