@@ -5,8 +5,7 @@
  * ------------------------ */
 
 body {
-  background: radial-gradient(ellipse farthest-corner at center center , #CEDCE7 0%, #596A72 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-  margin-bottom: 0; /* Removing hyrax's weird padding at the bottom of every page. */
+  margin: 0; /* Removing hyrax's weird padding at the bottom of every page. */
 }
 
 /* https://www.nomensa.com/blog/how-improve-web-accessibility-hiding-elements */
@@ -165,12 +164,14 @@ header nav {
   margin-left: 15px;
   margin-top: 1.2em;
 }
+
 #searchbar-parent {
   display: flex;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
 }
+
 .navbar-center {
   flex-basis: 80%;
 }
@@ -179,6 +180,7 @@ header nav {
   background-color: #eeeeee;
   border-bottom: 1px solid #E5E5E5;
 }
+
 .search-query-form {
   margin-top: 0;
 }
@@ -221,8 +223,6 @@ header nav {
  *  BODY / CONTENT
  * ------------------------ */
 #content-wrapper.container {
-    border-radius: 6px 6px 0 0;
-    background-color: #FFFFFF;
     padding: 100px 20px 20px 40px;
 }
 
@@ -272,6 +272,8 @@ input, textarea {
 .blue-footer {
   background-color: $tufts_blue;
   padding: 20px 20px 20px 40px;
+  box-shadow: 0 50vh 0 50vh $tufts_blue; /* Extends the blue to bottom of page, if necessary */
+  width: 100%;
 }
 
 #copyright {
@@ -334,10 +336,6 @@ input, textarea {
 }
 
 .homepage {
-  #content-wrapper, .blue-footer {
-    width: 100%;
-  }
-
   #content-wrapper {
     padding: 0;
   }
@@ -360,7 +358,7 @@ input, textarea {
 
 
 /* ----------------------
- * SHopping cart glph faces wrong
+ * Shopping cart glph faces wrong
  * direction in this bootstrap verson
  * ----------------------- */
  .icon-flipped {
@@ -381,6 +379,10 @@ input, textarea {
 /* ---------------------
  * Static Collection Pages
  * -------------------- */
+
+.image-masthead {
+  display: none;
+}
 
 #static_thumbnail {
   text-align:center;
