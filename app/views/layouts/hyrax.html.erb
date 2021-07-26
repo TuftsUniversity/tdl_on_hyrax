@@ -1,3 +1,5 @@
+<% on_homepage = controller.action_name == 'welcome' %>
+
 <!DOCTYPE html>
 <html lang="<%= t("hyrax.document_language", default: '') %>" prefix="og:http://ogp.me/ns#">
   <head>
@@ -5,12 +7,12 @@
     <%= content_for(:head) %>
   </head>
 
-  <body>
+  <body <% if(on_homepage) %> class="homepage" <% end %> >
     <div class="skip-to-content">
       <%= link_to "Skip to Content", "#skip-to-content", data: { turbolinks: false } %>
     </div>
     <%= render '/masthead' %>
-    <% if(controller.action_name == 'welcome') %>
+    <% if(on_homepage) %>
       <div class="homepage-banner">
         <%= image_tag('banner', class: 'banner-image') %>
       </div>

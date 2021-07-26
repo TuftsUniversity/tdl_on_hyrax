@@ -1,34 +1,7 @@
 <% provide :page_title, application_name %>
 
-<div class="col-xs-12 main_content_area">
-  <!-- nested row LEFT -->
-    <div class="col-md-3">
-        <%= render 'search_sidebar' %>
-    </div>
-    <!-- nested Fluid RIGHT -->
-
-    <div class="row-fluid">
-
-      <!-- MAIN CONTENT AREA -->
-      <div class="col-md-9 offset3">
-        <%= render :partial => "tdl_welcome" %>
-
-        <div class="span9">
-          <%= render :partial => "featured_collections" %>
-        </div>
-        <div class="pull-right">
-         <!--
-          <a href="#"><h5>View more featured exhibits and collections <i class="icon-arrow-right margintoparrow"> </i></h5></a>
-         -->
-        </div>
-
-
-      </div>
-
-
-  </div>
-</div>
-
-<div class="row home-content">
-
+<div class="main_content_area">
+  <p class="homepage-text">Explore Tufts faculty & student scholarship, student and university publications, digitized books, Tufts University history, archival collections, photographs, and much more.</p>
+  <%= render '/catalog/homepage-searchbar' %>
+  <%= render :partial => "featured_collections" %>
 </div>
