@@ -21,6 +21,12 @@ body {
   width: 1px;
 }
 
+/* Fixing weird dashboard padding */
+body.dashboard {
+  padding: 0;
+  background-color: #fff;
+}
+
 /* ------------------------
  *  TYPOGRAPHY
  * ------------------------ */
@@ -332,7 +338,7 @@ input, textarea {
   width: 1000px;
   max-width: 90%;
   text-align: center;
-  margin: 2em auto;
+  margin: 1em auto;
 }
 
 .homepage {
@@ -343,7 +349,7 @@ input, textarea {
   #search-form-header {
     width: 90%;
     max-width: 700px;
-    margin: 6em auto;
+    margin: 5em auto 4em auto;
 
     .form-control, button {
       height: 45px;
