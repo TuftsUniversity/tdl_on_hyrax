@@ -2,7 +2,6 @@
 Rails.application.routes.draw do
   concern :oai_provider, BlacklightOaiProvider::Routes.new
 
-  get '/about', to: 'high_voltage/pages#show', defaults: { "id" => "index" }
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
 
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
@@ -23,9 +22,6 @@ Rails.application.routes.draw do
   # override welcome route so we can make search bar available on homepage
   # note: this has to go before hyrax is mounted
   root 'catalog#welcome'
-
-  get 'contact', to: 'contact#show_contact'
-  post 'contact', to: 'contact#show_contact'
 
   devise_for :users
   mount Hydra::RoleManagement::Engine => '/'
