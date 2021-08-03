@@ -28,7 +28,7 @@ module TestHelpers
   # @param {str} query
   #   The query to search for.
   def basic_search(type, query)
-    visit root_path
+    visit '/catalog'
     fill_in('search-field-header', with: query)
     click_button('Keyword')
     within('#search-form-header') do
