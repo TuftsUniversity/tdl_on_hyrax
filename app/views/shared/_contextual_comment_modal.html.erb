@@ -11,7 +11,7 @@
 
       <div class="modal-body">
 
-        <form class="comment_form" action="javascript:submitFeedback(<%= raw ("show" == controller.action_name || "fa_overview" == controller.action_name || "fa_series" == controller.action_name || "audio_transcriptonly" == controller.action_name || "video_transcriptonly" == controller.action_name) ? "'http://#{request.host}:#{request.port}#{request.fullpath}' " : " '' " %>, '<%= form_authenticity_token %>');">
+        <form class="comment_form" action="javascript:submitFeedback(<%= raw ("show" == controller.action_name || "fa_overview" == controller.action_name || "fa_series" == controller.action_name || "audio_transcriptonly" == controller.action_name || "video_transcriptonly" == controller.action_name) ? "'#{request.protocol}#{request.host}#{request.fullpath}' " : " '' " %>, '<%= form_authenticity_token %>');">
 
           <fieldset>
 
