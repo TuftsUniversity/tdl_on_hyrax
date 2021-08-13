@@ -276,7 +276,7 @@ module Tufts
         model: "image"
       },
       {
-        legacy_pid: "tufts:test.aspace.MS999",
+        legacy_pid: "tufts:aspace.MS999",
         title: "Lorem Ipsum papers, 1897-1933",
         alternative_title: "Kitchen Sink EAD",
         date_created: "2016",
@@ -288,7 +288,7 @@ module Tufts
         format_label: "text/xml"
       },
       {
-        legacy_pid: "tufts:test.aspace.MS226",
+        legacy_pid: "tufts:aspace.MS226",
         title: "ASpace Rubin Carter Papers",
         date_created: "2016",
         displays_in: ["dl"],
