@@ -180,3 +180,5 @@ feature 'EAD' do
     expect(page).to have_text 'This series is part of Rubin "Hurricane" Carter papers, 1950-2014'
     expect(page).to have_text 'Positive Impact Celebrity Choice award 2000 '
   end
+end
+
