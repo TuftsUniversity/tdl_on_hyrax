@@ -142,7 +142,7 @@ feature 'EAD' do
     expect(page).to have_text "> Series 1.2: Diaries, 1910 -- 1933"
     expect(page).to have_text "Location:"
     expect(page).to have_text "3123064475432131"
-    expect(page).to_not have_text "Books ["
+    expect(page).not_to have_text "Books ["
     expect(page).to have_link "Diary 1910", href: "http://hdl.handle.net/false/noreal1"
 
     click_link "Sketchbooks 1920 -- 1933", exact: false
@@ -181,4 +181,3 @@ feature 'EAD' do
     expect(page).to have_text 'Positive Impact Celebrity Choice award 2000 '
   end
 end
-
