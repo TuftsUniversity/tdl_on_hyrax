@@ -4,13 +4,13 @@ require 'rails_helper'
 feature 'EAD' do
   # include TestHelpers    comment back in when ldap is ready
 
-  before do
+  before(:all) do
     FactoryBot.create(:tufts_MS999_ead)
     FactoryBot.create(:tufts_MS226_ead)
   end
 
   # The MS999 EAD fixture is a new ASpace EAD.
-  scenario 'View MS999 ("kitchen sink") landing page' do
+  scenario 'View MS999 (Lorem Ipsum papers/"kitchen sink") landing page' do
     visit '/concern/eads/ks65hc20t'
     expect(page).to have_text 'Lorem Ipsum papers, 1897 -- 1933'
     expect(page).to have_text 'This collection has:'
@@ -19,6 +19,7 @@ feature 'EAD' do
     expect(page).to have_text '197 Gigabytes'
     expect(page).to have_text '95 Cassettes'
     expect(page).to have_text 'The papers of Lorem Ipsum, noted scholar and salon host, consist of his personal and professional papers, including a wide range of correspondence with noted thinkers, scholars, and chorus girls of the 1910s and 1920s.'
+    # page.should_not have_text 'View Online Materials'
 
     click_link "View Finding Aid", exact: false
     expect(page).to have_text "Lorem Ipsum papers, 1897-1933"
@@ -31,10 +32,14 @@ feature 'EAD' do
     expect(page).to have_text "Language(s): Materials are in English, French, and Russian."
     expect(page).to have_text "Permanent URL: http://hdl.handle.net/fake/false"
     expect(page).to have_text "Location:"
-    expect(page).to have_text "Digital Collections and Archives, Tufts University "
+    expect(page).to have_text "Digital Collections and Archives, Tufts University"
+    expect(page).not_to have_text "35 Professors Row"
+    expect(page).not_to have_link "https://dca.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg", href: "https://dca.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg"
     expect(page).to have_text "archives@tufts.edu"
-    expect(page).to have_text "http://sites.tufts.edu/dca/"
+    expect(page).to have_link "https://dca.tufts.edu/", href: "https://dca.tufts.edu/"
     expect(page).to have_text "The Lorem Ipsum papers consist of his personal and professional papers."
+    expect(page).to have_text "Professional papers include manuscripts, speeches, drafts of journal articles, and notes."
+    expect(page).to have_text "Personal papers include diaries and correspondence with noted thinkers, scholars, and chorus girls of the 1910s and 1920s, including F. Scott and Zelda Fitzgerald, William James, and Louise Brooks. Sketchbooks are included under diaries for no good reason."
     expect(page).to have_text "Diaries cover the years 1910-1933 with a suspicious gap in 1922."
     expect(page).to have_text "This collection is arranged in two series."
     expect(page).to have_text "Life Events"
@@ -51,13 +56,18 @@ feature 'EAD' do
     expect(page).to have_text "Although Ipsum's rare books were safely ensconced at Oberlin,"
     expect(page).to have_text "No further accruals are expected."
     expect(page).to have_text "Duplicate materials were discaded during processing, as was Mr. Ipsum's rather careworn feather boa."
-    expect(page).to have_text "Taxidermy originally in this collection has been transferred to the Natural History Museum."
     expect(page).to have_text "Processing funded by a generous grant from NEH, 2015."
     expect(page).to have_text "University of Chicago"
-    expect(page).to have_text "Adolescence"
-    expect(page).to have_text "Advertising"
-    # expect(page).to have_text "Medford (Mass.)"
+    expect(page).to have_link "Adolescence", href: Rails.application.routes.url_helpers.search_catalog_path(q: "Adolescence", search_field: "subject")
+    expect(page).to have_link "Advertising", href: Rails.application.routes.url_helpers.search_catalog_path(q: "Advertising", search_field: "subject")
+    expect(page).to have_link "Medford", href: Rails.application.routes.url_helpers.search_catalog_path(q: "Medford", search_field: "title")
     expect(page).to have_text "Lorem Ipsum rare book collection, Cornell University."
+    expect(page).to have_link "Lorem Ipsum rare book collection", href: "https://fakey.org/fake1"
+    expect(page).to have_link "Cornell University", href: "https://fakey.edu/fake2"
+    expect(page).to have_text "Taxidermy originally in this collection has been transferred to the Natural History Museum."
+    expect(page).to have_link "Natural History Museum", href: "https://fakey.org/fake3"
+    expect(page).to have_text "Selected entries are reproduced in The Diary Project"
+    expect(page).to have_link "The Diary Project", href: "https://fakey.org/fake5"
     expect(page).to have_text "Lorem Ipsum faculty papers, University of Chicago."
     expect(page).to have_text "This collection is also available on microfilm."
     expect(page).to have_text "Some letters in the correspondence series are photocopies; originals reside with the original authors."
@@ -71,6 +81,8 @@ feature 'EAD' do
     expect(page).to have_text "Professional papers, 1897 -- 1933"
     expect(page).to have_text "Professional papers consists of manuscripts, speeches, notes, and student papers."
     expect(page).to have_text "Speeches are very dull."
+    expect(page).to have_text "To see all of websites crawled as part of the Tufts University web collection, please visit the Archive-It collection page."
+    expect(page).to have_link "the Archive-It collection page.", href: "https://archive-it.org/collections/1646"
 
     click_link "Personal papers, 1900 -- 1933", exact: false
     expect(page).to have_text "Personal papers, 1900 -- 1933"
@@ -93,6 +105,7 @@ feature 'EAD' do
     expect(page).to have_text "No further accruals are expected."
     expect(page).to have_text "Duplicate materials were discaded during processing, as was Mr. Ipsum's rather careworn feather boa."
     expect(page).to have_text "Silk stockings found in this series have been transferred to the Textile Museum."
+    expect(page).to have_link "Textile Museum", href: "https://fakey.org/fake4"
     expect(page).to have_text "Letters (correspondence)"
     expect(page).to have_text "Lorem Ipsum rare book collection, Cornell University."
     expect(page).to have_text "Lorem Ipsum faculty papers, University of Chicago."
@@ -100,13 +113,22 @@ feature 'EAD' do
     expect(page).to have_text "Some letters in the correspondence series are photocopies; originals reside with the original authors."
     expect(page).to have_text "A detailed item level list with transcriptions of diaries and letters is available in the repository."
     expect(page).to have_text "Correspondence 1900 -- 1933"
-    expect(page).to have_text "Correspondence with many leading lights of the day, including H. L. Mencken, F. Scott and Zelda Fitzgerald, William James, and Louise Brooks, among others."
+    expect(page).to have_text "Personal papers consist largely of correspondence and diaries."
     expect(page).to have_text "MS999.001.001"
     expect(page).to have_text "Diaries 1910 -- 1933"
     expect(page).to have_text "Diaries are salacious and gossipy."
     expect(page).to have_text "MS999.001.002"
     expect(page).to have_text "There is also Lorem Ipsum material to be found online. Please visit https://somerandomwebsite.org/collections/LoremIpsum and/or The Lorem Ipsum Collection at someotherrandomwebsite.org."
-    expect(page).to have_text "New Yorker Cartoons 1922-12-09 - 1927-03-09"
+    expect(page).to have_link "https://somerandomwebsite.org/collections/LoremIpsum", href: "https://somerandomwebsite.org/collections/LoremIpsum"
+    expect(page).to have_link "The Lorem Ipsum Collection at someotherrandomwebsite.org", href: "https://someotherrandomwebsite.org/collections/LoremIpsum"
+    expect(page).to have_link "New Yorker Cartoons 1922-12-09 - 1927-03-09", href: "https://somerandomwebsite.org/collections/LoremIpsum/NewYorkerCartoons"
+    expect(page).to have_text "Lorem Ipsum rare book collection, Cornell University."
+    expect(page).to have_link "Lorem Ipsum rare book collection", href: "https://fakey.org/fake1"
+    expect(page).to have_link "Cornell University", href: "https://fakey.edu/fake2"
+    expect(page).to have_text "Selected entries are reproduced in The Diary Project"
+    expect(page).to have_link "The Diary Project", href: "https://fakey.org/fake5"
+    expect(page).to have_text "To see all of websites crawled as part of the Tufts University web collection, please visit the Archive-It collection page."
+    expect(page).to have_link "the Archive-It collection page.", href: "https://archive-it.org/collections/1646"
 
     click_link "Correspondence 1900 -- 1933", exact: false
     expect(page).to have_text "Location:"
@@ -120,13 +142,17 @@ feature 'EAD' do
     expect(page).to have_text "> Series 1.2: Diaries, 1910 -- 1933"
     expect(page).to have_text "Location:"
     expect(page).to have_text "3123064475432131"
-    expect(page).not_to have_text "Books ["
+    expect(page).to_not have_text "Books ["
+    expect(page).to have_link "Diary 1910", href: "http://hdl.handle.net/false/noreal1"
+
     click_link "Sketchbooks 1920 -- 1933", exact: false
     expect(page).to have_text "> Series 1.2.1: Sketchbooks, 1920 -- 1933"
     expect(page).to have_text "Sketchbooks reveal surprisingly competent draftsmanship."
+    expect(page).to have_text "Sketchbooks are included under diaries for no good reason."
     expect(page).to have_text "Sketchbooks are arranged by binder color in standard ROYGBIV order."
     expect(page).to have_text "Red Sketchbook 1930"
     expect(page).to have_text "Mostly satirical sketches of friends, family and celebrities of the day."
+    expect(page).to have_link "Red Sketchbook 1930", href: "http://hdl.handle.net/false/noreal2"
   end
 
   # The MS226 EAD fixture is an old CIDER EAD.
@@ -154,4 +180,3 @@ feature 'EAD' do
     expect(page).to have_text 'This series is part of Rubin "Hurricane" Carter papers, 1950-2014'
     expect(page).to have_text 'Positive Impact Celebrity Choice award 2000 '
   end
-end
