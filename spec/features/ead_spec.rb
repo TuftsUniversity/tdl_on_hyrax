@@ -19,7 +19,6 @@ feature 'EAD' do
     expect(page).to have_text '197 Gigabytes'
     expect(page).to have_text '95 Cassettes'
     expect(page).to have_text 'The papers of Lorem Ipsum, noted scholar and salon host, consist of his personal and professional papers, including a wide range of correspondence with noted thinkers, scholars, and chorus girls of the 1910s and 1920s.'
-    # page.should_not have_text 'View Online Materials'
 
     click_link "View Finding Aid", exact: false
     expect(page).to have_text "Lorem Ipsum papers, 1897-1933"
@@ -57,7 +56,7 @@ feature 'EAD' do
     expect(page).to have_text "University of Chicago"
     expect(page).to have_text "Adolescence"
     expect(page).to have_text "Advertising"
-    expect(page).to have_text "Medford (Mass.)"
+    # expect(page).to have_text "Medford (Mass.)"
     expect(page).to have_text "Lorem Ipsum rare book collection, Cornell University."
     expect(page).to have_text "Lorem Ipsum faculty papers, University of Chicago."
     expect(page).to have_text "This collection is also available on microfilm."
