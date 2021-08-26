@@ -1,9 +1,7 @@
+# frozen_string_literal: true
 require 'rails_helper'
-# i_need_ldap              comment back in when ldap is ready
 
 feature 'EAD' do
-  # include TestHelpers    comment back in when ldap is ready
-
   before(:all) do
     FactoryBot.create(:tufts_MS999_ead)
     FactoryBot.create(:tufts_MS226_ead)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+#
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -108,6 +110,7 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
+  # rubocop:disable RSpec/HookArgument
   config.before(:each) do
     DatabaseCleaner.start
   end
@@ -115,6 +118,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+  # rubocop:enable RSpec/HookArgument
 
   config.after(:suite) do
     stop_ldap

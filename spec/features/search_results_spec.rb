@@ -1,7 +1,9 @@
+# frozen_string_literal: true
 require 'rails_helper'
 include TestHelpers
 i_need_ldap
 
+# rubocop:disable RSpec/InstanceVariable
 feature 'Search Results' do
   let(:admin) { FactoryBot.create(:ldap_admin) }
   let(:search_results) { '/catalog?f[human_readable_type_sim][]=Image' }
@@ -35,7 +37,6 @@ feature 'Search Results' do
     end
   end
 
-  # rubocop:enable RSpec/InstanceVariable
   scenario "Lock icon doesn't show on open-visiblity works" do
     visit search_results
     expect(find("#document_#{@open_visibility_image.id}")).not_to have_css(".permissions-lock")
@@ -46,6 +47,5 @@ feature 'Search Results' do
     visit search_results
     expect(find("#document_#{@authenticated_image.id}")).to have_css(".permissions-lock")
   end
-  # rubocop:enable RSpec/InstanceVariable
 end
 # rubocop:enable RSpec/InstanceVariable

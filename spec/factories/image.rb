@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 FactoryBot.define do
   factory :image1, class: Image do
     title { ['Image 1'] }

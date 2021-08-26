@@ -1,8 +1,8 @@
---- 
-inherit_gem: 
+---
+inherit_gem:
   bixby: bixby_default.yml
-AllCops: 
-  Exclude: 
+AllCops:
+  Exclude:
     - db/**/*
     - script/**/*
     - vendor/**/*
@@ -13,8 +13,8 @@ AllCops:
     - app/controllers/gallery_controller.rb
     - app/helpers/characterization.rb
     - lib/pid_methods.rb
-Metrics/BlockLength: 
-  Exclude: 
+Metrics/BlockLength:
+  Exclude:
     - config/**/*
     - app/controllers/catalog_controller.rb
     - app/controllers/concerns/with_transcripts.rb
@@ -31,8 +31,8 @@ Metrics/BlockLength:
 Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
-Metrics/LineLength:
-  Exclude: 
+Layout/LineLength:
+  Exclude:
     - lib/tufts/populate_fixtures.rb
     - config/sitemap.rb
     - app/helpers/eads_helper.rb
@@ -41,7 +41,7 @@ Metrics/LineLength:
     - spec/features/rcr_spec.rb
     - config/initializers/assets.rb
     - lib/metadata_methods.rb
-Metrics/ClassLength: 
+Metrics/ClassLength:
   Exclude:
     - app/controllers/catalog_controller.rb
     - app/presenters/hyrax/work_show_presenter.rb
@@ -67,7 +67,7 @@ Metrics/PerceivedComplexity:
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Exclude:
     - lib/tufts/populate_fixtures.rb
     - lib/pid_methods.rb
@@ -107,8 +107,8 @@ Naming/VariableNumber:
   Exclude:
     - spec/factories/ead.rb
     - spec/factories/rcr.rb
-Performance/StringReplacement: 
-  Exclude: 
+Performance/StringReplacement:
+  Exclude:
     - app/controllers/tufts/works_controller.rb
 Rails/FilePath:
   Exclude:
@@ -119,19 +119,19 @@ RSpec/ExampleLength:
   Exclude:
     - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
-RSpec/MessageSpies: 
+RSpec/MessageSpies:
   Enabled: false
-RSpec/MultipleExpectations: 
-  Exclude: 
+RSpec/MultipleExpectations:
+  Exclude:
     - spec/features/**/*
     - spec/jobs/**/*
     - spec/services/**/*
-RSpec/NestedGroups: 
+RSpec/NestedGroups:
   Max: 4
 RSpec/VerifiedDoubles:
   Exclude:
     - spec/models/**/*
-Naming/FileName: 
+Naming/FileName:
   Exclude: 
     - "**/Gemfile"
     - "**/*.rake"

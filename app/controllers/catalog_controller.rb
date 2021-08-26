@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CatalogController < ApplicationController
   include BlacklightRangeLimit::ControllerOverride
   include BlacklightAdvancedSearch::Controller
@@ -43,13 +44,13 @@ class CatalogController < ApplicationController
     config.view.slideshow.partials = [:index]
 
     # # Default parameters to send to solr for all search-like requests. See also SolrHelper# solr_search_params
-    config.default_solr_params = if Rails.env == "test"
+    config.default_solr_params = if Rails.env.test?
                                    {
                                      qt: 'search',
                                      rows: 10,
                                      qf: 'title_tesim description_tesim creator_tesim keyword_tesim'
                                    }
-                                 elsif Rails.env == "stage"
+                                 elsif Rails.env.stage?
                                    {
                                      qt: 'search',
                                      rows: 10,
@@ -203,8 +204,7 @@ class CatalogController < ApplicationController
           pf: solr_name,
           type: 'lucene',
           df: solr_name,
-          :"q.op" => 'AND'
-
+          'q.op': 'AND'
         }
 
         yield(field) if block_given?
@@ -262,7 +262,7 @@ class CatalogController < ApplicationController
         pf: solr_name,
         type: 'lucene',
         df: solr_name,
-        :"q.op" => 'AND'
+        'q.op': 'AND'
       }
     end
 
@@ -275,7 +275,7 @@ class CatalogController < ApplicationController
         pf: solr_name,
         type: 'lucene',
         df: solr_name,
-        :"q.op" => 'AND'
+        'q.op': 'AND'
       }
     end
 
@@ -288,7 +288,7 @@ class CatalogController < ApplicationController
         pf: solr_name,
         type: 'lucene',
         df: solr_name,
-        :"q.op" => 'AND'
+        'q.op': 'AND'
       }
     end
 
@@ -301,7 +301,7 @@ class CatalogController < ApplicationController
         pf: solr_name,
         type: 'lucene',
         df: solr_name,
-        :"q.op" => 'AND'
+        'q.op': 'AND'
       }
     end
 

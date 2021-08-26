@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TestHelpers
   def active_link?(url)
     uri = URI.parse(url)

@@ -1,4 +1,5 @@
-##
+# frozen_string_literal: true
+#
 # Manages the start/stopping of the ladle server.
 module LdapManager
   ##
