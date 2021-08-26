@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module WithShowEnforcement
   extend ActiveSupport::Concern
   included do

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class PdfPagesController < ApplicationController
   CONFIG = YAML.load_file(Rails.root.join('config', 'pdf_pages.yml'))[Rails.env]
 

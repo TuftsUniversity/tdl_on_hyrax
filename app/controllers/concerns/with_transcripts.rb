@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module WithTranscripts
   extend ActiveSupport::Concern
   included do
@@ -5,7 +6,7 @@ module WithTranscripts
     # Sets @document_fedora with the loaded object.
     # Sets @document_tei with the TEI file_set content of the loaded object.
     def load_fedora_document
-      return unless params[:id].present?
+      return if params[:id].blank?
 
       @document_fedora = ActiveFedora::Base.find(params[:id])
       @document_tei = nil
@@ -23,7 +24,7 @@ module WithTranscripts
         next unless original_file.mime_type == "text/xml" || original_file.mime_type == "text/plain"
         if original_file.mime_type == "text/xml"
           @document_tei = Datastreams::Tei.from_xml(original_file.content)
-          @document_tei.ng_xml.remove_namespaces! unless @document_tei.nil?
+          @document_tei.ng_xml.remove_namespaces! unless @document_tei.nil? # rubocop:disable Style/SafeNavigation
         elsif original_file.mime_type == "text/plain"
           @has_srt = true
           @srt_id = file_set.id

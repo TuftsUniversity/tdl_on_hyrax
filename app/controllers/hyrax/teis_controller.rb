@@ -1,6 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work Tei`
-
+# frozen_string_literal: true
 module Hyrax
   class TeisController < CatalogController
     include Hyrax::WorksControllerBehavior

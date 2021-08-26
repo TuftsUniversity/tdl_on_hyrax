@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Tufts
   class WorksController < ApplicationController
     include Hyrax::WorksControllerBehavior
@@ -22,7 +23,7 @@ module Tufts
     private
 
       def redirect_non_admins
-        redirect_to root_url unless current_user && current_user.admin?
+        redirect_to root_url unless current_user.try(:admin?)
       end
 
       def delete_draft(params)

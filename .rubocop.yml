@@ -117,6 +117,9 @@ Rails/FilePath:
     - spec/factories/ead.rb
     - spec/factories/rcr.rb
     - spec/support/ldap_manager.rb
+Rails/UnknownEnv: #disabled temporarily, as rubocop is having an issue with this cop
+  Exclude:
+    - app/controllers/catalog_controller.rb
 RSpec/ExampleLength:
   Exclude:
     - spec/features/ead_spec.rb

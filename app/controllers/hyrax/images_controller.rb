@@ -1,6 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work Image`
-
+# frozen_string_literal: true
 module Hyrax
   class ImagesController < CatalogController
     include Hyrax::WorksControllerBehavior

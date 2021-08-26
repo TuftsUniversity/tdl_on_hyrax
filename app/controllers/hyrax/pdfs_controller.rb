@@ -1,6 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work Pdf`
-
+# frozen_string_literal: true
 module Hyrax
   class PdfsController < ApplicationController
     include Hyrax::WorksControllerBehavior

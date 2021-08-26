@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Tufts created controller for providing HLS files to mediaelement player.
 module Tufts
   class HlsController < Hyrax::DownloadsController

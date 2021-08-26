@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Tufts
   class ImageCacheClearController < ApplicationController
     skip_before_action :verify_authenticity_token

@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# frozen_string_literal: true
 class ContactController < FeedbackController
   before_action :instantiate_controller_and_action_names
 

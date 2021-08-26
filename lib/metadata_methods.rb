@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module MetadataMethods
   # This may be obsolete - all this information should be available from @presenter
 

@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# frozen_string_literal: true
 class FeedbackController < ApplicationController
   # http://expressica.com/simple_captcha/
   # include SimpleCaptcha::ControllerHelpers
@@ -30,12 +30,9 @@ class FeedbackController < ApplicationController
     # validates the incoming params
     # returns either an empty array or an array with error messages
     def validate
-      @errors << I18n.t('blacklight.feedback.valid_name') unless params[:name] =~ /\w+/
-      @errors << I18n.t('blacklight.feedback.valid_email') unless params[:email] =~ /\w+@\w+\.\w+/
-      @errors << I18n.t('blacklight.feedback.need_message') unless params[:message] =~ /\w+/
-      # unless simple_captcha_valid?
-      #  @errors << 'Captcha did not match'
-      # end
+      @errors << I18n.t('blacklight.feedback.valid_name') unless params[:name].match?(/\w+/)
+      @errors << I18n.t('blacklight.feedback.valid_email') unless params[:email].match?(/\w+@\w+\.\w+/)
+      @errors << I18n.t('blacklight.feedback.need_message') unless params[:message].match?(/\w+/)
       @errors.empty?
     end
 end

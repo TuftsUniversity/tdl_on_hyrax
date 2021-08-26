@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class GalleryController < ApplicationController
   def image_gallery
     @document_fedora = Tei.find(params[:id])
