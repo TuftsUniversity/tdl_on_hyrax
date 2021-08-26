@@ -1,4 +1,5 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
+# This file is not frozen, because something in here needs to be mutable
 module EadsHelper
   def self.collection_has_online_content(collection_title, ead_id)
     solr_connection = ActiveFedora.solr.conn
@@ -113,7 +114,7 @@ module EadsHelper
     date = ""
     bulk_date = ""
     unitdates = ead.find_by_terms_and_value(:unitdate)
-    unitdates.&each do |unitdate|
+    unitdates&.each do |unitdate|
       datetype = unitdate.attribute("type")
       if datetype.nil? || datetype.text == "inclusive"
         date = unitdate.text
@@ -878,7 +879,7 @@ module EadsHelper
       end
     end
 
-    did.&element_children.each do |did_child|
+    did&.element_children.each do |did_child|
       childname = did_child.name
       if childname == "unittitle"
         unittitle = did_child.children.first.text

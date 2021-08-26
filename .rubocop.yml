@@ -120,6 +120,7 @@ Rails/FilePath:
 Rails/UnknownEnv: #disabled temporarily, as rubocop is having an issue with this cop
   Exclude:
     - app/controllers/catalog_controller.rb
+    - config/initializers/riiif.rb
 RSpec/ExampleLength:
   Exclude:
     - spec/features/ead_spec.rb
