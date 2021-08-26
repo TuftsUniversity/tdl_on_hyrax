@@ -14,6 +14,9 @@ module TdlOnHyrax
     config.autoload_paths << Rails.root.join('lib')
     config.autoload_paths << Rails.root.join('lib', 'tufts')
 
+    # Prevents annoying deprecation message
+    config.active_record.sqlite3.represent_boolean_as_integer = true
+
     # sitemap generator
     config.sitemap = {
       generate: true
@@ -30,3 +33,5 @@ module TdlOnHyrax
     config.tdl_contact_subject = "Contact DCA"
   end
 end
+
+Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
