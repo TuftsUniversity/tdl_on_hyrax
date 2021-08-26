@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 namespace :tufts do
   namespace :fixtures do
     desc "Create contribute collections"
     task load_fixtures: :environment do
-      if Rails.env == "production"
+      if Rails.env.production?
         puts "Don't ingest fixtures in production"
       else
         puts "\nCreating Fixtures"
@@ -12,7 +13,7 @@ namespace :tufts do
 
     desc "Create contribute collections"
     task delete_fixtures: :environment do
-      if Rails.env == "production"
+      if Rails.env.production?
         puts "Don't ingest fixtures in production"
       else
         puts "\nEradicating Fixtures"

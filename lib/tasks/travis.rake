@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 unless Rails.env.production?
   APP_ROOT = File.dirname(__FILE__)
   require "solr_wrapper"
@@ -7,7 +6,7 @@ unless Rails.env.production?
   require 'solr_wrapper/rake_task'
 
   desc "Run Continuous Integration"
-  task :travis do
+  task travis: :environment do
     ENV["environment"] = "test"
     solr_params = {
       port: 8985,

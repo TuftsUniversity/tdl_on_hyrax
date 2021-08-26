@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Tufts
   class ImageCacheClearer
     def self.delete_file_set_cache(file_set_id)

@@ -119,6 +119,9 @@ RSpec/ExampleLength:
   Exclude:
     - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
+RSpec/InstanceVariable:
+  Exclude:
+    - spec/features/search_results_spec.rb
 RSpec/MessageSpies:
   Enabled: false
 RSpec/MultipleExpectations:
@@ -132,7 +135,7 @@ RSpec/VerifiedDoubles:
   Exclude:
     - spec/models/**/*
 Naming/FileName:
-  Exclude: 
+  Exclude:
     - "**/Gemfile"
     - "**/*.rake"
 Style/GuardClause:
@@ -147,5 +150,4 @@ Style/Next:
   Exclude:
     - app/helpers/eads_helper.rb
 Style/NumericPredicate:
-  Exclude:
-    - app/helpers/eads_helper.rb
+  Enabled: false

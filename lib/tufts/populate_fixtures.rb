@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rubocop:disable Rails/Output
 module Tufts
   class PopulateFixtures
@@ -62,7 +63,7 @@ module Tufts
     end
 
     def create_fixtures
-      puts "\n\n\nBeginning fixture creation."
+      puts "\n\nBeginning fixture creation."
       @seed_data.each_key do |pid|
         find_or_create_object(pid, @seed_data[pid])
       end
@@ -93,7 +94,6 @@ module Tufts
       puts "\n\nCreating #{pid} with metadata:"
       puts metadata.inspect
       GC.start
-      puts "-- Creating Admin Set"
       admin_set = AdminSet.find(AdminSet::DEFAULT_ID)
       case metadata[:model]
       when "image"
@@ -109,18 +109,13 @@ module Tufts
         Rails.logger.warn "There is no support for #{metadata[model]} fixtures.  You'll have to add it."
       end
 
-      puts "-- Setting admin_set"
       object.admin_set = admin_set
-      puts "-- Setting visibility: #{metadata[:visibility]}"
       object.visibility = metadata[:visibility]
-      puts "-- Setting email: #{@user.email}"
       object.apply_depositor_metadata @user.email
-      puts "-- Setting dates: #{DateTime.current.to_date}"
       object.date_uploaded = DateTime.current.to_date
       object.date_modified = DateTime.current.to_date
 
       # build fileset for object
-      puts "-- Building FileSet"
       file_set = FileSet.new
       file_label = metadata[:file].sub('fixtures/', '')
       file_set.label = file_label
@@ -173,7 +168,6 @@ module Tufts
 
       puts "-- Saving object"
       object.save!
-      puts "-- Object saved"
 
       # create dervivatives
       object.reload

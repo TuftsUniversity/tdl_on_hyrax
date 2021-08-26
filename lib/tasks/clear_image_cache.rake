@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 namespace :tufts do
   desc "Deletes the many caches of a single image around the server"
   task :clear_image_cache, [:image_id] => :environment do |_t, args|

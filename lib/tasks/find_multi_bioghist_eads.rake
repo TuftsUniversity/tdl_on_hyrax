@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'active_fedora'
 require 'om'
 
@@ -20,11 +21,11 @@ namespace :tufts do
         msg = ''
 
         begin
-          next unless id.present?
+          next if id.blank?
 
           document_fedora = ActiveFedora::Base.find(id)
           document_ead = Datastreams::Ead.from_xml(document_fedora.file_sets.first.original_file.content)
-          document_ead.ng_xml.remove_namespaces! unless document_ead.nil?
+          document_ead.ng_xml.remove_namespaces! unless document_ead.nil? # rubocop:disable Style/SafeNavigation
           bioghisths = document_ead.find_by_terms_and_value(:bioghisth)
 
           next unless bioghisths.nil?

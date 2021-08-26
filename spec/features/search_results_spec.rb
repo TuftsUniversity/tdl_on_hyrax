@@ -3,7 +3,6 @@ require 'rails_helper'
 include TestHelpers
 i_need_ldap
 
-# rubocop:disable RSpec/InstanceVariable
 feature 'Search Results' do
   let(:admin) { FactoryBot.create(:ldap_admin) }
   let(:search_results) { '/catalog?f[human_readable_type_sim][]=Image' }
@@ -48,4 +47,3 @@ feature 'Search Results' do
     expect(find("#document_#{@authenticated_image.id}")).to have_css(".permissions-lock")
   end
 end
-# rubocop:enable RSpec/InstanceVariable

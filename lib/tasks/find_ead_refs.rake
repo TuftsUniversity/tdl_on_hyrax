@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'active_fedora'
 require 'om'
 
@@ -26,7 +27,7 @@ namespace :tufts do
         msg = ''
 
         begin
-          next unless id.present?
+          next if id.blank?
 
           document_fedora = ActiveFedora::Base.find(id)
           document_ead = Datastreams::Ead.from_xml(document_fedora.file_sets.first.original_file.content)
@@ -42,8 +43,8 @@ namespace :tufts do
             path = full_path(archref)
             msg += "  #{archref}\n"
             msg += "    full path is #{path}\n"
-            msg += "    NO TEXT!!!!!\n" unless archref.text.present?
-            msg += "    NO HREF!!!!!\n" unless archref.attribute('href').present?
+            msg += "    NO TEXT!!!!!\n" if archref.text.blank?
+            msg += "    NO HREF!!!!!\n" if archref.attribute('href').blank?
           end
 
           extrefs.each do |extref|
@@ -51,8 +52,8 @@ namespace :tufts do
             next if path == 'document/ead/eadheader/filedesc/publicationstmt/p/extref' && id != '5h73q6049' # Almost every EAD has one of these.
             msg += "  #{extref}\n"
             msg += "    full path is #{path}\n"
-            msg += "    NO TEXT!!!!!\n" unless extref.text.present?
-            msg += "    NO HREF!!!!!\n" unless extref.attribute('href').present?
+            msg += "    NO TEXT!!!!!\n" if extref.text.blank?
+            msg += "    NO HREF!!!!!\n" if extref.attribute('href').blank?
           end
 
           extptrs.each do |extptr|
@@ -60,8 +61,8 @@ namespace :tufts do
             next if path == 'document/ead/eadheader/filedesc/publicationstmt/address/addressline/extptr' && id != '5h73q6049' # Almost every EAD has one of these.
             msg += "  #{extptr}\n"
             msg += "    full path is #{path}\n"
-            msg += "    NO TEXT!!!!!\n" unless extptr.text.present?
-            msg += "    NO HREF!!!!!\n" unless extptr.attribute('href').present?
+            msg += "    NO TEXT!!!!!\n" if extptr.text.blank?
+            msg += "    NO HREF!!!!!\n" if extptr.attribute('href').blank?
           end
 
         rescue ActiveFedora::ObjectNotFoundError

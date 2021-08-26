@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'active_fedora'
 require 'om'
 
@@ -15,7 +16,7 @@ namespace :tufts do
         msg = ''
 
         begin
-          next unless id.present?
+          next if id.blank?
           puts(id)
           results = {}
 
