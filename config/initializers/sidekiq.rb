@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 unless Rails.env.development? || Rails.env.test?
   REDIS_CONFIG = YAML.safe_load(File.open(Rails.root.join('config', 'redis.yml'))).symbolize_keys
   conf = REDIS_CONFIG[Rails.env.to_sym].symbolize_keys

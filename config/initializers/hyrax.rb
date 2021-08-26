@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Hyrax.config do |config|
   # Injected via `rails g hyrax:work Work`
   #  config.register_curation_concern :work
@@ -46,7 +47,7 @@ Hyrax.config do |config|
   # Google Analytics tracking ID to gather usage statistics
   # config.google_analytics_id = 'UA-99999999-1'
 
-  if Rails.env == 'production'
+  if Rails.env.production?
     config.analytics = true
     config.google_analytics_id = 'UA-38431398-1'
     config.analytic_start_date = Time.zone.local(2018, 11, 1)

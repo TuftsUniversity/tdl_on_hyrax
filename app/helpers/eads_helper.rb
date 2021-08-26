@@ -879,7 +879,7 @@ module EadsHelper
       end
     end
 
-    did&.element_children.each do |did_child|
+    did&.element_children&.each do |did_child|
       childname = did_child.name
       if childname == "unittitle"
         unittitle = did_child.children.first.text

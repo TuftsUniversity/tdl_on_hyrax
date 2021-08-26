@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Riiif::Image.file_resolver = Riiif::HTTPFileResolver.new
 
 if Rails.env.production?

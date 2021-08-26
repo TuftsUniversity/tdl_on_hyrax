@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Rails.application.routes.draw do
   concern :oai_provider, BlacklightOaiProvider::Routes.new
 
