@@ -73,7 +73,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
-gem 'hyrax', '2.9.4'
+gem 'hyrax', '2.9.5'
 gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', branch: 'hyrax-2.9'
 
 group :development, :test do
