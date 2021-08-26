@@ -92,7 +92,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.3'
-  gem 'factory_bot_rails', '4.11.1'
+  gem 'factory_bot_rails'
   gem 'ffaker'
   gem 'ladle'
   gem 'simplecov'

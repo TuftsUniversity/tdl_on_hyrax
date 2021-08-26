@@ -335,11 +335,11 @@ GEM
     ethon (0.14.0)
       ffi (>= 1.15.0)
     execjs (2.8.1)
-    factory_bot (4.11.1)
-      activesupport (>= 3.0.0)
-    factory_bot_rails (4.11.1)
-      factory_bot (~> 4.11.1)
-      railties (>= 3.0.0)
+    factory_bot (5.2.0)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.2.0)
+      factory_bot (~> 5.2.0)
+      railties (>= 4.2.0)
     faraday (0.17.4)
       multipart-post (>= 1.2, < 3)
     faraday-encoding (0.0.4)
@@ -1023,7 +1023,7 @@ DEPENDENCIES
   devise-guests (~> 0.6)
   devise_ldap_authenticatable
   easy_logging
-  factory_bot_rails (= 4.11.1)
+  factory_bot_rails
   fcrepo_wrapper
   ffaker
   geckodriver-helper
