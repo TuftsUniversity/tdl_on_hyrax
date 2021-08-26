@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hyrax
   class GenericWorkPresenter < Hyrax::WorkShowPresenter
     Tufts::Terms.shared_terms.each { |term| delegate term, to: :solr_document }
@@ -12,7 +13,7 @@ module Hyrax
         end
 
         values = send(f)
-        field_info[f] = values unless values.nil? || values.empty?
+        field_info[f] = values if values.present?
       end
 
       Tufts::Renderers::MergedAttributeRenderer.new(field_info, options).render

@@ -1,5 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work Video`
+# frozen_string_literal: true
 module Hyrax
   class VideoPresenter < GenericWorkPresenter
     def transcript_id

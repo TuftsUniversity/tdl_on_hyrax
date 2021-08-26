@@ -1,5 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work Rcr`
+# frozen_string_literal: true
 module Hyrax
   class RcrPresenter < GenericWorkPresenter
     def rcr_id

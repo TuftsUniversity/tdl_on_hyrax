@@ -1,5 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work VotingRecord`
+# frozen_string_literal: true
 module Hyrax
   class VotingRecordPresenter < Hyrax::GenericWorkPresenter
   end

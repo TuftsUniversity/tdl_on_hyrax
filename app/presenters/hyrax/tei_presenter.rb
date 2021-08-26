@@ -1,5 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work Tei`
+# frozen_string_literal: true
 module Hyrax
   class TeiPresenter < GenericWorkPresenter
   end

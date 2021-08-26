@@ -1,5 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work Pdf`
+# frozen_string_literal: true
 module Hyrax
   class PdfPresenter < GenericWorkPresenter
   end

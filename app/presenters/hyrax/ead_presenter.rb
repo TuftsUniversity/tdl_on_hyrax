@@ -1,5 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work Ead`
+# frozen_string_literal: true
 module Hyrax
   class EadPresenter < GenericWorkPresenter
   end

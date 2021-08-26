@@ -1,5 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work Image`
+# frozen_string_literal: true
 module Hyrax
   class ImagePresenter < GenericWorkPresenter
     # IIIF metadata for inclusion in the manifest

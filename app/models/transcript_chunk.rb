@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class TranscriptChunk
   # this class is used to hold state about transcript fragments, typically from a TEI file
   # it includes code to parse the TEI file's participants and transcript elements
@@ -136,7 +137,7 @@ class TranscriptChunk
   def get_last_speaker_from_chunk
     return nil if @utterances.empty?
     @utterances.reverse_each do |current_utterance|
-      next if current_utterance.speaker_initials.nil? || current_utterance.speaker_initials.empty?
+      next if current_utterance.speaker_initials.blank?
       speaker_initials = current_utterance.speaker_initials
       speaker = TranscriptChunk.get_speaker(speaker_initials)
       return speaker.nil? ? speaker_initials : speaker

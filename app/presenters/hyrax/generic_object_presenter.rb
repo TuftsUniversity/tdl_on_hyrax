@@ -1,5 +1,4 @@
-# Generated via
-#  `rails generate hyrax:work GenericObject`
+# frozen_string_literal: true
 module Hyrax
   class GenericObjectPresenter < GenericWorkPresenter
   end
