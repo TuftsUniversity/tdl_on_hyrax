@@ -20,6 +20,9 @@ class ApplicationController < ActionController::Base
   # is not set in default_url_options
   before_action :set_locale
 
+  # Fixing annoying DEPRECATION WARNING: discard_flash_if_xhr is deprecated spam
+  skip_after_action :discard_flash_if_xhr
+
   def set_locale
     I18n.locale = :en
   end
