@@ -8,8 +8,8 @@ FactoryBot.define do
     sequence :username do |n|
       "#{FFaker::Internet.user_name}#{n}"
     end
-    password 'password'
-    display_name FFaker::Name.name
+    password { 'password' }
+    display_name { FFaker::Name.name }
     after(:create) { |user| user.remove_role(:admin) }
 
     factory :admin do
@@ -18,17 +18,17 @@ FactoryBot.define do
   end
 
   factory :ldap_user, class: User do
-    email 'claire@example.org'
-    username 'cc414'
-    password 'retneprac'
-    display_name 'Claire Carpenter'
+    email { 'claire@example.org' }
+    username { 'cc414' }
+    password { 'retneprac' }
+    display_name { 'Claire Carpenter' }
   end
 
   factory :ldap_admin, class: User do
-    email 'belle@example.org'
-    username 'bb459'
-    password 'niwdlab'
-    display_name 'Belle Baldwin'
+    email { 'belle@example.org' }
+    username { 'bb459' }
+    password { 'niwdlab' }
+    display_name { 'Belle Baldwin' }
     after(:create) { |user| user.add_role(:admin) }
   end
 end
