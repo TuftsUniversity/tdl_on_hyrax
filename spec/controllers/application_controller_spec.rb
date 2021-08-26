@@ -5,7 +5,7 @@ describe ApplicationController do
     it 'returns http success' do
       get :robots
 
-      expect(response).to be_success
+      expect(response).to be_successful
     end
   end
 end
