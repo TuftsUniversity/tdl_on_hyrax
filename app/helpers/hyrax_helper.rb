@@ -15,7 +15,7 @@ module HyraxHelper
   # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/PerceivedComplexity
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   def download_link_info(controller_name)
     download_links = []
     return download_links unless @presenter
