@@ -31,6 +31,8 @@ Metrics/BlockLength:
 Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
+Layout/IndentationConsistency: #this one
+  EnforcedStyle: indented_internal_methods
 Layout/LineLength:
   Exclude:
     - lib/tufts/populate_fixtures.rb
@@ -119,7 +121,7 @@ RSpec/ExampleLength:
   Exclude:
     - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
-RSpec/InstanceVariable:
+RSpec/InstanceVariable: # this one
   Exclude:
     - spec/features/search_results_spec.rb
 RSpec/MessageSpies:
