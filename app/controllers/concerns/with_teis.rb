@@ -15,7 +15,7 @@ module WithTeis
       return if @document_fedora.file_sets.nil? || @document_fedora.file_sets.first.nil? || @document_fedora.file_sets.first.original_file.nil?
 
       @document_tei = Nokogiri::XML(@document_fedora.file_sets.first.original_file.content)
-      @document_tei.remove_namespaces! unless @document_tei.nil? # rubocop:disable Style/SafeNavigation
+      @document_tei&.remove_namespaces!
     end
   end
 end

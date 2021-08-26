@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 module RcrsHelper
   def self.title(rcr)
     result = ""
     title = rcr.find_by_terms_and_value(:title)
-    result = title.first.text unless title.nil? || title.empty?
+    result = title.first.text if title.present?
 
     result
   end
@@ -11,9 +12,9 @@ module RcrsHelper
     result = ""
     from_date = rcr.find_by_terms_and_value(:fromDate)
     to_date = rcr.find_by_terms_and_value(:toDate)
-    result = from_date.first.text unless from_date.nil? || from_date.empty?
+    result = from_date.first.text if from_date.present?
     result += "-"
-    result += to_date.first.text unless to_date.nil? || to_date.empty?
+    result += to_date.first.text if to_date.present?
 
     result
   end
@@ -21,7 +22,7 @@ module RcrsHelper
   def self.abstract(rcr)
     result = ""
     bioghist_abstract = rcr.find_by_terms_and_value(:bioghist_abstract)
-    result = bioghist_abstract.first.text unless bioghist_abstract.nil? || bioghist_abstract.empty?
+    result = bioghist_abstract.first.text if bioghist_abstract.present?
 
     result
   end

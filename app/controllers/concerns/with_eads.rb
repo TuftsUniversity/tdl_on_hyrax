@@ -15,7 +15,7 @@ module WithEads
       return if @document_fedora.file_sets.nil? || @document_fedora.file_sets.first.nil? || @document_fedora.file_sets.first.original_file.nil?
 
       @document_ead = Datastreams::Ead.from_xml(@document_fedora.file_sets.first.original_file.content)
-      @document_ead.ng_xml.remove_namespaces! unless @document_ead.nil? # rubocop:disable Style/SafeNavigation
+      @document_ead&.ng_xml&.remove_namespaces!
     end
   end
 end

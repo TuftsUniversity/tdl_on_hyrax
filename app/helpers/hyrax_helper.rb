@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module HyraxHelper
   include ::BlacklightHelper
   include Hyrax::BlacklightOverride
@@ -177,7 +178,7 @@ module HyraxHelper
     file_set_id = @presenter.solr_document._source["file_set_ids_ssim"].first
     {
       icons: 'glyphicon glyphicon-picture glyph-left',
-      url:  hyrax.download_path(file_set_id).to_s,
+      url: hyrax.download_path(file_set_id).to_s,
       text: 'Download High-Resolution Image',
       label: "Image: #{image_id.first}"
     }

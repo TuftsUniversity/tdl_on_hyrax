@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module TranscriptsHelper
   def self.format_participants(participants)
     result = ""

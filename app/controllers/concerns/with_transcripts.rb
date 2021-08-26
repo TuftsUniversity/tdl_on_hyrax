@@ -24,7 +24,7 @@ module WithTranscripts
         next unless original_file.mime_type == "text/xml" || original_file.mime_type == "text/plain"
         if original_file.mime_type == "text/xml"
           @document_tei = Datastreams::Tei.from_xml(original_file.content)
-          @document_tei.ng_xml.remove_namespaces! unless @document_tei.nil? # rubocop:disable Style/SafeNavigation
+          @document_tei&.ng_xml&.remove_namespaces!
         elsif original_file.mime_type == "text/plain"
           @has_srt = true
           @srt_id = file_set.id

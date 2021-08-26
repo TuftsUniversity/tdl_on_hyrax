@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module EadsHelper
   def self.collection_has_online_content(collection_title, ead_id)
     solr_connection = ActiveFedora.solr.conn
@@ -18,7 +19,7 @@ module EadsHelper
     result = ""
     url = ""
     eadid = ead.find_by_terms_and_value(:eadid)
-    unless eadid.nil? || eadid.empty?
+    if eadid.present?
       first_eadid = eadid.first
       result = first_eadid.text
       url_attr = first_eadid.attribute("url")
@@ -34,7 +35,7 @@ module EadsHelper
     date = ""
     bulk_date = ""
     unittitles = ead.find_by_terms_and_value(:unittitle)
-    unless unittitles.nil? || unittitles.empty?
+    if unittitles.present?
       raw_title = unittitles.first.text
       if include_date
         date, bulk_date = unitdate(ead)
@@ -51,14 +52,12 @@ module EadsHelper
     result = ""
     physdescs = ead.find_by_terms_and_value(:physdesc)
 
-    unless physdescs.nil?
-      physdescs.each do |physdesc|
-        physdesc.children.each do |child|
-          # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
-          child_text = child.text.strip
-          unless child_text.empty?
-            result << (result.empty? ? "" : ", ") + child_text
-          end
+    physdescs&.each do |physdesc|
+      physdesc.children.each do |child|
+        # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
+        child_text = child.text.strip
+        unless child_text.empty?
+          result << (result.empty? ? "" : ", ") + child_text
         end
       end
     end
@@ -70,17 +69,15 @@ module EadsHelper
     result = ""
     physdescs = ead.find_by_terms_and_value(:physdesc)
 
-    unless physdescs.nil?
-      physdescs.each do |physdesc|
-        physdesc.children.each do |child|
-          # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
-          child_text = child.text.strip
-          next if child_text.empty?
-          child_text.split(";").each do |child_text_part| # also split on semi-colons
-            child_text_part_text = child_text_part.strip
-            unless child_text_part_text.empty?
-              result << (result.empty? ? "" : "<br>") + child_text_part_text
-            end
+    physdescs&.each do |physdesc|
+      physdesc.children.each do |child|
+        # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
+        child_text = child.text.strip
+        next if child_text.empty?
+        child_text.split(";").each do |child_text_part| # also split on semi-colons
+          child_text_part_text = child_text_part.strip
+          unless child_text_part_text.empty?
+            result << (result.empty? ? "" : "<br>") + child_text_part_text
           end
         end
       end
@@ -93,9 +90,9 @@ module EadsHelper
     result = ""
     abstract = ead.find_by_terms_and_value(:abstract)
 
-    if abstract.nil? || abstract.empty?
+    if abstract.blank?
       bioghistps = ead.find_by_terms_and_value(:bioghistp)
-      result = bioghistps.first.text unless bioghistps.nil? || bioghistps.empty?
+      result = bioghistps.first.text if bioghistps.present?
     else
       result = abstract.first.text
     end
@@ -116,14 +113,12 @@ module EadsHelper
     date = ""
     bulk_date = ""
     unitdates = ead.find_by_terms_and_value(:unitdate)
-    unless unitdates.nil?
-      unitdates.each do |unitdate|
-        datetype = unitdate.attribute("type")
-        if datetype.nil? || datetype.text == "inclusive"
-          date = unitdate.text
-        elsif !datetype.nil? && datetype.text == "bulk"
-          bulk_date = unitdate.text
-        end
+    unitdates.&each do |unitdate|
+      datetype = unitdate.attribute("type")
+      if datetype.nil? || datetype.text == "inclusive"
+        date = unitdate.text
+      elsif !datetype.nil? && datetype.text == "bulk"
+        bulk_date = unitdate.text
       end
     end
 
@@ -157,11 +152,11 @@ module EadsHelper
     name = ""
     rcr_url = ""
 
-    if !persname.nil? && !persname.empty?
+    if persname.present?
       name, rcr_url = parse_origination(persname)
-    elsif !corpname.nil? && !corpname.empty?
+    elsif corpname.present?
       name, rcr_url = parse_origination(corpname)
-    elsif !famname.nil? && !famname.empty?
+    elsif famname.present?
       name, rcr_url = parse_origination(famname)
     end
 
@@ -184,11 +179,11 @@ module EadsHelper
     rcr_url = ""
     ingested = false
 
-    if !persname.nil? && !persname.empty?
+    if persname.present?
       name, rcr_url = parse_origination(persname)
-    elsif !corpname.nil? && !corpname.empty?
+    elsif corpname.present?
       name, rcr_url = parse_origination(corpname)
-    elsif !famname.nil? && !famname.empty?
+    elsif famname.present?
       name, rcr_url = parse_origination(famname)
     end
 
@@ -211,29 +206,27 @@ module EadsHelper
   def self.location(ead)
     result = []
     publicationstmt = ead.find_by_terms_and_value(:publicationstmt)
-    unless publicationstmt.nil?
-      publicationstmt.children.each do |element_child|
-        if element_child.name == "publisher"
-          result << element_child.text
-        elsif element_child.name == "address"
-          element_child.children.each do |addressline|
-            text = addressline.text
+    publicationstmt&.children&.each do |element_child|
+      if element_child.name == "publisher"
+        result << element_child.text
+      elsif element_child.name == "address"
+        element_child.children.each do |addressline|
+          text = addressline.text
 
-            # Ignore physical <addressline> elements;  only the email address and URL are wanted.
-            if text.include?("@")
-              # email address
-              result << text
-            else
-              addressline_children = addressline.element_children
-              unless addressline_children.empty?
-                first_child = addressline_children.first
-                if first_child.name == "extptr"
-                  href = first_child.attribute("href")
-                  unless href.nil?
-                    # URL
-                    href_text = href.text
-                    result << '<a href="' + href_text + '" target="blank">' + href_text + '</a>'
-                  end
+          # Ignore physical <addressline> elements;  only the email address and URL are wanted.
+          if text.include?("@")
+            # email address
+            result << text
+          else
+            addressline_children = addressline.element_children
+            unless addressline_children.empty?
+              first_child = addressline_children.first
+              if first_child.name == "extptr"
+                href = first_child.attribute("href")
+                unless href.nil?
+                  # URL
+                  href_text = href.text
+                  result << '<a href="' + href_text + '" target="blank">' + href_text + '</a>'
                 end
               end
             end
@@ -248,20 +241,17 @@ module EadsHelper
   def self.langmaterial(ead)
     result = []
     langmaterials = ead.find_by_terms_and_value(:langmaterial)
+    langmaterials&.each do |langmaterial|
+      primary = false
 
-    unless langmaterials.nil?
-      langmaterials.each do |langmaterial|
-        primary = false
-
-        langmaterial.element_children.each do |child|
-          if child.name == "language"
-            primary = true
-            break
-          end
+      langmaterial.element_children.each do |child|
+        if child.name == "language"
+          primary = true
+          break
         end
-
-        result << langmaterial.text unless primary
       end
+
+      result << langmaterial.text unless primary
     end
 
     result
@@ -271,10 +261,8 @@ module EadsHelper
     result = []
     arrangementps = ead.find_by_terms_and_value(:arrangementp)
 
-    unless arrangementps.nil?
-      arrangementps.each do |arrangementp|
-        result << arrangementp.text
-      end
+    arrangementps&.each do |arrangementp|
+      result << arrangementp.text
     end
 
     result
@@ -284,11 +272,9 @@ module EadsHelper
     result = []
     scopecontentps = ead.find_by_terms_and_value(:scopecontentp)
 
-    unless scopecontentps.nil?
-      scopecontentps.each do |scopecontentp|
-        handle_links(scopecontentp)
-        result << scopecontentp.text
-      end
+    scopecontentps&.each do |scopecontentp|
+      handle_links(scopecontentp)
+      result << scopecontentp.text
     end
 
     result
@@ -298,10 +284,10 @@ module EadsHelper
     result = []
     serieses = ead.find_by_terms_and_value(:series)
 
-    if serieses.nil? || serieses.empty?
+    if serieses.blank?
       serieses = ead.find_by_terms_and_value(:aspaceseries)
 
-      result = serieses unless serieses.nil? || serieses.empty?
+      result = serieses if serieses.present?
     else
       result = serieses
     end
@@ -376,18 +362,16 @@ module EadsHelper
     result = []
 
     # process the scopecontent element
-    unless scopecontent.nil?
-      scopecontent.element_children.each do |scopecontent_child|
-        childname = scopecontent_child.name
-        if childname == "p"
-          handle_links(scopecontent_child)
-          result << scopecontent_child.text
-        elsif childname == "note"
-          scopecontent_child.element_children.each do |note_child|
-            if note_child.name == "p"
-              handle_links(note_child)
-              result << note_child.text
-            end
+    scopecontent&.element_children&.each do |scopecontent_child|
+      childname = scopecontent_child.name
+      if childname == "p"
+        handle_links(scopecontent_child)
+        result << scopecontent_child.text
+      elsif childname == "note"
+        scopecontent_child.element_children.each do |note_child|
+          if note_child.name == "p"
+            handle_links(note_child)
+            result << note_child.text
           end
         end
       end
@@ -433,13 +417,11 @@ module EadsHelper
     head = ""
     paragraphs = []
 
-    unless element.nil?
-      element.element_children.each do |element_child|
-        if element_child.name == "head"
-          head = element_child.text
-        elsif element_child.name == "p"
-          paragraphs << element_child.text
-        end
+    element&.element_children&.each do |element_child|
+      if element_child.name == "head"
+        head = element_child.text
+      elsif element_child.name == "p"
+        paragraphs << element_child.text
       end
     end
 
@@ -455,28 +437,26 @@ module EadsHelper
     related_names = []
     controlaccesses = ead.find_by_terms_and_value(:controlaccess)
 
-    unless controlaccesses.nil?
-      controlaccesses.each do |controlaccess|
-        controlaccess.element_children.each do |element_child|
-          childname = element_child.name
+    controlaccesses&.each do |controlaccess|
+      controlaccess.element_children.each do |element_child|
+        childname = element_child.name
 
-          if ["persname", "corpname", "famname", "subject", "geogname", "genreform", "title"].include?(childname)
-            child_text = element_child.text
-            # child_id = element_child.attribute("id")
-            # child_url = (child_id.nil? ? "" : ("tufts:" + child_id.text))
+        if ["persname", "corpname", "famname", "subject", "geogname", "genreform", "title"].include?(childname)
+          child_text = element_child.text
+          # child_id = element_child.attribute("id")
+          # child_url = (child_id.nil? ? "" : ("tufts:" + child_id.text))
 
-            unless child_text.empty?
-              search_path = Rails.application.routes.url_helpers.search_catalog_path(q: child_text, search_field: search_field_for(childname))
-              search_tag = '<a data-turbolinks="false" href="' + search_path + '">' + child_text + '</a>'
+          unless child_text.empty?
+            search_path = Rails.application.routes.url_helpers.search_catalog_path(q: child_text, search_field: search_field_for(childname))
+            search_tag = '<a data-turbolinks="false" href="' + search_path + '">' + child_text + '</a>'
 
-              if ["persname", "corpname", "famname"].include?(childname)
-                # ingested = false
-                # ingested, f4_id = PidMethods.ingested?(child_url) unless child_url.empty?
-                # related_names << (ingested ? '<a data-turbolinks="false" href="' + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') + child_text + (ingested ? '</a>' : '')
-                related_names << search_tag
-              else
-                subjects_genres << search_tag
-              end
+            if ["persname", "corpname", "famname"].include?(childname)
+              # ingested = false
+              # ingested, f4_id = PidMethods.ingested?(child_url) unless child_url.empty?
+              # related_names << (ingested ? '<a data-turbolinks="false" href="' + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') + child_text + (ingested ? '</a>' : '')
+              related_names << search_tag
+            else
+              subjects_genres << search_tag
             end
           end
         end
@@ -490,11 +470,9 @@ module EadsHelper
     result = []
     relatedmaterialps = ead.find_by_terms_and_value(:relatedmaterialp)
 
-    unless relatedmaterialps.nil?
-      relatedmaterialps.each do |relatedmaterialp|
-        handle_links(relatedmaterialp)
-        result << relatedmaterialp.text
-      end
+    relatedmaterialps&.each do |relatedmaterialp|
+      handle_links(relatedmaterialp)
+      result << relatedmaterialp.text
     end
 
     result
@@ -504,11 +482,9 @@ module EadsHelper
     result = []
     separatedmaterialps = ead.find_by_terms_and_value(:separatedmaterialp)
 
-    unless separatedmaterialps.nil?
-      separatedmaterialps.each do |separatedmaterialp|
-        handle_links(separatedmaterialp)
-        result << separatedmaterialp.text
-      end
+    separatedmaterialps&.each do |separatedmaterialp|
+      handle_links(separatedmaterialp)
+      result << separatedmaterialp.text
     end
 
     result
@@ -519,16 +495,12 @@ module EadsHelper
     accessrestrictps = ead.find_by_terms_and_value(:accessrestrictp)
     descgrpaccessrestrictps = ead.find_by_terms_and_value(:descgrpaccessrestrictp)
 
-    unless accessrestrictps.nil?
-      accessrestrictps.each do |accessrestrictp|
-        result << accessrestrictp.text
-      end
+    accessrestrictps&.each do |accessrestrictp|
+      result << accessrestrictp.text
     end
 
-    unless descgrpaccessrestrictps.nil?
-      descgrpaccessrestrictps.each do |descgrpaccessrestrictp|
-        result << descgrpaccessrestrictp.text
-      end
+    descgrpaccessrestrictps&.each do |descgrpaccessrestrictp|
+      result << descgrpaccessrestrictp.text
     end
 
     result
@@ -539,16 +511,12 @@ module EadsHelper
     userestrictps = ead.find_by_terms_and_value(:userestrictp)
     descgrpuserestrictps = ead.find_by_terms_and_value(:descgrpuserestrictp)
 
-    unless userestrictps.nil?
-      userestrictps.each do |userestrictp|
-        result << userestrictp.text.sub(Rails.configuration.use_restrict_text_match, Rails.configuration.use_restrict_text_replace)
-      end
+    userestrictps&.each do |userestrictp|
+      result << userestrictp.text.sub(Rails.configuration.use_restrict_text_match, Rails.configuration.use_restrict_text_replace)
     end
 
-    unless descgrpuserestrictps.nil?
-      descgrpuserestrictps.each do |descgrpuserestrictp|
-        result << descgrpuserestrictp.text.sub(Rails.configuration.use_restrict_text_match, Rails.configuration.use_restrict_text_replace)
-      end
+    descgrpuserestrictps&.each do |descgrpuserestrictp|
+      result << descgrpuserestrictp.text.sub(Rails.configuration.use_restrict_text_match, Rails.configuration.use_restrict_text_replace)
     end
 
     result
@@ -560,16 +528,12 @@ module EadsHelper
     descgrppreferciteps = ead.find_by_terms_and_value(:descgrpprefercitep)
 
     # Prefercite doesn't appear in our EADs but someday it could.
-    unless preferciteps.nil?
-      preferciteps.each do |prefercitep|
-        result << prefercitep.text
-      end
+    preferciteps&.each do |prefercitep|
+      result << prefercitep.text
     end
 
-    unless descgrppreferciteps.nil?
-      descgrppreferciteps.each do |descgrpprefercitep|
-        result << descgrpprefercitep.text
-      end
+    descgrppreferciteps&.each do |descgrpprefercitep|
+      result << descgrpprefercitep.text
     end
 
     result
@@ -579,10 +543,8 @@ module EadsHelper
     result = []
     processinfops = ead.find_by_terms_and_value(:processinfop)
 
-    unless processinfops.nil?
-      processinfops.each do |processinfop|
-        result << processinfop.text
-      end
+    processinfops&.each do |processinfop|
+      result << processinfop.text
     end
 
     result
@@ -592,10 +554,8 @@ module EadsHelper
     result = []
     acqinfops = ead.find_by_terms_and_value(:acqinfop)
 
-    unless acqinfops.nil?
-      acqinfops.each do |acqinfop|
-        result << acqinfop.text
-      end
+    acqinfops&.each do |acqinfop|
+      result << acqinfop.text
     end
 
     result
@@ -605,10 +565,8 @@ module EadsHelper
     result = []
     custodhistps = ead.find_by_terms_and_value(:custodhistp)
 
-    unless custodhistps.nil?
-      custodhistps.each do |custodhistp|
-        result << custodhistp.text
-      end
+    custodhistps&.each do |custodhistp|
+      result << custodhistp.text
     end
 
     result
@@ -619,16 +577,12 @@ module EadsHelper
     phystechps = ead.find_by_terms_and_value(:phystechp)
     descgrpphystechps = ead.find_by_terms_and_value(:descgrpphystechp)
 
-    unless phystechps.nil?
-      phystechps.each do |phystechp|
-        result << phystechp.text
-      end
+    phystechps&.each do |phystechp|
+      result << phystechp.text
     end
 
-    unless descgrpphystechps.nil?
-      descgrpphystechps.each do |descgrpphystechp|
-        result << descgrpphystechp.text
-      end
+    descgrpphystechps&.each do |descgrpphystechp|
+      result << descgrpphystechp.text
     end
 
     result
@@ -638,10 +592,8 @@ module EadsHelper
     result = []
     accrualsps = ead.find_by_terms_and_value(:accrualsp)
 
-    unless accrualsps.nil?
-      accrualsps.each do |accrualsp|
-        result << accrualsp.text
-      end
+    accrualsps&.each do |accrualsp|
+      result << accrualsp.text
     end
 
     result
@@ -651,10 +603,8 @@ module EadsHelper
     result = []
     appraisalps = ead.find_by_terms_and_value(:appraisalp)
 
-    unless appraisalps.nil?
-      appraisalps.each do |appraisalp|
-        result << appraisalp.text
-      end
+    appraisalps&.each do |appraisalp|
+      result << appraisalp.text
     end
 
     result
@@ -664,11 +614,9 @@ module EadsHelper
     result = []
     altformavailps = ead.find_by_terms_and_value(:altformavailp)
 
-    unless altformavailps.nil?
-      altformavailps.each do |altformavailp|
-        handle_links(altformavailp)
-        result << altformavailp.text
-      end
+    altformavailps&.each do |altformavailp|
+      handle_links(altformavailp)
+      result << altformavailp.text
     end
 
     result
@@ -678,10 +626,8 @@ module EadsHelper
     result = []
     originalslocps = ead.find_by_terms_and_value(:originalslocp)
 
-    unless originalslocps.nil?
-      originalslocps.each do |originalslocp|
-        result << originalslocp.text
-      end
+    originalslocps&.each do |originalslocp|
+      result << originalslocp.text
     end
 
     result
@@ -691,11 +637,9 @@ module EadsHelper
     result = []
     otherfindaidps = ead.find_by_terms_and_value(:otherfindaidp)
 
-    unless otherfindaidps.nil?
-      otherfindaidps.each do |otherfindaidp|
-        handle_links(otherfindaidp)
-        result << otherfindaidp.text
-      end
+    otherfindaidps&.each do |otherfindaidp|
+      handle_links(otherfindaidp)
+      result << otherfindaidp.text
     end
 
     result
@@ -845,34 +789,32 @@ module EadsHelper
       end
 
       # process the did element
-      unless did.nil?
-        did.element_children.each do |did_child|
-          childname = did_child.name
-          if childname == "unittitle"
-            unittitle = did_child.text
-          elsif childname == "unitdate"
-            datetype = did_child.attribute("type")
-            if datetype.nil? || datetype.text == "inclusive"
-              unitdate = did_child.text
-            elsif !datetype.nil? && datetype.text == "bulk"
-              unitdate_bulk = did_child.text
+      did&.element_children&.each do |did_child|
+        childname = did_child.name
+        if childname == "unittitle"
+          unittitle = did_child.text
+        elsif childname == "unitdate"
+          datetype = did_child.attribute("type")
+          if datetype.nil? || datetype.text == "inclusive"
+            unitdate = did_child.text
+          elsif !datetype.nil? && datetype.text == "bulk"
+            unitdate_bulk = did_child.text
+          end
+        elsif childname == "physdesc"
+          did_child.children.each do |physdesc_child|
+            # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
+            physdesc_child_text = physdesc_child.text.strip
+            unless physdesc_child_text.empty?
+              physdesc << (physdesc.empty? ? "" : ", ") + physdesc_child_text
             end
-          elsif childname == "physdesc"
-            did_child.children.each do |physdesc_child|
-              # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
-              physdesc_child_text = physdesc_child.text.strip
-              unless physdesc_child_text.empty?
-                physdesc << (physdesc.empty? ? "" : ", ") + physdesc_child_text
-              end
-            end
-          elsif childname == "unitid"
-            unitid = did_child.text
-          elsif childname == "langmaterial"
-            series_langmaterial = get_paragraphs(did_child)
-          elsif childname == "origination"
-            did_child.children.each do |grandchild|
-              creator << grandchild.text.strip if grandchild.name == "persname"
-            end
+          end
+        elsif childname == "unitid"
+          unitid = did_child.text
+        elsif childname == "langmaterial"
+          series_langmaterial = get_paragraphs(did_child)
+        elsif childname == "origination"
+          did_child.children.each do |grandchild|
+            creator << grandchild.text.strip if grandchild.name == "persname"
           end
         end
       end
@@ -936,51 +878,49 @@ module EadsHelper
       end
     end
 
-    unless did.nil?
-      did.element_children.each do |did_child|
-        childname = did_child.name
-        if childname == "unittitle"
-          unittitle = did_child.children.first.text
-          did_child.children.each do |grandchild|
-            next unless grandchild.name == "unitdate"
-            datetype = grandchild.attribute("type")
-            unless !datetype.nil? && datetype.text == "bulk"
-              unitdate = grandchild.text
-              break
-            end
+    did.&element_children.each do |did_child|
+      childname = did_child.name
+      if childname == "unittitle"
+        unittitle = did_child.children.first.text
+        did_child.children.each do |grandchild|
+          next unless grandchild.name == "unitdate"
+          datetype = grandchild.attribute("type")
+          unless !datetype.nil? && datetype.text == "bulk"
+            unitdate = grandchild.text
+            break
           end
-        elsif childname == "unitdate"
-          datetype = did_child.attribute("type")
-          unitdate = did_child.text unless !datetype.nil? && datetype.text == "bulk"
-        elsif childname == "unitid"
-          # In ASpace EADs the human-readable item id is in <c><did><unitid>... instead of the id attribute of the <c id=...>
-          item_id = did_child.text
-        elsif childname == "physloc"
-          can_request = true
-          physloc = did_child.text
-          physloc_orig = did_child.text
-        elsif childname == "physdesc"
-          did_child.children.each do |physdesc_child|
-            # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
-            physdesc_child_text = physdesc_child.text.strip
-            unless physdesc_child_text.empty?
-              physdesc << (physdesc.empty? ? "" : ", ") + physdesc_child_text
-            end
-          end
-        elsif childname == "container"
-          # ASpace puts the location in <container label=""> rather than <physloc>
-          unless did_child.attribute("label").nil?
-            can_request = true
-            physloc = did_child.attribute("label").text
-            physloc_orig = did_child.attribute("label").text
-          end
-        elsif childname == "origination"
-          did_child.children.each do |grandchild|
-            creator << grandchild.text.strip if grandchild.name == "persname"
-          end
-        elsif childname == "dao"
-          dao = did_child
         end
+      elsif childname == "unitdate"
+        datetype = did_child.attribute("type")
+        unitdate = did_child.text unless !datetype.nil? && datetype.text == "bulk"
+      elsif childname == "unitid"
+        # In ASpace EADs the human-readable item id is in <c><did><unitid>... instead of the id attribute of the <c id=...>
+        item_id = did_child.text
+      elsif childname == "physloc"
+        can_request = true
+        physloc = did_child.text
+        physloc_orig = did_child.text
+      elsif childname == "physdesc"
+        did_child.children.each do |physdesc_child|
+          # <physdesc>'s text is a child;  also process text of any <extent> or other child elements
+          physdesc_child_text = physdesc_child.text.strip
+          unless physdesc_child_text.empty?
+            physdesc << (physdesc.empty? ? "" : ", ") + physdesc_child_text
+          end
+        end
+      elsif childname == "container"
+        # ASpace puts the location in <container label=""> rather than <physloc>
+        unless did_child.attribute("label").nil?
+          can_request = true
+          physloc = did_child.attribute("label").text
+          physloc_orig = did_child.attribute("label").text
+        end
+      elsif childname == "origination"
+        did_child.children.each do |grandchild|
+          creator << grandchild.text.strip if grandchild.name == "persname"
+        end
+      elsif childname == "dao"
+        dao = did_child
       end
     end
 
