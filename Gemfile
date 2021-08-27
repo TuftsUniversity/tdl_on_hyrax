@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.4.3'
+ruby '2.7.4'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -40,7 +40,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'blacklight_advanced_search'
 gem 'blacklight_oai_provider'
 gem 'blacklight_range_limit', '~> 6.3', '>= 6.3.2'
-gem 'coveralls', require: false
+gem 'coveralls_reborn', '~> 0.22.0', require: false
 gem 'devise_ldap_authenticatable'
 gem 'easy_logging'
 gem 'hydra-role-management'

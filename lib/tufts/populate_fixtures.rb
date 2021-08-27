@@ -146,13 +146,11 @@ module Tufts
         end
       end
 
-      puts "-- Setting Multi-terms"
       MULTI_TERMS.each do |term|
         val = Array(metadata[term])
         object.send("#{term}=", val) unless val.nil?
       end
 
-      puts "-- Setting Singular-terms"
       SINGULAR_TERMS.each do |term|
         val = metadata[term]
         object.send("#{term}=", val) unless val.nil?
