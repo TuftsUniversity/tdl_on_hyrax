@@ -7,7 +7,7 @@ jdk:
   - oraclejdk8
 
 rvm:
-  - 2.7.4
+  - 2.7.2
 
 before_script:
   - cp config/redis.yml.sample config/redis.yml
