@@ -95,8 +95,6 @@ group :test do
   gem 'factory_bot_rails'
   gem 'ffaker'
   gem 'ladle'
-  gem 'simplecov'
-  gem 'simplecov-rcov'
 end
 
 gem 'high_voltage', '~> 3.0.0'

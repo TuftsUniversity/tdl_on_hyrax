@@ -903,8 +903,6 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.3)
-    simplecov-rcov (0.2.3)
-      simplecov (>= 0.4.1)
     sitemap_generator (6.1.2)
       builder (~> 3.0)
     slop (4.9.1)
@@ -1045,8 +1043,6 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq
-  simplecov
-  simplecov-rcov
   sitemap_generator
   solr_wrapper (>= 0.3)
   spring
