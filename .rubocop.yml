@@ -7,7 +7,6 @@ AllCops:
     - script/**/*
     - vendor/**/*
     - tmp/**/*
-    - lib/tufts/tei_parser.rb
     - lib/tufts/tei_toc.rb
     - lib/tufts/tei_constraints.rb
     - app/controllers/gallery_controller.rb
@@ -28,9 +27,11 @@ Metrics/BlockLength:
     - app/models/datastreams/rcr.rb
     - app/models/datastreams/tei.rb
     - app/models/transcript_chunk.rb
+    - lib/tufts/tei_parser.rb #Keep
 Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
+    - lib/tufts/tei_parser.rb #Keep
 Layout/IndentationConsistency: #this one
   EnforcedStyle: indented_internal_methods
 Layout/LineLength:
@@ -61,6 +62,7 @@ Metrics/CyclomaticComplexity:
     - lib/tufts/populate_fixtures.rb
     - lib/pid_methods.rb
     - app/controllers/concerns/with_teis.rb
+    - lib/tufts/tei_parser.rb #Keep
 Metrics/PerceivedComplexity:
   Exclude:
     - app/controllers/concerns/with_transcripts.rb
@@ -69,6 +71,7 @@ Metrics/PerceivedComplexity:
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
+    - lib/tufts/tei_parser.rb #Keep
 Lint/SuppressedException:
   Exclude:
     - lib/tufts/populate_fixtures.rb
@@ -83,6 +86,7 @@ Metrics/AbcSize:
     - lib/tufts/populate_fixtures.rb
     - lib/pid_methods.rb
     - app/helpers/hyrax_helper.rb
+    - lib/tufts/tei_parser.rb #Keep
 Metrics/MethodLength:
   Exclude:
     - app/controllers/concerns/with_rcrs.rb
@@ -94,11 +98,13 @@ Metrics/MethodLength:
     - lib/pid_methods.rb
     - lib/metadata_methods.rb
     - lib/tufts/populate_fixtures.rb
+    - lib/tufts/tei_parser.rb #Keep
 Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/helpers/hyrax_helper.rb
+    - lib/tufts/tei_parser.rb #Keep
 Naming/AccessorMethodName:
   Exclude:
     - app/models/transcript_chunk.rb
