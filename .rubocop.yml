@@ -4,9 +4,6 @@ inherit_gem:
 AllCops:
   Exclude:
     - db/**/*
-    - script/**/*
-    - vendor/**/*
-    - tmp/**/*
 Metrics/BlockLength:
   Exclude:
     - config/**/*
