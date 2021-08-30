@@ -7,7 +7,7 @@ AllCops:
     - script/**/*
     - vendor/**/*
     - tmp/**/*
-    - lib/tufts/tei_toc.rb
+#    - lib/tufts/tei_toc.rb
     - lib/tufts/tei_constraints.rb
     - app/controllers/gallery_controller.rb
     - app/helpers/characterization.rb
@@ -28,6 +28,7 @@ Metrics/BlockLength:
     - app/models/datastreams/tei.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/tei_parser.rb #Keep
+    - lib/tufts/tei_toc.rb #Keep
 Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
@@ -63,6 +64,7 @@ Metrics/CyclomaticComplexity:
     - lib/pid_methods.rb
     - app/controllers/concerns/with_teis.rb
     - lib/tufts/tei_parser.rb #Keep
+    - lib/tufts/tei_toc.rb #Keep
 Metrics/PerceivedComplexity:
   Exclude:
     - app/controllers/concerns/with_transcripts.rb
@@ -72,6 +74,7 @@ Metrics/PerceivedComplexity:
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
     - lib/tufts/tei_parser.rb #Keep
+    - lib/tufts/tei_toc.rb #Keep
 Lint/SuppressedException:
   Exclude:
     - lib/tufts/populate_fixtures.rb
@@ -87,6 +90,7 @@ Metrics/AbcSize:
     - lib/pid_methods.rb
     - app/helpers/hyrax_helper.rb
     - lib/tufts/tei_parser.rb #Keep
+    - lib/tufts/tei_toc.rb #Keep
 Metrics/MethodLength:
   Exclude:
     - app/controllers/concerns/with_rcrs.rb
@@ -99,6 +103,7 @@ Metrics/MethodLength:
     - lib/metadata_methods.rb
     - lib/tufts/populate_fixtures.rb
     - lib/tufts/tei_parser.rb #Keep
+    - lib/tufts/tei_toc.rb #Keep
 Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
