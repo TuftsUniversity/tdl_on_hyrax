@@ -7,7 +7,6 @@ AllCops:
     - script/**/*
     - vendor/**/*
     - tmp/**/*
-    - app/helpers/characterization.rb
     - lib/pid_methods.rb
 Metrics/BlockLength:
   Exclude:

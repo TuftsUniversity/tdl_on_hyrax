@@ -43,7 +43,7 @@ module Hyrax
       end
 
       class NullCharacterizationProxy
-        def method_missing(*_args)
+        def method_missing(*_args) # rubocop:disable Style/MethodMissingSuper
           []
         end
 
