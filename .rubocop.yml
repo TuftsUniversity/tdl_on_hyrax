@@ -7,9 +7,6 @@ AllCops:
     - script/**/*
     - vendor/**/*
     - tmp/**/*
-#    - lib/tufts/tei_toc.rb
-    - lib/tufts/tei_constraints.rb
-    - app/controllers/gallery_controller.rb
     - app/helpers/characterization.rb
     - lib/pid_methods.rb
 Metrics/BlockLength:
