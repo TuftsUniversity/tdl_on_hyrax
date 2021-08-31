@@ -59,41 +59,39 @@ module RcrsHelper
       "isGrandparentOf" => "Grandparent of"
     }
     result_hash = {}
+
     relationships = rcr.find_by_terms_and_value(:cpf_relations)
-
     relationships.each do |relationship|
-      role = relationship_hash.fetch(relationship.attribute("arcrole").text.sub("http://dca.lib.tufts.edu/ontology/rcr#", ""), "Unknown relationship") # xlink:arcrole in the EAC
-      name = ""
-      pid = ""
-      from_date = ""
-      to_date = ""
-
+      data = { name: '', pid: '', from_date: '', to_date: '' }
       relationship.element_children.each do |child|
-        if child.name == "relationEntry"
-          name = child.text
-          pid = child.attribute("id") # xml:id in the EAC
-        elsif child.name == "dateRange"
-          child.element_children.each do |grandchild|
-            if grandchild.name == "fromDate"
-              from_date = grandchild.text
-            elsif grandchild.name == "toDate"
-              to_date = grandchild.text
-            end
-          end
-        end
+        data = process_child_data(child, data)
       end
 
+      role = relationship_hash.fetch(relationship.attribute("arcrole").text.sub("http://dca.lib.tufts.edu/ontology/rcr#", ""), "Unknown relationship") # xlink:arcrole in the EAC
       role_array = result_hash.fetch(role, nil)
-
       if role_array.nil?
         role_array = []
         result_hash.store(role, role_array)
       end
-
-      role_array << { name: name, pid: pid, from_date: from_date, to_date: to_date }
+      role_array << data
     end
-
     result_hash
+  end
+
+  def self.process_child_data(child, data)
+    if child.name == "relationEntry"
+      data[:name] = child.text
+      data[:pid] = child.attribute("id") # xml:id in the EAC
+    elsif child.name == "dateRange"
+      child.element_children.each do |grandchild|
+        if grandchild.name == "fromDate"
+          data[:from_date] = grandchild.text
+        elsif grandchild.name == "toDate"
+          data[:to_date] = grandchild.text
+        end
+      end
+    end
+    data
   end
 
   def self.collections(rcr)

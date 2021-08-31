@@ -57,20 +57,17 @@ module TranscriptsHelper
     chunks.each do |chunk|
       milliseconds = chunk.start_in_milliseconds
       string_minutes, string_just_seconds, string_total_seconds = displayable_time(milliseconds)
-
       result << "                <div class=\"transcript_chunk\" id=\"chunk" + string_total_seconds + "\">\n"
 
       unless milliseconds.nil?
         result << "                  <div class=\"transcript_row\">\n"
         result << "                    <div class=\"transcript_speaker\">\n"
-
         result << if active_timestamps
                     "                      <a class=\"transcript_chunk_link\" data-time=\"#{milliseconds}\" " \
                     "href=\"#{path}?timestamp/#{string_minutes}:#{string_just_seconds}\">#{string_minutes}:#{string_just_seconds}</a>\n"
                   else
                     "                      <span class=\"transcript_chunk_link\">" + string_minutes + ":" + string_just_seconds + "</span>\n"
                   end
-
         result << "                    </div> <!-- transcript_speaker -->\n"
         result << "                    <div class=\"transcript_utterance\"></div>\n"
         result << "                  </div> <!-- transcript_row -->\n"
@@ -81,7 +78,6 @@ module TranscriptsHelper
         who = utterance.speaker_initials
         text = utterance.text
         timepoint_id = utterance.timepoint_id
-
         if who
           result << "                  <div class=\"transcript_row\">\n"
           result << "                    <div class=\"transcript_speaker\">" + (who.nil? ? "" : who) + "</div>\n"
@@ -96,12 +92,9 @@ module TranscriptsHelper
           end
         end
       end
-
       result << "                </div> <!-- transcript_chunk -->\n"
     end
-
     result << "              </div> <!-- transcript_table -->\n"
-
     result
   end
 

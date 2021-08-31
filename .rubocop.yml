@@ -15,7 +15,6 @@ Metrics/BlockLength:
     - config/**/*
     - lib/tasks/**/*
     - lib/tufts/tei_parser.rb
-    - lib/tufts/tei_toc.rb
     - spec/**/*
   Max: 30 # Many blocks are like 27 lines long. 30 vs 25, not a huge difference.
 Metrics/BlockNesting:
@@ -34,15 +33,11 @@ Metrics/CyclomaticComplexity:
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
-    - lib/pid_methods.rb
-    - app/controllers/concerns/with_teis.rb
-    - lib/tufts/tei_parser.rb #Keep
-    - lib/tufts/tei_toc.rb #Keep
+    - lib/tufts/tei_parser.rb
+    - lib/tufts/tei_toc.rb
 Metrics/PerceivedComplexity:
   Exclude:
-    - app/controllers/concerns/with_transcripts.rb
     - app/helpers/eads_helper.rb
-    - app/helpers/rcrs_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
