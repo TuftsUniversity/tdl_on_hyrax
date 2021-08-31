@@ -4,6 +4,7 @@ inherit_gem:
 AllCops:
   Exclude:
     - db/**/*
+    - vendor/**/*
 # Requires indentation after private and protected
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
