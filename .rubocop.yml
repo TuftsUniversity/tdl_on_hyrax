@@ -22,10 +22,6 @@ Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
     - lib/tufts/tei_parser.rb
-Layout/LineLength:
-  Exclude:
-    - config/initializers/assets.rb
-#    - lib/metadata_methods.rb
 Metrics/ClassLength:
   Exclude:
     - app/controllers/catalog_controller.rb
