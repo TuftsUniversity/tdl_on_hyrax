@@ -1,4 +1,3 @@
----
 inherit_gem:
   bixby: bixby_default.yml
 AllCops:
@@ -18,6 +17,7 @@ Metrics/BlockLength:
     - lib/tufts/tei_parser.rb
     - lib/tufts/tei_toc.rb
     - spec/**/*
+  Max: 30 # Many blocks are like 27 lines long. 30 vs 25, not a huge difference.
 Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
@@ -25,15 +25,11 @@ Metrics/BlockNesting:
 Metrics/ClassLength:
   Exclude:
     - app/controllers/catalog_controller.rb
-    - app/presenters/hyrax/work_show_presenter.rb
-    - lib/tufts/populate_fixtures.rb
     - app/models/datastreams/ead.rb
     - app/models/transcript_chunk.rb
+    - lib/tufts/populate_fixtures.rb
 Metrics/CyclomaticComplexity:
   Exclude:
-    - app/controllers/concerns/with_eads.rb
-    - app/controllers/concerns/with_rcrs.rb
-    - app/controllers/concerns/with_transcripts.rb
     - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb

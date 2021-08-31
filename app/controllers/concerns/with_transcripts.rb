@@ -15,21 +15,26 @@ module WithTranscripts
       return unless @document_fedora.instance_of?(Audio) || @document_fedora.instance_of?(Video)
 
       file_sets = @document_fedora.file_sets
-
       return if file_sets.nil?
 
       file_sets.each do |file_set|
-        original_file = file_set.original_file
-        next if original_file.nil?
-        next unless original_file.mime_type == "text/xml" || original_file.mime_type == "text/plain"
-        if original_file.mime_type == "text/xml"
-          @document_tei = Datastreams::Tei.from_xml(original_file.content)
-          @document_tei&.ng_xml&.remove_namespaces!
-        elsif original_file.mime_type == "text/plain"
-          @has_srt = true
-          @srt_id = file_set.id
-        end
+        next unless valid_file_type?(file_set.original_file)
+        define_file_settings(file_set.original_file)
         break
+      end
+    end
+
+    def valid_file_type?(file)
+      file.present? && (file.mime_type == 'text/xml' || file.mime_type == 'text/plain')
+    end
+
+    def define_file_settings(file)
+      if file.mime_type == "text/xml"
+        @document_tei = Datastreams::Tei.from_xml(file.content)
+        @document_tei&.ng_xml&.remove_namespaces!
+      elsif file.mime_type == "text/plain"
+        @has_srt = true
+        @srt_id = file_set.id
       end
     end
   end
