@@ -8,12 +8,9 @@ Metrics/BlockLength:
   Exclude:
     - config/**/*
     - app/controllers/catalog_controller.rb
-    - app/controllers/concerns/with_transcripts.rb
     - spec/**/*
-    - app/models/concerns/tufts/**/*
     - lib/tasks/**/*
     - app/helpers/eads_helper.rb
-    - app/helpers/rcrs_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/datastreams/ead.rb
     - app/models/datastreams/rcr.rb

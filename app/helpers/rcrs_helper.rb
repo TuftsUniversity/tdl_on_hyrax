@@ -69,18 +69,14 @@ module RcrsHelper
       to_date = ""
 
       relationship.element_children.each do |child|
-        childname = child.name
-
-        if childname == "relationEntry"
+        if child.name == "relationEntry"
           name = child.text
           pid = child.attribute("id") # xml:id in the EAC
-        elsif childname == "dateRange"
+        elsif child.name == "dateRange"
           child.element_children.each do |grandchild|
-            grandchildname = grandchild.name
-
-            if grandchildname == "fromDate"
+            if grandchild.name == "fromDate"
               from_date = grandchild.text
-            elsif grandchildname == "toDate"
+            elsif grandchild.name == "toDate"
               to_date = grandchild.text
             end
           end
