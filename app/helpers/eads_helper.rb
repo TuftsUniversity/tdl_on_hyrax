@@ -352,7 +352,11 @@ module EadsHelper
       # As of TDLR-667 all series titles will be links.
       # As of TDLR-664 with_link will be false for top-level elements which are leaf-level items.
       unless unittitle.empty?
-        result = (series_level.empty? ? "" : series_level + ". ") + (with_link ? "<a data-turbolinks=\"false\" href=\"" + Rails.application.routes.url_helpers.fa_series_path(ead_id, series_id) + "\">" : "") + unittitle + (unitdate.empty? ? "" : ", " + unitdate) + (with_link ? "</a>" : "")
+        result = (series_level.empty? ? "" : series_level + ". ") +
+                 (with_link ? "<a data-turbolinks=\"false\" href=\"" + Rails.application.routes.url_helpers.fa_series_path(ead_id, series_id) + "\">" : "") +
+                 unittitle +
+                 (unitdate.empty? ? "" : ", " + unitdate) +
+                 (with_link ? "</a>" : "")
       end
     end
 
@@ -430,7 +434,13 @@ module EadsHelper
   end
 
   def self.search_field_for(tag_name)
-    { "subject" => "subject", "geogname" => "geographic_name", "genreform" => "genreform", "title" => "title", "persname" => "persname", "corpname" => "corpname", "famname" => "family_name" }[tag_name]
+    { "subject" => "subject",
+      "geogname" => "geographic_name",
+      "genreform" => "genreform",
+      "title" => "title",
+      "persname" => "persname",
+      "corpname" => "corpname",
+      "famname" => "family_name" }[tag_name]
   end
 
   def self.get_subjects_and_names(ead)
@@ -778,7 +788,9 @@ module EadsHelper
                 if ["persname", "corpname", "famname"].include?(grandchildname)
                   # ingested = false
                   # ingested, f4_id = PidMethods.ingested?(grandchild_url) unless grandchild_url.empty?
-                  # series_related_names << (ingested ? '<a data-turbolinks="false" href="' + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') + grandchild_text + (ingested ? '</a>' : '')
+                  # series_related_names << (ingested ? '<a data-turbolinks="false" href="' +
+                  #   Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') +
+                  #   grandchild_text + (ingested ? '</a>' : '')
                   series_related_names << search_tag
                 else
                   series_subjects_genres << search_tag
@@ -826,7 +838,33 @@ module EadsHelper
       title = (unittitle.empty? ? "" : unittitle + (unitdate.empty? ? "" : ", " + unitdate))
     end
 
-    [title, unittitle, unitdate, unitdate_bulk, creator, physdesc, series_langmaterial, paragraphs, series_arrangement, series_access_restrict, series_use_restrict, series_phystech, series_prefercite, series_processinfo, series_acquisition_info, series_custodhist, series_accruals, series_appraisal, series_separated_material, series_subjects_genres, series_related_names, series_related_material, series_alt_formats, series_originals_loc, series_other_finding_aids, series_items, unitid]
+    [title,
+     unittitle,
+     unitdate,
+     unitdate_bulk,
+     creator,
+     physdesc,
+     series_langmaterial,
+     paragraphs,
+     series_arrangement,
+     series_access_restrict,
+     series_use_restrict,
+     series_phystech,
+     series_prefercite,
+     series_processinfo,
+     series_acquisition_info,
+     series_custodhist,
+     series_accruals,
+     series_appraisal,
+     series_separated_material,
+     series_subjects_genres,
+     series_related_names,
+     series_related_material,
+     series_alt_formats,
+     series_originals_loc,
+     series_other_finding_aids,
+     series_items,
+     unitid]
   end
 
   def self.get_series_item_info(item, pid)
@@ -1020,7 +1058,17 @@ module EadsHelper
       item_url = Rails.application.routes.url_helpers.fa_series_path(pid, item_url_id)
     end
 
-    title = (item_url.empty? ? "" : "<a " + (external_page.empty? ? "data-turbolinks=\"false\" " : "") + "href=\"" + item_url + "\"" + (external_page.empty? ? "" : " target=\"blank\"") + ">") + unittitle + (unitdate.empty? || unittitle.end_with?(unitdate) ? "" : " " + unitdate) + (item_url.empty? ? "" : "</a>")
+    title = ''
+    if item_url.present?
+      title = "<a "
+      title += "data-turbolinks=\"false\" " if external_page.empty?
+      title += "href=\"#{item_url}\""
+      title += " target=\"blank\"" unless external_page.empty?
+      title += '>'
+    end
+    title += unittitle
+    title += " #{unitdate}" unless unitdate.empty? || unittitle.end_with?(unitdate)
+    title += "</a>" if item_url.present?
 
     unless physloc.empty?
       labels << "Location"

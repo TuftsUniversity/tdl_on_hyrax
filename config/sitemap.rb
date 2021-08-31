@@ -16,7 +16,15 @@ SitemapGenerator::Sitemap.create do
   repo = CatalogController.new.repository
   response = repo.search('q': 'displays_in_sim:dl',
                          'qt': 'search',
-                         'fq': ['displays_in_sim:dl', '-suppressed_bsi:true', '{!terms f=has_model_ssim}Audio,Ead,GenericObject,Image,Pdf,Rcr,Tei,Video,VotingRecord,Collection', '({!terms f=edit_access_group_ssim}public) OR ({!terms f=discover_access_group_ssim}public) OR ({!terms f=read_access_group_ssim}public)', '({!terms f=edit_access_group_ssim}public) OR ({!terms f=discover_access_group_ssim}public) OR ({!terms f=read_access_group_ssim}public)'],
+                         'fq': ['displays_in_sim:dl',
+                                '-suppressed_bsi:true',
+                                '{!terms f=has_model_ssim}Audio,Ead,GenericObject,Image,Pdf,Rcr,Tei,Video,VotingRecord,Collection',
+                                '({!terms f=edit_access_group_ssim}public) OR ' \
+                                '({!terms f=discover_access_group_ssim}public) OR ' \
+                                '({!terms f=read_access_group_ssim}public)',
+                                '({!terms f=edit_access_group_ssim}public) OR ' \
+                                '({!terms f=discover_access_group_ssim}public) OR ' \
+                                '({!terms f=read_access_group_ssim}public)'],
                          'fl': 'id, has_model_ssim', # we only need the ids
                          #   'cursorMark' => cursor_mark, # we need to use the cursor mark to handle paging
                          'rows': ENV['BATCH_SIZE'] || 1_000_000,

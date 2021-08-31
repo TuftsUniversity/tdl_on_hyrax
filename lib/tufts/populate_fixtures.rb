@@ -233,7 +233,10 @@ module Tufts
         format_label: "text/xml",
         personal_name: ["John Quincy Adams", "Andrew Jackson", "Henry Clay", "William H. Crawford"],
         geographic_name: "Illinois",
-        bibliographic_citation: 'American Antiquarian Society and Tufts University Digital Collections and Archives. "Illinois 1824 President of the United  States." 2010. Tufts University. Digital Collections and Archives. Medford, MA. http://hdl.handle.net/10427/56366',
+        bibliographic_citation: 'American Antiquarian Society and Tufts University Digital Collections and ' \
+                                'Archives. "Illinois 1824 President of the United  States." 2010. Tufts ' \
+                                'University. Digital Collections and Archives. Medford, MA. ' \
+                                'http://hdl.handle.net/10427/56366',
         temporal: "1824",
         funder: "National Endowment for the Humanities",
         steward: "dca",
@@ -248,7 +251,12 @@ module Tufts
       {
         legacy_pid: "tufts:trove.23.200",
         title: "The Arch of Titus.",
-        description: ["This triumphal arch commemorates Titus' victories, including the Siege of Jerusalem in 70 AD. The main inscription used to be ornamented by letters made of perhaps silver, gold or some other metal, and reads: \"The Roman Senate and People (dedicate this) to the divine Titus Vespasianus Augustus, son of the divine Vespasian.\"", "Location created: Rome.", "Date created: c. 81 CE.", "Medium: Concrete and white marble.", "Measurements: 15m tall.", "Original file name: 14.8493-6.36a"],
+        description: ["This triumphal arch commemorates Titus' victories, including the Siege of Jerusalem" \
+                      "in 70 AD. The main inscription used to be ornamented by letters made of perhaps " \
+                      "silver, gold or some other metal, and reads: \"The Roman Senate and People (dedicate " \
+                      "this) to the divine Titus Vespasianus Augustus, son of the divine Vespasian.\"",
+                      "Location created: Rome.", "Date created: c. 81 CE.", "Medium: Concrete and white " \
+                      "marble.", "Measurements: 15m tall.", "Original file name: 14.8493-6.36a"],
         publisher: "Tufts University. Tisch Library.",
         source: "Stokstad",
         primary_date: "0081",

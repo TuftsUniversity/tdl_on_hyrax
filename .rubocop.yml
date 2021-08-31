@@ -4,31 +4,26 @@ inherit_gem:
 AllCops:
   Exclude:
     - db/**/*
+# Requires indentation after private and protected
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
 Metrics/BlockLength:
   Exclude:
-    - config/**/*
     - app/controllers/catalog_controller.rb
-    - spec/**/*
-    - lib/tasks/**/*
     - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
-    - app/models/datastreams/ead.rb
-    - app/models/datastreams/rcr.rb
-    - app/models/datastreams/tei.rb
-    - app/models/transcript_chunk.rb
-    - lib/tufts/tei_parser.rb #Keep
-    - lib/tufts/tei_toc.rb #Keep
+    - app/models/datastreams/*
+    - config/**/*
+    - lib/tasks/**/*
+    - lib/tufts/tei_parser.rb
+    - lib/tufts/tei_toc.rb
+    - spec/**/*
 Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
-    - lib/tufts/tei_parser.rb #Keep
-Layout/IndentationConsistency: #this one
-  EnforcedStyle: indented_internal_methods
+    - lib/tufts/tei_parser.rb
 Layout/LineLength:
   Exclude:
-    - lib/tufts/populate_fixtures.rb
-    - config/sitemap.rb
-    - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
     - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
