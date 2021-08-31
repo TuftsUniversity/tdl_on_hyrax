@@ -65,7 +65,8 @@ module MetadataMethods
     if text.length <= length
       text
     else
-      "#{text[0..(length - 1)]}<span id=\"readmore\" style=" ">...  <a href=\"javascript:readmore();\">#{read_more_text.strip}</a></span><span id=\"readless\" style=\"display:none\">#{text[length..text.length].strip}<a href=\"javascript:readless();\">#{read_less_text.strip}</a></span>"
+      "#{text[0..(length - 1)]}<span id=\"readmore\" style=" ">...  <a href=\"javascript:readmore();\">#{read_more_text.strip}</a></span>" \
+      "<span id=\"readless\" style=\"display:none\">#{text[length..text.length].strip}<a href=\"javascript:readless();\">#{read_less_text.strip}</a></span>"
     end
   end
 end
