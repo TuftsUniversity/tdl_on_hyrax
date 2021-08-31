@@ -24,7 +24,6 @@ Metrics/BlockNesting:
     - lib/tufts/tei_parser.rb
 Layout/LineLength:
   Exclude:
-    - app/helpers/transcripts_helper.rb
     - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
     - config/initializers/assets.rb

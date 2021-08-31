@@ -12,7 +12,9 @@ module TranscriptsHelper
       name = participant.name
       result << "        <div class=\"participant_row\" id=\"participant" + participant_number.to_s + "\">\n"
       result << "          <div class=\"participant_id\">" + (id.nil? ? "" : id) + "</div>\n"
-      result << "          <div class=\"participant_name\">" + name + "<span class=\"participant_role\">" + (role.nil? ? "" : ", " + role) + (sex.empty? ? "" : " (" + (sex == "f" ? "female" : (sex == "m" ? "male" : sex)) + ")") + "</span></div>\n"
+      result << "          <div class=\"participant_name\">" + name + "<span class=\"participant_role\">" +
+                (role.nil? ? "" : ", " + role) +
+                (sex.empty? ? "" : " (" + (sex == "f" ? "female" : (sex == "m" ? "male" : sex)) + ")") + "</span></div>\n"
       result << "        </div> <!-- participant_row -->\n"
     end
 
@@ -62,11 +64,12 @@ module TranscriptsHelper
         result << "                  <div class=\"transcript_row\">\n"
         result << "                    <div class=\"transcript_speaker\">\n"
 
-        if active_timestamps
-          result << "                      <a class=\"transcript_chunk_link\" data-time=\"" + milliseconds.to_s + "\" href=\"" + path + "?timestamp/" + string_minutes + ":" + string_just_seconds + "\">" + string_minutes + ":" + string_just_seconds + "</a>\n"
-        else
-          result << "                      <span class=\"transcript_chunk_link\">" + string_minutes + ":" + string_just_seconds + "</span>\n"
-        end
+        result << if active_timestamps
+                    "                      <a class=\"transcript_chunk_link\" data-time=\"#{milliseconds}\" " \
+                    "href=\"#{path}?timestamp/#{string_minutes}:#{string_just_seconds}\">#{string_minutes}:#{string_just_seconds}</a>\n"
+                  else
+                    "                      <span class=\"transcript_chunk_link\">" + string_minutes + ":" + string_just_seconds + "</span>\n"
+                  end
 
         result << "                    </div> <!-- transcript_speaker -->\n"
         result << "                    <div class=\"transcript_utterance\"></div>\n"
