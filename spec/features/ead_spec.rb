@@ -16,7 +16,9 @@ feature 'EAD' do
     expect(page).to have_text '487 record cartons and 1 document case'
     expect(page).to have_text '197 Gigabytes'
     expect(page).to have_text '95 Cassettes'
-    expect(page).to have_text 'The papers of Lorem Ipsum, noted scholar and salon host, consist of his personal and professional papers, including a wide range of correspondence with noted thinkers, scholars, and chorus girls of the 1910s and 1920s.'
+    expect(page).to have_text 'The papers of Lorem Ipsum, noted scholar and salon host, consist of his personal and ' \
+                              'professional papers, including a wide range of correspondence with noted thinkers, ' \
+                              'scholars, and chorus girls of the 1910s and 1920s.'
     # page.should_not have_text 'View Online Materials'
 
     click_link "View Finding Aid", exact: false
@@ -37,7 +39,9 @@ feature 'EAD' do
     expect(page).to have_link "https://dca.tufts.edu/", href: "https://dca.tufts.edu/"
     expect(page).to have_text "The Lorem Ipsum papers consist of his personal and professional papers."
     expect(page).to have_text "Professional papers include manuscripts, speeches, drafts of journal articles, and notes."
-    expect(page).to have_text "Personal papers include diaries and correspondence with noted thinkers, scholars, and chorus girls of the 1910s and 1920s, including F. Scott and Zelda Fitzgerald, William James, and Louise Brooks. Sketchbooks are included under diaries for no good reason."
+    expect(page).to have_text "Personal papers include diaries and correspondence with noted thinkers, scholars, and " \
+                              "chorus girls of the 1910s and 1920s, including F. Scott and Zelda Fitzgerald, William " \
+                              "James, and Louise Brooks. Sketchbooks are included under diaries for no good reason."
     expect(page).to have_text "Diaries cover the years 1910-1933 with a suspicious gap in 1922."
     expect(page).to have_text "This collection is arranged in two series."
     expect(page).to have_text "Life Events"
@@ -97,9 +101,12 @@ feature 'EAD' do
     expect(page).to have_text "Copyright retained by donor."
     expect(page).to have_text "This series has no technical requirements for access."
     expect(page).to have_text "Personal papers, Lorem Ipsum papers, 1897-1933. Tufts University. Digital Collections and Archives. Medford, MA."
-    expect(page).to have_text "Evidence suggests that the original processor of this collection may have actually ingested the contents of an envelope marked \"Illegal Fungi,\" which we have been otherwise unable to locate."
+    expect(page).to have_text "Evidence suggests that the original processor of this collection may have actually ingested " \
+                              "the contents of an envelope marked \"Illegal Fungi,\" which we have been otherwise unable to locate."
     expect(page).to have_text "Gift of Harold Lloyd III, 2016."
-    expect(page).to have_text "Upon his death, Ipsum's personal papers were discarded by an unfeeling landlady. They were rescued by a fellow scholar and maintained in a personal collection until they were donated to Tufts University in 2016."
+    expect(page).to have_text "Upon his death, Ipsum's personal papers were discarded by an unfeeling landlady. They were " \
+                              "rescued by a fellow scholar and maintained in a personal collection until they were donated to " \
+                              "Tufts University in 2016."
     expect(page).to have_text "No further accruals are expected."
     expect(page).to have_text "Duplicate materials were discaded during processing, as was Mr. Ipsum's rather careworn feather boa."
     expect(page).to have_text "Silk stockings found in this series have been transferred to the Textile Museum."
@@ -116,7 +123,8 @@ feature 'EAD' do
     expect(page).to have_text "Diaries 1910 -- 1933"
     expect(page).to have_text "Diaries are salacious and gossipy."
     expect(page).to have_text "MS999.001.002"
-    expect(page).to have_text "There is also Lorem Ipsum material to be found online. Please visit https://somerandomwebsite.org/collections/LoremIpsum and/or The Lorem Ipsum Collection at someotherrandomwebsite.org."
+    expect(page).to have_text "There is also Lorem Ipsum material to be found online. Please visit https://somerandomwebsite.org/collections/LoremIpsum " \
+                              "and/or The Lorem Ipsum Collection at someotherrandomwebsite.org."
     expect(page).to have_link "https://somerandomwebsite.org/collections/LoremIpsum", href: "https://somerandomwebsite.org/collections/LoremIpsum"
     expect(page).to have_link "The Lorem Ipsum Collection at someotherrandomwebsite.org", href: "https://someotherrandomwebsite.org/collections/LoremIpsum"
     expect(page).to have_link "New Yorker Cartoons 1922-12-09 - 1927-03-09", href: "https://somerandomwebsite.org/collections/LoremIpsum/NewYorkerCartoons"
@@ -160,7 +168,8 @@ feature 'EAD' do
     expect(page).to have_text 'This collection has:'
     expect(page).to have_text '19.20 cubic ft.'
     expect(page).to have_text '6 digital objects'
-    expect(page).to have_text 'Rubin “Hurricane” Carter (1937-2014) was a professional boxer and legal rights advocate who spent nearly twenty years in prison for murder convictions that were later overturned.'
+    expect(page).to have_text 'Rubin “Hurricane” Carter (1937-2014) was a professional boxer and legal rights advocate ' \
+                              'who spent nearly twenty years in prison for murder convictions that were later overturned.'
     # page.should have_text 'View Online Materials'
     click_link "View Finding Aid", exact: false
     expect(page).to have_text '19.20 cubic ft., 6 digital objects'

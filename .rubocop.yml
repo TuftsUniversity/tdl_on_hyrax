@@ -5,9 +5,8 @@ AllCops:
   Exclude:
     - db/**/*
     - vendor/**/*
-# Requires indentation after private and protected
 Layout/IndentationConsistency:
-  EnforcedStyle: indented_internal_methods
+  EnforcedStyle: indented_internal_methods # Requires indentation after private and protected
 Metrics/BlockLength:
   Exclude:
     - app/controllers/catalog_controller.rb
@@ -25,7 +24,6 @@ Metrics/BlockNesting:
     - lib/tufts/tei_parser.rb
 Layout/LineLength:
   Exclude:
-    - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
     - config/initializers/assets.rb
     - lib/metadata_methods.rb
