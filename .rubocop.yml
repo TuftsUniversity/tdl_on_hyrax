@@ -41,24 +41,16 @@ Metrics/PerceivedComplexity:
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
-    - lib/tufts/tei_parser.rb #Keep
-    - lib/tufts/tei_toc.rb #Keep
-Lint/SuppressedException:
-  Exclude:
-    - lib/tufts/populate_fixtures.rb
-    - lib/pid_methods.rb
+    - lib/tufts/tei_parser.rb
+    - lib/tufts/tei_toc.rb
 Metrics/AbcSize:
   Exclude:
-    - app/controllers/concerns/with_transcripts.rb
     - app/helpers/eads_helper.rb
-    - app/helpers/rcrs_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
-    - lib/pid_methods.rb
-    - app/helpers/hyrax_helper.rb
-    - lib/tufts/tei_parser.rb #Keep
-    - lib/tufts/tei_toc.rb #Keep
+    - lib/tufts/tei_parser.rb
+    - lib/tufts/tei_toc.rb
 Metrics/MethodLength:
   Exclude:
     - app/controllers/concerns/with_rcrs.rb

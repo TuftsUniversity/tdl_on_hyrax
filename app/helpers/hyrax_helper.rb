@@ -15,7 +15,7 @@ module HyraxHelper
   # rubocop:disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/PerceivedComplexity
-  # rubocop:disable Layout/LineLength
+  # rubocop:disable Metrics/AbcSize
   def download_link_info(controller_name)
     download_links = []
     return download_links unless @presenter
@@ -23,7 +23,12 @@ module HyraxHelper
     link_var = [] if link_var.nil?
     return download_links if @presenter.class.to_s == "Hyrax::AdminStatsPresenter" || @presenter.class.to_s == "Hyrax::Admin::DashboardPresenter" || link_var.include?("no-link")
     return download_links if @presenter.nil?
-    unless @presenter.class.to_s != "Hyrax::Admin::DashboardPresenter" && @presenter.class.to_s != "Hyrax::UserProfilePresenter" && !@presenter.solr_document.nil? && !@presenter.solr_document._source['workflow_state_name_ssim'].nil? && @presenter.solr_document._source['workflow_state_name_ssim'].any? && (@presenter.solr_document._source['workflow_state_name_ssim'].include? "unpublished")
+    unless @presenter.class.to_s != "Hyrax::Admin::DashboardPresenter" &&
+           @presenter.class.to_s != "Hyrax::UserProfilePresenter" &&
+           !@presenter.solr_document.nil? &&
+           !@presenter.solr_document._source['workflow_state_name_ssim'].nil? &&
+           @presenter.solr_document._source['workflow_state_name_ssim'].any? &&
+           (@presenter.solr_document._source['workflow_state_name_ssim'].include? "unpublished")
       # Add the transcript link in any controller.
       download_links << transcript_link(@presenter.transcript_id) if @document_tei.present? && @presenter.class.to_s != "Hyrax::TeiPresenter"
 
@@ -50,33 +55,26 @@ module HyraxHelper
 
     download_links
   end
-
-  def get_link_to_primary_binary(obj)
-    download_link = ""
-
-    model = obj.class.to_s.downcase
-
-    case  model
-    when 'audio'
-      base_url = "https://dl.tufts.edu/downloads/"
-      file_set = obj.file_sets[0]
-      params = "?file=mp3"
-      download_link = base_url + file_set.id + params
-    when 'image'
-      file_set = obj.file_sets[0]
-      base_url = "https://dl.tufts.edu"
-      download_link = Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: base_url, size: "400,")
-    when 'pdf'
-      base_url = "https://dl.tufts.edu/downloads/"
-      file_set = obj.file_sets[0]
-      params = ""
-      download_link = base_url + file_set.id + params
-    end
-
-    download_link
-  end
+  # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/PerceivedComplexity
+
+  def get_link_to_primary_binary(obj)
+    model = obj.class.to_s.downcase
+    file_set = obj.file_sets[0]
+
+    case model
+    when 'audio'
+      "https://dl.tufts.edu/downloads/#{file_set.id}?file=mp3"
+    when 'image'
+      Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: 'https://dl.tufts.edu', size: "400,")
+    when 'pdf'
+      "https://dl.tufts.edu/downloads/#{file_set.id}"
+    else
+      ''
+    end
+  end
 
   ##
   # The info for the "Add to List" link.
