@@ -39,8 +39,8 @@ module RcrsHelper
     rcr.find_by_terms_and_value(:structure_or_genealogy_item)
   end
 
-  def self.relationships(rcr)
-    relationship_hash = {
+  def relationship_hash
+    {
       "reportsTo" => "Reports to",
       "hasReport" => "Has report",
       "isPartOf" => "Part of",
@@ -58,10 +58,12 @@ module RcrsHelper
       "isGrandchildOf" => "Grandchild of",
       "isGrandparentOf" => "Grandparent of"
     }
+  end
+
+  def self.relationships(rcr)
     result_hash = {}
 
-    relationships = rcr.find_by_terms_and_value(:cpf_relations)
-    relationships.each do |relationship|
+    rcr.find_by_terms_and_value(:cpf_relations).each do |relationship|
       data = { name: '', pid: '', from_date: '', to_date: '' }
       relationship.element_children.each do |child|
         data = process_child_data(child, data)

@@ -6,6 +6,14 @@ AllCops:
     - vendor/**/*
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods # Requires indentation after private and protected
+Metrics/AbcSize:
+  Exclude:
+    - app/helpers/eads_helper.rb
+    - app/helpers/transcripts_helper.rb
+    - app/models/transcript_chunk.rb
+    - lib/tufts/populate_fixtures.rb
+    - lib/tufts/tei_parser.rb
+    - lib/tufts/tei_toc.rb
 Metrics/BlockLength:
   Exclude:
     - app/controllers/catalog_controller.rb
@@ -43,20 +51,9 @@ Metrics/PerceivedComplexity:
     - lib/tufts/populate_fixtures.rb
     - lib/tufts/tei_parser.rb
     - lib/tufts/tei_toc.rb
-Metrics/AbcSize:
-  Exclude:
-    - app/helpers/eads_helper.rb
-    - app/helpers/transcripts_helper.rb
-    - app/models/transcript_chunk.rb
-    - lib/tufts/populate_fixtures.rb
-    - lib/tufts/tei_parser.rb
-    - lib/tufts/tei_toc.rb
 Metrics/MethodLength:
   Exclude:
-    - app/controllers/concerns/with_rcrs.rb
-    - app/controllers/concerns/with_transcripts.rb
     - app/helpers/eads_helper.rb
-    - app/helpers/rcrs_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/pid_methods.rb
@@ -64,6 +61,7 @@ Metrics/MethodLength:
     - lib/tufts/populate_fixtures.rb
     - lib/tufts/tei_parser.rb #Keep
     - lib/tufts/tei_toc.rb #Keep
+  Max: 20 # A little less strict
 Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
