@@ -52,6 +52,11 @@ Metrics/MethodLength:
     - lib/tufts/tei_parser.rb
     - lib/tufts/tei_toc.rb
   Max: 20 # A little less strict to make our lives easier.
+Metrics/ModuleLength:
+  Exclude:
+    - app/helpers/eads_helper.rb
+    - app/helpers/hyrax_helper.rb
+    - lib/tufts/tei_parser.rb
 Metrics/PerceivedComplexity:
   Exclude:
     - app/helpers/eads_helper.rb
@@ -60,15 +65,6 @@ Metrics/PerceivedComplexity:
     - lib/tufts/populate_fixtures.rb
     - lib/tufts/tei_parser.rb
     - lib/tufts/tei_toc.rb
-Metrics/ModuleLength:
-  Exclude:
-    - app/helpers/eads_helper.rb
-    - app/helpers/transcripts_helper.rb
-    - app/helpers/hyrax_helper.rb
-    - lib/tufts/tei_parser.rb #Keep
-Naming/AccessorMethodName:
-  Exclude:
-    - app/models/transcript_chunk.rb
 Naming/PredicateName:
   Exclude:
     - app/presenters/hyrax/generic_work_presenter.rb

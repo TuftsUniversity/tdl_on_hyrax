@@ -6,15 +6,11 @@ module TranscriptsHelper
 
     participants.each do |participant|
       participant_number += 1
-      id = participant.initials
-      role = participant.role
-      sex = participant.gender
-      name = participant.name
       result << "        <div class=\"participant_row\" id=\"participant" + participant_number.to_s + "\">\n"
-      result << "          <div class=\"participant_id\">" + (id.nil? ? "" : id) + "</div>\n"
-      result << "          <div class=\"participant_name\">" + name + "<span class=\"participant_role\">" +
-                (role.nil? ? "" : ", " + role) +
-                (sex.empty? ? "" : " (" + (sex == "f" ? "female" : (sex == "m" ? "male" : sex)) + ")") + "</span></div>\n"
+      result << "          <div class=\"participant_id\">" + (participant.initials.nil? ? "" : participant.initials) + "</div>\n"
+      result << "          <div class=\"participant_name\">" + participant.name + "<span class=\"participant_role\">" +
+                (participant.role.nil? ? "" : ", " + participant.role) +
+                (participant.gender.empty? ? "" : " (" + (participant.gender == "f" ? "female" : (participant.gender == "m" ? "male" : participant.gender)) + ")") + "</span></div>\n"
       result << "        </div> <!-- participant_row -->\n"
     end
 
@@ -26,10 +22,7 @@ module TranscriptsHelper
   # convert fedora transcript object to html
   def self.show_transcript(tei, active_timestamps, path)
     chunks, participants = TranscriptChunk.parse(tei)
-    transcript_html = format_transcript(chunks, active_timestamps, path)
-    participant_html = format_participants(participants)
-
-    [transcript_html, participant_html]
+    [format_transcript(chunks, active_timestamps, path), format_participants(participants)]
   end
 
   def self.get_time_table(tei)
@@ -73,8 +66,7 @@ module TranscriptsHelper
         result << "                  </div> <!-- transcript_row -->\n"
       end
 
-      utterances = chunk.utterances
-      utterances.each do |utterance|
+      chunk.utterances.each do |utterance|
         who = utterance.speaker_initials
         text = utterance.text
         timepoint_id = utterance.timepoint_id
@@ -124,11 +116,10 @@ module TranscriptsHelper
     int_total_seconds = milliseconds.to_i / 1000 # truncated to the second
     int_minutes = int_total_seconds / 60
     int_just_seconds = int_total_seconds - (int_minutes * 60) # the seconds for seconds:minutes (0:00) display
-    string_minutes = int_minutes.to_s
     string_just_seconds = int_just_seconds.to_s
 
     string_just_seconds = "0" + string_just_seconds if int_just_seconds < 10
 
-    [string_minutes, string_just_seconds, int_total_seconds.to_s]
+    [int_minutes.to_s, string_just_seconds, int_total_seconds.to_s]
   end
 end

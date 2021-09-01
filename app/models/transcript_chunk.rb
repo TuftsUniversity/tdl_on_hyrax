@@ -14,10 +14,6 @@ class TranscriptChunk
   # TEI has speaker data, parse_participants stores data in @speakers
   @speakers = []
 
-  def self.get_speakers
-    @speakers
-  end
-
   # instance variable for each transcript chunk
   attr_reader :name
   attr_reader :start_in_milliseconds
@@ -102,7 +98,7 @@ class TranscriptChunk
         child_name = child.name
         if child_name == "u"
           who_node = child.attributes["who"]
-          speaker = who_node ? TranscriptChunk.get_speaker(who_node.value) : get_last_speaker(result)
+          speaker = who_node ? TranscriptChunk.get_speaker(who_node.value) : last_speaker(result)
           who = TranscriptChunk.get_speaker_initials(speaker)
           text = parse_notations(child)
           current_transcript_chunk.add_utterance(text, who, timepoint_id)
@@ -118,9 +114,9 @@ class TranscriptChunk
   end
 
   # loop over all chunks backwards to identify the last speaker
-  def self.get_last_speaker(chunks)
+  def self.last_speaker(chunks)
     chunks.reverse_each do |chunk|
-      last_speaker = chunk.get_last_speaker_from_chunk
+      last_speaker = chunk.last_speaker_from_chunk
       return last_speaker unless last_speaker.nil?
     end
     nil
@@ -134,7 +130,7 @@ class TranscriptChunk
 
   # loop over utterances backwards looking for the last speaker
   # @return speaker object if available or speaker initials/id if not
-  def get_last_speaker_from_chunk
+  def last_speaker_from_chunk
     return nil if @utterances.empty?
     @utterances.reverse_each do |current_utterance|
       next if current_utterance.speaker_initials.blank?
@@ -153,10 +149,11 @@ class TranscriptChunk
     speaker.initials
   end
 
+  # This doesn't appear to be called anywhere #9/1/21
   # return a string with all the text from all of this chunk's utterances
   # this is useful to obtain a string for ingesting into Solr
   # @return a string containing the text from all the utterances
-  def get_text
+  def text
     result = ''
     @utterances.each do |utterance|
       unless result.empty?
