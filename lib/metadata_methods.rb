@@ -1,17 +1,23 @@
 # frozen_string_literal: true
 module MetadataMethods
   # This may be obsolete - all this information should be available from @presenter
+  # read_more_or_less is used in /app/views/shared/_metadata.html.erb. The other methods appear to not be used.
 
   def self.get_metadata(fedora_obj)
     datastream = fedora_obj.datastreams["DCA-META"]
+    data_hash = build_hash(datastream)
 
     # create the union (ie, without duplicates) of subject, geogname, persname, and corpname
-    subjects = []
-    union(subjects, datastream.find_by_terms_and_value(:subject))
-    union(subjects, datastream.find_by_terms_and_value(:geogname))
-    union(subjects, datastream.find_by_terms_and_value(:persname))
-    union(subjects, datastream.find_by_terms_and_value(:corpname))
+    data_hash[:subjects] = []
+    union(data_hash[:subjects], datastream.find_by_terms_and_value(:subject))
+    union(data_hash[:subjects], datastream.find_by_terms_and_value(:geogname))
+    union(data_hash[:subjects], datastream.find_by_terms_and_value(:persname))
+    union(data_hash[:subjects], datastream.find_by_terms_and_value(:corpname))
 
+    data_hash
+  end
+
+  def self.build_hash(datastream)
     {
       titles: datastream.find_by_terms_and_value(:title),
       creators: datastream.find_by_terms_and_value(:creator),
@@ -25,7 +31,6 @@ module MetadataMethods
       types: datastream.find_by_terms_and_value(:type2),
       formats: datastream.find_by_terms_and_value(:format2),
       rights: datastream.find_by_terms_and_value(:rights),
-      subjects: subjects,
       temporals: datastream.find_by_terms_and_value(:temporal)
     }
   end

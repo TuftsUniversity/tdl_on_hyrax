@@ -43,6 +43,15 @@ Metrics/CyclomaticComplexity:
     - lib/tufts/populate_fixtures.rb
     - lib/tufts/tei_parser.rb
     - lib/tufts/tei_toc.rb
+Metrics/MethodLength:
+  Exclude:
+    - app/helpers/eads_helper.rb
+    - app/helpers/transcripts_helper.rb
+    - app/models/transcript_chunk.rb
+    - lib/tufts/populate_fixtures.rb
+    - lib/tufts/tei_parser.rb
+    - lib/tufts/tei_toc.rb
+  Max: 20 # A little less strict to make our lives easier.
 Metrics/PerceivedComplexity:
   Exclude:
     - app/helpers/eads_helper.rb
@@ -51,17 +60,6 @@ Metrics/PerceivedComplexity:
     - lib/tufts/populate_fixtures.rb
     - lib/tufts/tei_parser.rb
     - lib/tufts/tei_toc.rb
-Metrics/MethodLength:
-  Exclude:
-    - app/helpers/eads_helper.rb
-    - app/helpers/transcripts_helper.rb
-    - app/models/transcript_chunk.rb
-    - lib/pid_methods.rb
-    - lib/metadata_methods.rb
-    - lib/tufts/populate_fixtures.rb
-    - lib/tufts/tei_parser.rb #Keep
-    - lib/tufts/tei_toc.rb #Keep
-  Max: 20 # A little less strict
 Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
