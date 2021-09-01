@@ -39,7 +39,7 @@ module RcrsHelper
     rcr.find_by_terms_and_value(:structure_or_genealogy_item)
   end
 
-  def relationship_hash
+  def self.relationship_hash
     {
       "reportsTo" => "Reports to",
       "hasReport" => "Has report",
