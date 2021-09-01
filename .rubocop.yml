@@ -81,9 +81,6 @@ RSpec/InstanceVariable:
     - spec/features/search_results_spec.rb
 RSpec/MultipleExpectations:
   Enabled: false
-Style/NestedTernaryOperator:
-  Exclude:
-    - app/helpers/eads_helper.rb
 Style/Next:
   Exclude:
     - app/helpers/eads_helper.rb

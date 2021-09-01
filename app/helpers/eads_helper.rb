@@ -396,8 +396,24 @@ module EadsHelper
       text = found.text                # returns empty string if tag has no text
       href = found.attribute("href")   # returns nil if tag has no href attribute
       title = found.attribute("title") # returns nil if tag has no title attribute
-      the_text = !text.empty? ? text : (!title.nil? ? title : (!href.nil? ? href : ''))
-      the_href = !href.nil? ? href : (!text.empty? ? text : (!title.nil? ? title : ''))
+      the_text = if text.present?
+                   text
+                 elsif title.present?
+                   title
+                 elsif href.present?
+                   href
+                 else
+                   ''
+                 end
+      the_href = if href.present?
+                   href
+                 elsif text.present?
+                   text
+                 elsif title.present?
+                   title
+                 else
+                   ''
+                 end
       found.content = '<a href="' + the_href + '" target="blank">' + the_text + '</a>'
     end
   end
@@ -831,7 +847,15 @@ module EadsHelper
       # process the scopecontent element
       paragraphs = get_scopecontent_paragraphs(scopecontent)
 
-      title = (unittitle.empty? ? "" : unittitle + (unitdate.empty? ? "" : ", " + unitdate))
+      title = if unittitle.present?
+                if unitdate.present?
+                  "#{unittitle}, #{unitdate}"
+                else
+                  unittitle
+                end
+              else
+                ''
+              end
     end
 
     [title,
