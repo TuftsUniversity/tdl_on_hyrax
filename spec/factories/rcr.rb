@@ -17,7 +17,7 @@ FactoryBot.define do
     end
 
     after(:create) do |work, _evaluator|
-      rcr_test_file1 = File.open(File.expand_path(File.join(Rails.root.to_s, "spec", "fixtures", "RCR00579.xml")))
+      rcr_test_file1 = File.open(File.expand_path(Rails.root.join('spec', 'fixtures', 'RCR00579.xml')))
       Hydra::Works::AddFileToFileSet.call(work.file_sets[0], rcr_test_file1, :original_file, versioning: true)
       work.save!
     end
