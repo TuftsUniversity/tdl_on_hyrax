@@ -37,7 +37,7 @@ module Hyrax
       solr_document[:temporal_tesim]
     end
 
-    def is_part_of
+    def is_part_of # rubocop:disable Naming/PredicateName
       solr_document[:is_part_of_tesim]
     end
 

@@ -65,19 +65,9 @@ Metrics/PerceivedComplexity:
     - lib/tufts/populate_fixtures.rb
     - lib/tufts/tei_parser.rb
     - lib/tufts/tei_toc.rb
-Naming/PredicateName:
-  Exclude:
-    - app/presenters/hyrax/generic_work_presenter.rb
-Naming/VariableNumber:
-  Exclude:
-    - spec/factories/ead.rb
-    - spec/factories/rcr.rb
-Performance/StringReplacement:
-  Exclude:
-    - app/controllers/tufts/works_controller.rb
 Rails/FilePath:
   Exclude:
-    - spec/factories/ead.rb
+#    - spec/factories/ead.rb
     - spec/factories/rcr.rb
     - spec/support/ldap_manager.rb
 Rails/UnknownEnv: #disabled temporarily, as rubocop is having an issue with this cop
