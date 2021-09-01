@@ -122,6 +122,11 @@ RSpec.configure do |config|
 
   config.after(:suite) do
     stop_ldap
+    # Remove any objects that aren't the fixtures
+    Image.all.each { |i| i.destroy unless i.id == 'ms002_001_015_00001_00001'}
+    Rcr.all.each { |r| r.destroy unless r.id == 'rcr00579' }
+    Ead.all.each { |e| e.destroy unless ['aspace_ms226', 'aspace_ms999'].include?(e.id)}
+    VotingRecord.all.each { |v| v.destroy unless v.id == 'il_president_1824'}
   end
 end
 
