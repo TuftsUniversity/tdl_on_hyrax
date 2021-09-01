@@ -104,8 +104,8 @@ module Riiif
       elsif md = /^(-?\d+),(-?\d+),(\d+),(\d+)$/.match(region)
         x = Integer(md[1])
         y = Integer(md[2])
-        x < 0 ? x = 0 : x
-        y < 0 ? y = 0 : x
+        x < 0 ? x = 0 : x # rubocop:disable Style/NumericPredicate
+        y < 0 ? y = 0 : x # rubocop:disable Style/NumericPredicate
 
         # Rails.logger.error "region #{x} #{y} #{md[3]} #{md[4]}"
         Riiif::Region::Imagemagick::AbsoluteDecoder.new(x.to_s, y.to_s, md[3], md[4]).decode

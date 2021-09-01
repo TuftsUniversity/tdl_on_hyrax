@@ -137,7 +137,7 @@ module Tufts
         file_set.save!
       rescue Ldp::Conflict
         tries -= 1
-        if tries > 0
+        if tries > 0 # rubocop:disable Style/NumericPredicate
           puts "-- Failed attaching File, trying again."
           sleep(5.seconds)
           retry
@@ -176,7 +176,7 @@ module Tufts
         CreateDerivativesJob.perform_now(file_set, file_set.public_send(:original_file).id)
       rescue NoMethodError
         tries -= 1
-        if tries > 0
+        if tries > 0 # rubocop:disable Style/NumericPredicate
           puts "-- Failed creating derivs, trying again."
           sleep(5.seconds)
           retry

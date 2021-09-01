@@ -52,14 +52,14 @@ namespace :tufts do
       end
 
       # How many works were found?
-      if found_count > 0
+      if found_count.positive?
         puts(found_count.to_s + (found_count == 1 ? ' work was' : ' works were') + ' found.')
       end
 
       # How many works were not found?
       not_found_count = not_found_array.size
 
-      if not_found_count > 0
+      if not_found_count.positive?
         puts(not_found_count.to_s + (not_found_count == 1 ? ' work was' : ' works were') + ' not found:')
 
         not_found_array.each do |not_found_id|
@@ -70,7 +70,7 @@ namespace :tufts do
       # How many works caused exceptions?
       exception_count = exception_array.size
 
-      if exception_count > 0
+      if exception_count.positive?
         puts('  ' + exception_count.to_s + (exception_count == 1 ? ' work caused an exception' : ' works caused exceptions') + ':')
 
         exception_array.each do |exception_msg|
@@ -81,7 +81,7 @@ namespace :tufts do
       # How many works had multiple unitids?
       multi_unitid_count = multi_unitid_array.size
 
-      if multi_unitid_count > 0
+      if multi_unitid_count.positive?
         puts(multi_unitid_count.to_s + (multi_unitid_count == 1 ? ' work has' : ' works have') + ' multiple unitids:')
 
         multi_unitid_array.each do |multi_unitid_id|

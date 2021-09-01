@@ -10,7 +10,7 @@ module PidMethods
     response = solr_connection.get 'select', params: { fq: build_fq(pid), rows: '1' }
     collection_length = response['response']['docs'].length
 
-    if collection_length > 0
+    if collection_length.positive?
       result = true
       resp_doc = response['response']['docs'][0]
       resp_id = resp_doc['id']

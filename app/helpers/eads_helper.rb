@@ -13,7 +13,7 @@ module EadsHelper
     response = solr_connection.get('select', params: { q: q, fq: fq, rows: '2' })
     collection_length = response['response']['docs'].length
 
-    collection_length > 0 # The EAD itself will be a member of the collection
+    collection_length.positive? # The EAD itself will be a member of the collection
   end
 
   def self.eadid(ead)
@@ -1186,7 +1186,7 @@ module EadsHelper
   end
 
   def self.find_series(node, results, level = 0)
-    if level == 0
+    if level.zero?
       level_string = ''
       next_level = 0
     else
