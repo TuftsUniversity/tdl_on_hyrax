@@ -81,8 +81,5 @@ RSpec/InstanceVariable:
     - spec/features/search_results_spec.rb
 RSpec/MultipleExpectations:
   Enabled: false
-Style/Next:
-  Exclude:
-    - app/helpers/eads_helper.rb
 Style/NumericPredicate:
   Enabled: false

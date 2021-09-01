@@ -468,24 +468,21 @@ module EadsHelper
       controlaccess.element_children.each do |element_child|
         childname = element_child.name
 
-        if ["persname", "corpname", "famname", "subject", "geogname", "genreform", "title"].include?(childname)
-          child_text = element_child.text
-          # child_id = element_child.attribute("id")
-          # child_url = (child_id.nil? ? "" : ("tufts:" + child_id.text))
+        next unless ["persame", "corpname", "famname", "subject", "geogname", "genreform", "title"].include?(childname)
+        child_text = element_child.text
+        # child_id = element_child.attribute("id")
+        # child_url = (child_id.nil? ? "" : ("tufts:" + child_id.text))
+        next if child_text.empty?
+        search_path = Rails.application.routes.url_helpers.search_catalog_path(q: child_text, search_field: search_field_for(childname))
+        search_tag = '<a data-turbolinks="false" href="' + search_path + '">' + child_text + '</a>'
 
-          unless child_text.empty?
-            search_path = Rails.application.routes.url_helpers.search_catalog_path(q: child_text, search_field: search_field_for(childname))
-            search_tag = '<a data-turbolinks="false" href="' + search_path + '">' + child_text + '</a>'
-
-            if ["persname", "corpname", "famname"].include?(childname)
-              # ingested = false
-              # ingested, f4_id = PidMethods.ingested?(child_url) unless child_url.empty?
-              # related_names << (ingested ? '<a data-turbolinks="false" href="' + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') + child_text + (ingested ? '</a>' : '')
-              related_names << search_tag
-            else
-              subjects_genres << search_tag
-            end
-          end
+        if ["persname", "corpname", "famname"].include?(childname)
+          # ingested = false
+          # ingested, f4_id = PidMethods.ingested?(child_url) unless child_url.empty?
+          # related_names << (ingested ? '<a data-turbolinks="false" href="' + Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') + child_text + (ingested ? '</a>' : '')
+          related_names << search_tag
+        else
+          subjects_genres << search_tag
         end
       end
     end
@@ -788,26 +785,23 @@ module EadsHelper
           element_child.element_children.each do |element_grandchild|
             grandchildname = element_grandchild.name
 
-            if ["persname", "corpname", "famname", "subject", "geogname", "genreform", "title"].include?(grandchildname)
-              grandchild_text = element_grandchild.text
-              # grandchild_id = element_grandchild.attribute("id")
-              # grandchild_url = (grandchild_id.nil? ? "" : "tufts:" + grandchild_id.text)
+            next unless ["persname", "corpname", "famname", "subject", "geogname", "genreform", "title"].include?(grandchildname)
+            grandchild_text = element_grandchild.text
+            # grandchild_id = element_grandchild.attribute("id")
+            # grandchild_url = (grandchild_id.nil? ? "" : "tufts:" + grandchild_id.text)
+            next if grandchild_text.empty?
+            search_path = Rails.application.routes.url_helpers.search_catalog_path(q: grandchild_text, search_field: search_field_for(grandchildname))
+            search_tag = '<a data-turbolinks="false" href="' + search_path + '">' + grandchild_text + '</a>'
 
-              unless grandchild_text.empty?
-                search_path = Rails.application.routes.url_helpers.search_catalog_path(q: grandchild_text, search_field: search_field_for(grandchildname))
-                search_tag = '<a data-turbolinks="false" href="' + search_path + '">' + grandchild_text + '</a>'
-
-                if ["persname", "corpname", "famname"].include?(grandchildname)
-                  # ingested = false
-                  # ingested, f4_id = PidMethods.ingested?(grandchild_url) unless grandchild_url.empty?
-                  # series_related_names << (ingested ? '<a data-turbolinks="false" href="' +
-                  #   Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') +
-                  #   grandchild_text + (ingested ? '</a>' : '')
-                  series_related_names << search_tag
-                else
-                  series_subjects_genres << search_tag
-                end
-              end
+            if ["persname", "corpname", "famname"].include?(grandchildname)
+              # ingested = false
+              # ingested, f4_id = PidMethods.ingested?(grandchild_url) unless grandchild_url.empty?
+              # series_related_names << (ingested ? '<a data-turbolinks="false" href="' +
+              #   Rails.application.routes.url_helpers.hyrax_rcr_path(f4_id) + '">' : '') +
+              #   grandchild_text + (ingested ? '</a>' : '')
+              series_related_names << search_tag
+            else
+              series_subjects_genres << search_tag
             end
           end
         end
