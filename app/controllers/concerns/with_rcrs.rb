@@ -14,14 +14,14 @@ module WithRcrs
       return unless @document_fedora.instance_of?(Rcr)
 
       file_sets = @document_fedora.file_sets
-      if file_sets.present?
-        file_set = file_sets.first
-        original_file = file_set.original_file
-        unless original_file.nil?
-          original_content = original_file.content
-          @document_rcr = Datastreams::Rcr.from_xml(original_content) unless original_content.nil?
-        end
-      end
+      return if file_sets.blank?
+
+      file_set = file_sets.first
+      original_file = file_set.original_file
+      return if original_file.nil?
+
+      original_content = original_file.content
+      @document_rcr = Datastreams::Rcr.from_xml(original_content) unless original_content.nil?
     end
   end
 end
