@@ -75,25 +75,11 @@ RSpec/ExampleLength:
   Exclude:
     - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
-RSpec/InstanceVariable: # this one
+RSpec/InstanceVariable:
   Exclude:
     - spec/features/search_results_spec.rb
-RSpec/MessageSpies:
-  Enabled: false
 RSpec/MultipleExpectations:
-  Exclude:
-    - spec/features/**/*
-    - spec/jobs/**/*
-    - spec/services/**/*
-RSpec/NestedGroups:
-  Max: 4
-RSpec/VerifiedDoubles:
-  Exclude:
-    - spec/models/**/*
-Naming/FileName:
-  Exclude:
-    - "**/Gemfile"
-    - "**/*.rake"
+  Enabled: false
 Style/GuardClause:
   Exclude:
     - app/controllers/concerns/with_rcrs.rb
