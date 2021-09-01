@@ -8,9 +8,19 @@ module TranscriptsHelper
       participant_number += 1
       result << "        <div class=\"participant_row\" id=\"participant" + participant_number.to_s + "\">\n"
       result << "          <div class=\"participant_id\">" + (participant.initials.nil? ? "" : participant.initials) + "</div>\n"
-      result << "          <div class=\"participant_name\">" + participant.name + "<span class=\"participant_role\">" +
-                (participant.role.nil? ? "" : ", " + participant.role) +
-                (participant.gender.empty? ? "" : " (" + (participant.gender == "f" ? "female" : (participant.gender == "m" ? "male" : participant.gender)) + ")") + "</span></div>\n"
+      result << "          <div class=\"participant_name\">" + participant.name + "<span class=\"participant_role\">"
+      result << participant.role.nil? ? "" : ", " + participant.role
+      if participant.gender.present?
+        result << case participant.gender
+                  when 'f'
+                    ' (female)'
+                  when 'm'
+                    ' (male)'
+                  else
+                    " (#{participant.gender})"
+                  end
+      end
+      result << "</span></div>\n"
       result << "        </div> <!-- participant_row -->\n"
     end
 
@@ -28,7 +38,6 @@ module TranscriptsHelper
   def self.get_time_table(tei)
     chunks = TranscriptChunk.parse(tei)
     table = extract_time_table(chunks)
-
     table
   end
 

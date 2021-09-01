@@ -56,6 +56,7 @@ Metrics/ModuleLength:
   Exclude:
     - app/helpers/eads_helper.rb
     - app/helpers/hyrax_helper.rb
+    - app/helpers/transcripts_helper.rb
     - lib/tufts/tei_parser.rb
 Metrics/PerceivedComplexity:
   Exclude:
@@ -83,7 +84,6 @@ RSpec/MultipleExpectations:
 Style/NestedTernaryOperator:
   Exclude:
     - app/helpers/eads_helper.rb
-    - app/helpers/transcripts_helper.rb
 Style/Next:
   Exclude:
     - app/helpers/eads_helper.rb
