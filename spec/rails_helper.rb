@@ -110,15 +110,13 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
-  # rubocop:disable RSpec/HookArgument
-  config.before(:each) do
+  config.before do
     DatabaseCleaner.start
   end
 
-  config.after(:each) do
+  config.after do
     DatabaseCleaner.clean
   end
-  # rubocop:enable RSpec/HookArgument
 
   config.after(:suite) do
     stop_ldap

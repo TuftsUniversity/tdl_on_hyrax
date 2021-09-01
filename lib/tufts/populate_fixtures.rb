@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# rubocop:disable Rails/Output
 module Tufts
   class PopulateFixtures
     def self.singular_terms
@@ -63,7 +62,7 @@ module Tufts
     end
 
     def create_fixtures
-      puts "\n\nBeginning fixture creation."
+      Rails.logger.info "\n\nBeginning fixture creation."
       @seed_data.each_key do |pid|
         find_or_create_object(pid, @seed_data[pid])
       end
@@ -91,8 +90,8 @@ module Tufts
     # @param [String] pid
     # @return [ActiveFedora::Base]
     def create_object(pid, metadata)
-      puts "\n\nCreating #{pid} with metadata:"
-      puts metadata.inspect
+      Rails.logger.info "\n\nCreating #{pid} with metadata:"
+      Rails.logger.info metadata.inspect
       GC.start
       admin_set = AdminSet.find(AdminSet::DEFAULT_ID)
       case metadata[:model]
@@ -126,7 +125,7 @@ module Tufts
 
       # create actor to attach fileset to object
       actor = Hyrax::Actors::FileSetActor.new(file_set, @user)
-      puts "-- Attaching File #{metadata[:file]} to FileSet."
+      Rails.logger.info "-- Attaching File #{metadata[:file]} to FileSet."
       tries = 3
       begin
         path = Rails.root.join('spec', metadata[:file])
@@ -138,7 +137,7 @@ module Tufts
       rescue Ldp::Conflict
         tries -= 1
         if tries > 0 # rubocop:disable Style/NumericPredicate
-          puts "-- Failed attaching File, trying again."
+          Rails.logger.info '-- Failed attaching File, trying again.'
           sleep(5.seconds)
           retry
         else
@@ -164,20 +163,20 @@ module Tufts
       #        object.member_of_collections = collection
       #      end
 
-      puts "-- Saving object"
+      Rails.logger.info '-- Saving object'
       object.save!
 
       # create dervivatives
       object.reload
       file_set.reload
-      puts "-- Creating derivs"
+      Rails.logger.info '-- Creating derivs'
       tries = 3
       begin
         CreateDerivativesJob.perform_now(file_set, file_set.public_send(:original_file).id)
       rescue NoMethodError
         tries -= 1
         if tries > 0 # rubocop:disable Style/NumericPredicate
-          puts "-- Failed creating derivs, trying again."
+          Rails.logger.info '-- Failed creating derivs, trying again.'
           sleep(5.seconds)
           retry
         else
@@ -185,7 +184,7 @@ module Tufts
         end
       end
       # save and return object
-      puts "-- Fixture creation successful\n"
+      Rails.logger.info "-- Fixture creation successful\n"
       object
     end
 
@@ -320,4 +319,3 @@ module Tufts
     ].freeze
   end
 end
-# rubocop:enable Rails/Output
