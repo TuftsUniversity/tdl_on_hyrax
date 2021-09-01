@@ -65,10 +65,12 @@ Metrics/PerceivedComplexity:
     - lib/tufts/populate_fixtures.rb
     - lib/tufts/tei_parser.rb
     - lib/tufts/tei_toc.rb
-Rails/UnknownEnv: #disabled temporarily, as rubocop is having an issue with this cop
-  Exclude:
-    - app/controllers/catalog_controller.rb
-    - config/initializers/riiif.rb
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - stage
 RSpec/ExampleLength:
   Exclude:
     - spec/features/ead_spec.rb
