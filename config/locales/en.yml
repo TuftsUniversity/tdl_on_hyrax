@@ -23,21 +23,35 @@ en:
   simple_form: # All these labels are for the IIIF Manifest, used by Spotlight.
     labels:
       defaults:
-        publisher: "Publisher"
-        date: "Date"
-        subject: "Subject"
-        type: "Type"
-        format_label: "Format"
-        rights_statement: "Rights"
-        corporate_name: "Corporation"
-        geog_name: "Area of Interest"
-        bibliographic_citation: "Citation"
-        identifier: "Permanent URL"
+        publisher: 'Publisher'
+        date: 'Date'
+        subject: 'Subject'
+        type: 'Type'
+        format_label: 'Format'
+        rights_statement: 'Rights'
+        corporate_name: 'Corporation'
+        geog_name: 'Area of Interest'
+        bibliographic_citation: 'Citation'
+        identifier: 'Permanent URL'
 
   tufts:
     search:
       option:
-        keyword: "Keyword"
-        title: "Title"
-        creator: "Creator/Author"
-        subject: "Subject"
+        keyword: 'Keyword'
+        title: 'Title'
+        creator: 'Creator/Author'
+        subject: 'Subject'
+    contact_form:
+      header: 'Contact'
+      welcome: 'The Tufts Digital Library welcomes and encourages your questions, comments, and feedback. Please
+                use the form below to get in touch with us. A staff member will reply to your message as soon as
+                possible, usually within 5 business days.'
+      support_text_1: 'We also provide '
+      support_link_1: 'research help including reference, requests for image reproduction, and
+                      access to the non-digital collections'
+      support_text_2: ' and support in '
+      support_link_2: 'copyright, open access, and publishing.'
+      accessibility_header: 'Accessibility'
+      accessibility_text: 'We are committed to ensuring that everyone can benefit fully from the resources made
+                          available in the Tufts Digital Library. If you have questions or concerns about access to
+                          material, please contact us.'
