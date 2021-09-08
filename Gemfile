@@ -86,7 +86,7 @@ group :development, :test do
   gem 'bixby'
   gem 'capybara'
   gem 'fcrepo_wrapper'
-  gem 'rubocop', require: false  
+  gem 'rubocop', require: false
 end
 
 group :test do
@@ -95,7 +95,7 @@ group :test do
   gem 'ffaker'
   gem 'ladle'
   gem 'simplecov'
-  gem 'simplecov-lcov', '~> 0.8.0'  
+  gem 'simplecov-lcov', '~> 0.8.0'
 end
 
 gem 'high_voltage', '~> 3.0.0'
