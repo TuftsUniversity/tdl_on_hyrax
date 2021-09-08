@@ -40,7 +40,8 @@ public/sitemap*
 coverage/
 
 # ruby env
-#.ruby-*
+.ruby-gemset
+
 
 .versions.conf
 fits.log
