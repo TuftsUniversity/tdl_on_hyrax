@@ -99,6 +99,14 @@ jobs:
     - name: Compile assets
       run: |
         bundle exec rails assets:precompile &> /dev/null
+    - name: Create admin set
+      run: bundle exec rake hyrax:default_admin_set:create
+      env:
+        RAILS_ENV: test        
+    - name: Create admin set
+      run: bundle exec rake tufts:fixtures:refresh
+      env:
+        RAILS_ENV: test        
     - name: Run tests
       run: bundle exec rake spec
       env:
