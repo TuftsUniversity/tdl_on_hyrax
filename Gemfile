@@ -40,7 +40,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'blacklight_advanced_search'
 gem 'blacklight_oai_provider'
 gem 'blacklight_range_limit', '~> 6.3', '>= 6.3.2'
-gem 'coveralls_reborn', '~> 0.22.0', require: false
 gem 'devise_ldap_authenticatable'
 gem 'easy_logging'
 gem 'hydra-role-management'
@@ -87,7 +86,7 @@ group :development, :test do
   gem 'bixby'
   gem 'capybara'
   gem 'fcrepo_wrapper'
-  gem 'rubocop', require: false
+  gem 'rubocop', require: false  
 end
 
 group :test do
@@ -95,6 +94,8 @@ group :test do
   gem 'factory_bot_rails'
   gem 'ffaker'
   gem 'ladle'
+  gem 'simplecov'
+  gem 'simplecov-lcov', '~> 0.8.0'  
 end
 
 gem 'high_voltage', '~> 3.0.0'
