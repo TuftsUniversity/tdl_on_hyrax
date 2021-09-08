@@ -15,10 +15,6 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 #
-if ENV['CI'] || ENV['COVERAGE']
-  require 'coveralls'
-  Coveralls.wear!
-end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
