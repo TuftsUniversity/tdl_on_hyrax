@@ -19,7 +19,7 @@ module WithTranscripts
 
       file_sets.each do |file_set|
         next unless valid_file_type?(file_set.original_file)
-        define_file_settings(file_set.original_file)
+        define_file_settings(file_set.original_file, file_set.id)
         break
       end
     end
@@ -28,13 +28,13 @@ module WithTranscripts
       file.present? && (file.mime_type == 'text/xml' || file.mime_type == 'text/plain')
     end
 
-    def define_file_settings(file)
+    def define_file_settings(file, file_set_id)
       if file.mime_type == "text/xml"
         @document_tei = Datastreams::Tei.from_xml(file.content)
         @document_tei&.ng_xml&.remove_namespaces!
       elsif file.mime_type == "text/plain"
         @has_srt = true
-        @srt_id = file_set.id
+        @srt_id = file_set_id
       end
     end
   end
