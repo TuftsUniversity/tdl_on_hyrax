@@ -14,7 +14,7 @@
     <%= render '/masthead' %>
     <% if(on_homepage) %>
       <div class="homepage-banner">
-        <%= image_tag('banner', class: 'banner-image') %>
+        <%= image_tag(random_banner, class: 'banner-image') %>
       </div>
     <% else %>
       <%= render '/searchbar' %>
