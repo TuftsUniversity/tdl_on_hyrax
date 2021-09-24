@@ -29,6 +29,9 @@ Metrics/BlockNesting:
   Exclude:
     - app/helpers/eads_helper.rb
     - lib/tufts/tei_parser.rb
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - app/helpers/transcripts_helper.rb
 Metrics/ClassLength:
   Exclude:
     - app/controllers/catalog_controller.rb
