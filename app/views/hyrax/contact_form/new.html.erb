@@ -1,3 +1,5 @@
+<% referral_url = params['item_referral'].present? ? request.base_url + CGI.unescape(params['item_referral']) : '' %>
+
 <h1><%= t('tufts.contact_form.header') %></h1>
 <p><%= t('tufts.contact_form.welcome') %></p>
 
@@ -30,7 +32,7 @@
 
   <div class="form-group">
     <p>Is your message about a specific item in the digital library? If so, please include the link here:</p>
-    <%= f.text_field :subject, rows: 4, class: 'form-control', required: false %>
+    <%= f.text_field :subject, rows: 4, class: 'form-control', required: false, value: referral_url %>
   </div>
 
   <%= f.submit value: t('hyrax.contact_form.button_label'), class: "btn btn-primary" %>

@@ -25,7 +25,7 @@
 
     <div class="masthead-nav lower">
       <ul>
-        <li><%= link_to 'Contact', hyrax.contact_path %></li>
+        <li><%= link_to 'Contact', hyrax.contact_path + contact_with_url(controller_name, action_name) %></li>
         <li><%= link_to 'About', hyrax.about_url %></li>
       </ul>
     </div>
