@@ -29,7 +29,7 @@ module Tufts
         end
 
         toc_result +=
-          TOC_PREDICATE \
+          TOC_PREDICATE +
           "<a class='collapse_tei_td' href='/teiviewer/" \
           'parent' \
           '/' +
