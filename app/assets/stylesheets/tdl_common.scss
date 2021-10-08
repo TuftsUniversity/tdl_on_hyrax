@@ -108,7 +108,7 @@ header {
     color: white;
     font-weight: bold;
     font-size: 35px;
-    font-family: "Meta Serif", Serif;
+    font-family: "Meta Serif", serif;
     opacity: 0.92;
   }
 }
@@ -328,19 +328,9 @@ input, textarea {
 /* ---------------------
  * Homepage
  * -------------------- */
-.featured-exhibits {
-  margin: 0 auto;
-  width: 75%;
-
-  li {
-    width: 212px;
-    padding-right: 1em;
-  }
-}
-
 .homepage-text {
   font-size: 22px;
-  font-family: "Meta Serif", Serif;
+  font-family: "Meta Serif", serif;
   width: 1000px;
   max-width: 90%;
   text-align: center;
@@ -368,6 +358,31 @@ input, textarea {
   }
 }
 
+/* ---------------------
+ * Featured Collections
+ * -------------------- */
+.featured_collections_header {
+  font-size: 2em;
+  font-family: "Meta Serif", serif;
+  margin: 3em 0 1.5em 0;
+  text-align: center;
+}
+
+.featured_collection {
+  padding: 0 50px 30px 50px;
+
+  .collection_title {
+    font-size: 1.25em;
+    font-family: "Meta Serif", serif;
+    text-align: center;
+    color: $tufts_blue;
+    font-weight: bold;
+  }
+
+  img {
+    width: 100%;
+  }
+}
 
 /* ----------------------
  * Shopping cart glph faces wrong

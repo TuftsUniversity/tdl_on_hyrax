@@ -1,57 +1,20 @@
-<div class="featured-exhibits">
-  <h2>Explore Featured Exhibits & Collections</h2>
-  <ul class="thumbnails">
-    <li>
-      <div class="featured-collection thumbnail">
-        <a href="/pages/tufts_local_history"><%= image_tag('featured_collections/aloneintheeast-tuhome.jpg') %></a>
-        <div class="caption">
-          <a href="/pages/tufts_local_history"><h5>Tufts and local history</h5></a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="featured-collection thumbnail">
-        <a href="/pages/e_scholarship"><%= image_tag('featured_collections/escholar-tuhome.jpg') %></a>
-        <div class="caption">
-          <a href="/pages/e_scholarship"><h5>E-scholarship</h5></a>
-        </div>
-      </div>
-    </li>
+<h2 class="featured_collections_header">Featured Collections</h2>
+<div class="featured_collections container">
+<% count = 0 %>
+<% featured_collections&.each do |c| %>
+  <% if [0,3,6,9].include?(count) %>
+    <div class="row g-10">
+  <% end %>
+      <div class="featured_collection col-md-4">
 
-    <li>
-      <div class="featured-collection thumbnail">
-        <a href="/pages/murrow_collection"><%= image_tag('featured_collections/murrow-tuhome.jpg') %></a>
-        <div class="caption">
-          <a href="/pages/murrow_collection"><h5>Edward R. Murrow collection</h5></a>
-        </div>
+        <a href="<%=c[:link] %>">
+          <%= image_tag("featured_collections/#{c[:image]}", alt: c[:alt]) %>
+          <div class="collection_title"><%=c[:title]%></div>
+        </a>
       </div>
-    </li>
-
-    <li>
-      <div class="featured-collection thumbnail">
-        <a href="/pages/tnemc"><%= image_tag('featured_collections/tnemc-homepage.jpg') %></a>
-        <div class="caption">
-          <a href="/pages/tnemc"><h5>Historical New England Medical Center Archives</h5></a>
-
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="featured-collection thumbnail">
-        <a href="/pages/a_new_nation_votes"><%= image_tag('featured_collections/election-homepage.png') %></a>
-        <div class="caption">
-          <a href="/pages/a_new_nation_votes"><h5>A New Nation Votes</h5></a>
-
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="featured-collection thumbnail">
-        <a href="/pages/dagomba_dance_drumming"><%= image_tag('featured_collections/drummers-tuhome.jpg') %></a>
-        <div class="caption">
-          <a href="/pages/dagomba_dance_drumming"><h5>Dagomba Dance Drumming</h5></a>
-        </div>
-      </div>
-    </li>
-  </ul>
+  <% if [2,5,8,11].include?(count) %>
+    </div>
+  <% end %>
+  <% count += 1 %>
+<% end %>
 </div>
