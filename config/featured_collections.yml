@@ -1,25 +1,37 @@
 ---
 -
-  title: Fake Title 1
+  title: A Hopeful Mother and Her Children
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile1.jpeg
+  image: tile2.jpeg
+  link: /catalog
+  alt: A Hopeful Mother and Her Children
 -
-  title: Fake Title 2
+  title: Check Out Those Stars
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile1.jpeg
+  image: tile2.jpeg
+  link: /catalog
+  alt: Check Out Those Stars
 -
-  title: Fake Title 3
+  title: Is It Raining?
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile1.jpeg
+  image: tile2.jpeg
+  link: /catalog
+  alt: Is It Raining?
 -
-  title: Fake Title 4
+  title: The Bluest Sky
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile1.jpeg
+  image: tile2.jpeg
+  link: /catalog
+  alt: The Bluest Sky
 -
-  title: Fake Title 5
+  title: Danny is Tired and Hungry
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile1.jpeg
+  image: tile2.jpeg
+  link: /catalog
+  alt: Danny is Tired and Hungry
 -
-  title: Fake Title 6
+  title: Suzy Got a New, Red Skirt
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile1.jpeg
+  image: tile2.jpeg
+  link: /catalog
+  alt: Suzy Got a New, Red Skirt
