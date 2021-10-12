@@ -235,7 +235,7 @@ header nav {
 
 .main_content_area {
   background-color: #FFFFFF;
-  padding: $main_padding;
+  padding: 20px;
 }
 
 .main-header {
@@ -366,6 +366,10 @@ input, textarea {
   font-family: "Meta Serif", serif;
   margin: 3em 0 1.5em 0;
   text-align: center;
+}
+
+.featured_collections {
+  width: 100%;
 }
 
 .featured_collection {
