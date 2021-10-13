@@ -375,6 +375,10 @@ input, textarea {
 .featured_collection {
   padding: 0 50px 30px 50px;
 
+  .flipper {
+    position: relative;
+  }
+
   .collection_title {
     font-size: 1.25em;
     font-family: "Meta Serif", serif;
@@ -385,6 +389,10 @@ input, textarea {
 
   img {
     width: 100%;
+  }
+
+  .card_front, .card_front {
+    position: absolute;
   }
 }
 
