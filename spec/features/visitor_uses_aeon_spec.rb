@@ -49,7 +49,7 @@ feature 'Visitor goes to homepage' do
     visit '/concern/eads/aspace_ms999/fa/aspace_5fc68062788bbf01180b4812d1d5d5cf'
     click_link "Add to List"
     click_link 'My List'
-    page.find_button("Remove all Items from List").trigger('click')
+    click_button('Remove all Items from List')
     expect(page).to have_text "Your List is empty!"
   end
 end

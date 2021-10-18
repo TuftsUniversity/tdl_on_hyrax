@@ -24,11 +24,8 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
-require 'capybara/rails'
-require 'capybara/rspec'
-require 'capybara/poltergeist'
-require 'selenium-webdriver'
 require 'active_fedora/cleaner'
+require 'webdrivers/chromedriver'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -45,34 +42,21 @@ require 'active_fedora/cleaner'
 # require only the support files necessary.
 #
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
-#
-# Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-# Adding the below to deal with random Capybara-related timeouts in CI.
-# Found in this thread: https://github.com/teampoltergeist/poltergeist/issues/375
-poltergeist_options = {
-  js_errors: false,
-  timeout: 30,
-  logger: false,
-  debug: false,
-  phantomjs_logger: StringIO.new,
-  phantomjs_options: [
-    '--load-images=no',
-    '--ignore-ssl-errors=yes'
-  ]
-}
 
-Capybara.register_driver(:poltergeist) do |app|
-  Capybara::Poltergeist::Driver.new(app, poltergeist_options)
+# Adding chromedriver for js testing.
+Capybara.register_driver :headless_chrome do |app|
+  browser_options = ::Selenium::WebDriver::Chrome::Options.new
+  browser_options.headless!
+  browser_options.args << '--window-size=1920,1080'
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
 end
 
 # For debugging JS tests - some tests involving mouse movements require headless mode.
 Capybara.register_driver :chrome do |app|
-  profile = Selenium::WebDriver::Chrome::Profile.new
-  profile['extensions.password_manager_enabled'] = false
-  Capybara::Selenium::Driver.new(app, browser: :chrome, profile: profile)
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-Capybara.javascript_driver = :poltergeist
+Capybara.javascript_driver = :headless_chrome
 
 Capybara.default_max_wait_time = 10
 # Checks for pending migration and applies them before tests are run.
