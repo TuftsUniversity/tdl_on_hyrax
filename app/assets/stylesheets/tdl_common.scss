@@ -374,25 +374,50 @@ input, textarea {
 
 .featured_collection {
   padding: 0 50px 30px 50px;
+  perspective: 1000px;
+
+  text-align: center;
+  font-family: "Meta Serif", serif;
+
 
   .flipper {
     position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  &:hover .flipper {
+    transform: rotateY(180deg);
   }
 
   .collection_title {
     font-size: 1.25em;
-    font-family: "Meta Serif", serif;
-    text-align: center;
     color: $tufts_blue;
-    font-weight: bold;
   }
 
   img {
     width: 100%;
   }
 
-  .card_front, .card_front {
+  .card_front, .card_back {
+    width: 100%;
+    height: 100%;
     position: absolute;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+
+  .card_back {
+    padding: 1.25em;
+    background-color: #fff;
+    border: 1px solid #000; /* Fallback if rgba isn't supported */
+    border: 1px solid rgba(0, 0, 0, .25);
+    transform: rotateY(180deg);
+  }
+
+  .btn-primary {
+    background-color: $tufts-blue;
+    margin-top: 2.5em;
   }
 }
 
