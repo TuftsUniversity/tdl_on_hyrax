@@ -421,6 +421,11 @@ input, textarea {
   }
 }
 
+@media (max-width: 1200px) and (min-width: 992px) {
+  .card_back {
+    font-size: .8em;
+  }
+}
 /* ----------------------
  * Shopping cart glph faces wrong
  * direction in this bootstrap verson
