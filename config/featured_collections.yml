@@ -5,21 +5,21 @@
   image: SubmitYourWork.jpg
   alt: B&W photo of male student at chalkboard solving an equation
   link: https://mira.lib.tufts.edu/contribute
-  link_text: 'Deposit your work'
+  link_text: Deposit your work
 -
   title: Tufts theses & dissertations
   description: Senior honors theses, masters theses, and PhD dissertations written by Tufts students. Visit our Help page for more information about what you’ll find here in the TDL.
   image: Theses.jpg
   alt: A chemistry lab notebook stuffed with papers, open to a page of yellow graph paper with notes
   link: https://dl.tufts.edu/catalog?utf8=%E2%9C%93&search_field=all_fields&q=%22Tufts+University+electronic+theses+and+dissertations.%22
-  link_text: 'Visit Collection'
+  link_text: Visit Collection
 -
   title: Featured item
   description: A featured item chosen randomly from a set of identified objects
   image: tile2.jpeg
-  alt: 'Visit us'
+  alt: Visit us
   link: /catalog
-  link_text: 'Visit the featured item'
+  link_text: Visit the featured item
 -
   title: Tufts Publications
   description: Browse and search Tufts publications, including newspapers, yearbooks, and student publications.
@@ -33,17 +33,17 @@
   image: FacultyScholarship.jpg
   alt: Rows of books with maroon covers on a library sheld
   link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Faculty+Scholarship
-  link_text: 'Visit Collection'
+  link_text: Visit Collection
 -
   title: Books and manuscripts
   description: Digitized books & manuscripts from the Tufts Libraries collections.
   image: BooksManuscripts.jpg
   alt: Cover of The Hanging of the Crane by Henry W. Longfellow. Green cover with gold and black accents.
   link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Digitized+Books+%26+Manuscripts
-  link_text: 'Visit Collection'
+  link_text: Visit Collection
 -
   title: Archives at Tufts
-  description: Archives at Tufts contains all finding aids for Digital Collections and Archives at Tufts University. Finding aids describe the creation, content, context, and arrangement of archival materials, allowing users to identify and request materials relevant to their research. Use Archives at Tufts to browse, explore, and discover Tufts’ extraordinary collections of primary sources.
+  description: Archives at Tufts contains all finding aids for Digital Collections and Archives at Tufts University. Visit Archives at Tufts to browse and discover Tufts’ extraordinary collections of primary sources and to request material relevant to your research.
   image: ArchivesAtTufts.jpg
   alt: A screenshot of the Archives at Tufts page.
   link: https://archives.tufts.edu/
