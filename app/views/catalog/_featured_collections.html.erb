@@ -13,7 +13,11 @@
           </div>
           <div class="card_back">
             <p><%=c[:description] %></p>
-            <a class="btn btn-primary" href="<%=c[:link]%>" role="button">Visit Collection</a>
+            <a class="btn btn-primary"
+               href="<%=c[:link]%>"
+               role="button"
+               <%= 'target="_blank"' if c[:link].starts_with?('http') %>
+            ><%=c[:link_text]%></a>
           </div>
         </div>
       </div>

@@ -1,37 +1,64 @@
 ---
 -
-  title: A Hopeful Mother and Her Children
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile2.jpeg
-  link: /catalog
-  alt: A Hopeful Mother and Her Children
+  title: Submit your work
+  description: Tufts students, faculty, and staff can self-deposit a variety of published and unpublished work in pdf format into the Tufts Digital Library, including senior honors theses & other capstone projects, articles & book chapters, conference presentations, and more.
+  image: SubmitYourWork.jpg
+  alt: B&W photo of male student at chalkboard solving an equation
+  link: https://mira.lib.tufts.edu/contribute
+  link_text: 'Deposit your work'
 -
-  title: Check Out Those Stars
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile2.jpeg
-  link: /catalog
-  alt: Check Out Those Stars
+  title: Tufts theses & dissertations
+  description: Senior honors theses, masters theses, and PhD dissertations written by Tufts students. Visit our Help page for more information about what you’ll find here in the TDL.
+  image: Theses.jpg
+  alt: A chemistry lab notebook stuffed with papers, open to a page of yellow graph paper with notes
+  link: https://dl.tufts.edu/catalog?utf8=%E2%9C%93&search_field=all_fields&q=%22Tufts+University+electronic+theses+and+dissertations.%22
+  link_text: 'Visit Collection'
 -
-  title: Is It Raining?
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
+  title: Featured item
+  description: A featured item chosen randomly from a set of identified objects
   image: tile2.jpeg
+  alt: 'Visit us'
   link: /catalog
-  alt: Is It Raining?
+  link_text: 'Visit the featured item'
 -
-  title: The Bluest Sky
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile2.jpeg
+  title: Tufts Publications
+  description: Browse and search Tufts publications, including newspapers, yearbooks, and student publications.
+  image: TuftsPublications.jpg
+  alt: A black and white photograph shows Edward R. Murrow sitting in an easy chair in profile to the camera. He is reading a newspaper.
   link: /catalog
-  alt: The Bluest Sky
+  link_text: View Tufts Publications
 -
-  title: Danny is Tired and Hungry
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile2.jpeg
-  link: /catalog
-  alt: Danny is Tired and Hungry
+  title: Faculty scholarship
+  description: Published and unpublished scholarship created by Tufts faculty members, including articles, books & book chapters, reports, white papers, conference presentations, and more.
+  image: FacultyScholarship.jpg
+  alt: Rows of books with maroon covers on a library sheld
+  link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Faculty+Scholarship
+  link_text: 'Visit Collection'
 -
-  title: Suzy Got a New, Red Skirt
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget tempor diam. Mauris enim massa, vehicula sed orci vitae, aliquam vulputate magna. Sed ex velit, rutrum porttitor turpis non, lacinia pellentesque mauris. Sed in porttitor diam. Nam pharetra convallis fermentum.
-  image: tile2.jpeg
-  link: /catalog
-  alt: Suzy Got a New, Red Skirt
+  title: Books and manuscripts
+  description: Digitized books & manuscripts from the Tufts Libraries collections.
+  image: BooksManuscripts.jpg
+  alt: Cover of The Hanging of the Crane by Henry W. Longfellow. Green cover with gold and black accents.
+  link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Digitized+Books+%26+Manuscripts
+  link_text: 'Visit Collection'
+-
+  title: Archives at Tufts
+  description: Archives at Tufts contains all finding aids for Digital Collections and Archives at Tufts University. Finding aids describe the creation, content, context, and arrangement of archival materials, allowing users to identify and request materials relevant to their research. Use Archives at Tufts to browse, explore, and discover Tufts’ extraordinary collections of primary sources.
+  image: ArchivesAtTufts.jpg
+  alt: A screenshot of the Archives at Tufts page.
+  link: https://archives.tufts.edu/
+  link_text: Visit Archives at Tufts
+-
+  title: Exhibits
+  description: Digital exhibits from Tisch Library and Digital Collections & Archives. Explore exhibits on Tufts Unviersity history, special collections holdings, historic voting records, and much more.
+  image: Exhibits.jpg
+  alt: 1929 stylized map of the Tufts University Medford Campsu drawn in green, gold, red, and blue
+  link: https://exhibits.tufts.edu/
+  link_text: Visit Exhibits
+-
+  title: Images
+  description: Browse and search the wide range of images and photographs in the Tufts Digital Library.
+  image: Images.jpg
+  alt: A balding man stands in an outdoor courtyard, facing the camera. He is wearing a white shirt and khaki pants and is looking into the viewfinder of a camera.
+  link: https://dl.tufts.edu/catalog?f%5Bobject_type_sim%5D%5B%5D=Images
+  link_text: View Images
