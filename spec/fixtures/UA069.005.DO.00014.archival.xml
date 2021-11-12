@@ -1,0 +1,551 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN"
+"http://www.tei-c.org/Guidelines/DTD/tei2.dtd" [
+ <!ENTITY % TEI.prose 'INCLUDE'>
+ <!ENTITY % TEI.names.dates 'INCLUDE'>
+ <!ENTITY % TEI.figures 'INCLUDE'>
+ <!ENTITY % TEI.XML 'INCLUDE'>
+]>
+<TEI.2>
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>High on the Hill</title>
+				<author>Linda J. Dixon, J1963</author>
+				<respStmt>
+					<resp>compiled by:</resp>
+					<name>Traditions Committee for the Tufts Alumni Council</name>
+				</respStmt>
+			</titleStmt>
+			<editionStmt>
+				<edition>
+					<date>2002-01-01</date>
+				</edition>
+			</editionStmt>
+			<extent>72223 bytes</extent>
+			<publicationStmt>
+				<distributor>Tufts University Digital Collections and Archives</distributor>
+				<address>
+					<addrLine>Tufts University</addrLine>
+					<addrLine>35 Professors Row</addrLine>
+					<addrLine>Tisch Library Medford, MA 02155</addrLine>
+				</address>
+				<idno>tufts:central:dca:UA069.005.DO.00014</idno>
+				<availability status="free">
+					<p>This publication is freely available for scholarly or educational use.</p>
+				</availability>
+			</publicationStmt>
+			<notesStmt>
+				<note>This pamphlet-style publication was created to inform incoming students of the history and traditions of the institution in the form of a self-guided tour of the Medford campus.</note>
+			</notesStmt>
+			<sourceDesc>
+				<biblStruct>
+					<monogr>
+						<author>Linda J. Dixon, J1963</author>
+						<title>High on the Hill: Tufts Then and Now</title>
+						<imprint>
+							<pubPlace>Medford, MA</pubPlace>
+							<publisher>Tufts University Alumni Association</publisher>
+							<date>1979</date>
+						</imprint>
+					</monogr>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<samplingDecl>
+				<p>This doucument was created from the 1979 edition of High on the Hill.</p>
+			</samplingDecl>
+			<editorialDecl>
+				<stdVals>
+					<p>Standard date values are given in ISO form: yyyy-mm-dd.</p>
+				</stdVals>
+				<interpretation>
+					<p>Page numbers are marked.</p>
+				</interpretation>
+				<hyphenation eol="none">
+					<p>End of line hyphens have been removed.</p>
+				</hyphenation>
+			</editorialDecl>
+			<classDecl>
+				<taxonomy id="LCSH">
+					<bibl>
+						<title>Library of Congress Subject Headings</title>
+					</bibl>
+				</taxonomy>
+				<taxonomy id="LC">
+					<bibl>
+						<title>Library of Congress</title>
+					</bibl>
+				</taxonomy>
+			</classDecl>
+		</encodingDesc>
+		<profileDesc>
+			<creation>
+				<date>2000-01-01</date>
+			</creation>
+			<langUsage>
+				<language id="en" usage="99">English.</language>
+				<language id="la" usage="1">Latin.</language>
+			</langUsage>
+			<textClass>
+				<keywords scheme="LCSH">
+					<list>
+						<item>Tufts University -- History.</item>
+					</list>
+				</keywords>
+				<classCode scheme="LC">LD 5393</classCode>
+			</textClass>
+		</profileDesc>
+		<revisionDesc>
+			<change>
+				<date>2002-01-02</date>
+				<respStmt>
+					<name>Anne Sauer</name>
+					<resp>admin.</resp>
+				</respStmt>
+				<item>Updated TEI header to reflect new best practices regarding TEI header creation</item>
+			</change>
+			<change>
+				<date>2003-09-29</date>
+				<respStmt>
+					<name>Anne Sauer</name>
+					<resp>admin.</resp>
+				</respStmt>
+				<item>Regularized structural tags to reflect guidelines for basic monographs</item>
+			</change>
+		</revisionDesc>
+	</teiHeader>
+	<text>
+		<front>
+
+		<titlePage>
+		<docTitle>
+		<titlePart type="main">High on the Hill</titlePart>
+		<titlePart type="sub">Tufts Then and Now</titlePart></docTitle>
+		<byline>Compiled by the Traditions Committee for the Tufts University Alumni Council</byline>
+		<docEdition>t Edition -- 1959</docEdition>
+		<docEdition>2nd Edition -- 1963</docEdition>
+		<docEdition>3rd Edition -- 1967 by Marjorie Gott Manning, J40</docEdition>
+		<docEdition>4th Edition -- 1979</docEdition>
+		<docAuthor>By Linda J. Dixon, J63</docAuthor>
+		<docImprint>
+		<publisher>Tufts Alumni Council</publisher>
+		<publisher>Tufts University Alumni Association</publisher>
+		<pubPlace><address><addrLine>Alumni House</addrLine>
+		<addrLine>95 Talbot Avenue</addrLine>
+		<addrLine>Medford, Massachusetts 02155</addrLine></address></pubPlace>
+		<docDate>1979</docDate>
+		</docImprint>
+		</titlePage>
+		
+		<pb n="p.3" id="p.3"/>
+			<div1 type="preface" n="Preface" id="front001">
+				<p>Tufts has always been a special place for me since it was here that I<figure n="tufts:central:dca:UA136:UA136.002.DO.01069"><head> cover</head>
+					</figure>
+					<figure n="tufts:central:dca:UA011:UA011.002.050.00001.00001">
+						<head>Allan D. Callow</head>
+					</figure> had the opportunity to participate in a host of exciting, challenging and stimulating experiences. There was an ambiance about the Tufts I remember which if romanticized is not unlike that of Camelot. Permeating the campus was an atmosphere of civility and friendship. Against this background of mutual trust, commonality of purpose, and desire for excellence, the activities of the university and the aspirations of the members of the college community, students and faculty alike, took place. Today a university campus is less isolated from the affairs of the community at large and the world than was the case a generation ago. As entering freshmen you may quickly perceive commitments among your colleagues to many issues above and beyond the academic, social and athletic activities of the college.</p>
+				<p>Despite these changing times and the multiplicity of human concerns, Tufts has characteristics of its own which set it apart from other universities. You and your classmates, coming from different backgrounds, and with different values and objectives, will react to Tufts in different ways, but react to it you will. This booklet, <title>High on the Hill</title>, will help you to understand Tufts better, its facts, fictions and legends, and the events, personalities and traditions which have shaped its growth. It may provide you with a seed of love for Tufts &#8212; a place and an experience which countless thousands of students have come to know and to nourish.</p>
+				<p>I know you will enjoy this booklet. May you find your place at Tufts and as the years slip by, all too quickly, may you, too, come to cherish Tufts as a very special place. On behalf of the board of trustees, may I extend to each of you our warmest welcome and our best wishes for your success.</p>
+				<signed>Allan D. Callow, M.D.</signed>
+			</div1>
+			<pb n="p.5" id="p.5"/>
+			<div1 type="preface" n="Introduction" id="front002">
+				<head>INTRODUCTION</head>
+				<p>For the past generation, campus tours have been a regular part of Orientation Week in September. Sponsored by the Tufts Alumni Council, each tour is led by an alumnus or alumna accompanied by a Tufts student. Thousands of students, parents, staff and visitors have enjoyed these tours. This booklet, <title>High on the Hill</title>, is your guide as you tour the Medford-Somerville campus.</p>
+				<p>This is the fourth edition of the guide, which was previously called Traditions at Tufts. We wish to express appreciation to all who have helped develop this booklet over the years, in particular to Professor Robert L. Nichols, A26, H78, who originated the idea of the Traditions Tours. Marjorie Gott Manning, J40, wrote and directed the production of the first three editions of this guide. She and Professor Nichols, together with Professor Russell L. Carpenter, A24, H77, Professor Earle F. Littleton, E31 and Alumni Secretary Fred P. Nickless, Jr., A44, G49, have provided continuing support to this enterprise.</p>
+				<p>Those interested in Tufts University - Then and Now - should be aware of the University Archives located on the third floor of Wessell Library. They are supervised by Professor Russell E. Miller, Chairman, Department of History, who is also the university historian and archivist, and Mrs. Barbara J. Burke, Archival Specialist. They provide ready access to Tufts' rich heritage of organized records and files. Among its riches are the more than 20,000 photographs taken by Professor Melvin S. Munro E04 (1881-1945) and the illustrated notebooks assembled by Professor Edwin B. Rollins, E01 (1878-).</p>
+				<p>This new edition of Tufts Tour Guide to the Medford-Somerville campus was undertaken by Linda J. Dixon, J63 while she chaired the Tradition Committee of the Alumni Council. Her enthusiasm, drive and digestive capacity have produced High on the Hill. She was obliged to cope with no small amounts of historical material collected, checked, and fed to her by the undersigned. Katherine E. Dempster, S66, G68, prepared copy for the printer. Ronald J. Milauskas, E62, G66, coordinated the production of the booklet, including the challenging task of selecting a handful of photographs from many thousands of fascinating possibilities.</p>
+				<signed>Robert R Robbins, F35,<lb/> for the Traditions Committee, Tufts Alumni Council</signed>
+			</div1>
+			<pb n="p.6" id="p.6"/>
+			<div1 type="preface" n="School Codes" id="front003">
+				<head>SCHOOL CODES</head>
+				<p>Tufts alumni prior to 1900 are indicated by school and class, viz., "Engineering class of 1887." Those since 1900 are indicated by the following codes:</p>
+				<list>
+					<item>A - Liberal Arts</item>
+					<item>C - Crane (Religion)</item>
+					<item>D - Dental</item>
+					<item>E - Engineering</item>
+					<item>F - Fletcher</item>
+					<item>G - Graduate Arts and Sciences</item>
+					<item>H - Honorary</item>
+					<item>J - Jackson</item>
+					<item>M - Medical</item>
+					<item>S - College of Special Studies</item>
+					<item>W - Women in Arts (Prior to Jackson College)</item>
+				</list>
+			</div1>
+			
+			</front>
+			<body>
+			<pb n="p.7" id="p.7"/>
+			<div1 type="chapter" n="High on the Hill: Tufts Then and Now" id="c1">
+				<head>HIGH ON THE HILL:Tufts Then and Now</head>
+				<p>We are going to take you on an accelerated tour of this campus. In the next hour, we will condense 125 years of Tufts history &#8212; its founding, its buildings, its notable sons and daughters &#8212; to introduce you to your university.</p>
+				<p>Standing here in front of Ballou Hall, we are in the center of our country's remarkable beginnings. Fifty miles to the south is Plymouth Rock, where the Pilgrims landed in 1620. Fifteen miles in the same direction is the city of Quincy, where two of our presidents, John Adams and his son John Quincy Adams, grew to manhood and are buried. Ten miles to the west are Lexington and Concord, where armed resistance to British authority first took place. And just five miles southeast is the city of Boston, with memories of the Boston Massacre, the Boston Tea Party, the Battle of Bunker Hill, and "Old Ironsides," the USS Constitution.</p>
+				<p>When Tufts College was founded in Medford in 1852, there was no Radcliffe, Wellesley, Simmons or Regis, no MIT, Boston University or Boston College, no Northeastern or Brandeis. For in the Greater Boston area only Harvard College is older than Tufts.</p>
+				<p>The hill on which we are standing was called Walnut Hill. In the seventeenth century, it was a heavily wooded upland pasture used by the residents of Charlestown. During the American Revolution, Hessian soldiers stationed in this area cut down many of the trees for firewood. The remaining wood was cut by Medford residents, perhaps for their flourishing shipbuilding industry, and by the time Tufts was founded, the Hill was treeless.</p>
+				<p>Tufts College was chartered by the Commonwealth of Massachusetts in 1852, and the first students were admitted in 1854. Its name came from Charles Tufts, a wealthy merchant and landowner who gave Walnut Hill to the college. When friends asked him what he intended to do with the land, he replied, "I will set a light upon the Hill." The 100-year history of Tufts College from 1852 to 1952, written by Professor Russell E. Miller, is called <title>Light on the Hill</title>. It has been used extensively in the compilation of this guide. <figure n="tufts:central:dca:MS054:MS054.003.DO.02406"><head>West Hall (Circa 1875)</head></figure></p>
+			<pb n="p.8" id="p.8"/>
+			</div1>
+			<div1 type="chapter" n="Oldest Buildings" id="c2">
+				<head>OLDEST BUILDINGS</head>
+				<p>Perhaps the very first light which shone from the Hill came from a kerosene or even whale oil lamp used by some student "burning the midnight oil" in Ballou Hall, then known simply as the College Edifice or College Hall. When Tufts opened its doors, Ballou Hall stood alone on this hilltop. The seven young men who made up the entire student body in 1854 lived, worked and worshipped in this one building which, a half century later, was named for the first president of Tufts College, Hosea Ballou, 2d.</p>
+				<p>Tuition in those days was $35 per year, a room cost $10 a year, and board, which included three meals a day but no laundry or fuel, was $2.50 a week!</p>
+				<p>Immediately after the college was founded, the trustees realized that more space was needed. They doubled their physical plant with the construction of Packard Hall in 1856 as a dormitory for 26 students. Packard was named for Silvanus Packard, an original trustee of the college and one of its most generous benefactors. His initial financial support and his dramatic appeal for funds were crucial to the launching of the new college.</p>
+				<p>In 1857 a second dormitory was built, about where the University Store is now. Within three years, however, the college had outgrown it and converted it to a faculty residence. Today it is a dormitory once again. If you would like to see it, look at the western half of Richardson House on Professors Row. The building was moved to the Row in 1870 and later its original size was doubled.</p>
+				<p>Meanwhile the need for dormitory space was met in 1861 by the erection of East Hall and, in 1872, by the construction of West Hall. The original dormitory, now Packard Hall, was then named Middle Hall because it stood between these two buildings.</p>
+				<p>To augment his sparse library, President Ballou solicited contributions of books from friends and associates. When the collection became sizable enough, the library was moved to larger quarters in Middle Hall until 1908 when Andrew Carnegie donated money for a new library. These old buildings may seem architecturally old-fashioned to us. Yet they were the epitome of all things modern to a boy arriving at Tufts in the early part of this century &#8212; a boy fresh from a Vermont farm or a Cape Cod village &#8212; a boy who had never seen a trolley car or an electric light or a central heating system. Sometimes a sophisticated sophomore would take advantage of such a boy. If a freshman were moving into a room previously occupied by this worldly sophomore, the sophomore would sell him a few textbooks or a piece of furniture. Then, in a flash of inspiration, he might turn to the country boy and make this brilliant proposal. "Say, I was going to take my stove along, but it would really be easier to leave it, if you didn't happen to bring yours with you. I'd be willing to sell mine for, say, five dollars." Often it was a deal.</p>
+			</div1>
+			<div1 type="chapter" n="The Greatest on Earth" id="c3">
+				<head>THE GREATEST ON EARTH</head>
+				<p>Beside Ballou Hall is Barnum Museum, named for P. T. Barnum, an early trustee of Tufts College and donor of the building. P. T. Barnum brought the famous soprano Jenny Lind, "the Swedish Nightingale," to America, and he founded the "Greatest Show on Earth." <figure n="tufts:central:dca:UA136:UA136.002.DO.01778"><head>Jumbo</head>
+					</figure>
+				</p>
+				<p>The central portion of Barnum Hall was destroyed by fire in April, 1975. Sadly, many of the building's contents were irreplaceable. This building housed the largest college mascot in the world. His name even appears in Webster's dictionary. Every Jumbo sandwich, Jumbo sale or Jumbo balloon that you have ever eaten, attended or blown up was named for this Jumbo, the most famous elephant ever held in captivity. In times past, students put pennies in Jumbo's trunk so that they would pass their examinations.</p>
+				<p>Barnum was built in 1883 and sections were added to it in 1894, 1935, 1964 and most recently, in 1979 when it was completely renovated to provide excellent modern facilities for the study of biology.</p>
+			</div1>
+			<pb n="p.9" id="p.9"/>
+			<div1 type="chapter" n="The Quadrangle" id="c4">
+				<head>THE QUADRANGLE</head>
+				<p>On the other side of Packard Avenue is a tree-lined quadrangle with an imposing group of dormitories. At the end of the quadrangle is Carmichael Hall, built in 1954 and named for Leonard Carmichael, A21. After serving as president of Tufts from 1938 to 1952, Dr. Carmichael headed the world-famous Smithsonian Institution in Washington, D.C., and served as vice president for Exploration and Research for the National Geographic Society.</p>
+				<p>The building on the right is Miller Hall. It was named for George Stewart Miller, A06, H41. During his more than fifty years of service, he served as assistant to presidents, professor of government, vice president, acting president, dean of the faculty, and president of the Tufts University Alumni Association. In 1941 Tufts bestowed an honorary degree upon him, and for his lifetime of devotion to Tufts he became known as "Mr. Tufts."</p>
+				<p>Behind Miller Hall is Wren Hall, which commemorates the name of Frank G. Wren, A94, who served for many years as dean of the Liberal Arts School. Dean Wren alone quietly carried out academic and administrative functions now performed by a host of vice presidents and deans.</p>
+				<p>On the left as you face Carmichael Hall is Houston Hall, named for Clarence P. Houston, A14. Professor Houston, known fondly as "Pop" Houston, was the first alumni secretary of Tufts College. He served as director of athletics, legal counsel and professor of commercial law and later as vice president of Tufts. When he and his wife Marian retired to Arizona late in 1961, they gave their home on Talbot Avenue to the university, suggesting that it be used as Alumni House. When you visit this house for various alumni activities, note its fine craftsmanship and design. Craftsmen for its construction were readily available, for it was the only home built in Somerville during 1932, in the middle of the Depression.</p>
+			</div1>
+			<div1 type="chapter" n="The Rez" id="c5">
+				<head>THE REZ</head>
+				<p>If you had come to Tufts a generation or so ago you would have beheld <figure n="tufts:central:dca:UA136:UA136.002.DO.02868"><head>"The Rez" (1880)</head>
+					</figure> a large brick-lined reservoir in this quadrangle. It was built in 1860-63 as 
+					<pb n="p.10" id="p.10"/>
+					an emergency water supply for Charlestown, which had just suffered a disastrous fire. A moonlit stroll around "The Rez," overlooking the panorama of metropolitan Boston, convinced many a young couple that they should walk life's pathway together.</p>
+				<p>When the Rez was leveled in 1947, its brick lining and iron fence were utilized elsewhere on campus. Later in our tour you will see them. Fortunately, some of the enchantment of the Rez has been transferred to the rooftop terraces of the Wessell Library. Go there on a star-studded night and see.</p>
+			</div1>
+			<div1 type="chapter" n="The Fletcher School of Law and Diplomacy" id="c6">
+				<head>THE FLETCHER SCHOOL OF LAW AND DIPLOMACY</head>
+				<p>The attractive brick building on the right as we start down Packard Avenue was originally Goddard Gymnasium (take a good look and remember it when you see the present gymnasium). It was renovated to house The Fletcher School of Law and Diplomacy, which was established at Tufts in 1933 with the cooperation of Harvard University as the first graduate school of international affairs in this country. The Fletcher School has gained stature and influence throughout the world. Students come from every state in the Union and from many foreign countries to prepare for careers in all aspects of international affairs: diplomatic service; foreign affairs agencies; international finance, business, and journalism; and teaching. Since the establishment of The Fletcher School, some 80 of its graduates have risen to the rank of ambassador in the Foreign Service of the United States and the diplomatic service of other countries. Some of these were undergraduates of Tufts as well: The Honorable Malcolm Toon of Medford, A37, F38, H77, U.S. Ambassador to the USSR; The Honorable Edward W. Mulcahy of Malden, A43, F47, U.S. Ambassador to Tunisia; The Honorable Daniel P. Moynihan, BNS46, A48, F49, F61, H68, former U.S. ambassador to India and to the United Nations and now U.S. senator from New York. Women have been enrolled in The Fletcher School from the outset, and hold important assignments in many fields. For example, Dr. Jane W. Harbaugh, J52, F53, F57, is vice chancellor of the University of Tennessee at Chattanooga; Mlle. Colette M. Flesch, F61, is mayor of Luxembourg Ville, member of Parliament of the Grand Duchy of Luxembourg and member of the European Parliament; Karen Hastee Williams, F61, is chief counsel of the Committee on the Budget, U.S. Senate.</p>
+				<p>The Fletcher School of Law and Diplomacy was founded as a result of a bequest by the late Austin Barclay Fletcher, Arts Class of 1876, H1899, a New York lawyer and former chairman of the board of trustees. At its founding, The Fletcher School received a legacy of great value, the library of the World Peace Foundation in Boston. It bears the 
+				<pb n="p.11" id="p.11"/>
+				name of Edwin Ginn, Arts Class of 1862, G1862, H02, who founded the publishing house of Ginn &amp; Company and who donated $1 million to create the World Peace Foundation.</p>
+				<p>As you pause at the head of the tree-lined walk leading to the entrance of The Fletcher School, notice the granite marker etched with "M" and "S" &#8212; the demarcation line between Medford and Somerville. The walkway is in Medford; the line of trees in Somerville. Down this walkway is Mugar Hall, named for Boston philanthropist Stephen P. Mugar. Mugar Hall was joined to Goddard Hall to increase the school's facilities. It contains a faculty lounge and dining room dedicated to Frank G. Wren, Arts Class of 1894, G1897, H39; a Fletcher School dining hall named for the late Roscoe Pound, renowned dean of the Harvard Law School and a founding father of The Fletcher School; and a third dining hall and lounge for students of the Graduate School of Arts and Sciences. Further down the walk is Fletcher Hall, which contains dormitory space and faculty offices.</p>
+				<p>On the opposite side of Packard Avenue from The Fletcher School is the President's House. It was built for President and Mrs. Carmichael in 1939. Since then President and Mrs. Nils Y. Wessell, President and Mrs. Burton C. Hallowell, and President and Mrs. Jean Mayer have lived there.</p>
+			</div1>
+			<div1 type="chapter" n="The Old Campus" id="c7">
+				<head>THE OLD CAMPUS</head>
+				<p>The open area below Goddard Hall, known as the "Old Campus" is not older than the rest of the college, nor is it what we think of as a "campus." It is a <foreign lang="la">campus</foreign> in the ancient Roman sense, "an open place for martial exercise." Here during the Civil and subsequent wars, college students were drilled for military service. But it has been used much more extensively as an athletic field. Here in 1875 Tufts and Harvard played a game, using rules and a ball comparable to those of the modern game of football. It is supposed to have been the first game of football ever played.</p>
+				<p>Professors Row extends along the south side of the Old Campus where several fraternity houses are located. Also in this section of the Row is the University Infirmary which combines the facilities of Hooper House with those of Bartol House on the next street.</p>
+			</div1>
+			<div1 type="chapter" n="The Campus, Somerville Side" id="c8">
+				<head>THE CAMPUS, SOMERVILLE SIDE</head>
+				<p>The house on the right corner of Packard Avenue and Professors Row was built in 1894 for Professor Charles Ernest Fay of the Class of 1868, G1872, H1900, H28. Professor Fay taught at Tufts for 60 long years. One of the eminent alpine mountaineers of his time, he was a founder of the Appalachian Mountain Club and both the American and Canadian Alpine clubs. He was knighted by the Prince of Monaco for his many first ascents in the Canadian Rockies, and the Canadian government named two mountains for him: Mount Fay and Mount Afton, where the "A" stands for his friend Abbott, the "F" for Fay, and the "ton" for his friend Thompson. These three had made the first ascent of Mount Afton. Dr. Fay received an honorary Doctor of Laws degree from Tufts in 1928.</p>
+				<p>The house on the left hand corner of the intersection was built by ship's carpenters from Medford. It is now the home of Kappa Charge of Zeta Psi, founded in 1855, the oldest fraternity on the Hill.</p>
+			</div1>
+			<div1 type="chapter" n="The College Farm" id="c9">
+				<head>THE COLLEGE FARM</head>
+				<p>If you stood here in the 1880s you would have seen only farm and pastureland extending down to Broadway and over to Powderhouse Square. The college owned most of the land and allocated sections of it to faculty members for farming and cattle grazing. One professor kept enough cows to sell 20 quarts of milk each day to faculty families. The college itself operated a good-sized farm and students were able to earn 
+				<pb n="p.12" id="p.12"/>
+				part of their tuition by working there &#8212; a chore probably familiar to most of them. With typical New England thrift, the produce was consumed in the college dining hall.</p>
+				<p>A creek which ran along the bottom of the hill was dammed to create a pond which was called "The Arty," short for artificial. The pond was especially attractive to small frogs, who migrated by the thousands each spring from the slope below Professors Row, across Talbot Avenue and through the open pasture. Their croaking chorus was a familiar sound on a warm spring evening.</p>
+				<p>Eventually the trustees decided that farming operations were unbecoming to a college, and the last cow is reported to have departed in 1893.</p>
+				<p>With the elimination of the college farm, the land was rapidly developed for housing. It was common for members of the administration and faculty to live on the campus; a few still do today.</p>
+			</div1>
+			<div1 type="chapter" n="The Row" id="c10">
+				<head>THE ROW</head>
+				<p>From Professors Row you will notice a double row of elms running up the hillside. Professors Row, bordered by these stately elms, originally curved up the hill at this point. The home of Tufts' first president, Hosea Ballou, stood about where the current president's house stands, but it faced Professors Row. That home was later moved further down where it now stands as No. 20 Professors Row.</p>
+				<p>Continuing along the Row, we arrive at the first women's dormitory, Metcalf Hall, a gift of Alfred Metcalf, H02, of Newton. Built in 1894 of yellow brick and originally ornamented by a tower on the east side, it was soon dubbed "The Bird Cage" by Tuftsmen, who frequently referred to girls as "birds," "canaries" or "quail." A new wing, now called Metcalf West, was added in 1937; the original section is known as Metcalf East.</p>
+				<p>Women were first admitted to Tufts in 1892. The decision to admit them, reached after considerable debate, was not easy. One of the chief arguments against the admission of women to college was that they would not be able to stand the physical and mental strain of college study &#8212; the view of President Eliot of Harvard who was frequently quoted on the subject. Some felt that the presence of the fair sex would weaken the academic standards of the college and threaten the moral fiber of the men students. <figure n="tufts:central:dca:MS054:MS054.003.DO.02457"><head>The "Arty"</head>
+					</figure>
+				</p>
+				<p>Jackson College, established in 1910, takes its name from its original benefactor, Cornelia Maria Jackson. She was a well-educated woman from Providence, Rhode Island with a lifelong conviction that women were entitled to rights and privileges equal to men. She was a 
+				<pb n="p.13" id="p.13"/>
+				champion of women's suffrage as well as higher education for women. Her pastor, the Rev. Dr. Henry W. Rugg, Honorary 1888, a member of the trustees committee that voted to admit women to Tufts, interested her in Tufts. Albert Metcalf was one of her former students. </p>
+				<p>Mrs. Jackson bequeathed a sizable portion of her estate to Tufts to help "remove the disabilities of women" and to provide special instruction in citizenship and government. The trustees of the college complied by establishing the Cornelia M. Jackson Professorship of Political Science in 1898. </p>
+				<p>You have probably noticed the iron fence which encircles most of the campus. It was not erected to keep anything in or out, but to enhance the beauty of the campus. Sections of the fence have been given to the university by various individuals and various classes. John Holmes, A29, one of the foremost poets of his day, was a beloved professor of poetry, English and composition at Tufts for over 30 years. He received an honorary degree from Tufts shortly before his <figure n="tufts:central:dca:MS036:MS036.011.DO.00994"><head>"The Row"</head>
+					</figure> death in 1962. Professors Row inspired his lovely poem <soCalled>Along the Row</soCalled> &#8212; the most popular lines of which are these:<quote lang="en"> <lg type="sonnet"> <l>The bell rang from the Chapel while we walked,</l>
+							<l>Oh, where are autumn days and nights like these!</l>
+							<l>I showed my friend the tower above the Hill,</l>
+							<l>And Capen Path, Ballou between the trees.</l>
+							<l>A gate in the Fence showed faintly in the dusk.</l>
+							<l>In East and West the lights began to shine.</l>
+							<l>A group of men passed by and called, "Hullo &#8212;"</l>
+							<l>My heart sang, and I thought, "My college &#8212; mine!"</l>
+							<l>The Row in autumn twilight! Tall dark trees</l>
+							<l>Leaned kindly over us. We talked of games,</l>
+							<l>But I remembered old familiar friends,</l>
+							<l>And I was silent, thinking of old names.</l>
+							<l>The men who walked the Row before my time</l>
+							<l>Were by my side, good ghosts my thought awoke &#8212;</l>
+							<l>While I must show my friend the tennis court,</l>
+							<l>The newest hall for men, the gym. He spoke:</l>
+							<l>"How you must love this place!" My heart stood still</l>
+							<l>And ached to think how much I love this Hill.</l>
+						</lg>
+					</quote>
+				</p>
+				<pb n="p.14" id="p.14"/>
+				<p>We now come to Latin Way. Most older colleges have a Latin Way, a testimony to the former importance of Latin in their curricula. The home at the corner of Latin Way and Professors Row has been occupied by a number of Tufts notables; in recent years it has been the residence of the provost of the university. From the corner of Latin Way and Talbot Avenue, you can look to the right and see Alumni House, gift to the university of Clarence "Pop" and Marian Houston, about whom we spoke earlier.</p>
+			</div1>
+			<div1 type="chapter" n="Student Residences" id="c11">
+				<head>STUDENT RESIDENCES</head>
+				<p>This sprawling complex of student residences was built originally to house women students. Five residence halls and two dining halls now occupy a large portion of what was formerly a golf course. Hodgdon Hall, completed in 1954, is the oldest building in the complex. It is named for Frederick G. Hodgdon of the Class of 1894, a trustee for many years, who left his considerable fortune to our university. The Hodgdon Gate across the street from Curtis Hall was built in memory of his sister, Georgia Louise Hodgdon, Class of 1891. Tread lightly in the area between College Avenue and Paige Hall, for there close to the Hodgdon Gate are scattered the ashes of Frederick Hodgdon.</p>
+				<p>Bush Hall commemorates the name of Edith Linwood Bush, W03, H42, who for many years was professor of mathematics and dean of Jackson College. Her brother, Vannevar Bush, E13, G13, H32, was a faculty member and later a trustee. This world-renowned scientist ushered in the age of the computer with the invention of the differential analyzer, a device which performed complex mathematical operations. Held in high esteem by President Franklin D. Roosevelt and Prime Minister Winston Churchill for his outstanding service during World War II as director of the Office of Scientific Research and Development, he played a key role in the development of the atomic bomb. The dormitory at the corner of Packard Avenue and Powderhouse Boulevard was named for Leo Rich Lewis, Class of 1887, H22, professor of music for 50 years. A prolific composer, he wrote many Tufts songs, including <title>"Dear Alma Mater."</title> Six generations of his family have been associated with Tufts.</p>
+				<p>Tilton Hall, built in 1962, was named for Dr. John P. Tilton, the first person to hold the position of provost at Tufts. Earlier he had been a professor of education and dean of the Graduate School. Built in 1965, Haskell Hall at the foot of Latin Way was named for Harold Haskell, A06, H44, and his wife, Ruth, W06, G17. Mr. Haskell was elected a life trustee in 1953; Mrs. Haskell served as president of the Association of Tufts Alumnae. The Harold and Ruth Haskell Scholarship constitutes a large portion of the university's scholarship endowment.</p>
+				<p>Dewick Dining Hall, which faces Latin Way, was named for Cora Polk Dewick, Class of 1896, H44, H52, the first woman to be a trustee of Tufts. MacPhie Dining Hall was named for Elmore I. MacPhie, All, and his wife, Etta Phillips MacPhie, W13, H76. Mrs. MacPhie, when her husband died, was elected a life trustee to succeed him on the board. All their lives they were ardent supporters and generous benefactors of Tufts.</p>
+			</div1>
+			<div1 type="chapter" n="Talbot Avenue and Fred Stark Pearson" id="c12">
+				<head>TALBOT AVENUE AND FRED STARK PEARSON</head>
+				<p>Talbot Avenue was named for Newton Talbot, H01, a trustee and from 1868 to 1904 the college treasurer. Sixty-five Talbot Avenue is the home of Paul I. Wren, son of Dean Frank G. Wren and for many years a trustee of Tufts. He, his wife, Alice and his son Paul, Jr., are all Tufts Alumni.</p>
+				<p>The large brick building across the street is the Pearson Memorial Laboratory, a building devoted solely to chemistry. It was named for Fred Stark Pearson of the class of 1883, one of our country's most amazing scientific geniuses during the great period of expansion of the 
+				<pb n="p.15" id="p.15"/>
+				electrical power industry. As an undergraduate at Tufts (while earning part of his expenses as ticket agent at the college railroad station), he invented a solenoid tripping device for railroad signals. Later he designed basic items of equipment in the electric streetcar and power industry. By the time he was 37, his salary was $75,000 per year. He was responsible for the electrification of some of the great cities of the world: Barcelona, Spain; Mexico City, Mexico; Sao Paulo, Brazil. He organized the great hydroelectric installation on the Canadian side of Niagara Falls. At the height of this brilliant career, Pearson died in the sinking of the Lusitania. The German kaiser singled out his name from the list of those lost and expressed regret at the death of so illustrious an engineer.</p>
+				<p>The recent addition to Pearson Laboratory is named for a remarkable scientist, Arthur Michael. He was not a graduate of this or any other college, but he taught chemistry at Tufts from 1881 to 1890 and from 1894 to 1907. As chairman of the Department of Chemistry, he led the department to international renown, and he was one of the first theoretical organic chemists in America. In recognition, Tufts College awarded him three honorary degrees.</p>
+				<p>The building behind Pearson Laboratory was built as a clubhouse for the golf course. It was acquired by Tufts to serve as a gymnasium for the Jackson women, who had been sharing the facilities (on alternate days, of course) of Goddard Gym with the men. Today it houses the Tufts Arena Theater, one of the first arena-type theaters in the country. Although the playhouse itself is unpretentious, it has been the site of many pioneering efforts in theater productions.</p>
+			</div1>
+			<div1 type="chapter" n="Cohen, the Oval and Alumnae Hall" id="c13">
+				<head>COHEN, THE OVAL AND ALUMNAE HALL</head>
+				<p>The Henry Clay Jackson Gymnasium is one of three connected buildings. Completed in 1948, it was a gift from the estate of a conductor on <figure n="tufts:central:dca:UA011:UA011.002.050.00001.00002"><head>Students constructing bleachers (Circa 1920)</head>
+					</figure> the New York, New Haven and Hartford Railroad. The large brick building on the other end is the Cohen Arts Center, opened in 1955, a gift of Boston industrialist Edward E. Cohen, H52. They are joined by the one-story building with the impressive bay window, Alumnae Hall. Great occasions at Tufts often involve all of these buildings.<figure n="tufts:central:dca:UA011:UA011.002.050.00001.00003"><head>The Medford Campus:Principal Buildings and Grounds of Tufts University</head>
+					</figure> 
+				</p>
+				<pb n="p.18" id="p.18"/>
+				<p>Such notables as Dame Judith Anderson have appeared at Cohen in performances of Macbeth and Oedipus Rex. The Fletcher School has brought international statesmen such as Dean Acheson, Paul-Henri Spaak, Senator J. W. Fulbright, Lord Caradon, and others. For ten years, Tufts hosted the Assembly on Massachusetts Government here where leaders in the public and private sectors deliberated on ways to modernize state government. Football games frequently have gatherings before and afterwards at Alumnae Hall. </p>
+				<p>The Ellis Oval, located just behind Cohen, is neither as awe-inspiring as Yale Bowl nor as labyrinthian as Harvard Stadium, but it often bulges with football crowds who are just as enthusiastic and uproarious. Professor Frederick Melvin Ellis, A29, G49, for whom the Oval is named, was known affectionately to generations of Tufts people as "Fish" Ellis. He was Tufts' greatest all-around athlete, winning 11 varsity letters in four major sports and All-New England honors. He joined the Tufts faculty in 1946 as a coach, and in 1954 he became full professor and chairman of the Department of Physical Education. Believing that every able-bodied student should benefit from athletic competition, he developed an extremely popular intramural program. His wife, Dorothea Loughlin Ellis, J31, was until 1978 a member of the staff of the Office of Publications. The two Ellis daughters are both Tufts alumnae, and their husbands are alumni.</p>
+				<p>When referring to the center building, always call it Alumnae (ee) Hall &#8212; never Alumni Hall &#8212; or you will incur the righteous indignation of several thousand women graduates of Tufts. Jackson graduates in 1928 established the Alumnae Hall Fund, and after years of devoted effort, raised the funds which were used to construct this singularly handsome building in 1954.</p>
+				<p>Inside the hall is the Ruth Capen Farmer, W02, Lounge, named for the first president of the Association of Tufts Alumnae. Below this room is the Bella Porter Ransom, W07, Room, named for the guiding light of the Alumnae Hall Fund.</p>
+				<p>The murals in Alumnae Hall are fascinating commentaries on the history of Tufts. They were painted in the ancient and durable medium known as egg tempera. The mural covering the east wall by Nathaniel J. Jacobson depicts Tufts College at the time of its founding. Pictured are the founders of the college - Charles and Hannah Tufts, Hosea Ballou 2d, Silvanus Packard, P. T. Barnum and others. Old Medford, famous for its shipbuilding industry, is in the background. Medford was also famous for the manufacture of Old Medford Rum, although that activity is not shown here.</p>
+				<p>The mural on the opposite wall, by Matthew W. Boyhan, is a reflection of Tufts a century later when Tufts was celebrating its centennial. Alumnae Hall had been completed and Tufts College was renamed Tufts University. The people depicted were the leaders of the university and prominent members of the faculty, alumni/ae and student body. (A listing of everyone portrayed in these murals is included in Appendix A &#8212; Guide to Alumnae Hall Murals.)</p>
+				<p>The building on Talbot Avenue across from Alumnae Hall is Stratton Hall, a dormitory for women constructed in 1927. It was financed by a bequest from Martha Stratton Ensign. The yellow house on the other side of the Stratton driveway is the home of Dean Richard A. Kelley, A37, G38, and his wife, Mary Donning Kelley, J36. The driveway leads to Stratton Path, a narrow but much-used lane to Professors Row. To the left at the top of Stratton Path is Richardson House, a dormitory, half of which once stood on top of the Hill. To the right is the house first occupied by President Hosea Ballou 2d, which was moved here from its original site. Dean Theodore L. Eliot, Jr. of The Fletcher School and Mrs. Eliot now reside there.</p>
+				<p>The dormitories further down the Row are Anthony House, named for the first dean of the College of Engineering, Gardner C. Anthony, Arts Class of 1860, G60, and Capen House, built by the third president of Tufts College, Elmer Hewitt Capen, whose 30-year term as president is at least double that of any other Tufts president.</p>
+			</div1>
+			<pb n="p.19" id="p.19"/>
+			<div1 type="chapter" n="Back Up the Hill" id="c14">
+				<head>BACK UP THE HILL</head>
+				<p>The pathway across from Richardson House was once a main vehicle access road to the top of the campus. It is an easy climb because, according to the late Professor Edwin H. Wright, Class of 1894, of the Engineering School, the path has found its natural course on the hillside.</p>
+				<p>To our left is the distinctive Wessell Library. We will learn more about it in a short while when we stand on its rooftop. Beyond the library is Eaton Memorial Hall, the former library of Tufts College. A gift of Andrew Carnegie, it was completed in 1908 and was named for the Reverend Charles H. Eaton, Arts Class of 1874, C77, H87. The addition of the War Memorial Wing 30 years later doubled its size. This addition was designed by Dr. Arland A. Dirlam, E26, H53, an eminent architect who also designed a number of other buildings on the campus. Eaton Library contained memorial rooms to Lieutenant Commander Thomas M. Mark, A16, killed at Pearl Harbor, and to Dr. Charles Gott, A11, who chaired the Department of English from 1925 until his death in 1938.</p>
+				<p>The entire building was remodeled after the Wessell Library was completed. The memorials were relocated to the new library and Eaton was converted to clasrooms, offices for the classics, political science, philosophy and sociology departments, a language laboratory, the Bursar's Office, the Accounting Department, and a student center. <figure n="tufts:central:dca:UA011:UA011.002.050.00001.00004"><head>View from Paige/Miner (1910)</head>
+					</figure>
+				</p>
+				<p>To our right are two yellow brick buildings connected by an arcade. It was here at the Crane Theological School (so named in 1906) that training for the liberal ministry was conducted for more than a hundred years. The first building is Miner Hall, named for the Reverend Alonzo Ames Miner, H1861, H1875, president of Tufts from 1862 to 1875. The second one is Paige Hall, formerly the dormitory for the Theological School. Crane Chapel, later annexed to Paige Hall, contained a small, beautifully appointed sanctuary and portrait gallery. A few years ago the Crane Chapel was destroyed by fire, the library transferred to the Wessell Library, and the Graduate School of Theology gradually discontinued.</p>
+				<p>Notable churchmen occupied the deanship of the theological school: Charles H. Leonard, H1868, H05; Lee Sullivan McCollester, Arts Class of 1881, R1884, H1899; Clarence R. Skinner, H45; John M. Ratcliff and Benjamin Butler Hersey, A35, C35, H44. Many of Tufts' buildings perpetuate the names of prominent Universalist Church clergymen and laymen &#8212; Ballou, Barnum, Capen, Cousens, Hamilton and Miner, to name a few. They were leaders in the establishment and development of Tufts as a liberal, nonsectarian college.</p>
+			</div1>
+			<pb n="p.20" id="p.20"/>
+			<div1 type="chapter" n="At the Top of the Steps" id="c15">
+				<head>AT THE TOP OF THE STEPS</head>
+				<p>Here on the terrace high above College Avenue is a fine place to pause and to enjoy the view of Boston and its suburbs. At one time Walnut Hill used to extend well beyond the street below us, and College Avenue and the railroad had to be cut right through the hill. In the early days, when the steep and unsupported banks rose high on either side, travel through "the Cut" was considered somewhat dangerous, especially at night.</p>
+				<p>Today "the Cut" is the main entrance to the Tufts campus. The Memorial Steps leading to the top of the Hill are a suitably impressive entrance. You will climb these steps often; as you do, remember that they are a memorial to men and women of Tufts who served the nation in time of war. Each landing contains inscriptions commemorating those who served in the War Between the States, the Spanish American War, World War I, II, and the Korean War, and to those who "gave their lives for world peace and justice."</p>
+				<p>The buildings below us across College Avenue are the home of the College of Engineering. The older one on the right is Robinson Hall, erected about 1900 and named for Charles Robinson, H1894, an attorney, who became a trustee of the college in 1857, later serving for many years as president of the board and as legal advisor. Adjacent to Robinson Hall is Arthur J. Anderson Hall, completed in 1961 and considered to be one of the finest engineering buildings in the country. Arthur J. Anderson, E12, H43, was a devoted Tufts alumnus and a generous and hardworking benefactor. At the time of his death in 1964 he was the chairman of the Board of Trustees of Tufts University.</p>
+				<p>Behind Robinson and Anderson halls is a three-story brick building opened for use in 1893. It was built to house what became known as the Bromfield-Pearson Technical School &#8212; a preparatory school "associated with the College of Engineering." Bromfield-Pearson now houses the Department of Mathematics.</p>
+				<p>To the left on the corner is Curtis Hall, a prominent landmark of white-painted brick. It was built in 1894 on the site of the old college horse stable to provide additional facilities. It was named in 1904 for James Otis Curtis, Medford shipbuilder and Tufts University Trustee from 1856 to 1890. Curtis's beautiful home, now called the Curtis mansion, was recently acquired by the university. A structure of the early nineteenth century Greek revival period, it is situated on South Street, Medford, bordering the Mystic River. For generations a favorite rendezvous spot, Curtis Hall now houses the Kursaal (a snackbar), a student lounge, student activity rooms, the office of the student newspaper, the quarters of the Tufts radio station and the university post office.</p>
+				<p>Beyond Curtis Hall on Boston Avenue are a research building, built originally as the chemistry building; the headquarters of the Tufts police and the Department of Buildings and Grounds; the Bray Mechanical Engineering Laboratory, built with bricks salvaged from the reservoir; and Bacon Hall, a part of the College of Engineering named for George Preston Bacon, a former dean of the Engineering College. <figure n="tufts:central:dca:MS054:MS054.003.DO.02185"><head>Old Railroad Station (1861)</head>
+					</figure>
+				</p>
+				<p>Beyond the bridge over the railroad tracks is Cousens Gymnasium, named for Dr. John A. Cousens of the Class of 1898, president of Tufts from 1919 to 1937. The Tufts College Alumni Association urged the trustees to name the gym for Dr. Cousens because he had been a lifelong supporter of regular physical exercise and of athletics. Cousens Gym now contains basketball, squash and handball courts, an indoor track located in a cage and a six-lane championship swimming pool named for Frederick W. Hamilton of the class of 1880, G86, H99, fourth president of Tufts.</p>
+				<p>Some years ago, "Bob" (Robert H.) Backus, A51, broke the world's record for the 35-pound hammer throw in Cousens Gym. Tufts men and women have been on every United States Olympic team from 1948 to the present. Two Tufts coaches were Olympic coaches. The Boston Red Sox held their spring training in the baseball cage during World War II, and the Cincinnati Reds used the cage for workouts while in Boston for the 1975 World Series. </p>
+				<pb n="p.21" id="p.21"/>
+				<p>Cousens Gym has also been used for matriculation ceremonies, for commencement and for presidential inaugurations. It has also served the needs of the community in other ways, such as for concerts, lectures, political rallies and shows of various kinds.</p>
+				<p>Clay pits from which bricks were made were once located in the athletic fields across from the gym. The bricks used in the construction of the reservoir and now which are to be seen on the outer walls of Bray Lab came from this source. In the winter, when the water in the pits was frozen, neighborhood youngsters used the pits for skating rinks.</p>
+			</div1>
+			<div1 type="chapter" n="More Perspectives from the Memorial Steps" id="c16">
+				<head>MORE PERSPECTIVES FROM THE MEMORIAL STEPS</head>
+				<p>As we stand here at the top of the Memorial Steps, remember that not only do we see Boston and the surrounding communities, but they see us. Oliver Wendell Holmes, at his house on Beacon Hill, once said he thought when he got to heaven and looked out of the window, he would see Tufts College.</p>
+				<p>There is a great deal of New England's heritage right on our doorstep. At the foot of College Avenue is Powderhouse Square and Powderhouse Park, named for the building which in 1775 was used by the Revolutionaries to store powder for their guns and cannon as they besieged Boston. The park also contains a field house familiar to many Tufts students who were drafted or who enlisted in the military service during World War II.</p>
+				<p>The home of George Luther Stearns, one of Medford's prominent citizens, stood on the land beyond Cousens Gym. Stearns, an ardent abolitionist, made his home a stop on the Underground Railroad during the Civil War. He recruited thousands of freed slaves to fight in the Union Army.</p>
+				<p>Following World War II, emergency housing needs of returning veterans were met by erecting on the old Stearns Estate 12 two-story temporary structures containing apartments for 80 couples (undergraduates, graduates and instructors). Known as "Stearns Village," its inhabitants established the first postwar nursery school in 1949. Nursery School Training at Tufts began in 1940, was suspended during World War II, and since then has developed markedly over the years into the Eliot-Pearson Department of Child Study now housed in the Child Study Center at the edge of the Stearns Estate.</p>
+				<p>Just out of sight at 15 George Street is the Royall House, one of the grandest country seats in colonial America, the home of the Isaac Royall family (1832-1875). During the revolutionary war it was used by General John Stark and his New Hampshire troops, and for councils of war by Generals Washington, Lee, Sullivan and Stark.</p>
+			</div1>
+			<pb n="p.22" id="p.22"/>
+			<div1 type="chapter" n="Top of the Hill" id="c17">
+				<head>TOP OF THE HILL</head>
+				<p>Now let's return to the present and to the main campus. As we walk back toward Ballou Hall, the two connected buildings on the right are the Lincoln Filene Center and Braker Hall. The latter building, constructed in 1927, was named for Henry J. Braker, a wealthy New Yorker who was a close friend and client of Austin Barclay Fletcher. It contains classrooms and offices. The contemporary building adjoining Braker Hall is the Lincoln Filene Center for Citizenship and Public Affairs, completed in 1963, made possible by a grant from the Lincoln and Theresa Filene foundation. Their daughter, Catherine Filene (Mrs. Jouett) Shouse, H62, who provided the grant, is also the founder of "Wolftrap" &#8212; the National Center for the Performing Arts near Washington, D.C. The next two buildings are East Hall and Packard Hall, two of the tour.</p>
+			</div1>
+			<div1 type="chapter" n="The Wessell Library" id="c18">
+				<head>THE WESSELL LIBRARY</head>
+				<p>This pleasant terrace on which we are standing is the roof of the Nils Y. Wessell Library. Completed in 1965, this handsome building has attracted the attention of architects and educators nationwide. The architects who designed the building, Campbell, Aldrich and McNulty of Boston, had to meet certain stipulations about the size and appearance of the structure laid down by Tufts. The library had to be large, yet located in a limited area. The building could not overshadow the beautiful chapel, which has served as a landmark for many years. It should interrupt the topography as little as possible and preserve the natural beauty of the area. The roof should be a parkland of grass to conserve the greenery of the campus. The result is this unique, practical, and commodious building named for the president of Tufts, 1953-1966. You will remember we mentioned that the Medford-Somerville line bisects the campus; there are two granite markers here to show where it angles across this library!</p>
+			</div1>
+			<div1 type="chapter" n="The Boston Campus" id="c19">
+				<head>THE BOSTON CAMPUS</head>
+				<p>This vantage point is a suitable place to mention the important schools <figure n="tufts:central:dca:UA136:UA136.002.DO.00500"><head>Medical/Dental Building (1901)</head>
+					</figure> of the university which are located in downtown Boston, the schools of Medicine and Dental Medicine and the Boston School of Occupational Therapy. The new School of Veterinary Medicine accepted its first class of students in 1979. The Tufts-New England Medical Center is one of the nation's renowned teaching hospitals. The Medical and Dental schools have teaching and internship programs with a number of New England hospitals (one of which is the Lawrence Memorial Hospital of Medford) and are widely known for education, research, hospital care and community service.</p>
+			</div1>
+			<pb n="p.23" id="p.23"/>
+			<div1 type="chapter" n="Goddard Chapel" id="c20">
+				<head>GODDARD CHAPEL</head>
+				<p>Twenty-odd years after Tufts College was established, its fourth president, the Reverend Elmer Hewitt Capen, Arts Class of 1860, G60, stated the school's need for a proper chapel. In 1881 Mary T. Goddard, widow of trustee and benefactor Thomas A. Goddard, offered $25,000 to build a chapel, plus $15,000 towards the gymnasium.</p>
+				<p>Built of bluish Somerville slate in Romanesque style capped with a red slate roof, Goddard Chapel was considered an architectural masterpiece. Its 100-foot tower still dominates the landscape and can be seen for miles around. The original College Bell, which stood atop Ballou Hall, was melted down and recast as the second bell of the chimes of Goddard Chapel. Many a Tufts couple who met in college were married in this chapel.</p>
+			</div1>
+			<div1 type="chapter" n="The Elms, the Store, and the North Hillside" id="c21">
+				<head>THE ELMS, THE STORE, AND THE NORTH HILLSIDE</head>
+				<p>We mentioned that, when Tufts was founded, Walnut Hill was treeless. Today the stately elms present a different prospect. However, during the hurricane of 1938, fully one-fourth of all the trees on the Hill were uprooted. Many were successfully replanted and revitalized, thanks to a colossal effort.</p>
+				<p>The broad walk beneath the elms from the north portico of Ballou Hall leads directly to the University Store, constructed in 1948. Tufts commencements are often held beneath the elms between Ballou Hall and the bookstore.</p>
+				<p>Behind the University Store is a steep slope which descends to Boston Avenue. Prominently situated here is the university power plant, whose chimney competes with the chapel tower. Further along Boston Avenue at street level is Sweet Hall, named in honor of Harold Edward Sweet, Arts Class of 1898, H55, chairman of the board of trustees 1923-1949 and a lifelong friend of Tufts. Originally this building housed the Departments of Naval and Air Science; it now houses offices of the Graduate School of Arts and Sciences, the Department of Anthropology, Government Resources, Personnel, and classrooms.</p>
+				<p>The small frame structure perched halfway up the hillside is North Hall Annex, which houses the university's Counseling Center. It was originally an appendage to North Hall, which was built in 1915 as a small laboratory pioneering in radio and electrical research. The salient feature of North Hall for more than a decade was a 300-foot lattice-steel transmission tower which was toppled by a sudden windstorm the day before permanent guy wires were to be installed to steady it. On the morning of September 26, 1915, the structure crashed downhill, across the street, and onto the Boston and Maine railroad tracks just in time to derail the front cars of the Montreal Limited inbound to Boston. The transmission equipment was soon rebuilt and put into use the same autumn. North Hall was later used as home for the Department of Psychology and the Graduate School. It experienced numerous additions and renovations until it was destroyed by fire several years ago.</p>
+				<p>At the end of the campus along Boston Avenue is Hill Hall, a dormitory named for Robert William Hill, A04, H64. Judge Hill was an alumni trustee, a life trustee, organizer of the Tufts Alumni Council in 1934, president of the Tufts College Alumni Association and legal counselor to Tufts. A visit to the second and third level lounges in Hill Hall is recommended for the panoramic view of the Medford horizon and the Middlesex Fells Reservation, a delight for hikers and nature enthusiasts.</p>
+				<p>On the corner above Hill Hall where Packard Avenue leads into Capen Street is Lane Hall, which houses the Department of Geology, classrooms, fine arts studios and the Office of Purchasing. The building is named for Alfred Church Lane, H13, who taught geology at Tufts from 1909 to 1948 and who was Pearson Professor of Minerology from 1909 to 1936. Professor Lane was an internationally known authority on Michigan copper ores. A bay in Lake Superior and the mineral "Laneite" are both named for him.</p>
+			</div1>
+			<pb n="p.24" id="p.24"/>
+			<div1 type="chapter" n="Ballou Hall" id="c22">
+				<head>BALLOU HALL</head>
+				<p>Now we have completed our tour and are back to Ballou Hall, where we began and where Tufts began. <figure n="tufts:central:dca:UA136:UA136.002.DO.01976"><head>Ballou Southwest</head>
+					</figure>
+				</p>
+				<p>Remember that when Tufts was founded, this building was all there was. It contained recitation rooms, dormitory accommodations, a library, a dining room, physics and chemistry labs, a museum, rooms for two literary societies, the president's office, a chapel, and even a well from which water was pumped.</p>
+				<p>The chapel was what is now the Coolidge Memorial Room, furnished in memory of Arthur W. Coolidge, A03, H45, once lieutenant governor of Massachusetts, and in memory of his son, Robert T. Coolidge, A36, once professor of architecture at Yale University. Portraits of all Tufts presidents are on display in the Coolidge Room. (These are identified in Appendix B - Guide to Portraits in Ballou Hall.)</p>
+				<p>On the third floor of this building, Amos Dolbear, professor of physics, invented his version of the telephone, which was somewhat different from that of Alexander Graham Bell, who is usually credited with being the sole inventor of the telephone. From here Dolbear, who held a patent on a wireless device at the time, sent wireless messages to his home on Professors Row when Marconi, the acknowledged inventor of the wireless, was only six years old.</p>
+			</div1>
+			<div1 type="chapter" n="Tufts Today" id="c23">
+				<head>TUFTS TODAY</head>
+				<p>Tufts has changed dramatically since its founding in 1852. Today the <figure n="tufts:central:dca:MS054:MS054.003.DO.02354"><head>Looking across reservoir (1880)</head>
+					</figure> aggregate enrollment of Tufts University is about 6,500. There are some 700 full-time faculty members and hundreds more on a part-time basis. Yet Tufts has made a highly successful commitment to preserve its small college atmosphere - to increase the quality of its educational offerings while remaining relatively small in total student enrollment. Tufts has become one of the strong and widely-known universities in the country.</p>
+				<p>Tufts alumni throughout the world now number some fifty thousand. Added to these sons and daughters of Tufts are the members of <figure n="tufts:central:dca:UA136:UA136.002.DO.00993"><head>Professor's Row (Circa 1880)</head>
+					</figure> the present student body and the oncoming generations of young people who will receive higher education on this Hill. Collectively they inherit the responsibility of insuring that Tufts endures in the fulfillment of its mission. That mission is proclaimed on the seal of your university. </p>
+			</div1>
+		</body>
+		<back>
+		<pb n="p.25" id="p.25"/>
+			<div1 type="appendix" n="Appendix A" id="back001">
+				<head>APPENDIX A:GUIDE TO ALUMNAE HALL MURALS</head>
+				<div2 type="chapter" n="East Wall Murals" id="back001.1">
+				<head>East Wall Murals by Nathaniel J. Jacobson</head>
+				<list>
+					<head>FOUNDERS GROUP - Left</head>
+					<item>1. Thomas A. Goddard (1811-1868)</item>
+					<item>2. Silvanus Packard (1789-1866), Trustee of Tufts College, 1852-1861</item>
+					<item>3. Oliver Dean (1783-1871)</item>
+					<item>4. Hannah Robinson Tufts (1795-1878)</item>
+					<item>5. Charles Tufts (1781-1876)</item>
+					<item>6. The Reverend Thomas J. Sawyer (1804-1899)</item>
+					<item>7. Group of the College Edifice construction workers</item>
+				</list>
+				<list>
+					<head>FACULTY GROUP - Center</head>
+					<item>1. Group of students</item>
+					<item>2. Professor Jerome Schneider (1824-1909)</item>
+					<item>3. Hosea Ballou 2d (1796-1861), first President of Tufts College, 1853-1861</item>
+					<item>4. Professor John P. Marshall (1823-1901)</item>
+					<item>5. Professor Alpheus A. Keen (1824-1864)</item>
+					<item>6. Professor Benjamin F. Tweed (1811-1896)</item>
+					<item>7. Phineas T. Barnum (1810-1891) and Jumbo-left of door</item>
+				</list>
+				<list>
+					<head>OVER DOORWAY</head>
+					<item>Allegorical figure of "Light" carrying the shield of the college</item>
+				</list>
+				<list>
+					<head>ALCOVE - Right</head>
+					<item>View of the Mystic River in the mid-nineteenth century</item>
+				</list>
+				</div2>
+				<div2 type="chapter" n="West Wall Murals" id="back001.2">
+				<head>West Wall Murals by Matthew W. Boyhan</head>
+				<list>
+					<head>ALCOVE</head>
+					<item>Student figures - Jumbo - John Hancock Building - State Capitol</item>
+					<item>Alumnae figures - an unnamed, representative group</item>
+					<item>Tea Pourers: 1. Myra L. Herrick, J41,H58, President, Association of Tufts Alumnae 1954-1956; Dean of Jackson College 1959-1967. 2. Marian S. Wessell, wife of Dr. Nils Y. Wessell, President of Tufts College/Uni- versity 1953-1966</item>
+				</list>
+				<list>
+					<head>FORMER BENEFACTORS AND OFFICIALS</head>
+					<item>1. Ruth Capen Farmer, W02 (1879-1921), a Founder of the Association of Tufts Alumnae, for whom this lounge was named</item>
+					<item>2. Caroline S. Davies (1864-1939), first Dean of Jackson College 1910- 1925</item>
+					<item>3. Crosby F. Baker, A10 (1887-1954), former Chairman, Chemistry Department</item>
+					<item>4. John A. Cousens, Arts Class of 1898 (1874-1937), President of Tufts College 1919-1937</item>
+					<item>5. Austin B. Fletcher, Arts Class of 1876, H1899 (1852-1923), Trustee and principal benefactor of The Fletcher School of Law and Diplomacy</item>
+					<item>6. Frederick C. Hodgdon, Arts Class of 1894 (1873-1946), Trustee and benefactor</item>
+					<item>7. Lee S. McCollester, Arts Class of 1881, Religion 84, H99 (1859-1943), Chaplain and Dean of Crane Theological School 1912-1933</item>
+					<item>8. William L. Hooper, Arts Class of 1877 (1855-1918), Acting President 1912-1914; former Chairman, Electrical Engineering Department</item>
+					<item>9. Leo R. Lewis, Arts Class of 1887, H22 (1864-1945), Professor of Music and composer of the "Alma Mater"</item>
+				</list>
+				<list>
+					<head>LEFT OF DOORWAY</head>
+					<item>1. Leonard Carmichael, A21, H37 (1899-1973), President of Tufts College 1938-1952; distinguished alumnus, Life Trustee</item>
+					<item>2. Vannevar Bush, E13, G13, H32 (1890-1974), distinguished graduate, Trustee, and devoted friend</item>
+					<item>3. Edith L. Bush, W03, H42 (1882-1977), Dean of Jackson College, 1925-1952</item>
+				</list>
+				<list>
+					<head>OVER DOORWAY</head>
+					<item>Student figures representing college activities</item>
+				</list>
+				<pb n="p.26" id="p.26"/>
+				<list>
+					<head>RIGHT OF DOORWAY</head>
+					<item>1. Mary Patricia Jameson, J55, President, Student Council, Jackson College, 1954-1955</item>
+					<item>2. Katharine R. Jeffers (1907-1959), Dean of Jackson College, 1952-1959</item>
+					<item>3. Military group representing Navy, Marine, Air Force ROTC units</item>
+					<item>4. Student figures</item>
+					<item>5. Titus E. Mergendahl, E07 (1885-1964), Professor of Mathematics</item>
+					<item>6. John Holmes, A29, H62 (1904-1962), Professor of English, Tufts poet</item>
+				</list>
+				<list>
+					<head>CENTRAL GROUP</head>
+					<item>1. Arthur J. Anderson, E12, H43 (1884-1964), Chairman of the Board of Trustees 1949-1964</item>
+					<item>2. Nils Y. Wessell, H66, Dean, College of Liberal Arts, 1939-1953; Vice President 1951-1953; President of the College/University 1953-1966</item>
+					<item>3. Clarence P. Houston, A14, H52 (1891-1965), Braker Professor of Commercial Law, 1926-1957; Coach, Director of Athletics, Chairman Department of Physical Education, 1919-1946; Vice President for Development and Director, Second Century Fund Drive, 1954-1957</item>
+					<item>4. Robert W. Hill, A04, H64 (1882-1966), Vice Chairman, Board of Trustees, 1946-1952; organizer of Tufts College Alumni Association in 1934</item>
+					<item>5. George S. Miller, "Mr. Tufts," A06, G06, H41 (1884-1971), member of the Administration, 1916-1956; Acting President, 1937-1938; Vice President, 1938-1951; Dean of Administration, 1951-1956</item>
+					<item>6. John P. Tilton (1900-1959), Dean, Graduate School, 1943-1953; Provost, 1951-1959; Senior Vice President, 1953-1959</item>
+					<item>7. Etta Phillips MacPhie, W93, H76 (1891-1978), first woman life member, Board of Trustees, 1952-1978</item>
+					<item>8. (holding map) Donald Walker Perkins, A55, President, Tufts Student Council, 1954-1955</item>
+				</list>
+				<list>
+					<head>RIGHT OF CENTRAL GROUP - small figures</head>
+					<item>1. Leonard C. Mead, H67, Professor of Psychology, 1949-1979, Emeritus 1979-; Dean, Graduate School, 1953-1959; Senior Vice President and Provost, 1959-1968; Acting President, 1966-1967</item>
+					<item>2. Benjamin B. Hersey, A35, C35, H44 (1904-1971), Dean, Crane Theological School, 1954-1968</item>
+					<item>3. Clifton W. Emery, Jr., A40, Dean of Men, 1954-1962</item>
+					<item>4. Robert B. Stewart, F'37, Dean,The Fletcher School of Law and Diplomacy, 1945-1964; Professor of International Law and Diplomacy, 1945-1974; Emeritus 1974-</item>
+					<item>5. Charles E. Stearns, A'39, Dean, College of Liberal Arts, 1954-1969; Acting Provost, 1966-1967; Professor of Geology, 1957-</item>
+					<item>6. Richard A. Kelley, A37, G38, Dean, College of Special Studies, 1954-1969; Special Assistant to the President, 1977-</item>
+				</list>
+				<list>
+					<head>FAR RIGHT GROUP</head>
+					<item>1. Ann Tedesco, J56, President, Jackson College Student Council, 1955-1956</item>
+					<item>2. Cora Polk Dewick, W Class of 1896, H44, H52 (1875-1977), a leading feminine pioneer at Tufts; first woman elected member of the Board of Trustees, 1920</item>
+					<item>3. Bella Porter Ransom, W07 (1885-1970), devoted alumna for whom the Lecture Room, No. 15 downstairs is named.</item>
+					<item>4. Harry Poole Burden, H53 (1890-1972), Dean, College of Engineering, 1936-1957</item>
+					<item>5. William R. Ransom, Arts Class of 1898, H62 (1876-1973), Professor of Mathematics at Tufts, 1900-1952; for some years he also taught courses in geology and astronomy</item>
+					<item>6. (holding back drapery) Gene Arlan Ward, A56, President, Tufts Student Council, 1955-1956</item>
+				</list>
+				</div2>
+			</div1>
+			<pb n="p.27" id="p.27"/>
+			<div1 type="appendix" n="Appendix B" id="back002">
+				<head>APPENDIX B:GUIDE TO PORTRAITS IN BALLOU HALL</head>
+				<p>On the wall of the central foyer at the entrance to Ballou Hall are two small portraits, gifts from the Tufts Alumni Council, 1940: <hi rend="center">1795 Hannah Robinson Tufts 1878</hi> and <hi rend="center">1781 Charles Tufts 1876</hi> Painted in 1839 by Sylvester Harrington (1811-1893) </p>
+				<p>
+					<hi>THE COOLIDGE ROOM</hi> Portraits of Charles and Hannah Tufts also hang over the right and left mantle, respectively, in the Coolidge Room. On the walls of the spacious Coolidge Room are the portraits of the men who have served as president of Tufts University. Moving around the room from right to left as you enter, the first painting is </p>
+				<list>
+					<item>Burton C. Hallowell<lb/> Ninth President of Tufts University 1967-1976</item>
+				</list>
+				<p>The next painting, hanging above the standup desk, is</p>
+				<list>
+					<item>The Reverend Hosea Ballou 2d (1796-1861)<lb/> First President of Tufts College 1856-1861</item>
+				</list>
+				<p>and in the following sequence:</p>
+				<list>
+					<item>Nils Yngve Wessell<lb/> Eighth President of Tufts College 1953-1955<lb/> First President of Tufts University 1955-1966<lb/>
+					</item>
+					<item>Leonard Carmichael<lb/> President of Tufts College 1938-1952<lb/>
+					</item>
+					<item>The Reverend Alonzo Ames Miner<lb/> Second President of Tufts College 1862-1875<lb/>
+					</item>
+					<item>Hermon Carey Bumpus<lb/> President of Tufts College 1914-1919<lb/>
+					</item>
+					<item>The Reverend Frederick William Hamilton<lb/> President of Tufts College 1905-1913<lb/>
+					</item>
+					<item>William Leslie Hooper<lb/> Acting President of Tufts College 1912-1914<lb/>
+					</item>
+					<item>John Albert Cousens<lb/> President of Tufts College 1920-1937<lb/>
+					</item>
+					<item>George Stewart Miller<lb/> Acting President of Tufts College 1937-1938<lb/>
+					</item>
+					<item>Leonard Chapin Mead<lb/> Acting President of Tufts University 1966-1967<lb/>
+					</item>
+					<item>Elmer Hewitt Capen<lb/> President of Tufts College 1875-1905<lb/>
+					</item>
+				</list>
+				<p>Missing from this collection of portraits of Tufts presidents is one of John Potter Marshall, an original member of the Tufts faculty who first held the title of professor of mathematics and natural sciences and who served the college until his retirement in 1898. After President Ballou's death he served as acting president of Tufts College 1861-62. Missing also is the portrait of our current president, Dr. Jean Mayer. This portrait in due course will find its place among the others. </p>
+			</div1>
+		</back>
+	</text>
+</TEI.2>

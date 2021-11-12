@@ -1,0 +1,393 @@
+<?xml version="1.0"?>
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main DTD Driver File//EN"
+"http://www.tei-c.org/P4X/DTD/tei2.dtd" [
+<!ENTITY % TEI.prose 'INCLUDE'>
+<!ENTITY % TEI.names.dates 'INCLUDE'>
+<!ENTITY % TEI.figures 'INCLUDE'>
+<!ENTITY % TEI.XML 'INCLUDE'>
+]>
+<TEI.2>
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Tufts Medical '52 [yearbook]</title>		
+                <author></author>
+                <funder></funder>
+                <respStmt>
+                    <resp>edited by:</resp>
+                    <name>Digital Collections and Archives, Tufts University</name>
+                </respStmt>
+            </titleStmt>
+            <editionStmt>
+                <edition>
+                    <date>03/28/2008</date>
+                </edition>
+            </editionStmt>
+            <extent></extent>
+            <publicationStmt>
+                <distributor>Tufts University Digital Collections and Archives</distributor>
+                <address>
+                    <addrLine>Tufts University</addrLine>
+                    <addrLine>35 Professors Row</addrLine>
+                    <addrLine>Tisch Library Medford, MA 02155</addrLine>
+                </address>
+                <idno>UP150/001-012.00001</idno>
+                <availability status="free">
+                    <p>This publication is freely available for scholarly or educational use.</p>
+                </availability>
+            </publicationStmt>
+            <notesStmt>
+                <note place="unspecified" anchored="yes">Yearbook for the Tufts College Medical School, Class of 1952.</note>		
+            </notesStmt>
+            <sourceDesc default="NO">
+                <biblStruct default="NO">
+                    <monogr>
+                        <author></author>
+                        <title>Tufts Medical '52 [yearbook]</title>
+                        <imprint>
+                            <pubPlace></pubPlace>
+                            <publisher></publisher>
+                            <date>1952</date>
+                        </imprint>
+                    </monogr>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <editorialDecl default="NO">
+                <stdVals default="NO">
+                    <p>Standard date values are given in ISO form: yyyy-mm-dd.</p>
+                </stdVals>
+                <interpretation default="NO">
+                    <p>Page breaks are not marked.</p>
+                    <p>Line breaks were removed.</p>
+                </interpretation>
+                <hyphenation eol="none" default="NO">
+                    <p>End of line hyphens have been removed.</p>
+                </hyphenation>
+            </editorialDecl>
+            <classDecl>
+                <taxonomy id="LCSH">
+                    <bibl default="NO">
+                        <title>Library of Congress Subject Headings</title>
+                    </bibl>
+                </taxonomy>
+                <taxonomy id="LC">
+                    <bibl default="NO">
+                        <title>Library of Congress</title>
+                    </bibl>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+        <profileDesc>
+            <creation>
+                <date>03/28/2008</date>
+            </creation>
+            <langUsage default="NO">
+                <language id="EN" usage="100">English.</language>
+            </langUsage>
+            <textClass default="NO">
+                <keywords scheme="LCSH">
+                    <list type="simple">
+                        <item></item>
+                        <item></item>
+                        <item>School of Medicine</item>
+                        <item>School yearbooks</item>
+                        <item>Tufts College</item>
+                        <item>Students</item>
+                    </list>
+                </keywords>
+                <classCode scheme="LC">39090011162431b</classCode>
+            </textClass>
+        </profileDesc>
+        <revisionDesc>
+            <change>
+                <date></date>
+                <respStmt>
+                    <name></name>
+                    <resp></resp>
+                </respStmt>
+                <item></item>
+            </change>
+        </revisionDesc>
+    </teiHeader>
+<text>
+    <front>
+        <div1 type="preface" n="Cover Material">
+        <div2 type="page" rend="page-image" n="Tufts Medical '52, cover" id="fig.1"><p><figure rend="page" n="tufts:UP150.001.012.00001.00001"><head>Tufts Medical '52, cover</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        <div2 type="page" rend="page-image" n="Tufts Medical '52, front pastedown" id="fig.2"><p><figure rend="page" n="tufts:UP150.001.012.00001.00002"><head>Tufts Medical '52, front pastedown</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        <div2 type="page" rend="page-image" n="Tufts Medical '52, front flyleaf" id="fig.3"><p><figure rend="page" n="tufts:UP150.001.012.00001.00003"><head>Tufts Medical '52, front flyleaf</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        <div2 type="page" rend="page-image" n="Tufts Medical '52, front flyleaf, reverse side" id="fig.4"><p><figure rend="page" n="tufts:UP150.001.012.00001.00004"><head>Tufts Medical '52, front flyleaf, reverse side</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+    </front>
+    <body>
+        <div1 type="chapter" n="Introductory Pages" id="c1">
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 1" id="fig.5"><p><figure rend="page" n="tufts:UP150.001.012.00001.00005"><head>Tufts Medical '52, page 1</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 2" id="fig.6"><p><figure rend="page" n="tufts:UP150.001.012.00001.00006"><head>Tufts Medical '52, page 2</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 3" id="fig.7"><p><figure rend="page" n="tufts:UP150.001.012.00001.00007"><head>Tufts Medical '52, page 3</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 4" id="fig.8"><p><figure rend="page" n="tufts:UP150.001.012.00001.00008"><head>Tufts Medical '52, page 4</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 5" id="fig.9"><p><figure rend="page" n="tufts:UP150.001.012.00001.00009"><head>Tufts Medical '52, page 5</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 6" id="fig.10"><p><figure rend="page" n="tufts:UP150.001.012.00001.00010"><head>Tufts Medical '52, page 6</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="In Memoriam, A Thumb-Nail Sktech of Tufts College Medical School" id="c2">
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 7" id="fig.11"><p><figure rend="page" n="tufts:UP150.001.012.00001.00011"><head>Tufts Medical '52, page 7</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 8" id="fig.12"><p><figure rend="page" n="tufts:UP150.001.012.00001.00012"><head>Tufts Medical '52, page 8</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 9" id="fig.13"><p><figure rend="page" n="tufts:UP150.001.012.00001.00013"><head>Tufts Medical '52, page 9</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 10" id="fig.14"><p><figure rend="page" n="tufts:UP150.001.012.00001.00014"><head>Tufts Medical '52, page 10</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 11" id="fig.15"><p><figure rend="page" n="tufts:UP150.001.012.00001.00015"><head>Tufts Medical '52, page 11</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 12" id="fig.16"><p><figure rend="page" n="tufts:UP150.001.012.00001.00016"><head>Tufts Medical '52, page 12</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 13" id="fig.17"><p><figure rend="page" n="tufts:UP150.001.012.00001.00017"><head>Tufts Medical '52, page 13</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 14" id="fig.18"><p><figure rend="page" n="tufts:UP150.001.012.00001.00018"><head>Tufts Medical '52, page 14</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 15" id="fig.19"><p><figure rend="page" n="tufts:UP150.001.012.00001.00019"><head>Tufts Medical '52, page 15</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 16" id="fig.20"><p><figure rend="page" n="tufts:UP150.001.012.00001.00020"><head>Tufts Medical '52, page 16</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 17" id="fig.21"><p><figure rend="page" n="tufts:UP150.001.012.00001.00021"><head>Tufts Medical '52, page 17</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 18" id="fig.22"><p><figure rend="page" n="tufts:UP150.001.012.00001.00022"><head>Tufts Medical '52, page 18</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 19" id="fig.23"><p><figure rend="page" n="tufts:UP150.001.012.00001.00023"><head>Tufts Medical '52, page 19</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 20" id="fig.24"><p><figure rend="page" n="tufts:UP150.001.012.00001.00024"><head>Tufts Medical '52, page 20</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 21" id="fig.25"><p><figure rend="page" n="tufts:UP150.001.012.00001.00025"><head>Tufts Medical '52, page 21</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 22" id="fig.26"><p><figure rend="page" n="tufts:UP150.001.012.00001.00026"><head>Tufts Medical '52, page 22</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 23" id="fig.27"><p><figure rend="page" n="tufts:UP150.001.012.00001.00027"><head>Tufts Medical '52, page 23</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 24" id="fig.28"><p><figure rend="page" n="tufts:UP150.001.012.00001.00028"><head>Tufts Medical '52, page 24</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+</div1>
+        <div1 type="chapter" n="First Year" id="c3">
+    <div2 type="page" rend="page-image" n="Tufts Medical '52, page 25" id="fig.29"><p><figure rend="page" n="tufts:UP150.001.012.00001.00029"><head>Tufts Medical '52, page 25</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 26" id="fig.30"><p><figure rend="page" n="tufts:UP150.001.012.00001.00030"><head>Tufts Medical '52, page 26</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 27" id="fig.31"><p><figure rend="page" n="tufts:UP150.001.012.00001.00031"><head>Tufts Medical '52, page 27</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 28" id="fig.32"><p><figure rend="page" n="tufts:UP150.001.012.00001.00032"><head>Tufts Medical '52, page 28</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 29" id="fig.33"><p><figure rend="page" n="tufts:UP150.001.012.00001.00033"><head>Tufts Medical '52, page 29</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 30" id="fig.34"><p><figure rend="page" n="tufts:UP150.001.012.00001.00034"><head>Tufts Medical '52, page 30</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 31" id="fig.35"><p><figure rend="page" n="tufts:UP150.001.012.00001.00035"><head>Tufts Medical '52, page 31</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 32" id="fig.36"><p><figure rend="page" n="tufts:UP150.001.012.00001.00036"><head>Tufts Medical '52, page 32</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 33" id="fig.37"><p><figure rend="page" n="tufts:UP150.001.012.00001.00037"><head>Tufts Medical '52, page 33</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 34" id="fig.38"><p><figure rend="page" n="tufts:UP150.001.012.00001.00038"><head>Tufts Medical '52, page 34</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 35" id="fig.39"><p><figure rend="page" n="tufts:UP150.001.012.00001.00039"><head>Tufts Medical '52, page 35</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 36" id="fig.40"><p><figure rend="page" n="tufts:UP150.001.012.00001.00040"><head>Tufts Medical '52, page 36</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="Second Year" id="c4">
+            <div2 type="page" rend="page-image" n="Tufts Medical '52, page 37" id="fig.41"><p><figure rend="page" n="tufts:UP150.001.012.00001.00041"><head>Tufts Medical '52, page 37</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 38" id="fig.42"><p><figure rend="page" n="tufts:UP150.001.012.00001.00042"><head>Tufts Medical '52, page 38</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 39" id="fig.43"><p><figure rend="page" n="tufts:UP150.001.012.00001.00043"><head>Tufts Medical '52, page 39</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 40" id="fig.44"><p><figure rend="page" n="tufts:UP150.001.012.00001.00044"><head>Tufts Medical '52, page 40</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 41" id="fig.45"><p><figure rend="page" n="tufts:UP150.001.012.00001.00045"><head>Tufts Medical '52, page 41</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 42" id="fig.46"><p><figure rend="page" n="tufts:UP150.001.012.00001.00046"><head>Tufts Medical '52, page 42</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 43" id="fig.47"><p><figure rend="page" n="tufts:UP150.001.012.00001.00047"><head>Tufts Medical '52, page 43</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 44" id="fig.48"><p><figure rend="page" n="tufts:UP150.001.012.00001.00048"><head>Tufts Medical '52, page 44</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 45" id="fig.49"><p><figure rend="page" n="tufts:UP150.001.012.00001.00049"><head>Tufts Medical '52, page 45</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 46" id="fig.50"><p><figure rend="page" n="tufts:UP150.001.012.00001.00050"><head>Tufts Medical '52, page 46</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 47" id="fig.51"><p><figure rend="page" n="tufts:UP150.001.012.00001.00051"><head>Tufts Medical '52, page 47</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 48" id="fig.52"><p><figure rend="page" n="tufts:UP150.001.012.00001.00052"><head>Tufts Medical '52, page 48</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 49" id="fig.53"><p><figure rend="page" n="tufts:UP150.001.012.00001.00053"><head>Tufts Medical '52, page 49</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 50" id="fig.54"><p><figure rend="page" n="tufts:UP150.001.012.00001.00054"><head>Tufts Medical '52, page 50</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 51" id="fig.55"><p><figure rend="page" n="tufts:UP150.001.012.00001.00055"><head>Tufts Medical '52, page 51</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 52" id="fig.56"><p><figure rend="page" n="tufts:UP150.001.012.00001.00056"><head>Tufts Medical '52, page 52</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 53" id="fig.57"><p><figure rend="page" n="tufts:UP150.001.012.00001.00057"><head>Tufts Medical '52, page 53</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 54" id="fig.58"><p><figure rend="page" n="tufts:UP150.001.012.00001.00058"><head>Tufts Medical '52, page 54</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 55" id="fig.59"><p><figure rend="page" n="tufts:UP150.001.012.00001.00059"><head>Tufts Medical '52, page 55</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 56" id="fig.60"><p><figure rend="page" n="tufts:UP150.001.012.00001.00060"><head>Tufts Medical '52, page 56</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 57" id="fig.61"><p><figure rend="page" n="tufts:UP150.001.012.00001.00061"><head>Tufts Medical '52, page 57</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 58" id="fig.62"><p><figure rend="page" n="tufts:UP150.001.012.00001.00062"><head>Tufts Medical '52, page 58</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 59" id="fig.63"><p><figure rend="page" n="tufts:UP150.001.012.00001.00063"><head>Tufts Medical '52, page 59</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 60" id="fig.64"><p><figure rend="page" n="tufts:UP150.001.012.00001.00064"><head>Tufts Medical '52, page 60</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 61" id="fig.65"><p><figure rend="page" n="tufts:UP150.001.012.00001.00065"><head>Tufts Medical '52, page 61</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 62" id="fig.66"><p><figure rend="page" n="tufts:UP150.001.012.00001.00066"><head>Tufts Medical '52, page 62</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="Third Year" id="c5">
+        <div2 type="page" rend="page-image" n="Tufts Medical '52, page 63" id="fig.67"><p><figure rend="page" n="tufts:UP150.001.012.00001.00067"><head>Tufts Medical '52, page 63</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 64" id="fig.68"><p><figure rend="page" n="tufts:UP150.001.012.00001.00068"><head>Tufts Medical '52, page 64</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 65" id="fig.69"><p><figure rend="page" n="tufts:UP150.001.012.00001.00069"><head>Tufts Medical '52, page 65</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 66" id="fig.70"><p><figure rend="page" n="tufts:UP150.001.012.00001.00070"><head>Tufts Medical '52, page 66</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 67" id="fig.71"><p><figure rend="page" n="tufts:UP150.001.012.00001.00071"><head>Tufts Medical '52, page 67</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 68" id="fig.72"><p><figure rend="page" n="tufts:UP150.001.012.00001.00072"><head>Tufts Medical '52, page 68</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 69" id="fig.73"><p><figure rend="page" n="tufts:UP150.001.012.00001.00073"><head>Tufts Medical '52, page 69</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 70" id="fig.74"><p><figure rend="page" n="tufts:UP150.001.012.00001.00074"><head>Tufts Medical '52, page 70</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 71" id="fig.75"><p><figure rend="page" n="tufts:UP150.001.012.00001.00075"><head>Tufts Medical '52, page 71</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 72" id="fig.76"><p><figure rend="page" n="tufts:UP150.001.012.00001.00076"><head>Tufts Medical '52, page 72</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 73" id="fig.77"><p><figure rend="page" n="tufts:UP150.001.012.00001.00077"><head>Tufts Medical '52, page 73</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 74" id="fig.78"><p><figure rend="page" n="tufts:UP150.001.012.00001.00078"><head>Tufts Medical '52, page 74</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 75" id="fig.79"><p><figure rend="page" n="tufts:UP150.001.012.00001.00079"><head>Tufts Medical '52, page 75</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 76" id="fig.80"><p><figure rend="page" n="tufts:UP150.001.012.00001.00080"><head>Tufts Medical '52, page 76</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 77" id="fig.81"><p><figure rend="page" n="tufts:UP150.001.012.00001.00081"><head>Tufts Medical '52, page 77</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 78" id="fig.82"><p><figure rend="page" n="tufts:UP150.001.012.00001.00082"><head>Tufts Medical '52, page 78</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 79" id="fig.83"><p><figure rend="page" n="tufts:UP150.001.012.00001.00083"><head>Tufts Medical '52, page 79</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 80" id="fig.84"><p><figure rend="page" n="tufts:UP150.001.012.00001.00084"><head>Tufts Medical '52, page 80</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 81" id="fig.85"><p><figure rend="page" n="tufts:UP150.001.012.00001.00085"><head>Tufts Medical '52, page 81</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 82" id="fig.86"><p><figure rend="page" n="tufts:UP150.001.012.00001.00086"><head>Tufts Medical '52, page 82</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 83" id="fig.87"><p><figure rend="page" n="tufts:UP150.001.012.00001.00087"><head>Tufts Medical '52, page 83</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 84" id="fig.88"><p><figure rend="page" n="tufts:UP150.001.012.00001.00088"><head>Tufts Medical '52, page 84</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 85" id="fig.89"><p><figure rend="page" n="tufts:UP150.001.012.00001.00089"><head>Tufts Medical '52, page 85</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 86" id="fig.90"><p><figure rend="page" n="tufts:UP150.001.012.00001.00090"><head>Tufts Medical '52, page 86</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 87" id="fig.91"><p><figure rend="page" n="tufts:UP150.001.012.00001.00091"><head>Tufts Medical '52, page 87</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 88" id="fig.92"><p><figure rend="page" n="tufts:UP150.001.012.00001.00092"><head>Tufts Medical '52, page 88</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 89" id="fig.93"><p><figure rend="page" n="tufts:UP150.001.012.00001.00093"><head>Tufts Medical '52, page 89</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 90" id="fig.94"><p><figure rend="page" n="tufts:UP150.001.012.00001.00094"><head>Tufts Medical '52, page 90</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 91" id="fig.95"><p><figure rend="page" n="tufts:UP150.001.012.00001.00095"><head>Tufts Medical '52, page 91</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 92" id="fig.96"><p><figure rend="page" n="tufts:UP150.001.012.00001.00096"><head>Tufts Medical '52, page 92</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 93" id="fig.97"><p><figure rend="page" n="tufts:UP150.001.012.00001.00097"><head>Tufts Medical '52, page 93</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 94" id="fig.98"><p><figure rend="page" n="tufts:UP150.001.012.00001.00098"><head>Tufts Medical '52, page 94</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 95" id="fig.99"><p><figure rend="page" n="tufts:UP150.001.012.00001.00099"><head>Tufts Medical '52, page 95</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 96" id="fig.100"><p><figure rend="page" n="tufts:UP150.001.012.00001.00100"><head>Tufts Medical '52, page 96</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 97" id="fig.101"><p><figure rend="page" n="tufts:UP150.001.012.00001.00101"><head>Tufts Medical '52, page 97</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 98" id="fig.102"><p><figure rend="page" n="tufts:UP150.001.012.00001.00102"><head>Tufts Medical '52, page 98</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 99" id="fig.103"><p><figure rend="page" n="tufts:UP150.001.012.00001.00103"><head>Tufts Medical '52, page 99</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 100" id="fig.104"><p><figure rend="page" n="tufts:UP150.001.012.00001.00104"><head>Tufts Medical '52, page 100</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 101" id="fig.105"><p><figure rend="page" n="tufts:UP150.001.012.00001.00105"><head>Tufts Medical '52, page 101</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 102" id="fig.106"><p><figure rend="page" n="tufts:UP150.001.012.00001.00106"><head>Tufts Medical '52, page 102</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 103" id="fig.107"><p><figure rend="page" n="tufts:UP150.001.012.00001.00107"><head>Tufts Medical '52, page 103</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 104" id="fig.108"><p><figure rend="page" n="tufts:UP150.001.012.00001.00108"><head>Tufts Medical '52, page 104</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 105" id="fig.109"><p><figure rend="page" n="tufts:UP150.001.012.00001.00109"><head>Tufts Medical '52, page 105</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 106" id="fig.110"><p><figure rend="page" n="tufts:UP150.001.012.00001.00110"><head>Tufts Medical '52, page 106</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 107" id="fig.111"><p><figure rend="page" n="tufts:UP150.001.012.00001.00111"><head>Tufts Medical '52, page 107</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 108" id="fig.112"><p><figure rend="page" n="tufts:UP150.001.012.00001.00112"><head>Tufts Medical '52, page 108</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 109" id="fig.113"><p><figure rend="page" n="tufts:UP150.001.012.00001.00113"><head>Tufts Medical '52, page 109</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 110" id="fig.114"><p><figure rend="page" n="tufts:UP150.001.012.00001.00114"><head>Tufts Medical '52, page 110</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="Fourth Year" id="c6">
+            <div2 type="page" rend="page-image" n="Tufts Medical '52, page 111" id="fig.115"><p><figure rend="page" n="tufts:UP150.001.012.00001.00115"><head>Tufts Medical '52, page 111</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 112" id="fig.116"><p><figure rend="page" n="tufts:UP150.001.012.00001.00116"><head>Tufts Medical '52, page 112</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 113" id="fig.117"><p><figure rend="page" n="tufts:UP150.001.012.00001.00117"><head>Tufts Medical '52, page 113</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 114" id="fig.118"><p><figure rend="page" n="tufts:UP150.001.012.00001.00118"><head>Tufts Medical '52, page 114</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 115" id="fig.119"><p><figure rend="page" n="tufts:UP150.001.012.00001.00119"><head>Tufts Medical '52, page 115</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 116" id="fig.120"><p><figure rend="page" n="tufts:UP150.001.012.00001.00120"><head>Tufts Medical '52, page 116</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 117" id="fig.121"><p><figure rend="page" n="tufts:UP150.001.012.00001.00121"><head>Tufts Medical '52, page 117</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 118" id="fig.122"><p><figure rend="page" n="tufts:UP150.001.012.00001.00122"><head>Tufts Medical '52, page 118</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 119" id="fig.123"><p><figure rend="page" n="tufts:UP150.001.012.00001.00123"><head>Tufts Medical '52, page 119</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 120" id="fig.124"><p><figure rend="page" n="tufts:UP150.001.012.00001.00124"><head>Tufts Medical '52, page 120</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 121" id="fig.125"><p><figure rend="page" n="tufts:UP150.001.012.00001.00125"><head>Tufts Medical '52, page 121</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 122" id="fig.126"><p><figure rend="page" n="tufts:UP150.001.012.00001.00126"><head>Tufts Medical '52, page 122</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 123" id="fig.127"><p><figure rend="page" n="tufts:UP150.001.012.00001.00127"><head>Tufts Medical '52, page 123</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 124" id="fig.128"><p><figure rend="page" n="tufts:UP150.001.012.00001.00128"><head>Tufts Medical '52, page 124</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 125" id="fig.129"><p><figure rend="page" n="tufts:UP150.001.012.00001.00129"><head>Tufts Medical '52, page 125</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 126" id="fig.130"><p><figure rend="page" n="tufts:UP150.001.012.00001.00130"><head>Tufts Medical '52, page 126</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="Undergraduates" id="c7">
+            <div2 type="page" rend="page-image" n="Tufts Medical '52, page 127" id="fig.131"><p><figure rend="page" n="tufts:UP150.001.012.00001.00131"><head>Tufts Medical '52, page 127</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 128" id="fig.132"><p><figure rend="page" n="tufts:UP150.001.012.00001.00132"><head>Tufts Medical '52, page 128</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 129" id="fig.133"><p><figure rend="page" n="tufts:UP150.001.012.00001.00133"><head>Tufts Medical '52, page 129</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 130" id="fig.134"><p><figure rend="page" n="tufts:UP150.001.012.00001.00134"><head>Tufts Medical '52, page 130</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 131" id="fig.135"><p><figure rend="page" n="tufts:UP150.001.012.00001.00135"><head>Tufts Medical '52, page 131</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 132" id="fig.136"><p><figure rend="page" n="tufts:UP150.001.012.00001.00136"><head>Tufts Medical '52, page 132</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 133" id="fig.137"><p><figure rend="page" n="tufts:UP150.001.012.00001.00137"><head>Tufts Medical '52, page 133</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 134" id="fig.138"><p><figure rend="page" n="tufts:UP150.001.012.00001.00138"><head>Tufts Medical '52, page 134</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 135" id="fig.139"><p><figure rend="page" n="tufts:UP150.001.012.00001.00139"><head>Tufts Medical '52, page 135</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 136" id="fig.140"><p><figure rend="page" n="tufts:UP150.001.012.00001.00140"><head>Tufts Medical '52, page 136</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="Graduate" id="c8">
+            <div2 type="page" rend="page-image" n="Tufts Medical '52, page 137" id="fig.141"><p><figure rend="page" n="tufts:UP150.001.012.00001.00141"><head>Tufts Medical '52, page 137</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 138" id="fig.142"><p><figure rend="page" n="tufts:UP150.001.012.00001.00142"><head>Tufts Medical '52, page 138</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 139" id="fig.143"><p><figure rend="page" n="tufts:UP150.001.012.00001.00143"><head>Tufts Medical '52, page 139</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 140" id="fig.144"><p><figure rend="page" n="tufts:UP150.001.012.00001.00144"><head>Tufts Medical '52, page 140</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 141" id="fig.145"><p><figure rend="page" n="tufts:UP150.001.012.00001.00145"><head>Tufts Medical '52, page 141</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 142" id="fig.146"><p><figure rend="page" n="tufts:UP150.001.012.00001.00146"><head>Tufts Medical '52, page 142</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 143" id="fig.147"><p><figure rend="page" n="tufts:UP150.001.012.00001.00147"><head>Tufts Medical '52, page 143</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 144" id="fig.148"><p><figure rend="page" n="tufts:UP150.001.012.00001.00148"><head>Tufts Medical '52, page 144</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 145" id="fig.149"><p><figure rend="page" n="tufts:UP150.001.012.00001.00149"><head>Tufts Medical '52, page 145</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 146" id="fig.150"><p><figure rend="page" n="tufts:UP150.001.012.00001.00150"><head>Tufts Medical '52, page 146</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 147" id="fig.151"><p><figure rend="page" n="tufts:UP150.001.012.00001.00151"><head>Tufts Medical '52, page 147</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 148" id="fig.152"><p><figure rend="page" n="tufts:UP150.001.012.00001.00152"><head>Tufts Medical '52, page 148</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 149" id="fig.153"><p><figure rend="page" n="tufts:UP150.001.012.00001.00153"><head>Tufts Medical '52, page 149</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 150" id="fig.154"><p><figure rend="page" n="tufts:UP150.001.012.00001.00154"><head>Tufts Medical '52, page 150</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 151" id="fig.155"><p><figure rend="page" n="tufts:UP150.001.012.00001.00155"><head>Tufts Medical '52, page 151</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 152" id="fig.156"><p><figure rend="page" n="tufts:UP150.001.012.00001.00156"><head>Tufts Medical '52, page 152</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 153" id="fig.157"><p><figure rend="page" n="tufts:UP150.001.012.00001.00157"><head>Tufts Medical '52, page 153</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 154" id="fig.158"><p><figure rend="page" n="tufts:UP150.001.012.00001.00158"><head>Tufts Medical '52, page 154</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 155" id="fig.159"><p><figure rend="page" n="tufts:UP150.001.012.00001.00159"><head>Tufts Medical '52, page 155</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 156" id="fig.160"><p><figure rend="page" n="tufts:UP150.001.012.00001.00160"><head>Tufts Medical '52, page 156</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 157" id="fig.161"><p><figure rend="page" n="tufts:UP150.001.012.00001.00161"><head>Tufts Medical '52, page 157</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 158" id="fig.162"><p><figure rend="page" n="tufts:UP150.001.012.00001.00162"><head>Tufts Medical '52, page 158</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 159" id="fig.163"><p><figure rend="page" n="tufts:UP150.001.012.00001.00163"><head>Tufts Medical '52, page 159</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 160" id="fig.164"><p><figure rend="page" n="tufts:UP150.001.012.00001.00164"><head>Tufts Medical '52, page 160</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 161" id="fig.165"><p><figure rend="page" n="tufts:UP150.001.012.00001.00165"><head>Tufts Medical '52, page 161</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 162" id="fig.166"><p><figure rend="page" n="tufts:UP150.001.012.00001.00166"><head>Tufts Medical '52, page 162</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 163" id="fig.167"><p><figure rend="page" n="tufts:UP150.001.012.00001.00167"><head>Tufts Medical '52, page 163</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 164" id="fig.168"><p><figure rend="page" n="tufts:UP150.001.012.00001.00168"><head>Tufts Medical '52, page 164</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 165" id="fig.169"><p><figure rend="page" n="tufts:UP150.001.012.00001.00169"><head>Tufts Medical '52, page 165</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 166" id="fig.170"><p><figure rend="page" n="tufts:UP150.001.012.00001.00170"><head>Tufts Medical '52, page 166</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 167" id="fig.171"><p><figure rend="page" n="tufts:UP150.001.012.00001.00171"><head>Tufts Medical '52, page 167</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 168" id="fig.172"><p><figure rend="page" n="tufts:UP150.001.012.00001.00172"><head>Tufts Medical '52, page 168</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="Alumni" id="c9">
+            <div2 type="page" rend="page-image" n="Tufts Medical '52, page 169" id="fig.173"><p><figure rend="page" n="tufts:UP150.001.012.00001.00173"><head>Tufts Medical '52, page 169</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 170" id="fig.174"><p><figure rend="page" n="tufts:UP150.001.012.00001.00174"><head>Tufts Medical '52, page 170</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 171" id="fig.175"><p><figure rend="page" n="tufts:UP150.001.012.00001.00175"><head>Tufts Medical '52, page 171</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 172" id="fig.176"><p><figure rend="page" n="tufts:UP150.001.012.00001.00176"><head>Tufts Medical '52, page 172</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 173" id="fig.177"><p><figure rend="page" n="tufts:UP150.001.012.00001.00177"><head>Tufts Medical '52, page 173</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 174" id="fig.178"><p><figure rend="page" n="tufts:UP150.001.012.00001.00178"><head>Tufts Medical '52, page 174</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 175" id="fig.179"><p><figure rend="page" n="tufts:UP150.001.012.00001.00179"><head>Tufts Medical '52, page 175</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 176" id="fig.180"><p><figure rend="page" n="tufts:UP150.001.012.00001.00180"><head>Tufts Medical '52, page 176</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 177" id="fig.181"><p><figure rend="page" n="tufts:UP150.001.012.00001.00181"><head>Tufts Medical '52, page 177</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 178" id="fig.182"><p><figure rend="page" n="tufts:UP150.001.012.00001.00182"><head>Tufts Medical '52, page 178</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+</div1>
+        <div1 type="chapter" n="Class of 1977" id="c10">
+        <div2 type="page" rend="page-image" n="Tufts Medical '52, page 179" id="fig.183"><p><figure rend="page" n="tufts:UP150.001.012.00001.00183"><head>Tufts Medical '52, page 179</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 180" id="fig.184"><p><figure rend="page" n="tufts:UP150.001.012.00001.00184"><head>Tufts Medical '52, page 180</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 181" id="fig.185"><p><figure rend="page" n="tufts:UP150.001.012.00001.00185"><head>Tufts Medical '52, page 181</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 182" id="fig.186"><p><figure rend="page" n="tufts:UP150.001.012.00001.00186"><head>Tufts Medical '52, page 182</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 183" id="fig.187"><p><figure rend="page" n="tufts:UP150.001.012.00001.00187"><head>Tufts Medical '52, page 183</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 184" id="fig.188"><p><figure rend="page" n="tufts:UP150.001.012.00001.00188"><head>Tufts Medical '52, page 184</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="The Little Wife" id="c11">
+            <div2 type="page" rend="page-image" n="Tufts Medical '52, page 185" id="fig.189"><p><figure rend="page" n="tufts:UP150.001.012.00001.00189"><head>Tufts Medical '52, page 185</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 186" id="fig.190"><p><figure rend="page" n="tufts:UP150.001.012.00001.00190"><head>Tufts Medical '52, page 186</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 187" id="fig.191"><p><figure rend="page" n="tufts:UP150.001.012.00001.00191"><head>Tufts Medical '52, page 187</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 188" id="fig.192"><p><figure rend="page" n="tufts:UP150.001.012.00001.00192"><head>Tufts Medical '52, page 188</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 189" id="fig.193"><p><figure rend="page" n="tufts:UP150.001.012.00001.00193"><head>Tufts Medical '52, page 189</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 190" id="fig.194"><p><figure rend="page" n="tufts:UP150.001.012.00001.00194"><head>Tufts Medical '52, page 190</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="Activities" id="c12">
+            <div2 type="page" rend="page-image" n="Tufts Medical '52, page 191" id="fig.195"><p><figure rend="page" n="tufts:UP150.001.012.00001.00195"><head>Tufts Medical '52, page 191</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 192" id="fig.196"><p><figure rend="page" n="tufts:UP150.001.012.00001.00196"><head>Tufts Medical '52, page 192</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 193" id="fig.197"><p><figure rend="page" n="tufts:UP150.001.012.00001.00197"><head>Tufts Medical '52, page 193</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 194" id="fig.198"><p><figure rend="page" n="tufts:UP150.001.012.00001.00198"><head>Tufts Medical '52, page 194</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 195" id="fig.199"><p><figure rend="page" n="tufts:UP150.001.012.00001.00199"><head>Tufts Medical '52, page 195</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 196" id="fig.200"><p><figure rend="page" n="tufts:UP150.001.012.00001.00200"><head>Tufts Medical '52, page 196</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 197" id="fig.201"><p><figure rend="page" n="tufts:UP150.001.012.00001.00201"><head>Tufts Medical '52, page 197</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 198" id="fig.202"><p><figure rend="page" n="tufts:UP150.001.012.00001.00202"><head>Tufts Medical '52, page 198</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 199" id="fig.203"><p><figure rend="page" n="tufts:UP150.001.012.00001.00203"><head>Tufts Medical '52, page 199</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 200" id="fig.204"><p><figure rend="page" n="tufts:UP150.001.012.00001.00204"><head>Tufts Medical '52, page 200</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 201" id="fig.205"><p><figure rend="page" n="tufts:UP150.001.012.00001.00205"><head>Tufts Medical '52, page 201</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 202" id="fig.206"><p><figure rend="page" n="tufts:UP150.001.012.00001.00206"><head>Tufts Medical '52, page 202</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 203" id="fig.207"><p><figure rend="page" n="tufts:UP150.001.012.00001.00207"><head>Tufts Medical '52, page 203</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 204" id="fig.208"><p><figure rend="page" n="tufts:UP150.001.012.00001.00208"><head>Tufts Medical '52, page 204</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+        </div1>
+        <div1 type="chapter" n="Advertisers and Cartoons by R.H. Ullrich, Jr." id="c13">
+            <div2 type="page" rend="page-image" n="Tufts Medical '52, page 205" id="fig.209"><p><figure rend="page" n="tufts:UP150.001.012.00001.00209"><head>Tufts Medical '52, page 205</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 206" id="fig.210"><p><figure rend="page" n="tufts:UP150.001.012.00001.00210"><head>Tufts Medical '52, page 206</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 207" id="fig.211"><p><figure rend="page" n="tufts:UP150.001.012.00001.00211"><head>Tufts Medical '52, page 207</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 208" id="fig.212"><p><figure rend="page" n="tufts:UP150.001.012.00001.00212"><head>Tufts Medical '52, page 208</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 209" id="fig.213"><p><figure rend="page" n="tufts:UP150.001.012.00001.00213"><head>Tufts Medical '52, page 209</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 210" id="fig.214"><p><figure rend="page" n="tufts:UP150.001.012.00001.00214"><head>Tufts Medical '52, page 210</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 211" id="fig.215"><p><figure rend="page" n="tufts:UP150.001.012.00001.00215"><head>Tufts Medical '52, page 211</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 212" id="fig.216"><p><figure rend="page" n="tufts:UP150.001.012.00001.00216"><head>Tufts Medical '52, page 212</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 213" id="fig.217"><p><figure rend="page" n="tufts:UP150.001.012.00001.00217"><head>Tufts Medical '52, page 213</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 214" id="fig.218"><p><figure rend="page" n="tufts:UP150.001.012.00001.00218"><head>Tufts Medical '52, page 214</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 215" id="fig.219"><p><figure rend="page" n="tufts:UP150.001.012.00001.00219"><head>Tufts Medical '52, page 215</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 216" id="fig.220"><p><figure rend="page" n="tufts:UP150.001.012.00001.00220"><head>Tufts Medical '52, page 216</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 217" id="fig.221"><p><figure rend="page" n="tufts:UP150.001.012.00001.00221"><head>Tufts Medical '52, page 217</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 218" id="fig.222"><p><figure rend="page" n="tufts:UP150.001.012.00001.00222"><head>Tufts Medical '52, page 218</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 219" id="fig.223"><p><figure rend="page" n="tufts:UP150.001.012.00001.00223"><head>Tufts Medical '52, page 219</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 220" id="fig.224"><p><figure rend="page" n="tufts:UP150.001.012.00001.00224"><head>Tufts Medical '52, page 220</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 221" id="fig.225"><p><figure rend="page" n="tufts:UP150.001.012.00001.00225"><head>Tufts Medical '52, page 221</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 222" id="fig.226"><p><figure rend="page" n="tufts:UP150.001.012.00001.00226"><head>Tufts Medical '52, page 222</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 223" id="fig.227"><p><figure rend="page" n="tufts:UP150.001.012.00001.00227"><head>Tufts Medical '52, page 223</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 224" id="fig.228"><p><figure rend="page" n="tufts:UP150.001.012.00001.00228"><head>Tufts Medical '52, page 224</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 225" id="fig.229"><p><figure rend="page" n="tufts:UP150.001.012.00001.00229"><head>Tufts Medical '52, page 225</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 226" id="fig.230"><p><figure rend="page" n="tufts:UP150.001.012.00001.00230"><head>Tufts Medical '52, page 226</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 227" id="fig.231"><p><figure rend="page" n="tufts:UP150.001.012.00001.00231"><head>Tufts Medical '52, page 227</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 228" id="fig.232"><p><figure rend="page" n="tufts:UP150.001.012.00001.00232"><head>Tufts Medical '52, page 228</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 229" id="fig.233"><p><figure rend="page" n="tufts:UP150.001.012.00001.00233"><head>Tufts Medical '52, page 229</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 230" id="fig.234"><p><figure rend="page" n="tufts:UP150.001.012.00001.00234"><head>Tufts Medical '52, page 230</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 231" id="fig.235"><p><figure rend="page" n="tufts:UP150.001.012.00001.00235"><head>Tufts Medical '52, page 231</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 232" id="fig.236"><p><figure rend="page" n="tufts:UP150.001.012.00001.00236"><head>Tufts Medical '52, page 232</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 233" id="fig.237"><p><figure rend="page" n="tufts:UP150.001.012.00001.00237"><head>Tufts Medical '52, page 233</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 234" id="fig.238"><p><figure rend="page" n="tufts:UP150.001.012.00001.00238"><head>Tufts Medical '52, page 234</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 235" id="fig.239"><p><figure rend="page" n="tufts:UP150.001.012.00001.00239"><head>Tufts Medical '52, page 235</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 236" id="fig.240"><p><figure rend="page" n="tufts:UP150.001.012.00001.00240"><head>Tufts Medical '52, page 236</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 237" id="fig.241"><p><figure rend="page" n="tufts:UP150.001.012.00001.00241"><head>Tufts Medical '52, page 237</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 238" id="fig.242"><p><figure rend="page" n="tufts:UP150.001.012.00001.00242"><head>Tufts Medical '52, page 238</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 239" id="fig.243"><p><figure rend="page" n="tufts:UP150.001.012.00001.00243"><head>Tufts Medical '52, page 239</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, page 240" id="fig.244"><p><figure rend="page" n="tufts:UP150.001.012.00001.00244"><head>Tufts Medical '52, page 240</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+<div2 type="page" rend="page-image" n="Tufts Medical '52, back cover" id="fig.245"><p><figure rend="page" n="tufts:UP150.001.012.00001.00245"><head>Tufts Medical '52, back cover</head><figDesc>From Medical School yearbook, 1952</figDesc></figure></p></div2>
+</div1>
+    </body>
+</text>
+    </TEI.2>

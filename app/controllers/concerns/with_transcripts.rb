@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module WithTranscripts
   extend ActiveSupport::Concern
+  # rubocop:disable Metrics/BlockLength
   included do
     # Use params[:id] to load an object from Fedora.
     # Sets @document_fedora with the loaded object.
@@ -17,11 +18,11 @@ module WithTranscripts
       file_sets = @document_fedora.file_sets
       return if file_sets.nil?
 
-      file_sets.each do |file_set|
-        next unless valid_file_type?(file_set.original_file)
-        define_file_settings(file_set.original_file, file_set.id)
-        break
-      end
+      process_valid_file_sets(file_sets)
+    end
+
+    def transcript_embargo?(file_set)
+      file_set.embargo && !file_set.embargo.embargo_release_date.nil? ? true : false
     end
 
     def valid_file_type?(file)
@@ -37,5 +38,17 @@ module WithTranscripts
         @srt_id = file_set_id
       end
     end
+
+    private
+
+      def process_valid_file_sets(file_sets)
+        file_sets.each do |file_set|
+          next unless valid_file_type?(file_set.original_file)
+          next if transcript_embargo? file_set
+          define_file_settings(file_set.original_file, file_set.id)
+          break
+        end
+      end
   end
+  # rubocop:enable Metrics/BlockLength
 end
