@@ -100,6 +100,8 @@ module Tufts
         object = Image.new(id: pid)
       when "votingRecord"
         object = VotingRecord.new(id: pid)
+      when "tei"
+        object = Tei.new(id: pid)
       when "ead"
         object = Ead.new(id: pid)
       when "rcr"
@@ -315,6 +317,54 @@ module Tufts
         createdby: "CIDER",
         file: 'fixtures/RCR00579.xml',
         model: "rcr"
+      },
+      {
+        title: "High On A Hill",
+        legacy_pid: "tufts:UA069.005.DO.00014",
+        date_created: "2016",
+        displays_in: ["dl"],
+        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
+        file: 'fixtures/UA069.005.DO.00014.archival.xml',
+        model: "tei",
+        format_label: "text/xml"
+
+      },
+      {
+        legacy_pid: "tufts:UA069.005.DO.00091",
+        title: "History of tufts college",
+        date_created: "2016",
+        displays_in: ["dl"],
+        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
+        file: 'fixtures/UA069.005.DO.00091.archival.xml',
+        model: "tei",
+        format_label: "text/xml"
+
+      },
+      {
+        legacy_pid: "tufts:UA069.005.DO.00001",
+        title: "concise encyclopedia",
+        date_created: "2016",
+        displays_in: ["dl"],
+        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
+        file: 'fixtures/UA069.005.DO.00001.archival.xml',
+        model: "tei",
+        format_label: "text/xml"
+
+      },
+      {
+        legacy_pid: "tufts:UP150.001.012.00001",
+        title: "Tufts Medical '52 [yearbook]",
+        date_created: "1952",
+        displays_in: ["dl"],
+        visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
+        rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
+        file: 'fixtures/UP150.001.012.00001.archival.xml',
+        model: "tei",
+        format_label: "text/xml"
+
       }
     ].freeze
   end
