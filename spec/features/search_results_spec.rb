@@ -5,7 +5,7 @@ i_need_ldap
 
 feature 'Search Results' do
   let(:admin) { FactoryBot.create(:ldap_admin) }
-  let(:search_results) { '/catalog?f[human_readable_type_sim][]=Image' }
+  let(:search_results) { '/catalog?per_page=100&f[human_readable_type_sim][]=Image' }
 
   before(:all) do
     @open_visibility_image = FactoryBot.create(:image1)
@@ -38,6 +38,7 @@ feature 'Search Results' do
 
   scenario "Lock icon doesn't show on open-visiblity works" do
     visit search_results
+    # debugger
     expect(find("#document_#{@open_visibility_image.id}")).not_to have_css(".permissions-lock")
   end
 
