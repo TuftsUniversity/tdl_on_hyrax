@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 FactoryBot.define do
-  factory :tufts_no_legacy_pid_tei, class: Tei do
+  factory :tufts_00014_tei, class: Tei do
     transient do
       user { FactoryBot.create(:user) } # find_or_create ???
     end

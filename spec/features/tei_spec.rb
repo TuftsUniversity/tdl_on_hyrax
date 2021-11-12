@@ -5,7 +5,7 @@ feature 'Tei' do
   before do
     FactoryBot.create(:tufts_00091_tei)
     FactoryBot.create(:tufts_00001_tei)
-    FactoryBot.create(:tufts_no_legacy_pid_tei)
+    FactoryBot.create(:tufts_00014_tei)
     FactoryBot.create(:tufts_UP150_001_012_00001_tei)
   end
 
