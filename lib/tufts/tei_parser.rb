@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'easy_logging'
+# require 'byebug'
 
 module Tufts
   module TeiParser
@@ -14,10 +15,10 @@ module Tufts
       chapter = "title" if chapter.nil?
 
       # special case show the cover
-      show_tei_cover(fedora_obj, tei, chapter) if chapter == "title" || (chapter.start_with? "front")
+      return show_tei_cover(fedora_obj, tei, chapter) if chapter == "title" || (chapter.start_with? "front")
 
       # special case show the back cover
-      show_tei_backpage(fedora_obj, tei, chapter) if chapter.starts_with? "back"
+      return show_tei_backpage(fedora_obj, tei, chapter) if chapter.starts_with? "back"
       show_tei_page(fedora_obj, tei, chapter)
     end
 
@@ -55,13 +56,12 @@ module Tufts
     def self.show_tei_backpage(_fedora_obj, tei, chapter)
       result = ""
       result += show_tei_table_start
-
       node_sets = tei.xpath('/TEI.2/text/back/div1')
       node_sets&.each do |node|
         result << ctext(node) if chapter == 'title' || (chapter != "title" && chapter == node['id'])
       end
-
       result += show_tei_table_end
+
       result
     end
     private_class_method :show_tei_backpage
@@ -85,6 +85,7 @@ module Tufts
       return el.text if el.text?
       result = []
       el.children.each do |sel|
+        # byebug
         if sel.element?
           type = sel[:type]
           if sel.name == 'figure'
@@ -94,7 +95,10 @@ module Tufts
             image_id = image.thumbnail_id unless image.nil?
             result.push("<br/><br/><img src='/downloads/#{image_id}?file=thumbnail'>")
           else
-            result.push("<div class='" + sel.name + " " + (type.nil? ? "" : type) + "'>")
+            class_name = sel.name
+            class_name = sel.name + '_tei' if sel.name == 'list' || sel.name == 'item'
+            type_name = (type.nil? ? "" : type + '_tei')
+            result.push("<div class='" + class_name + " " + type_name + "'>")
           end
         end
         result.push(ctext(sel))
@@ -194,6 +198,8 @@ module Tufts
     def self.show_tei_page(fedora_obj, tei, chapter)
       # render the requested chapter.
       # NOTE: should break this out into a method probably.
+      # byebug
+      # chapter="c7"
       result = ""
       footnotes = ""
       node_sets = tei.xpath('//body/div1[@id="' + chapter + '"]/head|//body/div1/div2[@id="' + chapter + '"]/head')
@@ -257,15 +263,17 @@ module Tufts
           '"]'
       )
       in_left_td = true
+
       unless node_sets.nil?
-        node_sets = node_sets.first.children if node_sets.first.name == "div1"
+        node_sets = node_sets.first.children if !node_sets.first.nil? && (node_sets.first.name == "div1" || node_sets.first.name == "div2")
         node_sets.each do |node|
+          # byebug
           node_text = node.text.to_s.strip
           next if node_text.blank?
 
           result += "<tr>"
           result += "<td class=pagenumber>"
-          logger.warn "node name #{node.name}"
+          # logger.warn "node name #{node.name}"
           case node.name
           when "pb"
             result += render_pb(node)
@@ -294,7 +302,7 @@ module Tufts
             result += render_table(node, in_left_td)
           when "list"
             result += "<p></p>"
-          when "div2"
+          when "div2", "div3"
             if in_left_td
               result += switch_to_right
               in_left_td = false
@@ -305,10 +313,11 @@ module Tufts
               begin
                 ls = node.children
                 ls.each do |l|
-                  # result += "<p>" + l.text.to_s.strip + "</p>"
+                  result += "<p>" + l.text.to_s.strip + "</p>"
                   # uncommenting this causes double printing in concise
                   # encyclopedia, i don't know of a counter test case yet.
                 end
+
               rescue
                 logger.warn "error #{result}"
               end
