@@ -26,7 +26,7 @@ class CatalogController < ApplicationController
       "facet.field" => [
         solr_name('human_readable_type', :facetable),
         solr_name('subject', :facetable),
-        solr_name('member_of_collections', :symbol)
+        solr_name('dl_member_of_collections', :symbol)
       ],
       "facet.limit" => 5
     }
@@ -115,9 +115,9 @@ class CatalogController < ApplicationController
       if: :no_primary_date?
     )
     config.add_index_field(
-      solr_name('member_of_collections', :symbol),
+      solr_name('dl_member_of_collections', :symbol),
       label: 'Collection',
-      link_to_search: solr_name('member_of_collections', :symbol)
+      link_to_search: solr_name('dl_member_of_collections', :symbol)
     )
 
     # solr fields to be displayed in the show (single result) view
