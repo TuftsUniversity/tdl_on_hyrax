@@ -14,12 +14,21 @@
   link: https://dl.tufts.edu/catalog?utf8=%E2%9C%93&search_field=all_fields&q=%22Tufts+University+electronic+theses+and+dissertations.%22
   link_text: Visit Collection
 -
-  title: Featured item
-  description: A featured item chosen randomly from a set of identified objects
-  image: tile2.jpeg
-  alt: Visit us
-  link: /catalog
-  link_text: Visit the featured item
+  featured_items:
+    -
+      title: Featured item 1
+      description: The first featured item.
+      image: tile2.jpeg
+      alt: Featured Item 1
+      link: /catalog
+      link_text: Visit this item
+    -
+      title: Featured item 2
+      description: The second featured item.
+      image: FacultyScholarship.jpg
+      alt: Featured Item 2
+      link: /catalog
+      link_text: Visit this other item
 -
   title: Tufts Publications
   description: Browse and search Tufts publications, including newspapers, yearbooks, and student publications.
