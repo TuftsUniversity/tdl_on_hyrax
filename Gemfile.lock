@@ -9,16 +9,6 @@ GIT
       solrizer (>= 3.4, < 5)
 
 GIT
-  remote: https://github.com/TuftsUniversity/pdfjs_viewer-rails.git
-  revision: d624c83a6fa9e8338989b9ec813caab288d437af
-  tag: tdl-20200428
-  specs:
-    pdfjs_viewer-rails (0.3.1)
-      json (> 1.8.4)
-      rails (> 4.2.0)
-      sass-rails (~> 5.0)
-
-GIT
   remote: https://github.com/TuftsUniversity/riiif
   revision: 07d8959df0bc310557edee310144dab401cc861b
   branch: tufts_1_7_0
@@ -38,6 +28,16 @@ GIT
       activesupport
       chronic
       hyrax (~> 2.9)
+
+GIT
+  remote: https://github.com/mkorcy/pdfjs_viewer-rails.git
+  revision: 240786a2205b9278977ba8071814e78192ca4a27
+  tag: v1.0.2
+  specs:
+    pdfjs_viewer-rails (0.4.1)
+      json (> 1.8.4)
+      rails (> 4.2.0)
+      sassc-rails (>= 2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -860,6 +860,12 @@ GEM
       tilt (>= 1.1, < 3)
     sassc (2.4.0)
       ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     scanf (1.0.0)
     select2-rails (3.5.11)
     selenium-webdriver (3.142.7)
