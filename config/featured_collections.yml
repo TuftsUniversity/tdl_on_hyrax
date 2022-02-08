@@ -21,14 +21,14 @@
       image: USGovtPublicOpinion.jpg
       alt: Partial view of Opinion Analysis report cover page
       link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=U.S.+government+public+opinion+surveys+on+security+issues+in+Western+Europe
-      link_text: 'Visit collection'
+      link_text: Visit collection
     -
       title: "Featured item: The Atlantic Almanac"
       description: The Atlantic Alamanac, 1869
       image: AtlanticAlmanac.jpg
       alt: Partial view of the cover of the 1869 Atlantic Almanac, with color illustrations of flowers
       link: http://hdl.handle.net/10427/015081
-      link_text: 'View this item'
+      link_text: View this item
     -
       title: "Featured collection: Tisch Library Undergraduate Research Award"
       description: Winning student projects of the Tisch Library Undergraduate Research Award (TURA)
@@ -42,19 +42,19 @@
       image: BeaksBrainsBones.jpg
       alt: Partial view of the cover of Beaks, brains and bones vol. 3, with illustrations of 3 birds
       link: http://hdl.handle.net/10427/015720
-      link_text: 'View this item'
+      link_text: View this item
     -
       title: "Featured items: Children's books"
       description: Children's books created by Tufts students for and about children with physical and/or intellectual disabilities.
       image: ChildrensBooks.jpg
-      alt: Cover of \"Daisy Likes to Sing\", with a Black child in a wheelchair on a purple background
+      alt: Cover of "Daisy Likes to Sing", with a Black child in a wheelchair on a purple background
       link: https://dl.tufts.edu/catalog?utf8=%E2%9C%93&op=OR&all_fields=cshd90&title=&creator=&description=cshd190&abstract=&bibliographic_citation=&contributor=&corporate_name=&creator_department=&aggregate_date=&date_created=&genre=&keyword=&language=&geog_name=&personal_name=&publisher=&subject=&temporal=&sort=score+desc%2C+pub_date_sortable_isi+desc%2C+title_si+asc&search_field=advanced&commit=Search
-      link_text: 'Visit these items'
+      link_text: Visit these items
     -
       title: "Featured collection: Office of Sustainability Student Project Database"
       description: A collection of student projects related to sustainability and the environment. Requires a Tufts login to view projects.
       image: Sustainability.jpg
-      alt: Section of a cover slide to a presentation on \"Curbside Compost\", with image of road and sky in the background
+      alt: Section of a cover slide to a presentation on "Curbside Compost", with image of road and sky in the background
       link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Office+of+Sustainability+Student+Project+Database
       link_text: Visit collection
     -
