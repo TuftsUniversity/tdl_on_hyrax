@@ -2,14 +2,22 @@
 <div class="featured_collections container">
 <% count = 0 %>
 <% featured_collections&.each do |c| %>
+  <% is_highlight_box = c.has_key?(:highlighted_items) %>
   <% if [0,3,6,9].include?(count) %>
     <div class="row g-10">
   <% end %>
     <% # Use a random item, if this box is the featured_item box %>
-    <% c = c[:featured_items].sample if(c.has_key?(:featured_items))  %>
+    <% c = c[:highlighted_items].sample if is_highlight_box %>
       <div class="featured_collection col-md-4">
         <div class="flipper">
           <div class="card_front">
+            <% if is_highlight_box %>
+              <div class="ribbon ribbon-red">
+                <div class="banner">
+                  <div class="text">Tufts Highlight</div>
+                </div>
+              </div>
+            <% end %>
             <%= image_tag("featured_collections/#{c[:image]}", alt: c[:alt]) %>
             <div class="collection_title"><%=c[:title]%></div>
           </div>
