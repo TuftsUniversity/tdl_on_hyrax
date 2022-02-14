@@ -81,7 +81,6 @@ Rails.application.routes.draw do
   get 'concern/audios/:id/transcriptonly', to: 'hyrax/audios#audio_transcriptonly', constraints: { id: /.*/ }, as: 'audio_transcriptonly'
   get 'concern/videos/:id/transcriptonly', to: 'hyrax/videos#video_transcriptonly', constraints: { id: /.*/ }, as: 'video_transcriptonly'
 
-  match 'feedback', to: 'feedback#show', via: [:post]
   ele = { object_type_sim: ['Generic Objects'], names_sim: ['American Antiquarian Society'] }
   match '/election_datasets', to: 'catalog#index', f: ele, q: '', search_field: 'all_fields', via: [:get]
 end

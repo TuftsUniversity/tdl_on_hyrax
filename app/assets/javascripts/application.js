@@ -36,7 +36,6 @@
 //= require 'mustache/mustache.js'
 //= require 'bookbag/bookbag.js'
 //= require 'bookbag/datepicker.js'
-//= require 'feedback'
 //= require 'read_more_or_less'
 
 
