@@ -1,0 +1,5 @@
+<% # Customizing the contact form to remove category field and make subject field optional. %>
+<p>From: <%= %("#{@contact_form.name}" <#{@contact_form.email}>) %></p>
+
+<% if(@contact_form.subject.present?) %><p>Regarding Item: <%= @contact_form.subject %></p><% end %>
+<p><%= @contact_form.message %></p>

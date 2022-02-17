@@ -1,3 +1,5 @@
+<% # Customizing the contact form to remove category field and make subject field optional. %>
+
 <% referral_url = params['item_referral'].present? ? request.base_url + CGI.unescape(params['item_referral']) : '' %>
 
 <h1><%= t('tufts.contact_form.header') %></h1>
