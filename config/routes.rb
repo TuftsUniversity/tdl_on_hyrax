@@ -22,8 +22,6 @@ Rails.application.routes.draw do
   # override welcome route so we can make search bar available on homepage
   # note: this has to go before hyrax is mounted
   root 'catalog#welcome'
-  post 'contact' => 'tufts/contact_form#create', as: :contact_form_index
-  get 'contact' => 'tufts/contact_form#new'
 
   devise_for :users
   mount Hydra::RoleManagement::Engine => '/'
