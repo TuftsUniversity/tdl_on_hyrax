@@ -33,7 +33,7 @@
   </div>
 
   <div class="form-group">
-    <p>Is your message about a specific item in the digital library? If so, please include the link here:</p>
+    <p><%= t('tufts.contact_form.subject_field_label') %></p>
     <%= f.text_field :subject, rows: 4, class: 'form-control', required: false, value: referral_url %>
   </div>
 
