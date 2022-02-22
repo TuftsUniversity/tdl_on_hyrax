@@ -646,4 +646,5 @@ $(function () {
     });
 }());
 
-$(document).on('turbolinks:load', bookbagInitializer); // Turbolinks 5
+// $(document).on('turbolinks:load', bookbagInitializer); // Turbolinks 5
+$(document).ready(bookbagInitializer); // Turbolinks 5

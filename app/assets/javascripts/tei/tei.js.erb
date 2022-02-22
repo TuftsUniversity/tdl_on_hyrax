@@ -85,7 +85,9 @@ function removePagingHandlers() {
     $('.prev_page').unbind('click');
 }
 
-$(document).on('turbolinks:load', function() {
+// $(document).on('turbolinks:load', function() {
+$(document).ready(function() {
+
     $('.collapse_tei_td').on('click', function(e) {
         e.preventDefault();
         var par = $(this).parents("tr").eq(0);
