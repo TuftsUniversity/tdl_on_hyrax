@@ -434,76 +434,35 @@ input, textarea {
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   color: #fff;
-  //-webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   display: block;
-  //float: right;
   position: relative;
 
-  // Regular
   right: 12px;
   top: 24px;
   width: 100px;
-
-  // Large
-  //right: 20px;
-  //top: 32px;
-  //width: 150px;
 }
 
 .ribbon .banner::after,
 .ribbon .banner::before {
   content: '';
-  //display: block;
   position: absolute;
   background-color: #478CCB;
 
-  // Regular
   height: 12px;
   width: 30px;
-
-  // Large
-  //height: 18px;
-  //width: 45px;
 }
 
 .ribbon .banner::before {
   transform: skewY(-45deg) translate(50%,15px);
-  //-webkit-transform: skewY(-45deg) translate(50%,15px);
-  //-moz-transform: skewY(-45deg) translate(50%,15px);
-  //-ms-transform: skewY(-45deg) translate(50%,15px);
-  //-o-transform: skewY(-45deg) translate(50%,15px);
   transform-origin: 100% center;
-  //-webkit-transform-origin: 100% center;
-  //-moz-transform-origin: 100% center;
-  //-ms-transform-origin: 100% center;
-  //-o-transform-origin: 100% center;
-
-  // Regular
   left: -45px;
-
-  // Large
-  //top: 9px;
-  //left: -68px;
 }
 
 .ribbon .banner::after {
   transform: translate(100%,-100%) skewY(45deg) translateX(-58%);
-  //-webkit-transform: translate(100%,-100%) skewY(45deg) translateX(-58%);
-  //-moz-transform: translate(100%,-100%) skewY(45deg) translateX(-58%);
-  //-ms-transform: translate(100%,-100%) skewY(45deg) translateX(-58%);
-  //-o-transform: translate(100%,-100%) skewY(45deg) translateX(-58%);
   transform-origin: 0 center;
-  //-webkit-transform-origin: 0 center;
-  //-moz-transform-origin: 0 center;
-  //-ms-transform-origin: 0 center;
-  //-o-transform-origin: 0 center;
-
-  // Regular
   right: -17px;
-
-  // Large
-  //top: 45px;
-  //right: -26px;
 }
 
 .ribbon .text {
@@ -511,21 +470,8 @@ input, textarea {
   z-index: 2;
   font-weight: bold;
 
-  //text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.20);
-  //white-space: nowrap;
-  //text-overflow: ellipsis;
-
-  // Regular
   padding: 4px 0;
   font-size: 14px;
-  //min-height: 18px;
-  //line-height: 18px;
-
-  // Large
-  //padding: 9px 0;
-  //font-size: 18px;
-  //min-height: 28px;
-  //line-height: 28px;
 }
 
 .ribbon .text::before,
@@ -537,28 +483,15 @@ input, textarea {
   width: 100%;
   z-index: -1;
   background-color: $tufts_blue;
-
-  // Regular
   height: 30px;
-
-  // Large
-  //height: 46px;
 }
 
 .ribbon .text::before {
   transform: translateX(-15%) skewX(-45deg);
-  //-webkit-transform: translateX(-15%) skewX(-45deg);
-  //-moz-transform: translateX(-15%) skewX(-45deg);
-  //-ms-transform: translateX(-15%) skewX(-45deg);
-  //-o-transform: translateX(-15%) skewX(-45deg);
 }
 
 .ribbon .text::after {
   transform: translateX(15%) skewX(45deg);
-  //-webkit-transform: translateX(15%) skewX(45deg);
-  //-moz-transform: translateX(15%) skewX(45deg);
-  //-ms-transform: translateX(15%) skewX(45deg);
-  //-o-transform: translateX(15%) skewX(45deg);
 }
 
 
