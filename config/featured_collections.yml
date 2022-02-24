@@ -16,75 +16,138 @@
 -
   highlighted_items:
     -
-      title: "US Government Public Opinion Surveys"
-      description: Reports from the Office of Research in the United States Information Agency on security issues in Western Europe
-      image: USGovtPublicOpinion.jpg
-      alt: Partial view of Opinion Analysis report cover page
-      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=U.S.+government+public+opinion+surveys+on+security+issues+in+Western+Europe
+      title: Alex de Waal African Union Papers
+      description: Documents from de Waal during his time as an expert advisor to the African Union High-Level Panel on Darfur and the African Union High-Level Implementation Panel for Sudan from 2005 to 2012.
+      image: deWaal.jpg
+      alt: Three men sitting at a table signing documents with a woman and man standing nearby.
+      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Alex+de+Waal+African+Union+High-Level+Implementation+Panel+papers
       link_text: Visit collection
     -
-      title: "The Atlantic Almanac"
-      description: The Atlantic Alamanac, 1869
+      title: The Atlantic Almanac
+      description: The Atlantic Alamanac, 1869.
       image: AtlanticAlmanac.jpg
-      alt: Partial view of the cover of the 1869 Atlantic Almanac, with color illustrations of flowers
+      alt: Partial view of the cover of the 1869 Atlantic Almanac, with color illustrations of flowers.
       link: http://hdl.handle.net/10427/015081
       link_text: View this item
     -
-      title: "Tisch Library Undergraduate Research Award"
-      description: Winning student projects of the Tisch Library Undergraduate Research Award (TURA)
-      image: TURA.jpg
-      alt: Woman sitting cross-legged on green carpet using a laptop and surrounded by books
-      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Tisch+Library+Undergraduate+Research+Award
-      link_text: 'Visit collection'
-    -
-      title: "Beaks, brains and bones, Vol. 3"
+      title: Beaks, brains and bones, Vol. 3
       description: "Chubb, Kit. Experiences in avian trauma: Volume 3, Loons, ospreys and grebes. Verona, Ont.: Avian Care and Research Foundation, 2001. From the Loons (Gavia) collection."
       image: BeaksBrainsBones.jpg
-      alt: Partial view of the cover of Beaks, brains and bones vol. 3, with illustrations of 3 birds
+      alt: Partial view of the cover of Beaks, brains and bones vol. 3, with illustrations of 3 birds.
       link: http://hdl.handle.net/10427/015720
       link_text: View this item
     -
-      title: "Children's books"
+      title: Center for Health and Environmental Justice
+      description: The Center for Health, Environment and Justice was founded in 1981 by Lois Marie Gibbs and grew out of Gibbs' experience organizing her community in Love Canal, New York. Visit the collection to learn more.
+      image: environmental_justice.jpg
+      alt: "Center for Health and Environmental Justice logo: a large round black and white sign with the CHEJ name on the boarder. The center depicts a series of community buildings with adults and children standing in front of them."
+      link: https://dl.tufts.edu/concern/eads/s1784x484
+      link_text: Visit collection
+    -
+      title: Children's books
       description: Children's books created by Tufts students for and about children with physical and/or intellectual disabilities.
       image: ChildrensBooks.jpg
-      alt: Cover of "Daisy Likes to Sing", with a Black child in a wheelchair on a purple background
+      alt: Cover of "Daisy Likes to Sing", with a Black child in a wheelchair on a purple background.
       link: https://dl.tufts.edu/catalog?utf8=%E2%9C%93&op=OR&all_fields=cshd90&title=&creator=&description=cshd190&abstract=&bibliographic_citation=&contributor=&corporate_name=&creator_department=&aggregate_date=&date_created=&genre=&keyword=&language=&geog_name=&personal_name=&publisher=&subject=&temporal=&sort=score+desc%2C+pub_date_sortable_isi+desc%2C+title_si+asc&search_field=advanced&commit=Search
       link_text: Visit these items
     -
-      title: "Office of Sustainability Student Project Database"
-      description: A collection of student projects related to sustainability and the environment. Requires a Tufts login to view projects.
-      image: Sustainability.jpg
-      alt: Section of a cover slide to a presentation on "Curbside Compost", with image of road and sky in the background
-      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Office+of+Sustainability+Student+Project+Database
+      title: Concise Encyclopedia of Tufts History
+      description: Written in 2000 this online encyclopedia contains entries on myriad Tufts topics including buildgins, people, and Tufts traditions.
+      image: concise.jpg
+      alt: An icon of a red book. "Concise Encyclopedia of Tufts History" is written on the cover in white text.
+      link: http://hdl.handle.net/10427/14829
+      link_text: View item
+    -
+      title: Edward R. Murrow Papers
+      description: Edward R. Murrow (1908-1965) was a prominent CBS broadcaster during the formative years of American radio and television news programs. Visit the collection to learn more.
+      image: Murrow.jpg
+      alt: Edward R. Murrow stands in a crowd of people. He is holding radio broadcast equipment labeled "CBS".
+      link: https://dl.tufts.edu/concern/eads/cz30q362v
       link_text: Visit collection
     -
-      title: "Tisch Library OER Awards"
-      description: Course materials created by instructors awarded a Tisch Library Open Educational Resources Award
-      image: OER.jpg
-      alt: Open Educational Resources logo in white on blue background, with drawing of hands coming out of a book
-      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Tisch+Library+OER+Awards
-      link_text: Visit collection
+      title: Facilities Management Records
+      description: Items in this collection include maps and photos of campus and items related to campus buildings.
+      image: facilities.jpg
+      alt: A map of the Tufts campus in Medford.
+      link: https://dl.tufts.edu/concern/eads/hm50v309p
+      link_text: View collection
     -
-      title: "OSPRE reports"
-      description: Offshore Power Research & Education Collaborative report series produced by the School of Engineering & the Fletcher School
-      image: OSPRE.jpg
-      alt: Partial view of cover of OSPRE report 2021-01
-      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=OSPRE+Reports
-      link_text: Visit collection
-    -
-      title: "Fletcher Forum of World Affairs"
-      description: Articles from the Fletcher Forum, a twice-yearly student publication of the Fletcher School of Law and Diplomacy
+      title: Fletcher Forum of World Affairs
+      description: Articles from the Fletcher Forum, a twice-yearly student publication of the Fletcher School of Law and Diplomacy.
       image: FletcherForum.jpg
-      alt: Fletcher Forum of World Affairs graphic with white title on orange background
+      alt: Fletcher Forum of World Affairs graphic with white title on orange background.
       link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Fletcher+Forum+of+World+Affairs
       link_text: Visit collection
     -
-      title: "Alex de Waal African Union Papers"
-      description: Documents from de Waal during his time as an expert advisor to the African Union High-Level Panel on Darfur and the African Union High-Level Implementation Panel for Sudan from 2005 to 2012
-      image: deWaal.jpg
-      alt: Three men sitting at a table signing documents with a woman and man standing nearby
-      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Alex+de+Waal+African+Union+High-Level+Implementation+Panel+papers
+      title: Gerald R. Gill Papers
+      description: Gerald R. Gill was a professor of American history at Tufts University from 1980 until his death in 2007. His research interests included African-American history, the history of the civil rights movement, pacifism, and the black student experience at Tufts.
+      image: gerald_gill.jpg
+      alt: A photographic portrait of a Black man in a sports coat. He is perching on the edge of a desk in a classroom. There is a blackboard behind him.
+      link: https://dl.tufts.edu/concern/eads/br86bd541
       link_text: Visit collection
+    -
+      title: Lois Gibbs Love Canal Papers
+      description: Lois Gibbs' papers document the Love Canal disaster and its aftermath, and include subject files, newspaper clippings, health studies, reports about the Love Canal site and its residents, and a small amount of audiovisual and ephemeral material.
+      image: lois_gibbs.jpg
+      alt: A caricature drawing of Lois Gibbs fighting toxic waste.
+      link: https://dl.tufts.edu/concern/eads/c534g0221
+      link_text: View collection
+    -
+      title: Margaret Henderson Floyd Slides
+      description: Architectrual slides from Professor Margaret Henderson Floyd, a professor in the Department of Art History at Tufts University from 1977 to 1997.
+      image: floyd.jpg
+      alt: Photograph of a large red-pink private residence with a hedge-lined walkway.
+      link: https://dl.tufts.edu/filtered_catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Margaret+Henderson+Floyd+architectural+slide+collection
+      link_text: View slides
+    -
+      title: Office of Sustainability Student Project Database
+      description: A collection of student projects related to sustainability and the environment. Requires a Tufts login to view projects.
+      image: Sustainability.jpg
+      alt: Section of a cover slide to a presentation on "Curbside Compost", with image of road and sky in the background.
+      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Office+of+Sustainability+Student+Project+Database
+      link_text: Visit collection
+    -
+      title: Onyx
+      description: Thirty-five issues of Onyx, Tufts' student-produced Black Literary Magazine, are available in the Tufts Digital Library.
+      image: onyx.jpg
+      alt: "The cover of the Fall 1997 issue of Onyx: an art piece depiciting a black woman in a red dress carrying goods in a basket balanced on her head."
+      link: https://dl.tufts.edu/catalog?f%5Bdl_member_of_collections_ssim%5D%5B%5D=Onyx&search_field=all_fields
+      link_text: View these items
+    -
+      title: OSPRE reports
+      description: Offshore Power Research & Education Collaborative report series produced by the School of Engineering & the Fletcher School.
+      image: OSPRE.jpg
+      alt: Partial view of cover of OSPRE report 2021-01.
+      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=OSPRE+Reports
+      link_text: Visit collection
+    -
+      title: Tisch Library OER Awards
+      description: Course materials created by instructors awarded a Tisch Library Open Educational Resources Award.
+      image: OER.jpg
+      alt: Open Educational Resources logo in white on blue background, with drawing of hands coming out of a book.
+      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Tisch+Library+OER+Awards
+      link_text: Visit collection
+    -
+      title: Tisch Library Undergraduate Research Award
+      description: Winning student projects of the Tisch Library Undergraduate Research Award (TURA).
+      image: TURA.jpg
+      alt: Woman sitting cross-legged on green carpet using a laptop and surrounded by books.
+      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=Tisch+Library+Undergraduate+Research+Award
+      link_text: Visit collection
+    -
+      title: US Government Public Opinion Surveys
+      description: Reports from the Office of Research in the United States Information Agency on security issues in Western Europe.
+      image: USGovtPublicOpinion.jpg
+      alt: Partial view of Opinion Analysis report cover page.
+      link: https://dl.tufts.edu/catalog?f%5Bmember_of_collections_ssim%5D%5B%5D=U.S.+government+public+opinion+surveys+on+security+issues+in+Western+Europe
+      link_text: Visit collection
+    -
+      title: Voices
+      description: Voices is a student literary publication published by the Tufts Asian community. Thirty-two issues are available in the Tufts Digital Library.
+      image: voices.jpg
+      alt: The cover of Voices Spring 2014 showing the portrait of an Asian person. The background of the portrait is split down the center. One side depicts art and artistic pursuits. The other side shows chemistry diagrams and notes.
+      link: https://dl.tufts.edu/catalog?f%5Bdl_member_of_collections_ssim%5D%5B%5D=Voices
+      link_text: Visit these items
 -
   title: Tufts Publications
   description: Browse and search Tufts publications, including newspapers, yearbooks, and student publications.
