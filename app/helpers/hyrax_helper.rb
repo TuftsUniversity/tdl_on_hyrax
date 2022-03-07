@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+
+require 'mime/types'
+
 module HyraxHelper
   include ::BlacklightHelper
   include Hyrax::BlacklightOverride
@@ -40,6 +43,9 @@ module HyraxHelper
         download_links << add_to_list_link
         archival_id = @presenter.solr_document._source['hasRelatedImage_ssim']
         download_links << (current_user && current_user.role?(:archivist) ? high_res_image_link(archival_id) : low_res_image_link(archival_id))
+      when 'generic_objects'
+        download_links << add_to_list_link
+        download_links << generic_link(@presenter.solr_document._source['hasRelatedMediaFragment_ssim'])
       when 'teis'
         download_links << add_to_list_link
       when 'pdfs'
@@ -87,6 +93,27 @@ module HyraxHelper
       url: '',
       text: 'Add to List',
       class: 'list-add'
+    }
+  end
+
+  ##
+  # The info for "Download File" link.
+  #
+  # @param {str} file_id
+  #   The file id of the file.
+  #
+  # @return {hash}
+  #   The infor for the "Download File" link.
+  def generic_link(file_id)
+    related_object = ActiveFedora::Base.find(file_id)
+    content_type = related_object.first.mime_type
+    file_extension = MIME::Types[content_type].first.extensions.first
+
+    {
+      icons: 'glyphicon glyphicon-file glyph-left',
+      url: "#{hyrax.download_path(file_id)}?filename=#{@presenter.id}.#{file_extension}",
+      text: 'Download File',
+      label: "Download File"
     }
   end
 
