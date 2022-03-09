@@ -93,6 +93,41 @@
       link: https://dl.tufts.edu/concern/eads/c534g0221
       link_text: View collection
     -
+      title: The Jumbo Yearbook
+      description: The Jumbo, the yearbook of the School of Arts & Sciences, is available in the TDL. 
+      image: TheJumbo_1973.jpg
+      alt: The cover of the 1973 Jumbo. It features an orange and yellow sun on a blue background. There is an elephant in the lower left corner and "tufts 1973" in the lower right.
+      link: https://dl.tufts.edu/catalog?f%5Bdl_member_of_collections_ssim%5D%5B%5D=The+Jumbo+Yearbook
+      link_text: 'View yearbooks'
+    -
+      title: Commencement Programs
+      description: Digitized programs from Tufts Commencement from the 19th, 20th, and 21st centuries.
+      image: Commencement.jpg
+      alt: The cover of a commencement program. It is the image of the back of a graduate's head, wearing a motorboard, in shades of blue. The text on the cover reads "Tufts" and "150th commencement"
+      link: https://dl.tufts.edu/catalog?f%5Bdl_member_of_collections_ssim%5D%5B%5D=Commencement+programs
+      link_text: 'View programs'
+    -
+      title: Melville Munro Photographs
+      description: Melville S. Munro (1881-1945), a faculty member for more than three decades, also worked as the college's official photographer, recording an almost complete pictorial history of campus and student life up until 1941.
+      image: Munro.jpg
+      alt: A black and white photograph of a white woman in a greenhouse. She is bent over a plant examining it.
+      link: https://dl.tufts.edu/catalog?f%5Bdl_member_of_collections_ssim%5D%5B%5D=Melville+S.+Munro+papers&f%5Bobject_type_sim%5D%5B%5D=Images
+      link_text: 'View images'
+    -
+      title: Jackson College Photographs
+      description: Photos from Jackson College for Women, the coordinate college for women at Tufts. These featured images are from different collections but reflect student life at Jackson College in the 19th and 20th centuries.
+      image: Jackson.jpg
+      alt: A black and white photograph from commencement. A Black woman in gown and motorboard smilingly shakes hands with a Black man dressed in doctoral robe, hood, and motorboard
+      link: https://dl.tufts.edu/catalog?f%5Bobject_type_sim%5D%5B%5D=Images&per_page=100&q=jackson+college&search_field=all_fields
+      link_text: 'View images'
+    -
+      title: New England Medical Center photographs
+      description: Photos from the New England Medical Center collection showing the history of the medical center
+      image: NEMC.jpg
+      alt: A black and white photograph of a white child with braided pigtails. She is holding a life preserver which says "The Boston Floating Hospital 20 Ash Street" and her torso and head are framed in the middle of it.
+      link: https://dl.tufts.edu/catalog?f%5Bdl_member_of_collections_ssim%5D%5B%5D=New+England+Medical+Center+records&f%5Bobject_type_sim%5D%5B%5D=Images&per_page=100&search_field=all_fields
+      link_text: 'View images'
+    -
       title: Margaret Henderson Floyd Slides
       description: Architectrual slides from Professor Margaret Henderson Floyd, a professor in the Department of Art History at Tufts University from 1977 to 1997.
       image: floyd.jpg
@@ -153,7 +188,7 @@
   description: Browse and search Tufts publications, including newspapers, yearbooks, and student publications.
   image: TuftsPublications.jpg
   alt: A black and white photograph shows Edward R. Murrow sitting in an easy chair in profile to the camera. He is reading a newspaper.
-  link: /catalog
+  link: https://dl.tufts.edu/catalog?utf8=%E2%9C%93&search_field=all_fields&q=source_tesim%3AUP*
   link_text: View Tufts Publications
 -
   title: Faculty scholarship
