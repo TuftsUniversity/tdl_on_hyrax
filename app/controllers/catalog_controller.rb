@@ -358,6 +358,8 @@ class CatalogController < ApplicationController
   def show_thumb_from_id
     id = params[:id]
     item = ActiveFedora::Base.find(id)
+    is_inactive = item.state.fetch.rdf_label[0].to_s == "inactive" ? true : false
+    raise ActiveRecord::RecordNotFound if is_inactive
     fs_id = item.representative.id
     redirect_to "https://dl.tufts.edu/downloads/#{fs_id}?file=thumbnail"
   end
