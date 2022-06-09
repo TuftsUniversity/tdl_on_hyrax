@@ -30,7 +30,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
         ports:
-          - 6379:6379      
+          - 6379:6379
     strategy:
       fail-fast: false
       matrix:
@@ -83,7 +83,7 @@ jobs:
         cp config/database.yml.sample config/database.yml
         cp config/blacklight.yml.sample config/blacklight.yml
         cp config/secrets.yml.sample config/secrets.yml
-    - name: Create database    
+    - name: Create database
       run: |
         RAILS_ENV=test bundle exec rake db:create
         RAILS_ENV=test bundle exec rake db:migrate --trace
@@ -93,7 +93,7 @@ jobs:
     - name: Setup hyrax test environment
       run: |
         bundle exec rake hydra:test_server &
-        sleep 150        
+        sleep 150
     - name: Rubbocop
       run: |
         bundle exec rubocop
@@ -103,15 +103,15 @@ jobs:
     - name: Create admin set
       run: bundle exec rake hyrax:default_admin_set:create
       env:
-        RAILS_ENV: test        
+        RAILS_ENV: test
     - name: Refresh fixtures
       run: bundle exec rake tufts:fixtures:refresh
       env:
-        RAILS_ENV: test        
+        RAILS_ENV: test
     - name: Run tests
       run: bundle exec rake spec
       env:
-        RAILS_ENV: test        
+        RAILS_ENV: test
         TMPDIR: /tmp
     - name: Coveralls
       uses: coverallsapp/github-action@master
