@@ -73,7 +73,7 @@ group :development do
 end
 
 gem 'hyrax', '2.9.5'
-gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', branch: 'hyrax-2.9'
+gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: 'v1.2.9'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
