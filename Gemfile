@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-# ruby '2.7.2'
+ruby "~> 2.7.0"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -73,7 +73,7 @@ group :development do
 end
 
 gem 'hyrax', '2.9.5'
-gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', branch: 'hyrax-2.9'
+gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: 'v1.2.9'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
