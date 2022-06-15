@@ -5,9 +5,12 @@ module WithTeis
     # Use params[:id] to load an object from Fedora.
     # Sets @document_fedora with the loaded object.
     # Sets @document_ead with the EAD file_set content of the loaded object.
+    # rubocop:disable Metrics/CyclomaticComplexity
     def load_fedora_document
       return if params[:id].blank?
-      return if params[:id] == "73666f980" || params[:id] == "5712mj551" || params[:id] == "qv33s7092" || params[:id] == "3197xx41j" || params[:id] == "057423334" || params[:id] == "d217r103f" || params[:id] == "5t34sv62t"
+
+      return if ["73666f980", "5712mj551", "qv33s7092", "3197xx41j", "057423334", "d217r103f", "5t34sv62t"].include? params[:id]
+
       @document_fedora = ActiveFedora::Base.find(params[:id])
       @document_tei = nil
 
