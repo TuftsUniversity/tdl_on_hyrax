@@ -73,6 +73,7 @@ Rails.application.routes.draw do
   get 'file_assets/:id', to: 'catalog#legacy_file_assets', constraints: { id: /.*/ }, as: 'fileassetviewer', via: [:get]
   get '/thumb/:id', to: 'catalog#show_thumb_from_id', constraints: { id: /.*/ }, as: 'thumbviewer', via: [:get]
   get 'teiviewer/:parent/:id(/chapter/:chapter)', constraints: { chapter: /[a-zA-Z0-9\-_.:]+/ }, to: 'hyrax/teis#advanced', as: 'teiviewer'
+  get 'streetsviewer/:parent/:id(/chapter/:chapter)', constraints: { chapter: /[a-zA-Z0-9\-_.:]+/ }, to: 'hyrax/teis#streets', as: 'streetsviewer'
 
   get 'concern/eads/:id/fa', to: 'hyrax/eads#fa_overview', constraints: { id: /.*/ }, as: 'fa_overview'
   get 'concern/eads/:id/fa/:item_id', to: 'hyrax/eads#fa_series', constraints: { id: /.*/, item_id: /.*/ }, as: 'fa_series'

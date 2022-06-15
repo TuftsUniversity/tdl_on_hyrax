@@ -7,7 +7,7 @@ module WithTeis
     # Sets @document_ead with the EAD file_set content of the loaded object.
     def load_fedora_document
       return if params[:id].blank?
-
+      return if params[:id] == "73666f980" || params[:id] == "5712mj551" || params[:id] == "qv33s7092" || params[:id] == "3197xx41j" || params[:id] == "057423334" || params[:id] == "d217r103f" || params[:id] == "5t34sv62t"
       @document_fedora = ActiveFedora::Base.find(params[:id])
       @document_tei = nil
 

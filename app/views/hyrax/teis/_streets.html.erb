@@ -1,17 +1,30 @@
 <% provide :page_title, @presenter.page_title %>
 <% collector = can?(:collect, @presenter.id) %>
 <% editor = can?(:edit, @presenter.id) %>
+<% toc_results, chapter_list =  Tufts::DbDoc.get_toc(@presenter) %>
+
 <div class="row tdl-content">
-  <div class="col-md-6">
-    <div><%= image_tag('streets/boston_streets.png', alt: 'boston streets splash image', class: 'election-splash') %></div>
+ <div class="row col-md-6">
+      <%= image_tag('streets/boston_streets.png', alt: 'boston streets splash image', class: 'election-splash') %>
+      <br>
+      <div class="tei-centertext">
+      <h6>
+      <%= link_to "/streetsviewer/#{@presenter.id}/#{@presenter.id}", data: { turbolinks: false } do %>
+        View Directory <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+      <% end %>
+      </h6>
+      </div>
   </div>
   <div class="col-md-6">
-    <div class="spacer"></div>
-    <div class="tooltip-demo well "><p>View:</p>
-      <h5><a href="<%= show_elections_link(params[:id]) %>"><%= @presenter.title.first %></a>
-        <span class="glyphicon glyphicon-arrow-right"></span></h5>
-      <strong>Boston Streets</strong> combines photographs, maps, and city directories to present a new view of the geography and people of Boston between 1845-1898. This project was developed by the Tufts University Digital Collections and Archives with support from IMLS and The Bostonian Society.
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#information">Information</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="information" class="tab-pane active">
+        <%= render "shared/metadata" %>
+      </div>
 
     </div>
-  </div>
+  </div> <!-- right column -->
 </div>
