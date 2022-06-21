@@ -23,5 +23,15 @@ module Hyrax
       end
       render layout: "hyrax"
     end
+
+    def streets
+      @id = params[:id]
+      # or, to use "id" instead of "@id" in views, do this: render locals: {id:  params[:id]}
+
+      respond_to do |wants|
+        wants.html { presenter && parent_presenter }
+      end
+      render layout: "hyrax"
+    end
   end
 end

@@ -1,0 +1,100 @@
+<style>
+ .main-header {
+   margin-top: 50px;
+ }
+</style>
+<!-- LEFT SIDE FOR OBJECT TITLE -->
+<% javascript_include_tag << "tei/tei.js" %>
+<% stylesheet_link_tag "object_css/teif3" %>
+<%-
+    toc_results, chapter_list =  Tufts::DbDoc.get_toc(@presenter)
+    chapter = params[:chapter]
+    chapter_list_index = 0
+
+    if chapter_list[chapter_list_index].include? 'front'
+      chapter_list_index = 1
+    end
+
+    unless chapter.nil?
+      chapter_list_index = chapter_list.index(params[:chapter])
+    end
+
+    begin
+        prev_url = '/streetsviewer/' + params[:parent] + '/' + params[:parent] + '/chapter/' + chapter_list[chapter_list_index - 1]
+    rescue TypeError => e
+        prev_url = "#"
+    end
+
+    begin
+        next_url = '/streetsviewer/' + params[:parent] + '/' + params[:parent] + '/chapter/' + chapter_list[chapter_list_index + 1]
+    rescue TypeError => e
+        next_url = "#"
+    end
+-%>
+
+
+        <div class="row">
+
+          <div class="span12">
+            <%= render "shared/item_header" %>
+          </div>
+          <!-- span12 -->
+        </div>  <!-- row -->
+        <div class="row tdl-content">
+          <div class="col-md-7">
+            <div class="pull-right">
+              <a data-turbolinks="false" class="<%= (chapter_list_index == 0) ? 'disabled ' :'' %>prev_page" href="<%=(chapter_list_index == 0) ? '#' : prev_url %>">
+                <span class=" glyphicon glyphicon-menu-left"></span>
+              </a>
+
+              <a data-turbolinks="false" class="<%=chapter_list_index == (chapter_list.length - 1) ? 'disabled ' :'' %> " href="<%=(chapter_list_index == (chapter_list.length - 1)) ? '#' : next_url %>">
+                <span class="glyphicon glyphicon-menu-right"></span>
+              </a>
+            </div>
+
+
+             <% result, page_image, image_pid =  Tufts::DbDoc.show_tei(@presenter, params[:chapter])  %>
+             <% if page_image %>
+               <h4><%= raw result %></h4>
+               <%     items = ActiveFedora::Base.where(legacy_pid_tesim: image_pid) 
+                      file_set =  items.first.file_sets.first #.file_set = FileSet.find(file_set_id).first
+               %>
+               <%= link_to "/imageviewer/#{items.first.id}", data: { turbolinks: false } do %>
+                 <%= image_tag(Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,")) %>
+               <% end %>
+               <h6>
+               <%= link_to "/imageviewer/#{items.first.id}", data: { turbolinks: false } do %>
+                open in viewer <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+               <% end %>
+               </h6>
+
+             <% else %>
+               <%= raw result %>
+             <% end %>
+            <div class="pull-right">
+
+              <a data-turbolinks="false" class=" <%= (chapter_list_index == 0) ? 'disabled ' :'' %>prev_page" href="<%=(chapter_list_index == 0) ? '#' : prev_url %>">
+                <span class="glyphicon glyphicon-menu-left"></span>
+              </a>
+              <a data-turbolinks="false" class="<%=chapter_list_index == (chapter_list.length - 1) ? 'disabled ' :'' %> " href="<%=(chapter_list_index == (chapter_list.length - 1)) ? '#' : next_url %>">
+                <span class="glyphicon glyphicon-menu-right"></span>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="col-md-5">
+<% cache (@presenter.id + "-TOC").strip do %>
+              <div id="table-of-contents" class="tab-pane">
+                <table class="table noborder">
+                  <tbody>
+                  <% toc_results, chapter_list =  Tufts::DbDoc.get_toc(@presenter) %>
+                  <%= raw toc_results %>
+                  </tbody>
+                </table>
+              </div>
+<% end %>
+          </div> <!-- right column -->
+
+        </div>
+        <%= render :partial => 'hyrax/teis/mustache_templates' %>
