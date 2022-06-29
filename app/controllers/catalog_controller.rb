@@ -80,7 +80,8 @@ class CatalogController < ApplicationController
     config.add_facet_field 'pub_date_facet_isim', label: 'Year', range: true
     config.add_facet_field solr_name('subject_topic', :facetable), limit: 5, label: 'Subject'
     config.add_facet_field solr_name('dl_member_of_collections', :symbol), limit: 5, label: 'Collections'
-
+    config.add_facet_field file_set_complex_types_sim, limit: 10, label: 'File Type'
+    config.add_facet_field creator_department_sim, limit: 10, label: 'Department'
     # The generic_type isn't displayed on the facet list
     # It's used to give a label to the filter that comes from the user profile
     config.add_facet_field solr_name('generic_type', :facetable), if: false
@@ -180,7 +181,7 @@ class CatalogController < ApplicationController
         steward_tesim subject_tesim table_of_contents_tesim temporal_tesim
         legacy_pid_tesim resource_type_tesim tufts_is_part_of_tesim
         file_set_date_created_simplified_tesim file_set_format_tesim
-        pub_date_facet_isim),
+        pub_date_facet_isim creator_department_tesim),
         pf: title_name.to_s
       }
     end

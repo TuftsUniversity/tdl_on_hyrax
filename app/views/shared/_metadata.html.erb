@@ -57,7 +57,7 @@
   %>
 
 
-
+  <%= @presenter.attribute_to_html(:creator_department, { render_as: :linked }) %>
   <%= @presenter.multi_attributes_to_html([:subject, :personal_name, :geog_name, :corporate_name]) %>
   <%= @presenter.attribute_to_html(:genre, { render_as: :linked }) %>
   <%= @presenter.attribute_to_html(:temporal, { render_as: :linked }) %>

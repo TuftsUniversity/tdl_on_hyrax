@@ -120,5 +120,9 @@ module Hyrax
     def bibliographic_citation
       solr_document[:bibliographic_citation_tesim]
     end
+
+    def creator_department
+      solr_document[:creator_department_tesim]
+    end
   end
 end
