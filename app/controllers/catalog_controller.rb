@@ -80,8 +80,8 @@ class CatalogController < ApplicationController
     config.add_facet_field 'pub_date_facet_isim', label: 'Year', range: true
     config.add_facet_field solr_name('subject_topic', :facetable), limit: 5, label: 'Subject'
     config.add_facet_field solr_name('dl_member_of_collections', :symbol), limit: 5, label: 'Collections'
-    config.add_facet_field file_set_complex_types_sim, limit: 10, label: 'File Type'
-    config.add_facet_field creator_department_sim, limit: 10, label: 'Department'
+    config.add_facet_field solr_name('file_set_complex_types', :facetable), limit: 5, label: 'File Type'
+    config.add_facet_field solr_name('creator_department', :facetable), limit: 10, label: 'Department'
     # The generic_type isn't displayed on the facet list
     # It's used to give a label to the filter that comes from the user profile
     config.add_facet_field solr_name('generic_type', :facetable), if: false
