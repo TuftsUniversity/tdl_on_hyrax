@@ -23,7 +23,7 @@ function addThumbListeners() {
 
 
 
-        var pid = $(this).data('pid');
+        pid = $(this).data('pid');
         $.getJSON('/image_overlay/' + pid, function(data) {
             var template = $('#image_overlay_template').html();
             var html = Mustache.to_html(template, data);
@@ -44,13 +44,18 @@ function addThumbListeners() {
 function updateThumbs(gallery, show) {
     $.getJSON('/image_gallery/' + pid + '/' + gallery_start + '/' + gallery_page_size, function(data) {
         total_count = parseInt(data.count);
-        var template = $('#gallery_overlay_template').html();
-        var html = Mustache.to_html(template, data);
-        gallery.html(html);
+        if (total_count == 0) {
+          var template = $('#gallery_empty_overlay_template').html();
+          var html = Mustache.to_html(template, data);
+          document.querySelector('#myImageGallery').innerHTML = html;  
+        }
+        else {
+          var template = $('#gallery_overlay_template').html();
+          var html = Mustache.to_html(template, data);
+          document.querySelector('#myImageGallery').innerHTML = html;  
+         }
         if (show) {
-            gallery.modal('show');
-
-
+            $('#myImageGallery').modal('show');
         }
         addPagingHandlers();
         removeThumbListeners();
@@ -85,6 +90,11 @@ function removePagingHandlers() {
     $('.prev_page').unbind('click');
 }
 
+    var gallery_start = 0;
+    var gallery_page_size = 10;
+    var pid = "";
+    var total_count = 0;
+    var gallery = $('#myImageGallery');
 // $(document).on('turbolinks:load', function() {
 $(document).ready(function() {
 
@@ -127,12 +137,6 @@ $(document).ready(function() {
             "left": "50%"
         });
     })
-
-    var gallery_start = 0;
-    var gallery_page_size = 10;
-    var pid = "";
-    var total_count = 0;
-    var gallery = $('#myImageGallery');
 
     $('.myImageGalleryLauncher').on('click', function(e) {
         e.preventDefault();
