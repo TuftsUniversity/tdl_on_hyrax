@@ -19,6 +19,7 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     # default advanced config values
+    config.http_method = :post
     config.advanced_search ||= Blacklight::OpenStructWithHashAccess.new
     config.advanced_search[:url_key] ||= 'advanced'
     config.advanced_search[:query_parser] ||= 'edismax'
@@ -128,6 +129,7 @@ class CatalogController < ApplicationController
     config.add_show_field solr_name('description', :stored_searchable)
     config.add_show_field solr_name('keyword', :stored_searchable)
     config.add_show_field solr_name('subject', :stored_searchable)
+    # TODO: Clean up config.add_show_field solr_name('subject', :stored_searchable), link_to_search: true
     config.add_show_field solr_name('genre', :stored_searchable)
     config.add_show_field solr_name('creator', :stored_searchable)
     config.add_show_field solr_name('contributor', :stored_searchable)
