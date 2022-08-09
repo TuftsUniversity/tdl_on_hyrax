@@ -7,8 +7,8 @@ class GalleryController < ApplicationController
     xml = Nokogiri::XML(@document_fedora.file_sets.first.original_file.content)
     xml&.remove_namespaces!
     @node_sets = xml.xpath('//figure')
-
-    render json: { figures: generate_figures, count: @node_sets.length, title: "Illustrations from the " + title.to_s }
+    generate_figures
+    render json: { figures: @figures, count: @node_sets.length, title: "Illustrations from the " + title.to_s }
   end
 
   def image_overlay
@@ -32,14 +32,18 @@ class GalleryController < ApplicationController
         logger.info("Gallery Image not found") if image.nil?
         image_id = image.thumbnail_id unless image.nil?
 
-        image_title = ""
         full_title = ""
         begin
           full_title = image.title.first unless image.title.nil? # image_metadata[:titles].nil? ? "" : image_metadata[:titles].first
-          image_title = full_title.slice(0, 17) + '...' if full_title.length > 20
+          image_title = if full_title.length > 20
+                          full_title.slice(0, 17) + '...'
+                        else
+                          full_title
+                        end
           # image_url = Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,")
         end
 
+        logger.info("Image Gallery Record: {pid: #{image_id}, object_pid: #{image.id}, caption: #{image_title}, full_title: #{full_title} }")
         @figures << { pid: image_id, object_pid: image.id, caption: image_title, full_title: full_title }
       end
     end
