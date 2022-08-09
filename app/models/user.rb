@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
+  before_create :add_default_roles if Rails.env.development?
+
   # Connects this user object to Hydra behaviors.
   include Hydra::User
   # Connects this user object to Role-management behaviors.
@@ -14,8 +16,14 @@ class User < ApplicationRecord
   include Blacklight::User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :ldap_authenticatable, :registerable,
+  if Rails.env.development?
+    devise :ldap_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  else
+    devise_modules = [:omniauthable, :rememberable, :trackable, omniauth_providers: [:shibboleth], authentication_keys: [:uid]]
+    # #devise_modules.prepend(:database_authenticatable) if AuthConfig.use_database_auth?
+    devise(*devise_modules)
+  end
 
   ##
   # @see https://github.com/samvera/hyrax/pull/2340
@@ -62,6 +70,20 @@ class User < ApplicationRecord
   def ldap_before_save
     self.email = Devise::LDAP::Adapter.get_ldap_param(username, "mail").first
     self.display_name = Devise::LDAP::Adapter.get_ldap_param(username, "tuftsEduDisplayNameLF").first
+  end
+
+  # allow omniauth (including shibboleth) logins
+  #   this will create a local user based on an omniauth/shib login
+  #   if they haven't logged in before
+  def self.from_omniauth(auth)
+    Rails.logger.warn "auth = #{auth.inspect}"
+    # Uncomment the debugger above to capture what a shib auth object looks like for testing
+    user = where(username: auth[:uid]).first_or_create
+    user.display_name = auth[:name]
+    user.username = auth[:uid]
+    user.email = auth[:mail]
+    user.save
+    user
   end
 end
 

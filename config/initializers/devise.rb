@@ -1,17 +1,21 @@
 # frozen_string_literal: true
+require "omniauth-shibboleth"
+# frozen_string_literal: true
 #
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # ==> LDAP Configuration
-  config.ldap_logger = true
-  config.ldap_create_user = true
-  # config.ldap_update_password = true
-  config.ldap_config = Rails.root.join('config', 'ldap.yml')
-  # config.ldap_check_group_membership = false
-  # config.ldap_check_group_membership_without_admin = false
-  # config.ldap_check_attributes = false
-  config.ldap_use_admin_to_bind = Rails.env.production? ? true : false
+  if Rails.env.development?
+    config.ldap_logger = true
+    config.ldap_create_user = true
+    # config.ldap_update_password = true
+    config.ldap_config = Rails.root.join('config', 'ldap.yml')
+    # config.ldap_check_group_membership = false
+    # config.ldap_check_group_membership_without_admin = false
+    # config.ldap_check_attributes = false
+    config.ldap_use_admin_to_bind = false
+  end
   # config.ldap_ad_group_check = false
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -289,4 +293,12 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  if Rails.env.production? || Rails.env.stage?
+    config.omniauth :shibboleth, {
+      uid_field: 'uid',
+      info_fields: { display_name: 'displayName', uid: 'uid', mail: 'mail' },
+      callback_url: '/users/auth/shibboleth/callback',
+      strategy_class: OmniAuth::Strategies::Shibboleth
+    }
+  end
 end
