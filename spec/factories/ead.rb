@@ -18,10 +18,11 @@ FactoryBot.define do
 
     after(:create) do |work, _evaluator|
       ead_test_file1 = File.open(File.expand_path(Rails.root.join('spec', 'fixtures', 'MS999.archival.xml')))
-      original_file = work.file_sets[0].build_original_file
-      original_file.content = ead_test_file1
-      work.file_sets[0].save
-      work.save
+      Hydra::Works::AddFileToFileSet.call(work.file_sets[0], ead_test_file1, :original_file, versioning: true)
+      # original_file = work.file_sets[0].build_original_file
+      # #original_file.content = ead_test_file1
+      # work.file_sets[0].save
+      # work.save
     end
   end
 
@@ -43,10 +44,11 @@ FactoryBot.define do
 
     after(:create) do |work, _evaluator|
       ead_test_file1 = File.open(File.expand_path(Rails.root.join('spec', 'fixtures', 'MS226.archival.xml')))
-      original_file = work.file_sets[0].build_original_file
-      original_file.content = ead_test_file1
-      work.file_sets[0].save
-      work.save
+      Hydra::Works::AddFileToFileSet.call(work.file_sets[0], ead_test_file1, :original_file, versioning: true)
+      # original_file = work.file_sets[0].build_original_file
+      # original_file.content = ead_test_file1
+      # work.file_sets[0].save
+      # work.save
     end
   end
 end
