@@ -53,10 +53,26 @@ gem 'pdfjs_viewer-rails', git: 'https://github.com/mkorcy/pdfjs_viewer-rails.git
 gem 'riiif', git: 'https://github.com/TuftsUniversity/riiif', branch: 'tufts_1_7_0'
 gem 'sidekiq'
 gem 'sitemap_generator'
+gem 'hyrax', '2.9.5'
+gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: 'v1.2.11'
+gem 'devise-guests', '~> 0.6'
+gem 'rsolr', '>= 1.0'
+gem 'high_voltage', '~> 3.0.0'
+
+# github alerts
+gem "bootstrap-sass", ">= 3.4.1"
+gem "devise", ">= 4.6.0"
+gem "loofah", ">= 2.2.3"
+gem "rack", ">= 2.0.6"
+gem "rubyzip", ">= 1.2.2"
 
 group :production do
   gem 'passenger'
   gem 'therubyracer'
+end
+
+group :development do
+  gem 'listen', '~> 3.0.5'
 end
 
 group :development, :test do
@@ -65,27 +81,13 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.0', require: false
-end
-
-group :development do
-  gem 'listen', '~> 3.0.5'
-end
-
-gem 'hyrax', '2.9.5'
-gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: 'v1.2.11'
-
-group :development, :test do
-  gem 'solr_wrapper', '>= 0.3'
-end
-
-gem 'devise-guests', '~> 0.6'
-gem 'rsolr', '>= 1.0'
-
-group :development, :test do
   gem 'bixby'
   gem 'capybara'
+  gem 'capybara-maleficent', require: false
+  gem 'capybara-screenshot'
   gem 'fcrepo_wrapper'
   gem 'rubocop', require: false
+  gem 'solr_wrapper', '>= 0.3'
 end
 
 group :test do
@@ -97,11 +99,3 @@ group :test do
   gem 'simplecov-lcov', '~> 0.8.0'
 end
 
-gem 'high_voltage', '~> 3.0.0'
-
-# github alerts
-gem "bootstrap-sass", ">= 3.4.1"
-gem "devise", ">= 4.6.0"
-gem "loofah", ">= 2.2.3"
-gem "rack", ">= 2.0.6"
-gem "rubyzip", ">= 1.2.2"
