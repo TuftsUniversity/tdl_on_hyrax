@@ -60,6 +60,7 @@ services:
       - SECRET_KEY_BASE=bobross
       - SOLR_URL=http://solr-dev:8983/solr/development
       - UPLOADS_PATH=/data/tmp/uploads
+      - TMPDIR=/data/tmp
     depends_on:
       - tdl-db-dev
     expose:
