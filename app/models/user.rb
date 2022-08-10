@@ -16,7 +16,7 @@ class User < ApplicationRecord
   include Blacklight::User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  if Rails.env.development?
+  if Rails.env.development? || Rails.env.test?
     devise :ldap_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   else
