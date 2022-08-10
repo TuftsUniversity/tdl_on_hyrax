@@ -40,9 +40,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'blacklight_advanced_search'
 gem 'blacklight_oai_provider'
 gem 'blacklight_range_limit', '~> 6.3', '>= 6.3.2'
+gem 'devise-guests', '~> 0.6'
 gem 'devise_ldap_authenticatable'
 gem 'easy_logging'
+gem 'high_voltage', '~> 3.0.0'
 gem 'hydra-role-management'
+gem 'hyrax', '2.9.5'
 gem 'ldp', '0.7.0'
 gem 'mysql2'
 gem 'okcomputer'
@@ -51,13 +54,10 @@ gem 'omniauth', '1.9.1'
 gem 'omniauth-shibboleth'
 gem 'pdfjs_viewer-rails', git: 'https://github.com/mkorcy/pdfjs_viewer-rails.git', tag: 'v1.0.2'
 gem 'riiif', git: 'https://github.com/TuftsUniversity/riiif', branch: 'tufts_1_7_0'
+gem 'rsolr', '>= 1.0'
 gem 'sidekiq'
 gem 'sitemap_generator'
-gem 'hyrax', '2.9.5'
 gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: 'v1.2.11'
-gem 'devise-guests', '~> 0.6'
-gem 'rsolr', '>= 1.0'
-gem 'high_voltage', '~> 3.0.0'
 
 # github alerts
 gem "bootstrap-sass", ">= 3.4.1"
@@ -76,18 +76,18 @@ group :development do
 end
 
 group :development, :test do
-  gem 'byebug', platform: :mri
-  gem 'geckodriver-helper'
-  gem 'rspec-rails'
-  gem 'selenium-webdriver'
-  gem 'webdrivers', '~> 4.0', require: false
   gem 'bixby'
+  gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'capybara-maleficent', require: false
   gem 'capybara-screenshot'
   gem 'fcrepo_wrapper'
+  gem 'geckodriver-helper'
+  gem 'rspec-rails'
   gem 'rubocop', require: false
+  gem 'selenium-webdriver'
   gem 'solr_wrapper', '>= 0.3'
+  gem 'webdrivers', '~> 4.0', require: false
 end
 
 group :test do
@@ -98,4 +98,3 @@ group :test do
   gem 'simplecov'
   gem 'simplecov-lcov', '~> 0.8.0'
 end
-
