@@ -6,7 +6,7 @@ require "omniauth-shibboleth"
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # ==> LDAP Configuration
-  if Rails.env.development?
+  if Rails.env.development? || Rails.env.test?
     config.ldap_logger = true
     config.ldap_create_user = true
     # config.ldap_update_password = true
