@@ -14,6 +14,9 @@ volumes:
   solr-dev:
   redis-dev:
   bundled:
+  derivatives:
+    external:
+      name: mira_on_hyrax_derivatives
 
 services:
   ##
@@ -26,6 +29,7 @@ services:
     volumes:
       - .:/data # mount current directory into the image
       - bundled:/usr/local/bundle
+      - derivatives:/data/tmp/derivatives
     networks:
       external:
       internal:
