@@ -29,21 +29,13 @@ development:
   ssl: true
   # <<: *AUTHORIZATIONS
 test:
-  host: ldap.tufts.edu
-  port: 636
+  host: localhost
+  port: 3897
   attribute: uid
-  base: dc=tufts, dc=edu
-  admin_user: some_user
-  admin_password: some_password
-  ssl: true
-  # <<: *AUTHORIZATIONS
-
-#test:
-#  host: localhost
-#  port: 3389
-#  attribute: cn
-#  base: ou=people,dc=example,dc=org
-#  ssl: false
+  base: ou=people,dc=example,dc=org
+  admin_user: cn=admin,dc=example,dc=org
+  admin_password: admin_password
+  ssl: false
   # <<: *AUTHORIZATIONS
 production:
   host: localhost
