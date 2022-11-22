@@ -231,6 +231,13 @@ class CatalogController < ApplicationController
     add_search_field('title', config)
     add_search_field('creator', config)
     add_search_field('description', config)
+    config.add_search_field('thesis_type') do |field|
+      solr_name = solr_name('dissertation_type', :stored_searchable)
+      field.solr_local_parameters = {
+        qf: solr_name,
+        pf: solr_name
+      }
+    end
     add_advanced_search_field('abstract', config)
     add_advanced_search_field('bibliographic_citation', config)
     add_search_field('contributor', config)
