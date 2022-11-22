@@ -45,7 +45,6 @@ gem 'easy_logging'
 gem 'hydra-role-management'
 gem 'ldp', '0.7.0'
 gem 'mysql2'
-gem 'okcomputer'
 gem 'om', git: 'https://github.com/TuftsUniversity/om'
 gem 'pdfjs_viewer-rails', git: 'https://github.com/mkorcy/pdfjs_viewer-rails.git', tag: 'v1.0.2'
 gem 'riiif', git: 'https://github.com/TuftsUniversity/riiif', branch: 'tufts_1_7_0'
@@ -67,9 +66,6 @@ end
 
 group :development do
   gem 'listen', '~> 3.0.5'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.3.0'
 end
 
 gem 'hyrax', '2.9.5'
