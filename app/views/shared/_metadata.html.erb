@@ -58,6 +58,7 @@
 
 
   <%= @presenter.attribute_to_html(:creator_department, { render_as: :linked }) %>
+  <%= @presenter.attribute_to_html(:thesis_type, { render_as: :linked }) %>
   <%= @presenter.multi_attributes_to_html([:subject, :personal_name, :geog_name, :corporate_name]) %>
   <%= @presenter.attribute_to_html(:genre, { render_as: :linked }) %>
   <%= @presenter.attribute_to_html(:temporal, { render_as: :linked }) %>
@@ -93,6 +94,7 @@
 
 
 
+
 <% end %>
       <dt>To Cite:</dt>
       <dd><%= link_to(
@@ -109,6 +111,11 @@
           @presenter.rights_statement.first,
           target: "_blank") %></dd>
       <% end %>
+      <% unless @presenter.rights_note.nil? %>
+        <dt>Rights Note:</dt>
+        <dd><%= @presenter.rights_note.first %></dd>
+      <% end %>
+
     </dl>
     <% if @presenter.solr_document._source["has_model_ssim"].include?("Image") %>
       <p>To request a high-resolution image, choose Add to List.</p>
