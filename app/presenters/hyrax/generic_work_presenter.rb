@@ -53,6 +53,14 @@ module Hyrax
       solr_document[:rights_statement_tesim]
     end
 
+    def thesis_type
+      solr_document[:dissertation_type_tesim]
+    end
+
+    def rights_note
+      solr_document[:rights_note_tesim]
+    end
+
     def member_of_collections
       solr_document[:member_of_collections_ssim]
     end
