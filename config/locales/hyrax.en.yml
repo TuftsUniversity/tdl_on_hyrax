@@ -47,6 +47,7 @@ en:
           bibliographic_citation: Citation
           dc_access_rights: Access Rights
           permanent_url: Permanent URL
+          thesis_type: Thesis Type
   hyrax:
     product_name:           "Tufts Digital Library"
     product_twitter_handle: "@SamveraRepo"
