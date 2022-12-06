@@ -69,6 +69,10 @@ services:
     command: >
       bash -c "./build/entrypoint.sh &&
       bundle exec rails s -p 4000 -b '0.0.0.0'"
+    ports:
+       - "${SERVER_PORTS}"
+    expose:
+       - "${SERVER_EXPOSE}"
   ##
   # Test environment for application
   test: &tdl-test
@@ -99,9 +103,11 @@ services:
       - bundled:/usr/local/bundle
     command: >
       bash -c "./build/entrypoint.sh &&
-      puma -b tcp://0.0.0.0:4001 -e test"
+      RAILS_ENV=test bundle exec rails s -p 4001 -b '0.0.0.0''"
+    ports:
+      - "${TEST_PORTS}"
     expose:
-      - 4001
+      - "${TEST_EXPOSE}"
 ##
   # Mariadb database server
   db: &db
