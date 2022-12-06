@@ -16,21 +16,9 @@ ENV LC_ALL C.UTF-8
 RUN apt-get update && apt-get upgrade -y && \
   apt-get install --no-install-recommends -y ca-certificates nodejs \
   build-essential libpq-dev libreoffice imagemagick unzip ghostscript vim \
-  ffmpeg \
-  clamav-freshclam clamav-daemon libclamav-dev \
   libqt5webkit5-dev xvfb xauth default-jre-headless --fix-missing --allow-unauthenticated
 
 RUN apt-get install chromium -y
-
-# fetch clamav local database
-# initial update of av databases
-RUN freshclam
-
-# install FITS for file characterization
-RUN mkdir -p /opt/fits && \
-    curl -fSL -o /opt/fits/fits-1.5.0.zip https://github.com/harvard-lts/fits/releases/download/1.5.0/fits-1.5.0.zip && \
-    cd /opt/fits && unzip fits-1.5.0.zip && chmod +X fits.sh && rm fits-1.5.0.zip
-ENV PATH /opt/fits:$PATH
 
 # Increase stack size limit to help working with large works
 ENV RUBY_THREAD_MACHINE_STACK_SIZE 8388608
