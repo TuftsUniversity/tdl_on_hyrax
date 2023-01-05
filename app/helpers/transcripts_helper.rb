@@ -8,7 +8,7 @@ module TranscriptsHelper
       result << "        <div class=\"participant_row\" id=\"participant" + participant_number.to_s + "\">\n"
       result << "          <div class=\"participant_id\">" + (participant.initials.nil? ? "" : participant.initials) + "</div>\n"
       result << "          <div class=\"participant_name\">" + participant.name + "<span class=\"participant_role\">"
-      result << participant.role.nil? ? "" : ", " + participant.role
+      result << (participant.role.nil? ? "" : ", " + participant.role)
       if participant.gender.present?
         result << case participant.gender
                   when 'f'
