@@ -103,7 +103,7 @@ services:
       - bundled:/usr/local/bundle
     command: >
       bash -c "./build/entrypoint.sh &&
-      RAILS_ENV=test bundle exec rails s -p 4001 -b '0.0.0.0''"
+      RAILS_ENV=test bundle exec rails s -p 4001 -b '0.0.0.0'"
     ports:
       - "${TEST_PORTS}"
     expose:
