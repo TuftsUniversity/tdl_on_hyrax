@@ -89,18 +89,18 @@ module MetadataMethods
 
   def self.find_closest_white_space_index(text, index) # rubocop:disable  Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
     # blank returns true if character is whitespace
-    index if text[index].blank?
+    return index if text[index].blank?
 
     index_shift = 1
     # I assume length is expensive method. Let's cache the value. It wont change.
     length = text.length
     while index - index_shift >= 0 || index + index_shift < length
       # Checks to the left of start postion
-      index - index_shift if index - index_shift >= 0 && text[index - index_shift].blank?
+      return (index - index_shift) if index - index_shift >= 0 && text[index - index_shift].blank?
       # Checks to the right of the start postion
-      index + index_shift if index + index_shift < length && text[index + index_shift].blank?
+      return (index + index_shift) if index + index_shift < length && text[index + index_shift].blank?
 
-      index_shift += index_shift + 1
+      index_shift += 1
     end
     # What to return if text has no whitesapce?
     index
