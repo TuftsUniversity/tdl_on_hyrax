@@ -13,7 +13,11 @@
         </li>
         <li>
             <% if current_user %>
-              <%= link_to t('blacklight.header_links.logout'), main_app.destroy_user_session_path %> <%= "[#{ current_user.to_s }]".html_safe unless current_user.to_s.blank? %>
+              <% if Rails.env.production? || Rails.env.stage? %>
+                <%= link_to t('blacklight.header_links.logout'), "#{request.base_url}/Shibboleth.sso/Logout?return=#{request.base_url}/sign_out" %> <%= "[#{ current_user.to_s }]".html_safe unless current_user.to_s.blan
+              <% else %>
+                <%= link_to t('blacklight.header_links.logout'), main_app.destroy_user_session_path %> <%= "[#{ current_user.to_s }]".html_safe unless current_user.to_s.blank? %>
+              <% end %>
             <% else %>
               <%= link_to t('blacklight.header_links.login'), main_app.new_user_session_path, method: :post %>
             <% end %>
