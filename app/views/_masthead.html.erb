@@ -14,7 +14,7 @@
         <li>
             <% if current_user %>
               <% if Rails.env.production? || Rails.env.stage? %>
-                <%= link_to t('blacklight.header_links.logout'), "#{request.base_url}/Shibboleth.sso/Logout?return=#{request.base_url}/sign_out" %> <%= "[#{ current_user.to_s }]".html_safe unless current_user.to_s.blan
+                <%= link_to t('blacklight.header_links.logout'), "#{request.base_url}/Shibboleth.sso/Logout?return=#{request.base_url}/sign_out" %> <%= "[#{ current_user.to_s }]".html_safe unless current_user.to_s.blank? %>
               <% else %>
                 <%= link_to t('blacklight.header_links.logout'), main_app.destroy_user_session_path %> <%= "[#{ current_user.to_s }]".html_safe unless current_user.to_s.blank? %>
               <% end %>
