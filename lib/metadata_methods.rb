@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 module MetadataMethods
-
   def self.read_more_or_less(text, length, opts = {})
     # First parameter is a string.
     # Second parameter is the length at which the output should be abbreviated with a "read more" link.
