@@ -9,7 +9,7 @@
     <tr><th>Description</th>
     <td>
     <ul class='tabular'><li itemprop="about" itemscope itemtype="http://schema.org/Thing" class="attribute attribute-subject">
-      <%= raw MetadataMethods.read_more_or_less(full_description, 400) %>
+      <%= raw MetadataMethods.read_more_or_less(full_description, 400, auto_link: true) %>
     </ul>
     </td></tr>
   <% end %>
