@@ -8,7 +8,11 @@
 		<maintenanceStatus>new</maintenanceStatus>
 		<maintenanceAgency>
 			<agencyCode>MMeT-C</agencyCode>
+<<<<<<< Updated upstream
 			<agencyName>Tufts Archival Research Center</agencyName>
+=======
+			<agencyName>Tufts University Tufts Archival Research Center</agencyName>
+>>>>>>> Stashed changes
 		</maintenanceAgency>
 		<languageDeclaration>
 		 	<language languageCode="eng">English</language>
@@ -49,7 +53,7 @@
 			  <sourceEntry>Miller, Russell E., "A New Era Dawning ...," in Light on the Hill: A History of Tufts College, 1852-1952. vol. 1., 548. Boston: Beacon Press, 1966.</sourceEntry>
 			</source>
 			<source>
-			  <sourceEntry>Facilities Management, Buildings and Grounds. Buildings. Wessell Library, 1960-1983. UA021/001. Box 011. Folder 001. Tufts University. Digital Collections and Archives. Medford, MA.</sourceEntry>
+			  <sourceEntry>Facilities Management, Buildings and Grounds. Buildings. Wessell Library, 1960-1983. UA021/001. Box 011. Folder 001. Tufts University. Tufts Archival Research Center. Medford, MA.</sourceEntry>
 			</source>
 			<source>
 			  <sourceEntry>New England Carnegies. "Eaton Hall (formerly the Eaton Memorial Library) Tufts University, Medford, MA." New England Carnegies. http://www.necarnegies.com/matufts.htm (accessed October 1, 2009).</sourceEntry>

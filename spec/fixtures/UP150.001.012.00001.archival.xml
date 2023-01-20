@@ -15,7 +15,7 @@
                 <funder></funder>
                 <respStmt>
                     <resp>edited by:</resp>
-                    <name>Digital Collections and Archives, Tufts University</name>
+                    <name>Tufts Archival Research Center, Tufts University</name>
                 </respStmt>
             </titleStmt>
             <editionStmt>
@@ -25,7 +25,11 @@
             </editionStmt>
             <extent></extent>
             <publicationStmt>
+<<<<<<< Updated upstream
                 <distributor>Tufts Archival Research Center</distributor>
+=======
+                <distributor>Tufts University Tufts Archival Research Center</distributor>
+>>>>>>> Stashed changes
                 <address>
                     <addrLine>Tufts University</addrLine>
                     <addrLine>35 Professors Row</addrLine>
