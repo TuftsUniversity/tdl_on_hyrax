@@ -18,7 +18,7 @@
     steward = @presenter.steward
     is_part_of = @presenter.is_part_of
     steward_ary = Array.wrap(steward)
-    is_dca = (steward.present? && steward_ary.first.downcase == "dca")
+    is_tarc = (steward.present? && steward_ary.first.downcase == "tarc")
 
     if false
       collections = nil
@@ -71,7 +71,7 @@
     <dl class="dl-horizontal">
       <dt>ID: </dt>
       <dd><%= @presenter.id %></dd>
-      <% if is_dca %>
+      <% if is_tarc %>
     <% if @presenter.aspace_cuid.nil? && !@presenter.legacy_pid.nil? && !@presenter.legacy_pid.empty? %>
       <dt>Component ID: </dt>
       <dd><%= @presenter.legacy_pid.first %></dd>
@@ -98,7 +98,7 @@
 <% end %>
       <dt>To Cite:</dt>
       <dd><%= link_to(
-        "DCA Citation Guide",
+        "TARC Citation Guide",
         "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
         target: "_blank") %>
         &nbsp;&nbsp;
