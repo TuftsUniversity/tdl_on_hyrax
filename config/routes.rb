@@ -22,8 +22,17 @@ Rails.application.routes.draw do
   # override welcome route so we can make search bar available on homepage
   # note: this has to go before hyrax is mounted
   root 'catalog#welcome'
+  if Rails.env.production? || Rails.env.stage?
+    devise_for :users, controllers: { omniauth_callbacks: "omniauthcallbacks" }, skip: [:sessions]
+    devise_scope :user do
+      post 'sign_in', to: 'omniauth#new', as: :new_user_session
+      post 'sign_in', to: 'omniauth_callbacks#shibboleth', as: :new_session
+      get 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
+    end
+  else
+    devise_for :users
+  end
 
-  devise_for :users
   mount Hydra::RoleManagement::Engine => '/'
 
   # Hide the dashboard from non-admin users.
