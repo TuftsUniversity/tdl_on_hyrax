@@ -8,11 +8,7 @@
 		<maintenanceStatus>new</maintenanceStatus>
 		<maintenanceAgency>
 			<agencyCode>MMeT-C</agencyCode>
-<<<<<<< Updated upstream
 			<agencyName>Tufts Archival Research Center</agencyName>
-=======
-			<agencyName>Tufts University Tufts Archival Research Center</agencyName>
->>>>>>> Stashed changes
 		</maintenanceAgency>
 		<languageDeclaration>
 		 	<language languageCode="eng">English</language>
