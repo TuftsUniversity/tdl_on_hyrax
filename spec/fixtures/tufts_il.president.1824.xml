@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<aas:election_record xmlns:aas="http://dca.tufts.edu/aas" label="Illinois 1824 President of the United States" type="Legislative" iteration="First Ballot" date="1824-11" election_id="il.president.1824" handle="10427/56366" schemaLocation="http://dca.tufts.edu/aas http://tarc.tufts.edu/schema/aas/electionRecord.xsd">
+<!-- We are choosing to keep http://dca.tufts.edu/schema/aas/electionRecord.xsd until dca, now tarc moves election records-->
+<aas:election_record xmlns:aas="http://dca.tufts.edu/aas" label="Illinois 1824 President of the United States" type="Legislative" iteration="First Ballot" date="1824-11" election_id="il.president.1824" handle="10427/56366" schemaLocation="http://dca.tufts.edu/aas http://dca.tufts.edu/schema/aas/electionRecord.xsd">
 	<aas:office name="Electoral College" office_id="ON056" scope="Federal">
 		<aas:role title="Elector" scope="State">
 			<aas:ballot>

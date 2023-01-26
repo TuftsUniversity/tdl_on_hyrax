@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ead xmlns="http://dca.tufts.edu/schema/ead" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://tarc.lib.tufts.edu/schema/ead http://tarc.lib.tufts.edu/schema/ead/ead.xsd">
+	xsi:schemaLocation="http://dca.lib.tufts.edu/schema/ead http://dca.lib.tufts.edu/schema/ead/ead.xsd">
 	<eadheader langencoding="en">
 		<eadid url="http://hdl.handle.net/10427/000515">UA069.001.DO.MS226</eadid>
 		<filedesc>
