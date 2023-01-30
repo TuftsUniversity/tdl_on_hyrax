@@ -11,7 +11,7 @@
         <sponsor>Processing funded by a generous grant from NEH, 2015.</sponsor>
       </titlestmt>
       <publicationstmt>
-        <publisher>Digital Collections and Archives, Tufts University</publisher>
+        <publisher>Tufts Archival Research Center, Tufts University</publisher>
         <p id="logostmt">
             <extref xlink:actuate="onLoad"
                     xlink:href="https://dca.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg"
@@ -49,7 +49,7 @@
         <language langcode="eng">English</language>
       </langmaterial>
       <repository>
-        <corpname>Digital Collections and Archives, Tufts University</corpname>
+        <corpname>Tufts Archival Research Center, Tufts University</corpname>
       </repository>
       <unittitle>Lorem Ipsum papers</unittitle>
       <origination label="creator">
@@ -160,7 +160,7 @@
     </altformavail>
     <prefercite id="aspace_23b861bc6d0bdd25d6cbe7f241cc9b82">
       <head>Preferred Citation</head>
-      <p>Lorem Ipsum papers, 1897-1933. Tufts University. Digital Collections and Archives. Medford,
+      <p>Lorem Ipsum papers, 1897-1933. Tufts University. Tufts Archival Research Center. Medford,
         MA.</p>
     </prefercite>
     <separatedmaterial id="aspace_e82b86d1f2d7c6a0a6b16e16b7a0b311">
@@ -229,8 +229,7 @@
         </altformavail>
         <prefercite id="aspace_b83da0be9ab9b03afd97fc8fe7478895">
           <head>Preferred Citation</head>
-          <p>Personal papers, Lorem Ipsum papers, 1897-1933. Tufts University. Digital Collections
-            and Archives. Medford, MA.</p>
+          <p>Personal papers, Lorem Ipsum papers, 1897-1933. Tufts University. Tufts Archival Research Center. Medford, MA.</p>
         </prefercite>
         <separatedmaterial id="aspace_d7015e9f9faad5136d03f893a7ce4db0">
           <head>Separated Materials</head>

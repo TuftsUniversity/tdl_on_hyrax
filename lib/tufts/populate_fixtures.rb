@@ -197,7 +197,7 @@ module Tufts
         identifier: "http://hdl.handle.net/10427/35371",
         creator: "Edwards, W.F.L.",
         description: '9 1/4 x 7. This book cover illustration is from W.F.L. Edwards, "The Story of Jumbo" (St. Thomas [Ont.] : Sutherland Press, c.1935).',
-        publisher: "Digital Collections and Archives, Tufts University",
+        publisher: "Tufts Archival Research Center, Tufts University",
         source: "MS002",
         primary_date: "1935",
         date_issued: "2010-09-29",
@@ -211,7 +211,7 @@ module Tufts
         rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
         temporal: "1935",
         # Is member of collection tufts:UA069.006.DO.MS002
-        steward: "dca",
+        steward: "tarc",
         displays_in: ["dl"],
         createdby: "CIDER",
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
@@ -224,9 +224,9 @@ module Tufts
         title: "Illinois 1824 President of the United States",
         legacy_pid: "tufts:il.president.1824",
         identifier: "http://hdl.handle.net/10427/56366",
-        creator: ["Philip Lampi", "Tufts University Digital Collections and Archives", "American Antiquarian Society"],
+        creator: ["Philip Lampi", "Tufts Archival Research Center", "American Antiquarian Society"],
         description: "Illinois 1824 President of the United States. The permanent URL for this resource is: http://hdl.handle.net/10427/56366",
-        publisher: "Tufts University. Digital Collections and Archives.",
+        publisher: "Tufts University. Tufts Archival Research Center.",
         source: "MS115",
         primary_date: "1824",
         date_issued: "2015-05-26-04:00",
@@ -234,13 +234,13 @@ module Tufts
         format_label: "text/xml",
         personal_name: ["John Quincy Adams", "Andrew Jackson", "Henry Clay", "William H. Crawford"],
         geographic_name: "Illinois",
-        bibliographic_citation: 'American Antiquarian Society and Tufts University Digital Collections and ' \
-                                'Archives. "Illinois 1824 President of the United  States." 2010. Tufts ' \
-                                'University. Digital Collections and Archives. Medford, MA. ' \
+        bibliographic_citation: 'American Antiquarian Society and Tufts Archival Research ' \
+                                'Center. "Illinois 1824 President of the United  States." 2010. Tufts ' \
+                                'University. Tufts Archival Research Center. Medford, MA. ' \
                                 'http://hdl.handle.net/10427/56366',
         temporal: "1824",
         funder: "National Endowment for the Humanities",
-        steward: "dca",
+        steward: "tarc",
         displays_in: ["dl", "elections"],
         createdby: "NNV",
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
@@ -304,7 +304,7 @@ module Tufts
         legacy_pid: "tufts:RCR00579",
         identifier: ["RCR00579", "http://hdl.handle.net/10427/71593"],
         title: "Tisch Library",
-        publisher: "Digital Collections and Archives, Tufts University",
+        publisher: "Tufts Archival Research Center, Tufts University",
         primary_date: "2010-02-09",
         date_issued: "2011-09-21",
         date_available: "2011-06-17",
@@ -312,7 +312,7 @@ module Tufts
         format_label: "text/xml",
         rights_statement: "http://dca.tufts.edu/ua/access/rights-pd.html",
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
-        steward: "dca",
+        steward: "tarc",
         displays_in: ["dl"],
         createdby: "CIDER",
         file: 'fixtures/RCR00579.xml',
