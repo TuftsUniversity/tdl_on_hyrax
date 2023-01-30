@@ -211,7 +211,7 @@ module Tufts
         rights_statement: "http://sites.tufts.edu/dca/about-us/research-help/reproductions-and-use/",
         temporal: "1935",
         # Is member of collection tufts:UA069.006.DO.MS002
-        steward: "dca",
+        steward: "tarc",
         displays_in: ["dl"],
         createdby: "CIDER",
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
@@ -234,13 +234,13 @@ module Tufts
         format_label: "text/xml",
         personal_name: ["John Quincy Adams", "Andrew Jackson", "Henry Clay", "William H. Crawford"],
         geographic_name: "Illinois",
-        bibliographic_citation: 'American Antiquarian Society and Tufts University Digital Collections and ' \
-                                'Archives. "Illinois 1824 President of the United  States." 2010. Tufts ' \
+        bibliographic_citation: 'American Antiquarian Society and Tufts Archival Research ' \
+                                'Center. "Illinois 1824 President of the United  States." 2010. Tufts ' \
                                 'University. Tufts Archival Research Center. Medford, MA. ' \
                                 'http://hdl.handle.net/10427/56366',
         temporal: "1824",
         funder: "National Endowment for the Humanities",
-        steward: "dca",
+        steward: "tarc",
         displays_in: ["dl", "elections"],
         createdby: "NNV",
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
@@ -312,7 +312,7 @@ module Tufts
         format_label: "text/xml",
         rights_statement: "http://dca.tufts.edu/ua/access/rights-pd.html",
         visibility: Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC,
-        steward: "dca",
+        steward: "tarc",
         displays_in: ["dl"],
         createdby: "CIDER",
         file: 'fixtures/RCR00579.xml',
