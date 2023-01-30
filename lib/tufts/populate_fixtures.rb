@@ -224,7 +224,7 @@ module Tufts
         title: "Illinois 1824 President of the United States",
         legacy_pid: "tufts:il.president.1824",
         identifier: "http://hdl.handle.net/10427/56366",
-        creator: ["Philip Lampi", "Tufts University Tufts Archival Research Center", "American Antiquarian Society"],
+        creator: ["Philip Lampi", "Tufts Archival Research Center", "American Antiquarian Society"],
         description: "Illinois 1824 President of the United States. The permanent URL for this resource is: http://hdl.handle.net/10427/56366",
         publisher: "Tufts University. Tufts Archival Research Center.",
         source: "MS115",
