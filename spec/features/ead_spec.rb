@@ -34,9 +34,9 @@ feature 'EAD' do
     expect(page).to have_text "Location:"
     expect(page).to have_text "Tufts Archival Research Center, Tufts University"
     expect(page).not_to have_text "35 Professors Row"
-    expect(page).not_to have_link "https://dca.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg", href: "https://dca.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg"
+    expect(page).not_to have_link "https://tarc.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg", href: "https://tarc.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg"
     expect(page).to have_text "archives@tufts.edu"
-    expect(page).to have_link "https://dca.tufts.edu/", href: "https://dca.tufts.edu/"
+    expect(page).to have_link "https://tarc.tufts.edu/", href: "https://tarc.tufts.edu/"
     expect(page).to have_text "The Lorem Ipsum papers consist of his personal and professional papers."
     expect(page).to have_text "Professional papers include manuscripts, speeches, drafts of journal articles, and notes."
     expect(page).to have_text "Personal papers include diaries and correspondence with noted thinkers, scholars, and " \

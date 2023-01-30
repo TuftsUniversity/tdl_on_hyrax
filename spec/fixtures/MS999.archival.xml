@@ -14,7 +14,7 @@
         <publisher>Tufts Archival Research Center, Tufts University</publisher>
         <p id="logostmt">
             <extref xlink:actuate="onLoad"
-                    xlink:href="https://dca.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg"
+                    xlink:href="https://tarc.tufts.edu/themes/custom/dca_foundation/images/logos/full_with_icon.svg"
                     xlink:show="embed"
                     xlink:type="simple"/>
         </p>
@@ -24,9 +24,9 @@
             <addressline>Tufts University</addressline>
             <addressline>Medford, Massachusetts 02155</addressline>
             <addressline>archives@tufts.edu</addressline>
-            <addressline>URL: <extptr xlink:href="https://dca.tufts.edu/"
+            <addressline>URL: <extptr xlink:href="https://tarc.tufts.edu/"
                       xlink:show="new"
-                      xlink:title="https://dca.tufts.edu/"
+                      xlink:title="https://tarc.tufts.edu/"
                       xlink:type="simple"/>
             </addressline>
         </address>
