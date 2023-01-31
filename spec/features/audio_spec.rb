@@ -18,7 +18,7 @@ feature 'Audio' do
     expect(page).to have_text 'Transcript'
   end
 
-  scenario 'View MS123 (Interview with Horace Works) page', js: true do
+  scenario 'View MS123 and look for text that shouldnt be there', js: true do
     visit '/concern/audios/8910jt5bg'
     expect(page).not_to have_text 'Can you, can you talk about, can you give any examples of how he motivated you to continue a season when you lost 25 games?'
     expect(page).not_to have_text 'view transcript only'
