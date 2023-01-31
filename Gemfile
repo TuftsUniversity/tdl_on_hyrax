@@ -84,6 +84,8 @@ gem 'rsolr', '>= 1.0'
 group :development, :test do
   gem 'bixby'
   gem 'capybara'
+  gem 'capybara-maleficent', require: false
+  gem 'capybara-screenshot'
   gem 'fcrepo_wrapper'
   gem 'rubocop', require: false
 end
