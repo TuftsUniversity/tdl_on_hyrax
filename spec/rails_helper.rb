@@ -19,13 +19,19 @@ SimpleCov.start 'rails' do
 end
 
 ENV['RAILS_ENV'] ||= 'test'
+
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
 require 'active_fedora/cleaner'
-require 'webdrivers/chromedriver'
+require 'selenium-webdriver'
+require 'webdrivers' unless ENV['IN_DOCKER'].present? || ENV['HUB_URL'].present?
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -43,25 +49,59 @@ require 'webdrivers/chromedriver'
 #
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
-# Adding chromedriver for js testing.
-Capybara.register_driver :headless_chrome do |app|
-  browser_options = ::Selenium::WebDriver::Chrome::Options.new
-  browser_options.headless!
-  browser_options.args << '--window-size=1920,1080'
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
-end
-
-# For debugging JS tests - some tests involving mouse movements require headless mode.
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
-Capybara.javascript_driver = :headless_chrome
-
-Capybara.default_max_wait_time = 10
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
+
+Capybara::Screenshot.autosave_on_failure = false
+Capybara.raise_server_errors = false
+Selenium::WebDriver.logger.level = :fatal
+
+if ENV['IN_DOCKER'].present? || ENV['HUB_URL'].present?
+  args = %w[disable-gpu no-sandbox whitelisted-ips window-size=1400,1400]
+  args.push('headless') if ActiveModel::Type::Boolean.new.cast(ENV['CHROME_HEADLESS_MODE'])
+
+  Selenium::WebDriver.logger.output = '/data/log/selenium.log'
+
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome("goog:chromeOptions" => { args: args })
+
+  Capybara.register_driver :selenium_chrome_headless_sandboxless do |app|
+    driver = Capybara::Selenium::Driver.new(app,
+                                       browser: :remote,
+                                       capabilities: capabilities,
+                                       url: ENV['HUB_URL'])
+
+    # Fix for capybara vs remote files. Selenium handles this for us
+    #driver.browser.file_detector = lambda do |argss|
+    ##  str = argss.first.to_s
+    #  str if File.exist?(str)
+    #end
+
+    driver
+  end
+
+  Capybara.server_host = '0.0.0.0'
+  Capybara.server_port = 3010
+
+  ip = IPSocket.getaddress(Socket.gethostname)
+  Capybara.app_host = "http://#{ip}:#{Capybara.server_port}"
+else
+
+  # Adding chromedriver for js testing.
+  Capybara.register_driver :selenium_chrome_headless_sandboxless do |app|
+    browser_options = ::Selenium::WebDriver::Chrome::Options.new
+    browser_options.headless!
+    browser_options.args << '--window-size=1920,1080'
+    browser_options.add_preference(:download, prompt_for_download: false, default_directory: DownloadHelpers::PATH.to_s)
+    Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
+  end
+end
+
+# Uses faster rack_test driver when JavaScript support not needed
+Capybara.default_driver = :rack_test # This is a faster driver
+Capybara.javascript_driver = :selenium_chrome_headless_sandboxless # This is slower
+
+Capybara.default_max_wait_time = 20
 
 RSpec.configure do |config|
   include LdapManager
