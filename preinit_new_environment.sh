@@ -6,5 +6,11 @@
  cp config/blacklight.yml.sample config/blacklight.yml
  cp config/secrets.yml.sample config/secrets.yml
  cp config/ldap.yml.sample config/ldap.yml
- cp config/env.conf ./.env
+if [[ $(uname -m) == 'arm64' ]]; then
+  echo "copying m1 specific .env file"
+  cp config/env.apple-silicon.conf ./.env
+ else
+  echo "copying intel specific .env file"
+  cp config/env.intel.conf ./.env
+ fi
 
