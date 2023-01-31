@@ -18,7 +18,7 @@ class GalleryController < ApplicationController
     description = @document_fedora.description.empty? ? "" : @document_fedora.description.first
     pid = params[:id]
     item_link = '/concern/images/' + pid
-    # image_url = '/downloads/' + @document_fedora.thumbnail_id + '?file=thumbnail'
+
     image_url = Riiif::Engine.routes.url_helpers.image_url(@document_fedora.file_sets.first.files.first.id, host: request.base_url, size: "550,")
 
     render json: { back_url: "#", item_title: title, item_date: temporal, image_url: image_url, item_link: item_link, item_description: description, width: "", height: "" }
