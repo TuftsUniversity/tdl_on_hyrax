@@ -12,6 +12,7 @@ feature 'Audio' do
     expect(page).to have_text 'Participants'
     expect(page).to have_text 'HW'
     expect(page).to have_text 'Horace Works, interviewee (male)'
+  end
 
   scenario 'View MS123 (Interview with Horace Works) page and looks at some other part of the page', js: true do
     visit '/concern/audios/8910jt5bg'
