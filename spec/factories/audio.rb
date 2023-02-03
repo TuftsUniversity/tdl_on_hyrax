@@ -4,12 +4,14 @@ FactoryBot.define do
     transient do
       user { FactoryBot.create(:user) } # find_or_create ???
     end
-    id { '8910jt5bg' }
-    title { ["Interview with Horace Works"] }
+    id { '1234jt5bg' }
+    title { ['Interview with Horace Works'] }
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
+    description { ['Interview conducted by Kenneth J. Cleary.'] }
+
     before(:create) do |work, evaluator|
-      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "8910jt5fs")
+      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: '1234jt5fs')
     end
 
     after(:build) do |work, evaluator|
