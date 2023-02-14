@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   if Rails.env.production? || Rails.env.stage?
     devise_for :users, controllers: { omniauth_callbacks: "omniauthcallbacks" }, skip: [:sessions]
     devise_scope :user do
-      post 'sign_in', to: 'omniauth#new', as: :new_user_session
+      match 'sign_in', to: 'omniauth#new', as: :new_user_session, via: [:get, :post]
       post 'sign_in', to: 'omniauth_callbacks#shibboleth', as: :new_session
       get 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
     end
