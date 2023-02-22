@@ -78,11 +78,20 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     Rails.logger.warn "auth = #{auth.inspect}"
     # Uncomment the debugger above to capture what a shib auth object looks like for testing
-    user = where(username: auth[:uid]).first_or_create
-    user.display_name = auth[:name]
-    user.username = auth[:uid]
-    user.email = auth[:mail]
-    user.save
+    user = find_by(username: auth[:uid])
+    if user.nil?
+      user = User.create(
+        email: auth[:mail],
+        username: auth[:uid],
+        display_name: auth[:name]
+
+      )
+    else
+      user.display_name = auth[:name]
+      user.username = auth[:uid]
+      user.email = auth[:mail]
+      user.save
+    end
     user
   end
 end
