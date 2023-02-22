@@ -59,7 +59,7 @@
 
   <%= @presenter.attribute_to_html(:creator_department, { render_as: :linked }) %>
   <%= @presenter.attribute_to_html(:thesis_type, { render_as: :linked }) %>
-  <%= @presenter.multi_attributes_to_html([:subject, :personal_name, :geog_name, :corporate_name]) %>
+  <%= @presenter.multi_attributes_to_html([:subject, :personal_name, :geog_name, :corporate_name], {label: "Subject"}) %>
   <%= @presenter.attribute_to_html(:genre, { render_as: :linked }) %>
   <%= @presenter.attribute_to_html(:temporal, { render_as: :linked }) %>
   <%= @presenter.attribute_to_html(:permanent_url, {}) %>
