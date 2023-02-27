@@ -14,7 +14,7 @@
           data-pid="<%= @presenter.id %>"
           download="<%= @presenter.id %>"
           data-identifier="<%= @presenter.id.gsub(/[^0-9a-z ]/i, '') %>"
-          data-site="TARC"
+          data-site="DCA"
           data-author="<%= strip_tags(@presenter.creator.first) unless @presenter.creator.empty? %>"
           data-itemauthor="<%= strip_tags(@presenter.creator.first) unless @presenter.creator.empty? %>"
           data-iteminfo2="<%= strip_tags(@presenter.creator.first) unless @presenter.creator.empty? %>"
