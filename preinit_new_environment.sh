@@ -14,3 +14,6 @@ if [[ $(uname -m) == 'arm64' ]]; then
   cp config/env.intel.conf ./.env
  fi
 
+# copy a derivative into the tree for testing
+mkdir -p tmp/derivatives/12/34/jt/5f/
+cp spec/fixtures/MS123.001.001.00002.mp3 tmp/derivatives/12/34/jt/5f/s-mp3.mp3
