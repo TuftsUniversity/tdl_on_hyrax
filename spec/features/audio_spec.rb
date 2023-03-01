@@ -9,7 +9,7 @@ feature 'Audio' do
   scenario 'View MS123 (Interview with Horace Works) page' do
     visit '/concern/audios/1234jt5bg'
     expect(page).to have_text 'Interview with Horace Works'
-    expect(page).to have_text 'DCA Citation Guide'
+    expect(page).to have_text 'TARC Citation Guide'
     expect(page).to have_text 'Participants'
   end
 
@@ -57,6 +57,6 @@ feature 'Audio' do
     expect(page).to have_link 'view transcript only', href: '/concern/audios/1234jt5bg/transcriptonly'
     click_link 'view transcript only'
     expect(page).to have_text 'So the city made a deal with me.'
-    expect(page).not_to have_text 'DCA Citation Guide'
+    expect(page).not_to have_text 'TARC Citation Guide'
   end
 end
