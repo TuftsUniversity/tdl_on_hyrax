@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'rails_helper'
+include TestHelpers
 
 feature 'Title, creator, and subject basic searches', js: true do
   before(:all) do

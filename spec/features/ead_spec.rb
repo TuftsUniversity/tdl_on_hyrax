@@ -8,7 +8,7 @@ feature 'EAD' do
   end
 
   # The MS999 EAD fixture is a new ASpace EAD.
-  scenario 'View MS999 (Lorem Ipsum papers/"kitchen sink") landing page' do
+  scenario 'View MS999 (Lorem Ipsum papers/"kitchen sink") landing page', js: true do
     visit '/concern/eads/ks65hc20t'
     expect(page).to have_text 'Lorem Ipsum papers, 1897 -- 1933'
     expect(page).to have_text 'This collection has:'
@@ -89,7 +89,7 @@ feature 'EAD' do
     click_link "Personal papers, 1900 -- 1933", exact: false
     expect(page).to have_text "Personal papers, 1900 -- 1933"
     expect(page).to have_text "This series is part of Lorem Ipsum papers, 1897 -- 1933"
-    expect(page).to have_text "Title: Personal papers "
+    expect(page).to have_text "Title: Personal papers"
     expect(page).to have_text "Dates: 1900 -- 1933"
     expect(page).to have_text "Bulk Dates: 1910 -- 1933"
     expect(page).to have_text "Call Number: MS999.001"
@@ -162,7 +162,7 @@ feature 'EAD' do
   end
 
   # The MS226 EAD fixture is an old CIDER EAD.
-  scenario 'View MS226 (Rubin Carter papers) landing page' do
+  scenario 'View MS226 (Rubin Carter papers) landing page', js: true do
     visit '/concern/eads/p2676v52c'
     expect(page).to have_text 'Rubin "Hurricane" Carter papers'
     expect(page).to have_text 'This collection has:'
@@ -185,6 +185,6 @@ feature 'EAD' do
     click_link "Awards 1989-06-10-2012", exact: false
     expect(page).to have_text 'Series 1.1: Awards, 1989-06-10-2012'
     expect(page).to have_text 'This series is part of Rubin "Hurricane" Carter papers, 1950-2014'
-    expect(page).to have_text 'Positive Impact Celebrity Choice award 2000 '
+    expect(page).to have_text 'Positive Impact Celebrity Choice award 2000'
   end
 end

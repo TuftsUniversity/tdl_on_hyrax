@@ -4,17 +4,19 @@ module Hyrax
     def transcript_id
       fsps = file_set_presenters
 
-      return if fsps.nil?
+      return "" if fsps.nil?
 
       fsps.each do |fsp|
         return fsp.id if fsp.mime_type == "text/xml"
       end
+
+      return ""
     end
 
     def media_id
       fsps = file_set_presenters
 
-      return if fsps.nil?
+      return "" if fsps.nil?
 
       fsps.each do |fsp|
         next if fsp.mime_type == "text/xml"
@@ -23,6 +25,8 @@ module Hyrax
           return fsp.id if derivative_path.end_with?("mp3")
         end
       end
+
+      return ""
     end
   end
 end

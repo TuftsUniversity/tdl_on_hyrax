@@ -92,8 +92,10 @@ module Tufts
             pid = PidMethods.urn_to_f3_pid(sel['n'])
             image = Image.where(legacy_pid_tesim: pid)
             image = image.first
-            image_id = image.thumbnail_id unless image.nil?
-            result.push("<br/><br/><img src='/downloads/#{image_id}?file=thumbnail'>")
+            unless image.nil?
+              image_id = image.thumbnail_id
+              result.push("<br/><br/><img src='/downloads/#{image_id}?file=thumbnail'>")
+            end
           else
             class_name = sel.name
             class_name = sel.name + '_tei' if sel.name == 'list' || sel.name == 'item'

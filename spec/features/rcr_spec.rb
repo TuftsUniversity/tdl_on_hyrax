@@ -6,7 +6,7 @@ feature 'RCR' do
     FactoryBot.create(:tufts_RCR00579_rcr)
   end
 
-  scenario 'View RCR00579 ("Tisch Library") page' do
+  scenario 'View RCR00579 ("Tisch Library") page', js: true do
     visit '/concern/rcrs/s4655g578'
     expect(page).to have_text 'Tisch Library, 1996-present'
     expect(page).to have_text 'The Tisch Library (1860-present) opened in 1996, as the main Arts, Sciences, and Engineering ' \
@@ -19,11 +19,11 @@ feature 'RCR' do
     expect(page).to have_text 'List of head librarians for Eaton/Wessell/Tisch Library:'
     expect(page).to have_text 'President Hosea Ballou (prior to 1861/1862 academic year)'
     expect(page).to have_text 'Laura Wood'
-    expect(page).to have_text 'Collections'
+    expect(page).to have_text 'COLLECTIONS'
     expect(page).to have_text 'Tufts Libraries'
     expect(page).to have_text 'Tisch Library, records'
     expect(page).to have_text 'Arts and Sciences Library(Wessell/Tisch), records'
-    expect(page).to have_text 'Relationships'
+    expect(page).to have_text 'RELATIONSHIPS'
     expect(page).to have_text 'Part of:'
     expect(page).to have_text 'Tufts University (1996-present)'
     expect(page).to have_text 'School of Arts and Sciences (1996-present)'
