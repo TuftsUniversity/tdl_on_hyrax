@@ -27,7 +27,7 @@ FactoryBot.define do
     end
   end
 
-  factory :generic_object_with_mp3, class: ::GenericObject do
+  factory :generic_object_with_mp3_missing_mimetype, class: ::GenericObject do
     transient do
       user { FactoryBot.create(:user) } # find_or_create ???
     end
@@ -45,10 +45,10 @@ FactoryBot.define do
     end
 
     after(:create) do |work, _evaluator|
-      tei_test_file = File.open(File.expand_path(Rails.root.join('spec', 'fixtures', 'MS123.001.001.00002.mp3')))
+      mp3_test_file = File.open(File.expand_path(Rails.root.join('spec', 'fixtures', 'MS123.001.001.00002.mp3')))
       original_file = work.file_sets[0].build_original_file
       original_file.mime_type = 'none/non'
-      original_file.content = tei_test_file
+      original_file.content = mp3_test_file
       work.file_sets[0].save
       work.save
     end
