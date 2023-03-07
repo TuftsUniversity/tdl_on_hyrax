@@ -11,7 +11,6 @@ FactoryBot.define do
 
     before(:create) do |work, evaluator|
       work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "8910jt5fs")
-
     end
 
     after(:build) do |work, evaluator|
@@ -25,8 +24,6 @@ FactoryBot.define do
       original_file.content = tei_test_file1
       work.file_sets[0].save
       work.save
-
-
     end
   end
 end
