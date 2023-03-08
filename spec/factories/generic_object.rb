@@ -2,7 +2,7 @@
 FactoryBot.define do
   factory :generic_object_with_xml, class: ::GenericObject do
     transient do
-      user { FactoryBot.create(:user) } # find_or_create ???
+      user { FactoryBot.create(:user) }
     end
     id { '8910jt5bg' }
     title { ["Interview with Horace Works"] }
