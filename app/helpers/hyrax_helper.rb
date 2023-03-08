@@ -106,8 +106,22 @@ module HyraxHelper
   #   The infor for the "Download File" link.
   def generic_link(file_id)
     related_object = ActiveFedora::Base.find(file_id)
-    content_type = related_object.first.mime_type
-    file_extension = MIME::Types[content_type].first.extensions.first
+
+    # I don't think its correct but occassionally we get an array here from AF
+    related_object = related_object.first if related_object.is_a? Array
+
+    content_type = related_object.mime_type
+
+    # look up mime type against data source to get an file extension
+    mime_types = MIME::Types[content_type]
+
+    if mime_types.any?
+      file_extension = MIME::Types[content_type].first.extensions.first
+    else
+      # handle cases where mime type can not be found in data source
+      content_type = content_type.split('/')[1]
+      file_extension = content_type
+    end
 
     {
       icons: 'glyphicon glyphicon-file glyph-left',
