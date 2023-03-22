@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 module Hyrax
   class AudioPresenter < GenericWorkPresenter
+    # rubocop:disable Style/RedundantReturn
     def transcript_id
       fsps = file_set_presenters
 
@@ -13,6 +14,7 @@ module Hyrax
       return ""
     end
 
+    # rubocop:disable Style/RedundantReturn
     def media_id
       fsps = file_set_presenters
 

@@ -13,13 +13,13 @@ feature 'Audio' do
     expect(page).to have_text 'Participants'
   end
 
- scenario 'View MS123 (Interview with Horace Works) download links', js: true do
+  scenario 'View MS123 (Interview with Horace Works) download links', js: true do
     visit '/concern/audios/1234jt5bg'
     expect(page).to have_link 'Download Audio File'
     expect(page).to have_link 'Download Transcript'
   end
 
-   scenario 'View MS123 (Interview with Horace Works) participants', js: true do
+  scenario 'View MS123 (Interview with Horace Works) participants', js: true do
     visit '/concern/audios/1234jt5bg'
     expect(page).to have_text 'HW'
     expect(page).to have_text 'Horace Works, interviewee (male)'
