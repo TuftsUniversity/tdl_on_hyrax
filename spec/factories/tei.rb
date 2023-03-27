@@ -9,7 +9,7 @@ FactoryBot.define do
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     before(:create) do |work, evaluator|
-      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "rj4304528fs")
+      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: 'rj43045fs')
     end
 
     after(:build) do |work, evaluator|
@@ -21,6 +21,7 @@ FactoryBot.define do
       original_file = work.file_sets[0].build_original_file
 
       original_file.content = tei_test_file1
+      work.file_sets[0].visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
       work.file_sets[0].save
       work.save
     end
@@ -35,7 +36,7 @@ FactoryBot.define do
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     before(:create) do |work, evaluator|
-      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "5m60qr88bfs")
+      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: '5m60qr8fs')
     end
 
     after(:build) do |work, evaluator|
@@ -46,6 +47,7 @@ FactoryBot.define do
       tei_test_file1 = File.open(File.expand_path(Rails.root.join('spec', 'fixtures', 'UA069.005.DO.00091.archival.xml')))
       original_file = work.file_sets[0].build_original_file
       original_file.content = tei_test_file1
+      work.file_sets[0].visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
       work.file_sets[0].save
       work.save
     end
@@ -60,7 +62,7 @@ FactoryBot.define do
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     before(:create) do |work, evaluator|
-      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "n296wz12mfs")
+      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: 'n296wz1fs')
     end
 
     after(:build) do |work, evaluator|
@@ -71,6 +73,7 @@ FactoryBot.define do
       tei_test_file1 = File.open(File.expand_path(Rails.root.join('spec', 'fixtures', 'UA069.005.DO.00001.archival.xml')))
       original_file = work.file_sets[0].build_original_file
       original_file.content = tei_test_file1
+      work.file_sets[0].visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
       work.file_sets[0].save
       work.save
     end
@@ -85,7 +88,7 @@ FactoryBot.define do
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     before(:create) do |work, evaluator|
-      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: "2f75rk37bfs")
+      work.ordered_members << create(:file_set, user: evaluator.user, title: ['Fileset for tei xml'], id: '2f75rk3te')
     end
 
     after(:build) do |work, evaluator|
@@ -96,7 +99,9 @@ FactoryBot.define do
       tei_test_file1 = File.open(File.expand_path(Rails.root.join('spec', 'fixtures', 'UP150.001.012.00001.archival.xml')))
       original_file = work.file_sets[0].build_original_file
       original_file.content = tei_test_file1
+      work.file_sets[0].visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
       work.file_sets[0].save
+
       work.save
     end
   end
