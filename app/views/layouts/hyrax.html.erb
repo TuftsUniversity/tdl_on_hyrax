@@ -5,9 +5,12 @@
   <head>
     <%= render partial: 'layouts/head_tag_content' %>
     <%= content_for(:head) %>
+
+    <%= render "analytics/ga" %>
   </head>
 
   <body <% if(on_homepage) %> class="homepage" <% end %> >
+    <%= render "analytics/tag_manager_body" %>
     <div class="skip-to-content">
       <%= link_to "Skip to Content", "#skip-to-content", data: { turbolinks: false } %>
     </div>
