@@ -33,11 +33,12 @@ a:hover
     color:#FFFFFF;
 }
 
-   </style>
+</style>
+<%= render partial: 'analytics/ga' %>
   </head>
 	<body>
-					<div id="content" class="container" role="main">
-									    <%= content_for?(:content) ? yield(:content) : yield %>
-					</div>
+		<div id="content" class="container" role="main">
+			<%= content_for?(:content) ? yield(:content) : yield %>
+		</div>
   </body>
 </html>
