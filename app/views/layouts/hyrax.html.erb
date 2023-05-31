@@ -5,9 +5,9 @@
   <head>
     <%= render partial: 'layouts/head_tag_content' %>
     <%= content_for(:head) %>
-
-    <%= render "ga" %>
+    <%= render "analytics/tag_manager_head" %>
   </head>
+  <%= render "ga" %>
 
   <body <% if(on_homepage) %> class="homepage" <% end %> >
     <%= render "analytics/tag_manager_body" %>
