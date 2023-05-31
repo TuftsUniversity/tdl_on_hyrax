@@ -34,9 +34,8 @@ a:hover
 }
 
    </style>
-   <%= render "analytics/tag_manager_head" %>
+   <%= render "ga" %>
   </head>
-  <%= render "ga" %>
 	<body>
 		<div id="content" class="container" role="main">
 			<%= content_for?(:content) ? yield(:content) : yield %>

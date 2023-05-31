@@ -9,9 +9,9 @@
     <%= stylesheet_link_tag '/assets/imageviewer/BookReaderImageViewer.css' %>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <%= javascript_include_tag "bookreader.js" %>
-    <%= render "analytics/tag_manager_head" %>
+
+    <%= render "ga" %>
 </head>
-<%= render "ga" %>
 
 <body style="background-color: #939598;">
 <%= yield %>
