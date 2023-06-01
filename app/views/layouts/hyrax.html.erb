@@ -5,8 +5,8 @@
   <head>
     <%= render partial: 'layouts/head_tag_content' %>
     <%= content_for(:head) %>
+    <%= render "analytics/ga" %>
   </head>
-  <%= render "analytics/ga" %>
 
   <body <% if(on_homepage) %> class="homepage" <% end %> >
     <div class="skip-to-content">
