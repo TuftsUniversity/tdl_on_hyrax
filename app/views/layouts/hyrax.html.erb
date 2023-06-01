@@ -5,7 +5,7 @@
   <head>
     <%= render partial: 'layouts/head_tag_content' %>
     <%= content_for(:head) %>
-    <%= render "ga" %>
+    <%= render partial: 'analytics/ga' %>
   </head>
 
   <body <% if(on_homepage) %> class="homepage" <% end %> >
