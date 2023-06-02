@@ -1,5 +1,6 @@
 <!-- TODO clean up to not repeat code -->
 <!-- Google tag (gtag.js) -->
+<% if Rails.env.production? || Rails.env.test? %>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SXJ0X5Y93H"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -9,7 +10,6 @@
   gtag('config', 'G-SXJ0X5Y93H');
 </script>
 
-<% if Rails.env.production? || Rails.env.test? %>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QWMGNGCT3"></script>
 <script>
