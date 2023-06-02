@@ -9,7 +9,7 @@
   gtag('config', 'G-SXJ0X5Y93H');
 </script>
 
-<% if Rails.env.production? %>
+<% if Rails.env.production || Rails.env.test? %>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QWMGNGCT3"></script>
 <script>
@@ -21,4 +21,4 @@
 </script>
 <% end %>
 
-<%= render "analytics/tag_manager_head" %>
+<%= render partial: "analytics/tag_manager_head" %>
