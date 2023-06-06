@@ -15,7 +15,6 @@ feature 'OAI-PMH' do
 
   # Our Audio fixture should be in the oai feed.
   scenario 'Visit the OAI-PMH feed for an Audio' do
-    pending("Does removing this push the fail around?")
     visit URI.escape('/catalog/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:tufts:8910jt5bg')
     expect(page.body).to include('Interview with Horace Works')
   end
