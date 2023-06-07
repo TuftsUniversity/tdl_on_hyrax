@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 feature 'OAI-PMH' do
-  before(:each) do
+  before do
     FactoryBot.create(:tufts_MS999_ead)
     FactoryBot.create(:tufts_MS123_audio)
   end
