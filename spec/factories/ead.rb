@@ -21,8 +21,8 @@ FactoryBot.define do
       original_file = work.file_sets[0].build_original_file
       original_file.content = ead_test_file1
       work.file_sets[0].visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
-      work.file_sets[0].save
-      work.save
+      work.file_sets[0].save!
+      work.save!
     end
   end
 
@@ -47,8 +47,8 @@ FactoryBot.define do
       original_file = work.file_sets[0].build_original_file
       original_file.content = ead_test_file1
       work.file_sets[0].visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
-      work.file_sets[0].save
-      work.save
+      work.file_sets[0].save!
+      work.save!
     end
   end
 end
