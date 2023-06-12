@@ -8,7 +8,7 @@ feature 'EAD' do
   end
 
   # The MS999 EAD fixture is a new ASpace EAD.
-  scenario 'View MS999 (Lorem Ipsum papers/"kitchen sink") landing page', js: true do
+  scenario 'View MS999 (Lorem Ipsum papers/"kitchen sink") landing page' do
     visit '/concern/eads/ks65hc20t'
     expect(page).to have_text 'Lorem Ipsum papers, 1897 -- 1933'
     expect(page).to have_text 'This collection has:'
@@ -162,7 +162,7 @@ feature 'EAD' do
   end
 
   # The MS226 EAD fixture is an old CIDER EAD.
-  scenario 'View MS226 (Rubin Carter papers) landing page', js: true do
+  scenario 'View MS226 (Rubin Carter papers) landing page' do
     visit '/concern/eads/p2676v52c'
     expect(page).to have_text 'Rubin "Hurricane" Carter papers'
     expect(page).to have_text 'This collection has:'

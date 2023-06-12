@@ -7,7 +7,7 @@ feature 'Logging in reroutes to front page if not an admin.' do
   let(:user) { FactoryBot.create(:ldap_user) }
   let(:admin) { FactoryBot.create(:ldap_admin) }
 
-  scenario 'non-admin cannot access dashboard', js: true do
+  scenario 'non-admin cannot access dashboard' do
     sign_in(user)
     expect(current_path).to eq('/catalog')
     visit('/dashboard')
