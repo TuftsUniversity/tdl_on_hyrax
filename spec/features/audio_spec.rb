@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 feature 'Audio' do
-  before(:all) do
+  before do
     FactoryBot.create(:tufts_MS123_audio)
   end
 
