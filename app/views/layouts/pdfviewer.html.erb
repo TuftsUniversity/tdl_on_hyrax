@@ -26,8 +26,9 @@ a:hover
   </head>
 
   <body>
-<div id="content" class="container" role="main">
-    <%= content_for?(:content) ? yield(:content) : yield %>
-</div>
+    <%= render partial: 'analytics/tag_manager_body' %>
+    <div id="content" class="container" role="main">
+        <%= content_for?(:content) ? yield(:content) : yield %>
+    </div>
   </body>
 </html>
