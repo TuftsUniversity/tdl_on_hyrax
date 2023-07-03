@@ -80,6 +80,7 @@ jobs:
         cp config/devise.yml.sample config/devise.yml
         cp config/ldap.yml.sample config/ldap.yml
         cp config/redis.yml.sample config/redis.yml
+        cp config/recaptcha.yml.sample config/recaptcha.yml
         cp config/database.yml.sample config/database.yml
         cp config/blacklight.yml.sample config/blacklight.yml
         cp config/secrets.yml.sample config/secrets.yml

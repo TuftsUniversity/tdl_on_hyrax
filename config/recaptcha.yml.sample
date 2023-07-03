@@ -1,0 +1,6 @@
+development:
+  site_key: "6Ld05fsmAAAAAJkE_QgDTLU4Ghxmzj-n_YJ8cCBS" 
+  secret_key: "6Ld05fsmAAAAABIRPVKPpsf-4TmJObIA41NNH3Ie"
+test:
+  site_key: "6Ld05fsmAAAAAJkE_QgDTLU4Ghxmzj-n_YJ8cCBS" 
+  secret_key: "6Ld05fsmAAAAABIRPVKPpsf-4TmJObIA41NNH3Ie"
