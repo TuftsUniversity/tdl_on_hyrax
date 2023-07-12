@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require 'solrizer'
+
 module Tufts
   class PopulateFixtures
     def self.singular_terms
