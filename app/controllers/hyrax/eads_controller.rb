@@ -2,7 +2,10 @@
 module Hyrax
   class EadsController < CatalogController
     helper :eads
+    # Adds Hyrax behaviors to the controller.
     include Hyrax::WorksControllerBehavior
+    include Hyrax::BreadcrumbsForWorks
+
     include WithEads
     include WithShowEnforcement
 
