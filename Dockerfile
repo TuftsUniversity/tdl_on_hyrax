@@ -14,7 +14,7 @@ ENV LC_ALL C.UTF-8
 
 # --allow-unauthenticated needed for yarn package
 RUN apt-get update && apt-get upgrade -y && \
-  apt-get install --no-install-recommends -y ca-certificates nodejs \
+  apt-get install --no-install-recommends -y ca-certificates nodejs yarn \
   build-essential libpq-dev libreoffice imagemagick unzip ghostscript vim \
   libqt5webkit5-dev xvfb xauth default-jre-headless --fix-missing --allow-unauthenticated
 
@@ -40,4 +40,4 @@ RUN ./build/install_gems.sh
 ADD . /data
 
 # install node dependencies, after there are some included
-#RUN yarn install
+RUN yarn install
