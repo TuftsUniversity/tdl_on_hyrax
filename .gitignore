@@ -32,7 +32,7 @@ config/solr.yml
 config/pdf_pages.yml
 public/assets/
 public/branding/
-
+public/uv/
 # ignore generated sitemap files
 public/sitemap.xml.gz
 public/sitemap*

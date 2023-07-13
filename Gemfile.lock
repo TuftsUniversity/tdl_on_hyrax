@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/TuftsUniversity/tufts-curation
-  revision: 15136ca69870a206a8208293fbf16490db9957e7
+  revision: d9b77e636c44ea90b428731a32e625fb78b3a327
   branch: hyrax_3
   specs:
     tufts-curation (0.1.0)
@@ -27,6 +27,7 @@ GIT
       activesupport
       chronic
       hyrax (>= 3.0, < 3.99)
+      solrizer
 
 GIT
   remote: https://github.com/mkorcy/pdfjs_viewer-rails.git
@@ -119,16 +120,16 @@ GEM
     awesome_nested_set (3.5.0)
       activerecord (>= 4.0.0, < 7.1)
     aws-eventstream (1.2.0)
-    aws-partitions (1.785.0)
-    aws-sdk-core (3.177.0)
+    aws-partitions (1.786.0)
+    aws-sdk-core (3.178.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.651.0)
       aws-sigv4 (~> 1.5)
       jmespath (~> 1, >= 1.6.1)
-    aws-sdk-kms (1.70.0)
+    aws-sdk-kms (1.71.0)
       aws-sdk-core (~> 3, >= 3.177.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.128.0)
+    aws-sdk-s3 (1.130.0)
       aws-sdk-core (~> 3, >= 3.177.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.6)
@@ -706,7 +707,7 @@ GEM
     posix-spawn (0.3.15)
     power_converter (0.1.2)
     psych (3.3.4)
-    public_suffix (5.0.1)
+    public_suffix (5.0.3)
     puma (3.12.6)
     qa (5.10.0)
       activerecord-import
