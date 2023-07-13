@@ -4,8 +4,8 @@ class SearchBuilder < Blacklight::SearchBuilder # < Hyrax::CatalogSearchBuilder
   include BlacklightRangeLimit::RangeLimitBuilder
 
   # Add a filter query to restrict the search to documents the current user has access to
-  # include Hydra::AccessControlsEnforcement
-  # include Hyrax::SearchFilters
+  include Hydra::AccessControlsEnforcement
+  include Hyrax::SearchFilters
 
   include BlacklightAdvancedSearch::AdvancedSearchBuilder
 
