@@ -1,5 +1,4 @@
 <a data-turbolinks='false' href="/concern/images/<%= params[:id] %>"><span class="glyphicon glyphicon-arrow-left"></span> Back to metadata</a>
-<%= PulUvRails::UniversalViewer.script_tag %>
-<div class="viewer-wrapper">
-  <div class="uv viewer" data-uri="<%= main_app.polymorphic_path [main_app, :manifest, @presenter], { locale: nil } %>"></div>                                                      
-</div>
+  <div class="col-sm-12">
+               <%= render 'representative_media', presenter: @presenter, viewer: true %>
+             </div>
