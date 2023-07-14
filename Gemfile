@@ -64,8 +64,8 @@ group :development, :test do
   gem 'geckodriver-helper'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'webdrivers', '~> 4.0', require: false
   gem 'web-console'
+  gem 'webdrivers', '~> 4.0', require: false
 end
 
 group :development do
