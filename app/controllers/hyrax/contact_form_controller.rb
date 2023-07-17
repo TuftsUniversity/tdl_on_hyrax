@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# Copied this from Hyrax source to add verify captcha code in create
 module Hyrax
   class ContactFormController < ApplicationController
     before_action :build_contact_form
