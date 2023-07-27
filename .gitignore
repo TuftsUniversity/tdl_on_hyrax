@@ -26,7 +26,6 @@ config/ldap.yml
 config/blacklight.yml
 config/database.yml
 config/fedora.yml
-config/recaptcha.yml
 config/redis.yml
 config/secrets.yml
 config/solr.yml
