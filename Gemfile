@@ -54,8 +54,6 @@ gem 'riiif', git: 'https://github.com/TuftsUniversity/riiif', branch: 'tufts_1_7
 gem 'sidekiq'
 gem 'sitemap_generator'
 
-gem "recaptcha"
-
 group :production do
   gem 'passenger'
   gem 'therubyracer'
