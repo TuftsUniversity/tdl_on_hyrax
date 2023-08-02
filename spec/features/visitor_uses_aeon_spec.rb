@@ -3,10 +3,11 @@ require 'rails_helper'
 
 feature 'Visitor goes to homepage' do
   before do
-    FactoryBot.create(:tufts_MS999_ead)
+    FactoryBot.create(:tufts_MS123_audio)
     visit "/" # This can be whatever URL you need it to be
     page.execute_script("localStorage.clear()")
   end
+
   scenario 'clicks to bring up their empty list', js: true do
     visit root_path
     click_link 'My List'
@@ -15,15 +16,15 @@ feature 'Visitor goes to homepage' do
   end
 
   scenario 'adds item to list', js: true do
-    visit '/concern/eads/ks65hc20t/fa/aspace_5fc68062788bbf01180b4812d1d5d5cf'
-    expect(page).to have_content "Fitzgerald, Zelda 1910-1923"
+    visit '/concern/audios/1234jt5bg'
+    expect(page).to have_content "Interview with Horace Works"
     click_link "Add to List"
     click_link 'My List'
     expect(page).to have_text "My List : 1 Item"
   end
 
   scenario 'adds item to list, and requests copies', js: true do
-    visit '/concern/eads/ks65hc20t/fa/aspace_5fc68062788bbf01180b4812d1d5d5cf'
+    visit '/concern/audios/1234jt5bg'
     click_link "Add to List"
     click_link 'My List'
     click_button "Request Copies"
@@ -31,7 +32,7 @@ feature 'Visitor goes to homepage' do
   end
 
   scenario 'adds item to list, and requests reading room visit', js: true do
-    visit '/concern/eads/ks65hc20t/fa/aspace_5fc68062788bbf01180b4812d1d5d5cf'
+    visit '/concern/audios/1234jt5bg'
     click_link "Add to List"
     click_link 'My List'
     click_button "Request in Reading Room"
@@ -39,7 +40,7 @@ feature 'Visitor goes to homepage' do
   end
 
   scenario 'adds item to list, and saves in TASCR for later use', js: true do
-    visit '/concern/eads/ks65hc20t/fa/aspace_5fc68062788bbf01180b4812d1d5d5cf'
+    visit '/concern/audios/1234jt5bg'
     click_link "Add to List"
     click_link 'My List'
     click_button "Save in TASCR"
@@ -47,7 +48,7 @@ feature 'Visitor goes to homepage' do
   end
 
   scenario 'adds item to list, and then removes all items from list', js: true do
-    visit '/concern/eads/ks65hc20t/fa/aspace_5fc68062788bbf01180b4812d1d5d5cf'
+    visit '/concern/audios/1234jt5bg'
     click_link "Add to List"
     click_link 'My List'
     click_button('Remove all Items from List')

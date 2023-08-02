@@ -11,14 +11,8 @@ class SearchBuilder < Hyrax::CatalogSearchBuilder
     :add_advanced_search_to_solr,
     :add_dl_filter,
     :suppress_embargo_records,
-    :supress_eads_conditionally,
     :show_works_or_works_that_contain_files
   ]
-
-  def supress_eads_conditionally(solr_parameters)
-    solr_parameters[:fq] ||= []
-    solr_parameters[:fq] << '-has_model_ssim:Ead' if @scope.request.env["PATH_INFO"].include?("/filtered_catalog")
-  end
 
   def add_dl_filter(solr_parameters)
     solr_parameters[:fq] ||= []

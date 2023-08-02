@@ -4,7 +4,6 @@ module WithTeis
   included do
     # Use params[:id] to load an object from Fedora.
     # Sets @document_fedora with the loaded object.
-    # Sets @document_ead with the EAD file_set content of the loaded object.
     # rubocop:disable Metrics/CyclomaticComplexity
     def load_fedora_document
       return if params[:id].blank?
