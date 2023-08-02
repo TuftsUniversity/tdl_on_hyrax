@@ -37,5 +37,7 @@
     <%= f.text_field :subject, rows: 4, class: 'form-control', required: false, value: referral_url %>
   </div>
 
+  <%= recaptcha_tags %>
+
   <%= f.submit value: t('hyrax.contact_form.button_label'), class: "btn btn-primary" %>
 <% end %>
