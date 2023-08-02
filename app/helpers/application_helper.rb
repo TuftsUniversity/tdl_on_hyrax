@@ -20,7 +20,7 @@ module ApplicationHelper
   #
   # @return {str}
   def contact_with_url(controller, action)
-    return '' unless ['audios', 'eads', 'images', 'pdfs', 'rcrs', 'teis', 'videos'].include?(controller)
+    return '' unless ['audios', 'images', 'pdfs', 'rcrs', 'teis', 'videos'].include?(controller)
     return '' unless action == 'show'
     "?item_referral=#{CGI.escape(request.env['PATH_INFO'])}"
   end

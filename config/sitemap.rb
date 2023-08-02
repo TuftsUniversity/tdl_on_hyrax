@@ -18,7 +18,7 @@ SitemapGenerator::Sitemap.create do
                          'qt': 'search',
                          'fq': ['displays_in_sim:dl',
                                 '-suppressed_bsi:true',
-                                '{!terms f=has_model_ssim}Audio,Ead,GenericObject,Image,Pdf,Rcr,Tei,Video,VotingRecord,Collection',
+                                '{!terms f=has_model_ssim}Audio,GenericObject,Image,Pdf,Rcr,Tei,Video,VotingRecord,Collection',
                                 '({!terms f=edit_access_group_ssim}public) OR ' \
                                 '({!terms f=discover_access_group_ssim}public) OR ' \
                                 '({!terms f=read_access_group_ssim}public)',
@@ -38,8 +38,6 @@ SitemapGenerator::Sitemap.create do
       model = 'images/'
     when "Pdf"
       model = 'pdfs/'
-    when "Ead"
-      model = 'eads/'
     when "Rcr"
       model = 'rcrs/'
     when "Audio"

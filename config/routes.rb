@@ -84,8 +84,6 @@ Rails.application.routes.draw do
   get 'teiviewer/:parent/:id(/chapter/:chapter)', constraints: { chapter: /[a-zA-Z0-9\-_.:]+/ }, to: 'hyrax/teis#advanced', as: 'teiviewer'
   get 'streetsviewer/:parent/:id(/chapter/:chapter)', constraints: { chapter: /[a-zA-Z0-9\-_.:]+/ }, to: 'hyrax/teis#streets', as: 'streetsviewer'
 
-  get 'concern/eads/:id/fa', to: 'hyrax/eads#fa_overview', constraints: { id: /.*/ }, as: 'fa_overview'
-  get 'concern/eads/:id/fa/:item_id', to: 'hyrax/eads#fa_series', constraints: { id: /.*/, item_id: /.*/ }, as: 'fa_series'
   get 'concern/audios/:id/transcriptonly', to: 'hyrax/audios#audio_transcriptonly', constraints: { id: /.*/ }, as: 'audio_transcriptonly'
   get 'concern/videos/:id/transcriptonly', to: 'hyrax/videos#video_transcriptonly', constraints: { id: /.*/ }, as: 'video_transcriptonly'
 
