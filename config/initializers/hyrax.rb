@@ -123,9 +123,9 @@ Hyrax.config do |config|
   # config.work_requires_files = true
   config.iiif_image_server = true
   # Returns a URL that resolves to an image provided by a IIIF image server
-  config.iiif_image_url_builder = lambda do |file_id, base_url, size|
-    Riiif::Engine.routes.url_helpers.image_url(file_id, host: base_url, size: size)
-  end
+  # config.iiif_image_url_builder = lambda do |file_id, base_url, size|
+  #  Riiif::Engine.routes.url_helpers.image_url(file_id, host: base_url, size: size)
+  # end
 
   # Returns a URL that resolves to an info.json file provided by a IIIF image server
   config.iiif_info_url_builder = lambda do |file_id, base_url|

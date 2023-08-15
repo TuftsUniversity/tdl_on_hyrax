@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 require 'byebug'
+require 'solrizer'
 
 describe HyraxHelper do
   # include ActionView::Helpers

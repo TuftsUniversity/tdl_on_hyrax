@@ -93,8 +93,10 @@ jobs:
         RAILS_ENV=test bundle exec rake hyrax:workflow:load
     - name: Setup hyrax test environment
       run: |
-        bundle exec rake hydra:test_server &
+        RUNNER_TRACKING_ID="" && bundle exec rake hydra:test_server &
         sleep 240
+    - name: dump processes
+      run: ps aux
     - name: Rubbocop
       run: |
         bundle exec rubocop
