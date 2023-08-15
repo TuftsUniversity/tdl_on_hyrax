@@ -13,8 +13,6 @@ module WithTranscripts
       @document_tei = nil
       @has_srt = false
       @srt_id = ""
-      return unless @document_fedora.instance_of?(Audio) || @document_fedora.instance_of?(Video)
-
       file_sets = @document_fedora.file_sets
       return if file_sets.nil?
 

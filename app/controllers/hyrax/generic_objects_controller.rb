@@ -3,6 +3,7 @@ module Hyrax
   class GenericObjectsController < ApplicationController
     include Hyrax::WorksControllerBehavior
     include Hyrax::BreadcrumbsForWorks
+    include WithTranscripts
     include WithShowEnforcement
 
     before_action :enforce_show_permissions, only: :show
