@@ -9,7 +9,7 @@ FactoryBot.define do
     displays_in { ['dl'] }
     visibility { Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC }
     before(:create) do |work, evaluator|
-      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: 'rj43045fs')
+      work.ordered_members << create(:file_set, user: evaluator.user, title: ['A Contained FileSet'], id: 'fk93045fs')
     end
 
     after(:build) do |work, evaluator|

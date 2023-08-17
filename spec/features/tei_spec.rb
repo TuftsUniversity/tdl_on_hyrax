@@ -9,10 +9,10 @@ feature 'Tei' do
     FactoryBot.create(:tufts_UP150_001_012_00001_tei)
   end
 
-  # scenario 'View High On a Hill TEI Overview', js: true do
-  #   visit '/concern/teis/rj4304528'
-  #   expect(page).to have_text 'High On A Hill'
-  # end
+  scenario 'View High On a Hill TEI Overview', js: true do
+    visit '/concern/teis/rj4304528'
+    expect(page).to have_text 'High On A Hill'
+  end
 
   scenario 'View History of Tufts College Overview', js: true do
     visit '/concern/teis/5m60qr88b'
