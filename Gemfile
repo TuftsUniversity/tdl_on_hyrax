@@ -97,6 +97,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'ffaker'
   gem 'ladle'
+  gem 'rails-controller-testing'
   gem 'simplecov'
   gem 'simplecov-lcov', '~> 0.8.0'
 end
