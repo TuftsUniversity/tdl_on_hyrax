@@ -4,7 +4,6 @@ require 'rails_helper'
 RSpec.describe Hyrax::GenericObjectsController, type: :controller do
   routes { Rails.application.routes }
 
-
   let(:generic_object) { FactoryBot.create(:generic_object_with_xml) }
 
   describe 'GET #advanced' do
@@ -12,7 +11,6 @@ RSpec.describe Hyrax::GenericObjectsController, type: :controller do
       before do
         get :advanced, params: { id: generic_object.id }
         request.env['warden'] = instance_double("Warden::Proxy").as_null_object
-
       end
 
       it 'assigns the correct id' do
