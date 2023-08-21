@@ -8,7 +8,7 @@
 <div class="col-md-12 tdl-content tdl-show-image">
   <div class="row col-md-6">
       <%= link_to "/imageviewer/#{@presenter.id}", data: { turbolinks: false } do %>
-        <%= image_tag(Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,", rotation: get_rotation(file_set.files.first))) %>
+        <%= image_tag(Riiif::Engine.routes.url_helpers.image_url(file_set.files.first.id, host: request.base_url, size: "400,")) %>
       <% end %> 
       <h6>
         <%= link_to "/imageviewer/#{@presenter.id}", data: { turbolinks: false } do %>
