@@ -16,6 +16,7 @@ private
   def extract_rotation_from_orientation(image)
     rotation = image.orientation[0].gsub(/[^0-9]/, '')
     return rotation.to_i unless rotation.empty?
+    nil
   end
 
   def image_mirrored?(image)
