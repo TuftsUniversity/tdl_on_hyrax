@@ -16,7 +16,7 @@ module WithTranscripts
       file_sets = @document_fedora.file_sets
       return if file_sets.nil?
 
-      process_valid_file_sets(file_sets)
+      process_valid_file_sets
     end
 
     def transcript_embargo?(file_set)
@@ -39,10 +39,12 @@ module WithTranscripts
 
     private
 
-      def process_valid_file_sets(file_sets)
+      def process_valid_file_sets
         file_set = @document_fedora.transcript
-        return if transcript_embargo? file_set
-        define_file_settings(file_set.original_file, file_set.id)
+        if file_set
+          return if transcript_embargo? file_set
+          define_file_settings(file_set.original_file, file_set.id)
+        end
         #file_sets.each do |file_set|
         #  next unless valid_file_type?(file_set.original_file)
         #  next
