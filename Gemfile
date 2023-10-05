@@ -74,7 +74,7 @@ group :development do
 end
 
 gem 'hyrax', '2.9.5'
-gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', branch: 'add_transcription_schema' #tag: 'v1.3.0'
+gem 'tufts-curation', git: 'https://github.com/TuftsUniversity/tufts-curation', tag: 'v1.3.0'
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
