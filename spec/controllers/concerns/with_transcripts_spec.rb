@@ -19,7 +19,7 @@ RSpec.describe WithTranscripts, type: :concern do
 
   let(:params) { {} }
   let(:file_set) { instance_double("FileSet", embargo: embargo, original_file: original_file, id: "file_set_id") }
-  let(:transcript) { instance_double("FileSet", embargo: embargo, original_file: transcript_file, id: "file_set_id") }
+  let(:transcript) { instance_double("FileSet", original_file: transcript_file, id: "file_set_id2") }
   let(:transcript_file) { instance_double("OriginalFile", mime_type: "text/plain", content: "file_content") }
   let(:original_file) { instance_double("OriginalFile", mime_type: "video/mp4", content: "file_content") }
   let(:embargo) { instance_double("Embargo", embargo_release_date: "2023-05-26T00:00:00Z") }
