@@ -41,10 +41,9 @@ module WithTranscripts
 
       def process_valid_file_sets
         file_set = @document_fedora.transcript
-        if file_set
-          return if transcript_embargo? file_set
-          define_file_settings(file_set.original_file, file_set.id)
-        end
+        return unless file_set
+        return if transcript_embargo? file_set
+        define_file_settings(file_set.original_file, file_set.id)
       end
   end
   # rubocop:enable Metrics/BlockLength
