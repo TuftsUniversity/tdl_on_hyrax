@@ -31,7 +31,7 @@ module WithTranscripts
       if file.mime_type == "text/xml"
         @document_tei = Datastreams::Tei.from_xml(file.content)
         @document_tei&.ng_xml&.remove_namespaces!
-      elsif file.mime_type == "text/plain"  || file.mime_type == "text/vtt" || file.mime_type == "text/srt"
+      elsif file.mime_type == "text/plain" || file.mime_type == "text/vtt" || file.mime_type == "text/srt"
         @has_srt = true
         @srt_id = file_set_id
       end
@@ -45,12 +45,6 @@ module WithTranscripts
           return if transcript_embargo? file_set
           define_file_settings(file_set.original_file, file_set.id)
         end
-        #file_sets.each do |file_set|
-        #  next unless valid_file_type?(file_set.original_file)
-        #  next
-        #  define_file_settings(file_set.original_file, file_set.id)
-        #  break
-        #end
       end
   end
   # rubocop:enable Metrics/BlockLength
