@@ -31,7 +31,7 @@ module WithTranscripts
       if file.mime_type == "text/xml"
         @document_tei = Datastreams::Tei.from_xml(file.content)
         @document_tei&.ng_xml&.remove_namespaces!
-      elsif file.mime_type == "text/plain" || file.mime_type == "text/vtt" || file.mime_type == "text/srt"
+      elsif ["text/plain", "text/vtt", "text/srt"].include?(file.mime_type)
         @has_srt = true
         @srt_id = file_set_id
       end
