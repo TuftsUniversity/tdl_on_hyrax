@@ -26,7 +26,7 @@ RSpec.describe WithTranscripts, type: :concern do
 
   describe '#load_fedora_document' do
     before do
-      allow(ActiveFedora::Base).to receive(:find).and_return(instance_double("Document", file_sets: [file_set]))
+      allow(ActiveFedora::Base).to receive(:find).and_return(instance_double("Document", file_sets: [file_set, transcript], transcript: transcript))
       model_instance.load_fedora_document
     end
 
@@ -40,9 +40,6 @@ RSpec.describe WithTranscripts, type: :concern do
 
     context 'when params[:id] is present' do
       let(:params) { { id: 'test_id' } }
-      let(:document_fedora) do
-        instance_double("Document", file_sets: [file_set, transcript], transcript: transcript)
-      end
 
       it 'loads the Fedora document' do
         expect(ActiveFedora::Base).to have_received(:find).with('test_id')
