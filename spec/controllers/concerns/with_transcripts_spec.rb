@@ -38,13 +38,16 @@ RSpec.describe WithTranscripts, type: :concern do
       end
     end
 
-    context 'when params[:id] is present' do
-      let(:params) { { id: 'test_id' } }
+      context 'when params[:id] is present' do
+        let(:params) { { id: 'test_id' } }
+        let(:document_fedora) do
+          instance_double("Document", file_sets: [file_set, transcript], transcript: transcript)
+        end
 
-      it 'loads the Fedora document' do
-        expect(ActiveFedora::Base).to have_received(:find).with('test_id')
+        it 'loads the Fedora document' do
+          expect(ActiveFedora::Base).to have_received(:find).with('test_id')
+        end
       end
-    end
   end
 
   describe '#transcript_embargo?' do
