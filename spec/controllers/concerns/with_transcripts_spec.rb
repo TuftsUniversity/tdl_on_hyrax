@@ -26,7 +26,7 @@ RSpec.describe WithTranscripts, type: :concern do
 
   describe '#load_fedora_document' do
     before do
-      allow(ActiveFedora::Base).to receive(:find).and_return(instance_double("Document", file_sets: [file_set, transcript], transcript: transcript))
+      allow(ActiveFedora::Base).to receive(:find).and_return(instance_double("Document", file_sets: [file_set, transcript], transcript: transcript, embargo: nil))
       model_instance.load_fedora_document
     end
 
