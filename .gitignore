@@ -22,6 +22,7 @@
 
 # config files
 config/devise.yml
+config/ga.yml
 config/ldap.yml
 config/blacklight.yml
 config/database.yml

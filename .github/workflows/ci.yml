@@ -88,6 +88,7 @@ jobs:
         cp config/recaptcha.yml.sample config/recaptcha.yml
         cp config/database.yml.sample config/database.yml
         cp config/blacklight.yml.sample config/blacklight.yml
+        cp config/ga.yml.sample config/ga.yml
         cp config/secrets.yml.sample config/secrets.yml
     - name: Create database
       run: |
