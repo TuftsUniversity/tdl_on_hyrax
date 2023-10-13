@@ -7,6 +7,7 @@
  cp config/secrets.yml.sample config/secrets.yml
  cp config/ldap.yml.sample config/ldap.yml
  cp config/recaptcha.yml.sample config/recaptcha.yml
+ cp config/ga.yml.sample config/ga.yml
 if [[ $(uname -m) == 'arm64' ]]; then
   echo "copying m1 specific .env file"
   cp config/env.apple-silicon.conf ./.env

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::Base
+  helper_method :ga_api_key, :ga_tag_manager_key
+
   rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
     render text: exception, status: 500
   end
@@ -34,5 +36,27 @@ class ApplicationController < ActionController::Base
 
   def robots
     render 'sites/robots.txt.erb'
+  end
+
+  def ga_api_key
+    fetch_ga_config_data(:api_key)
+  end
+
+  def ga_tag_manager_key
+    fetch_ga_config_data(:tag_manager_key)
+  end
+
+private
+
+  def fetch_ga_config_data(key)
+    config = load_ga_config
+    return nil unless config&.key?(key)
+    ga_config[key]
+  end
+
+  def load_ga_config
+    ga_config_path = Rails.root.join('config', 'ga.yml')
+    configs = YAML.safe_load(File.read(ga_config_path)).deep_symbolize_keys
+    configs[Rails.env.to_sym]
   end
 end

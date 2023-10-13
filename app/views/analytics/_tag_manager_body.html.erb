@@ -1,8 +1,10 @@
-<% if Rails.env.production? %>
+
+<% tag_manager_key = ga_tag_manager_key %>
+<% unless tag_manager_key.nil? %>
 <!-- optional -->
 <!-- after opening the body -->
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGG4X34"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%=tag_manager_key%>"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <% end %>

@@ -1,25 +1,16 @@
-<!-- TODO clean up to not repeat code -->
 <!-- Google tag (gtag.js) -->
-<% if Rails.env.stage? %>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXJ0X5Y93H"></script>
+
+<% api_key = ga_api_key %>
+<% unless api_key.nil? %>
+
+<script async src='https://www.googletagmanager.com/gtag/js?id=<%= api_key %>'></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-SXJ0X5Y93H');
+  gtag('config', <%= api_key %>);
 </script>
 <% end %>
 
-<!-- Google tag (gtag.js) -->
-<% if Rails.env.production? %>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QWMGNGCT3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5QWMGNGCT3');
-</script>
 <%= render partial: "analytics/tag_manager_head" %>
-<% end %>
