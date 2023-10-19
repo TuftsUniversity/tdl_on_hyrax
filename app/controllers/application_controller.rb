@@ -51,7 +51,7 @@ private
   def fetch_ga_config_data(key)
     config = load_ga_config
     return nil unless config&.key?(key)
-    ga_config[key]
+    config[key]
   end
 
   def load_ga_config
