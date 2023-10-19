@@ -19,8 +19,8 @@ GIT
 
 GIT
   remote: https://github.com/TuftsUniversity/tufts-curation
-  revision: ff29ef21cb9fe97cf67e4de393e3f0104bf367c6
-  tag: v1.3.0
+  revision: 508861ddb02eed7dc72214a368949fe1021d6303
+  tag: v1.3.1
   specs:
     tufts-curation (0.1.0)
       active-fedora (>= 11.5, <= 12.99)
@@ -717,6 +717,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.2.5)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -1038,6 +1042,7 @@ DEPENDENCIES
   puma (~> 3.12)
   rack (>= 2.0.6)
   rails (= 5.2.5)
+  rails-controller-testing
   recaptcha
   riiif!
   rsolr (>= 1.0)

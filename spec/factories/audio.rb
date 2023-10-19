@@ -40,6 +40,8 @@ FactoryBot.define do
           original_file.content = transcript_test_file
           file_set.visibility = Hydra::AccessControls::AccessRight::VISIBILITY_TEXT_VALUE_PUBLIC
           file_set.save
+          work.transcript = file_set
+          work.transcript_id = '1234jt5tr'
         end
       end
 
