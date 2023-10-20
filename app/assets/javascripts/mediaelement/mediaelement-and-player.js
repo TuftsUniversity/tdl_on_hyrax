@@ -704,7 +704,7 @@
 
 			fakeNodeName: 'div',
 
-			iconSprite: 'mejs-controls.svg'
+			iconSprite: '/assets/mejs-controls.svg'
 		};
 
 		options = Object.assign(t.defaults, options);
