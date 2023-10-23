@@ -2381,7 +2381,7 @@
 
 	  hideCaptionsButtonWhenEmpty: true,
 
-	  toggleCaptionsButtonWhenOnlyOne: false
+	  toggleCaptionsButtonWhenOnlyOne: true
 	});
 
 	Object.assign(_player2.default.prototype, {
