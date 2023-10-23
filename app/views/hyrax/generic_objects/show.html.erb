@@ -28,7 +28,7 @@ table tr>th:nth-of-type(4),   table tr>td:nth-of-type(4){
 }
 </style>
 <div class="col-md-12 tdl-content tdl-show-image">
-  <div class="row col-md-6">
+  <div class="row col-md-6 player">
     <% if primary_is_image %>
      <%= link_to "/gimageviewer/#{@presenter.id}", data: { turbolinks: false } do %>
         <%= image_tag(Riiif::Engine.routes.url_helpers.image_url(file_set.original_file.id, host: request.base_url, size: "400,")) %>
@@ -67,7 +67,7 @@ table tr>th:nth-of-type(4),   table tr>td:nth-of-type(4){
 </div>
 <script>
   $(document).ready(function() {
-       const playerQuality = new MediaElementPlayer('video, audio', {
+       const playerQuality = new MediaElementPlayer('player', {
             iconSprite: '/assets/mejs-controls.svg', // path to svg-spritemap for all icons
             features: ['playpause', 'current', 'progress', 'duration', 'volume', 'tracks', 'quality', 'fullscreen'], // add 'quality' feature
         });
