@@ -2556,9 +2556,6 @@
 				case 2:
 				  t.handleCaptionsLoaded(track);
 				  break;
-				case 3:
-				  t.handleCaptionsError(track);
-				  break;
 				default:
 				  track.addEventListener('load', function (event) {
 					t.handleCaptionsLoaded(event.target);
