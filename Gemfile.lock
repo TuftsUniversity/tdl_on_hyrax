@@ -669,9 +669,10 @@ GEM
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
     okcomputer (1.18.4)
-    omniauth (1.9.1)
+    omniauth (2.0.0)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
+      rack-protection
     omniauth-shibboleth (1.3.0)
       omniauth (>= 1.0.0)
     open4 (1.3.4)
@@ -702,6 +703,8 @@ GEM
       rdf
     racc (1.6.2)
     rack (2.2.6.2)
+    rack-protection (3.0.5)
+      rack
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (5.2.5)
@@ -1035,7 +1038,7 @@ DEPENDENCIES
   mysql2
   okcomputer
   om!
-  omniauth (= 1.9.1)
+  omniauth (= 2.0.0)
   omniauth-shibboleth
   passenger
   pdfjs_viewer-rails!
