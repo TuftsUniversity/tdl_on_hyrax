@@ -41,7 +41,6 @@ table tr>th:nth-of-type(4),   table tr>td:nth-of-type(4){
           Your browser does not support the video tag.
         <% if @has_srt %>
           <track src="<%= vtt_link(@srt_id)  %>" srclang="en" label="Captions" kind="captions" type="text/vtt">
-          <track src="<%= vtt_link(@srt_id)  %>" srclang="en" label="Captions" kind="captions" type="text/vtt">
         <% end %>
       </video>
       </div>
