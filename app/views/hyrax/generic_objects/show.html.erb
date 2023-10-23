@@ -50,7 +50,7 @@ table tr>th:nth-of-type(4),   table tr>td:nth-of-type(4){
         <source src="<%= video_url %>" type="application/x-mpegURL">
           Your browser does not support the video tag.
         <% if @has_srt %>
-          <track label="Captions" kind="subtitles" srclang="en" src="<%= vtt_link(@srt_id)  %>" default>
+          <track label="Captions" kind="subtitles" srclang="en" src="<%= vtt_link(@srt_id)  %>" >
         <% end %>
       </video>
     <% else %>
