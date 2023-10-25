@@ -30,7 +30,7 @@ module Hyrax
     def file_set_presenters
       @file_set_presenters ||= member_presenters(ordered_ids & file_set_ids)
       if @work.respond_to?(:transcript_id) && @work.transcript_id
-        file_set_presenters.reject! { |presenter| presenter.id == @work.transcript_id }
+        @file_set_presenters.reject! { |presenter| presenter.id == @work.transcript_id }
       end
     end
 
