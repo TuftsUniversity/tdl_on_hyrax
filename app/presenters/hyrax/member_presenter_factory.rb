@@ -22,7 +22,6 @@ module Hyrax
     # @param [Class] presenter_class the type of presenter to build
     # @return [Array<presenter_class>] presenters for the ordered_members (not filtered by class)
     def member_presenters(ids = ordered_ids, presenter_class = composite_presenter_class)
-
       a = PresenterFactory.build_for(ids: ids,
                                      presenter_class: presenter_class,
                                      presenter_args: presenter_factory_arguments)
