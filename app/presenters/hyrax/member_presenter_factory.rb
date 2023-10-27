@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hyrax
   # Creates the presenters of the members (member works and file sets) of a specific object
   class MemberPresenterFactory
@@ -21,44 +22,27 @@ module Hyrax
     # @param [Class] presenter_class the type of presenter to build
     # @return [Array<presenter_class>] presenters for the ordered_members (not filtered by class)
     def member_presenters(ids = ordered_ids, presenter_class = composite_presenter_class)
-      Rails.logger.error "1 Respond to? : #{@work.respond_to?(:transcription)}"
-      Rails.logger.error "work : #{@work.methods}"
-      Rails.logger.error "work : #{@work.class.to_s}"
 
       a = PresenterFactory.build_for(ids: ids,
-                                 presenter_class: presenter_class,
-                                 presenter_args: presenter_factory_arguments)
-     Rails.logger.error "FFFF : #{@work.transcript_id}"
-     if @work.respond_to?(:transcript_id) && @work.transcript_id && @work.transcript_id.first != nil
-       a.reject! { |presenter| presenter.id == @work.transcript_id.first}
-     end
-     a
+                                     presenter_class: presenter_class,
+                                     presenter_args: presenter_factory_arguments)
+      a.reject! { |presenter| presenter.id == @work.transcript_id.first } if @work.respond_to?(:transcript_id) && @work.transcript_id && !@work.transcript_id.first.nil?
+      a
     end
 
     # @return [Array<FileSetPresenter>] presenters for the orderd_members that are FileSets
     def file_set_presenters
       @file_set_presenters ||= member_presenters(ordered_ids & file_set_ids)
-      Rails.logger.error "2 Respond to? : #{@work.respond_to?(:transcription)}"
-      Rails.logger.error "work : #{@work.to_s}"
-      if @work.respond_to?(:transcript_id) && @work.transcript_id
-        @file_set_presenters.reject! { |presenter| presenter.id == @work.transcript_id }
-      end
+      @file_set_presenters.reject! { |presenter| presenter.id == @work.transcript_id } if @work.respond_to?(:transcript_id) && @work.transcript_id
     end
 
     # @return [Array<WorkShowPresenter>] presenters for the ordered_members that are not FileSets
     def work_presenters
       @work_presenters ||= member_presenters(ordered_ids - file_set_ids, work_presenter_class)
-      Rails.logger.error "3 Respond to? : #{@work.respond_to?(:transcription)}"
-      Rails.logger.error "work : #{@work.to_s}"
-      if @work.respond_to?(:transcript_id) && @work.transcript_id
-        @work_presenters.reject! { |presenter| presenter.id == @work.transcript_id }
-      end
+      @work_presenters.reject! { |presenter| presenter.id == @work.transcript_id } if @work.respond_to?(:transcript_id) && @work.transcript_id
     end
 
     def ordered_ids
-      Rails.logger.error "4i Respond to? : #{@work.respond_to?(:transcription)}"
-      Rails.logger.error "work : #{@work.class.to_s}"
-      Rails.logger.error "work : #{@work.to_s}"
       @ordered_ids ||= Hyrax::SolrDocument::OrderedMembers.decorate(@work).ordered_member_ids
     end
 
