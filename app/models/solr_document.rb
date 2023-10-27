@@ -41,4 +41,8 @@ class SolrDocument
     source: "source_tesim",
     rights: 'rights_note_tesim'
   )
+
+  def transcript_id
+    fetch("transcription_of_ssim", [])
+  end
 end
