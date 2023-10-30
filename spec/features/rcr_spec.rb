@@ -6,7 +6,8 @@ feature 'RCR' do
     FactoryBot.create(:tufts_RCR00579_rcr)
   end
 
-  let(:presenter) { instance_double("RcrPresenter", rcr_id: 's1234') }
+  # rubocop:disable RSpec/VerifiedDoubles
+  let(:presenter) { double(rcr_id: 's1234') }
 
   scenario 'View RCR00579 ("Tisch Library") page', js: true do
     visit '/concern/rcrs/s4655g578'
