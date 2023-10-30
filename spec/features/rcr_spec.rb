@@ -4,7 +4,7 @@ require 'rails_helper'
 feature 'RCR' do
   before do
     FactoryBot.create(:tufts_RCR00579_rcr)
-    let(:presenter) { double(rcr_id: 's1234') }
+    let(:presenter) { instance_double("RcrPresenter", rcr_id: 's1234') }
   end
 
   scenario 'View RCR00579 ("Tisch Library") page', js: true do
