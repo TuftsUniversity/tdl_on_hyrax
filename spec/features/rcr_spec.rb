@@ -4,6 +4,8 @@ require 'rails_helper'
 feature 'RCR' do
   before do
     FactoryBot.create(:tufts_RCR00579_rcr)
+    @presenter = double
+    allow(@presenter).to receive(:rcr_id).and_return('s1234')
   end
 
   scenario 'View RCR00579 ("Tisch Library") page', js: true do
