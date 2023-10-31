@@ -4,10 +4,10 @@ require 'rails_helper'
 feature 'RCR' do
   before do
     FactoryBot.create(:tufts_RCR00579_rcr)
+    # rubocop:disable RSpec/VerifiedDoubles
+    @presenter = double(rcr_id: 's1234')
+    # rubocop:enable RSpec/VerifiedDoubles
   end
-
-  # rubocop:disable RSpec/VerifiedDoubles
-  let(:presenter) { double(rcr_id: 's1234') }
 
   scenario 'View RCR00579 ("Tisch Library") page', js: true do
     visit '/concern/rcrs/s4655g578'
