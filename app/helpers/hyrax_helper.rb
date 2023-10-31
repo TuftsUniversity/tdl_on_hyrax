@@ -52,7 +52,7 @@ module HyraxHelper
         download_links << add_to_list_link
         download_links << pdf_link(@presenter.solr_document._source['hasRelatedMediaFragment_ssim'])
       when 'rcrs'
-        download_links << eac_link(@presenter.rcr_id) if @document_rcr.present?
+        download_links << eac_link(@presenter.rcr_id) if @document_rcr.present? && @presenter.rcr_id
       when 'videos'
         download_links << add_to_list_link
         download_links << video_link(@presenter.media_id)
