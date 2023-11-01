@@ -23,9 +23,11 @@ module Hyrax
     # @return [Array<presenter_class>] presenters for the ordered_members (not filtered by class)
     def member_presenters(ids = ordered_ids, presenter_class = composite_presenter_class)
       presenter_factory = PresenterFactory.build_for(ids: ids,
-                                     presenter_class: presenter_class,
-                                     presenter_args: presenter_factory_arguments)
-      presenter_factory.reject! { |presenter| presenter.id == @work.transcript_id.first } if presenter_factory && @work.respond_to?(:transcript_id) && @work.transcript_id && !@work.transcript_id.first.nil?
+                                                     presenter_class: presenter_class,
+                                                     presenter_args: presenter_factory_arguments)
+      if presenter_factory && @work.respond_to?(:transcript_id) && @work.transcript_id && !@work.transcript_id.first.nil?
+        presenter_factory.reject! { |presenter| presenter.id == @work.transcript_id.first }
+      end
       presenter_factory
     end
 
