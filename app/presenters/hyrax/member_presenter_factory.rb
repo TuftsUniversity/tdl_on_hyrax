@@ -25,9 +25,7 @@ module Hyrax
       presenter_factory = PresenterFactory.build_for(ids: ids,
                                                      presenter_class: presenter_class,
                                                      presenter_args: presenter_factory_arguments)
-      if  && @work.respond_to?(:transcript_id) && @work.transcript_id && !@work.transcript_id.first.nil?
-        presenter_factory.reject! { |presenter| presenter.id == @work.transcript_id.first } unless presenter_factory.nil?
-      end
+      presenter_factory&.reject! { |presenter| presenter.id == @work.transcript_id.first } if @work.respond_to?(:transcript_id) && @work.transcript_id && !@work.transcript_id.first.nil?
       presenter_factory
     end
 
