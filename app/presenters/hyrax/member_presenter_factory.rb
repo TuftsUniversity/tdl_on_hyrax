@@ -25,6 +25,7 @@ module Hyrax
       presenter_factory = PresenterFactory.build_for(ids: ids,
                                                      presenter_class: presenter_class,
                                                      presenter_args: presenter_factory_arguments)
+      return if presenter_factory.nil?
       presenter_factory&.reject! { |presenter| presenter.id == @work.transcript_id.first } if @work.respond_to?(:transcript_id) && @work.transcript_id && !@work.transcript_id.first.nil?
       presenter_factory
     end
@@ -32,12 +33,15 @@ module Hyrax
     # @return [Array<FileSetPresenter>] presenters for the orderd_members that are FileSets
     def file_set_presenters
       @file_set_presenters ||= member_presenters(ordered_ids & file_set_ids)
+      return if @file_set_presenters.nil?
       @file_set_presenters.reject! { |presenter| presenter.id == @work.transcript_id } if @work.respond_to?(:transcript_id) && @work.transcript_id
     end
 
     # @return [Array<WorkShowPresenter>] presenters for the ordered_members that are not FileSets
     def work_presenters
       @work_presenters ||= member_presenters(ordered_ids - file_set_ids, work_presenter_class)
+
+      return if @work_presentners.nil?
       @work_presenters.reject! { |presenter| presenter.id == @work.transcript_id } if @work.respond_to?(:transcript_id) && @work.transcript_id
     end
 

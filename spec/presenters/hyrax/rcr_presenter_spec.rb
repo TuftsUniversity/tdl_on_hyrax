@@ -38,7 +38,7 @@ RSpec.describe Hyrax::RcrPresenter do
       end
 
       it 'returns nil' do
-        expect(presenter.rcr_id).to '456'
+        expect(presenter.rcr_id).to eq('456')
       end
     end
   end
