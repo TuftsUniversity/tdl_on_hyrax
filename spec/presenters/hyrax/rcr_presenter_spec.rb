@@ -17,6 +17,7 @@ RSpec.describe Hyrax::RcrPresenter do
     end
 
     context 'when there is a file_set_presenter with mime_type "text/xml"' do
+      # rubocop:disable RSpec/VerifiedDoubles:
       let(:xml_fsp) { double(id: '123', mime_type: 'text/xml') }
 
       before do
@@ -29,6 +30,7 @@ RSpec.describe Hyrax::RcrPresenter do
     end
 
     context 'when there is no file_set_presenter with mime_type "text/xml"' do
+      # rubocop:disable RSpec/VerifiedDoubles:
       let(:other_fsp) { double(id: '456', mime_type: 'text/plain') }
 
       before do
