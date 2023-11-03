@@ -100,7 +100,7 @@ jobs:
     - name: Setup hyrax test environment
       run: |
         bundle exec rake hydra:test_server &
-        sleep 240
+        sleep 280
     - name: Rubbocop
       run: |
         bundle exec rubocop
