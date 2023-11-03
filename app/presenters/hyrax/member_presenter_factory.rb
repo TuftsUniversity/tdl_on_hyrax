@@ -1,4 +1,10 @@
 # frozen_string_literal: true
+#
+# This is an override of Hyrax's Hyrax::MemberPresenterFactory, intended to reject transcripts from being included
+# as members of works, this is done with changes to member_presenters, work_presenters, and file_set_presenters.
+# It related to work performed as part of TDLR-2509, where transcripts need to be associated with videos in generic
+# objects for accessibilty purposes, but TARC felt they cluttered the UI.
+#
 module Hyrax
   # Creates the presenters of the members (member works and file sets) of a specific object
   class MemberPresenterFactory
