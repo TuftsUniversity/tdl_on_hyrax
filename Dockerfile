@@ -23,7 +23,7 @@ RUN apt-get install chromium -y
 # Increase stack size limit to help working with large works
 ENV RUBY_THREAD_MACHINE_STACK_SIZE 8388608
 
-RUN gem update --system
+RUN gem update --system 3.3.27
 
 RUN mkdir /data
 WORKDIR /data
