@@ -41,6 +41,7 @@ module Hyrax
       @file_set_presenters ||= member_presenters(ordered_ids & file_set_ids)
       return if @file_set_presenters.nil?
       @file_set_presenters.reject! { |presenter| presenter.id == @work.transcript_id } if @work.respond_to?(:transcript_id) && @work.transcript_id
+      @file_set_presenters
     end
 
     # @return [Array<WorkShowPresenter>] presenters for the ordered_members that are not FileSets
@@ -49,6 +50,7 @@ module Hyrax
 
       return if @work_presentners.nil?
       @work_presenters.reject! { |presenter| presenter.id == @work.transcript_id } if @work.respond_to?(:transcript_id) && @work.transcript_id
+      @work_presenters
     end
 
     def ordered_ids
