@@ -8,6 +8,10 @@ body {
   margin: 0; /* Removing hyrax's weird padding at the bottom of every page. */
 }
 
+.custom-margin-right {
+    margin-right: 15px; /* Or any other value */
+}
+
 /* https://www.nomensa.com/blog/how-improve-web-accessibility-hiding-elements */
 .only-for-screen-readers {
   border: 0;
