@@ -30,6 +30,9 @@ config/redis.yml
 config/secrets.yml
 config/solr.yml
 config/pdf_pages.yml
+config/ga.yml
+config/recaptcha.yml
+config/sidekiq.yml
 public/assets/
 public/branding/
 public/uv/
@@ -59,3 +62,9 @@ clear_cache.txt
 # Ignore Mac DS_Store files
 .DS_Store
 **/.DS_Store
+
+# new for hyrax 3
+node_modules/
+
+# new for ansible managed hosts
+vendor/bundle/
