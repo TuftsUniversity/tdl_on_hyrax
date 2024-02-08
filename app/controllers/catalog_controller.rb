@@ -419,27 +419,4 @@ class CatalogController < ApplicationController
     index
   end
 
-  ##
-  # For use in index fields. Checks if creator is in the solr doc.
-  #
-  # @param {hash} document
-  #   The solr document.
-  #
-  # @return {bool}
-  #   If creator is in the doc or not.
-  def no_creator?(_, document)
-    document._source['creator_tesim'].nil?
-  end
-
-  ##
-  # For use in index fields. Checks if primary_date is in the solr doc.
-  #
-  # @param {hash} document
-  #   The solr document.
-  #
-  # @return {bool}
-  #   If primary_date is in the doc or not.
-  def no_primary_date?(_, document)
-    document._source['primary_date_tesim'].nil?
-  end
 end
