@@ -4,7 +4,7 @@ Riiif::Image.file_resolver = Riiif::HTTPFileResolver.new
 if Rails.env.production?
   Riiif::Image.file_resolver.cache_path = '/tdr/hyrax_iiif/prod'
 elsif Rails.env.stage?
-  Riiif::Image.file_resolver.cache_path = '/tdr/hyrax_iiif/dev'
+  Riiif::Image.file_resolver.cache_path = '/tdr/hyrax_iiif_dev'
 end
 
 Riiif::Image.info_service = lambda do |id, _file|
