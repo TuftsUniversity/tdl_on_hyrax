@@ -117,7 +117,7 @@
       <% end %>
       <% unless @presenter.doi.nil? %>
         <dt>DOI:</dt>
-        <dd><%= @presenter.doi.first %></dd>
+        <dd><%= link_to @presenter.doi.first, "https://"+@presenter.doi.first, :target => "_blank" %> </dd>
       <% end %>
 
     </dl>
