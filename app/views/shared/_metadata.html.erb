@@ -115,6 +115,10 @@
         <dt>Rights Note:</dt>
         <dd><%= @presenter.rights_note.first %></dd>
       <% end %>
+      <% unless @presenter.doi.nil? %>
+        <dt>DOI:</dt>
+        <dd><%= link_to @presenter.doi.first, "https://"+@presenter.doi.first, :target => "_blank" %> </dd>
+      <% end %>
 
     </dl>
     <% if @presenter.solr_document._source["has_model_ssim"].include?("Image") %>
