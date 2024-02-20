@@ -14,5 +14,4 @@ Rails.application.config.assets.precompile += %w[object_css/teif3.css
                                                  object_css/rcr.scss
                                                  object_css/transcript.scss
                                                  object_css/generic_object_overrides.css
-                                                 object_css/toc.css
                                                  object_css/voting_record.css bookreader.js]

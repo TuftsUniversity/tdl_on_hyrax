@@ -12,6 +12,8 @@
         </form>
         <form id="requestForm" method="post" target="new" action="https://tascr.tufts.edu/aeon.dll">
           <!-- Aeon inputs -->
+          <!-- Note that EADs no longer exist in TDL, but we're leaving the attribute 'value="EADRequest"'
+               so that we don't also have to change it on the Aeon side  -->
           <input type="hidden" name="AeonForm" value="EADRequest" />
           <input id="webRequestForm" type="hidden" name="WebRequestForm" value="DefaultRequest" />
           <input id="requestType" type="hidden" name="RequestType" value="Loan" />

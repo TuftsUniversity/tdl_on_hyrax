@@ -20,11 +20,7 @@
           data-iteminfo2="<%= strip_tags(@presenter.creator.first) unless @presenter.creator.empty? %>"
           data-iteminfo3="<%= strip_tags(@presenter.permanent_url.first) unless @presenter.permanent_url.nil? || @presenter.permanent_url.empty? %>"
           data-itemdate="<%= strip_tags(@presenter.date.first) unless @presenter.date.nil? || @presenter.date.empty? %>"
-          <% if @presenter.model.model_name.name == "Ead" %>
-            data-itemtitle="<%=strip_tags(@presenter.title.first) unless @presenter.title.empty? %>"
-          <% else %>
-            data-itemtitle="<%= strip_tags(@presenter.member_of_collections.first) unless @presenter.member_of_collections.nil? || @presenter.member_of_collections.empty? %>"
-          <% end %>
+          data-itemtitle="<%= strip_tags(@presenter.member_of_collections.first) unless @presenter.member_of_collections.nil? || @presenter.member_of_collections.empty? %>"
 
           <% if defined? series_title %>
             data-itemsubtitle="<%= strip_tags(series_title) %>"
