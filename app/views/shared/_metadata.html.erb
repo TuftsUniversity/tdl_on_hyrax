@@ -35,8 +35,8 @@
   <%
       end
     else
-      # It has no solr "source" field, so it isn't in a collection with an EAD, but
-      # it might still be in a collection.
+      # It has no solr "source" field, so it isn't in a collection with an EAD
+      # (EADs no longer exist in TDL), but it might still be in a collection.
       collections = @presenter.member_of_collections
       if collections.present?
   %>

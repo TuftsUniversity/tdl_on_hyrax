@@ -8,7 +8,6 @@ Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods # Requires indentation after private and protected
 Metrics/AbcSize:
   Exclude:
-    - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
@@ -17,7 +16,6 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     - app/controllers/catalog_controller.rb
-    - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/datastreams/*
     - config/**/*
@@ -27,7 +25,6 @@ Metrics/BlockLength:
   Max: 30 # Many blocks are like 27 lines long. 30 vs 25, not a huge difference.
 Metrics/BlockNesting:
   Exclude:
-    - app/helpers/eads_helper.rb
     - lib/tufts/tei_parser.rb
 Style/FrozenStringLiteralComment:
   Exclude:
@@ -35,12 +32,10 @@ Style/FrozenStringLiteralComment:
 Metrics/ClassLength:
   Exclude:
     - app/controllers/catalog_controller.rb
-    - app/models/datastreams/ead.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
 Metrics/CyclomaticComplexity:
   Exclude:
-    - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
@@ -48,7 +43,6 @@ Metrics/CyclomaticComplexity:
     - lib/tufts/tei_toc.rb
 Metrics/MethodLength:
   Exclude:
-    - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
@@ -57,13 +51,11 @@ Metrics/MethodLength:
   Max: 20 # A little less strict to make our lives easier.
 Metrics/ModuleLength:
   Exclude:
-    - app/helpers/eads_helper.rb
     - app/helpers/hyrax_helper.rb
     - app/helpers/transcripts_helper.rb
     - lib/tufts/tei_parser.rb
 Metrics/PerceivedComplexity:
   Exclude:
-    - app/helpers/eads_helper.rb
     - app/helpers/transcripts_helper.rb
     - app/models/transcript_chunk.rb
     - lib/tufts/populate_fixtures.rb
@@ -77,7 +69,6 @@ Rails/UnknownEnv:
     - stage
 RSpec/ExampleLength:
   Exclude:
-    - spec/features/ead_spec.rb
     - spec/features/rcr_spec.rb
 RSpec/InstanceVariable:
   Exclude:
